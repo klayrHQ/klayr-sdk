@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -62,7 +62,7 @@ export default class PluginCommand extends BaseBootstrapCommand {
 			this.error('Invalid plugin name');
 		}
 		if (standalone) {
-			return this._runBootstrapCommand('lisk:init:plugin', {
+			return this._runBootstrapCommand('klayr:init:plugin', {
 				// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 				name,
 				projectPath: output ?? process.env.INIT_CWD ?? process.cwd(),
@@ -70,13 +70,13 @@ export default class PluginCommand extends BaseBootstrapCommand {
 			});
 		}
 
-		if (!this._isLiskAppDir(process.cwd())) {
+		if (!this._isKlayrAppDir(process.cwd())) {
 			this.error(
-				'You can run this command only in lisk app directory. Run "lisk init --help" command for more details.',
+				'You can run this command only in klayr app directory. Run "klayr init --help" command for more details.',
 			);
 		}
 
-		return this._runBootstrapCommand('lisk:generate:plugin', {
+		return this._runBootstrapCommand('klayr:generate:plugin', {
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 			name,
 		});

@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
-import { regularMerkleTree } from '@liskhq/lisk-tree';
-import { validator } from '@liskhq/lisk-validator';
+import { utils } from '@klayr/cryptography';
+import { regularMerkleTree } from '@klayr/tree';
+import { validator } from '@klayr/validator';
 import { decodeBlock } from './codec';
 import { LegacyBlockWithID } from './types';
 

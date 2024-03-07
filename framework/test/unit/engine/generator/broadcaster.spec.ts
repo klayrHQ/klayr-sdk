@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
-import { TransactionPool } from '@liskhq/lisk-transaction-pool';
+import { Transaction } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
+import { TransactionPool } from '@klayr/transaction-pool';
 import { Broadcaster } from '../../../../src/engine/generator/broadcaster';
 import { postTransactionsAnnouncementSchema } from '../../../../src/engine/generator/schemas';
 import { Network } from '../../../../src/engine/network';

@@ -1,5 +1,5 @@
 module.exports = {
-	extends: ['../.eslintrc.js', 'lisk-base/jest'],
+	extends: ['../.eslintrc.js', 'klayr-base/jest'],
 	parserOptions: {
 		project: './tsconfig.json',
 		tsconfigRootDir: __dirname,

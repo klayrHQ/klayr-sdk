@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { objects as objectUtils } from '@liskhq/lisk-utils';
-import { codec } from '@liskhq/lisk-codec';
-import { validator } from '@liskhq/lisk-validator';
+import { objects as objectUtils } from '@klayr/utils';
+import { codec } from '@klayr/codec';
+import { validator } from '@klayr/validator';
 import { BaseModule, ModuleInitArgs, ModuleMetadata } from '../base_module';
 import {
 	GenesisBlockExecuteContext,

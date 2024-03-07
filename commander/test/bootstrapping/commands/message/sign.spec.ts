@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2019 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -24,7 +24,7 @@ describe('message:sign', () => {
 	const message = 'Hello World';
 	const passphrase = 'card earn shift valley learn scorpion cage select help title control satoshi';
 	const result =
-		'{"message":"Hello World","publicKey":"f1f9fb8717a6a3cc1213221e4bc3426e547407150947272e4f4b729a61726437","signature":"48f2d8142b7d4834c68eae836cc0d44b31ca05ad91b8d3f96f1779626d187df89059cab3bf7bc466040578bba7497b6255002b749348c96fe76315496434a90c"}\n';
+		'{"message":"Hello World","publicKey":"f1f9fb8717a6a3cc1213221e4bc3426e547407150947272e4f4b729a61726437","signature":"61b986e8e8e23b877291c1ec4f9c4da0ad48a3e7a4fbad16c464edd2dfc12a42b5d9d3ac42fdf7ea99ca3f4198be09fead4161c6466ffab0ba8f5ca534bc0f05"}\n';
 
 	let stdout: string[];
 	let stderr: string[];

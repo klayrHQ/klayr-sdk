@@ -48,7 +48,7 @@ exports[`Application #constructor should set internal variables 1`] = `
     "backup": {
       "height": 0,
     },
-    "dataPath": "~/.lisk/beta-sdk-app",
+    "dataPath": "~/.klayr/beta-sdk-app",
     "enableMetrics": false,
     "inclusionProofKeys": [],
     "keepEventsForHeights": 300,

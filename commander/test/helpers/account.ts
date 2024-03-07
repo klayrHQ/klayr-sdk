@@ -13,10 +13,10 @@
  *
  */
 
-import * as cryptography from '@liskhq/lisk-cryptography';
-import * as liskPassphrase from '@liskhq/lisk-passphrase';
+import * as cryptography from '@klayr/cryptography';
+import * as klayrPassphrase from '@klayr/passphrase';
 
-const { Mnemonic } = liskPassphrase;
+const { Mnemonic } = klayrPassphrase;
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const createAccount = () => {
@@ -170,7 +170,7 @@ export const modernAccounts = [
 			'449d714b192d56fc69629b52273679a93298f4cbba0da3a7538e6a8ca1e0c580',
 			'hex',
 		),
-		address: Buffer.from('lskwzqaszvkeoqmp9jeb5r7yszqhcq3mron8e6dn8', 'hex'),
+		address: Buffer.from('klywzqaszvkeoqmp9jeb5r7yszqhcq3mron8e6dn8', 'hex'),
 	},
 	{
 		passphrase:
@@ -183,7 +183,7 @@ export const modernAccounts = [
 			'a6463b606f6fff6de60fd87809357038314b221f2b39e8c6dc880aac25baeb9d',
 			'hex',
 		),
-		address: Buffer.from('lsky7zdwydrc3r6ft87wrjhd63sspwuq57bmh6m2k', 'hex'),
+		address: Buffer.from('klyy7zdwydrc3r6ft87wrjhd63sspwuq57bmh6m2k', 'hex'),
 	},
 	{
 		passphrase:
@@ -196,7 +196,7 @@ export const modernAccounts = [
 			'4d9a144e0c5fe9c68b906afef3a7e7389ba4d89da3d0f85b6e67fd9543ee0b8d',
 			'hex',
 		),
-		address: Buffer.from('lskxjuqqma9dgy5nnzgs4hzqaajuvbegazuuguk6d', 'hex'),
+		address: Buffer.from('klyxjuqqma9dgy5nnzgs4hzqaajuvbegazuuguk6d', 'hex'),
 	},
 	{
 		passphrase:
@@ -209,6 +209,6 @@ export const modernAccounts = [
 			'b9cd4bdabcfb25339ebcf97c0dbd5db03d08d2445d817fc892e6c93b070d9841',
 			'hex',
 		),
-		address: Buffer.from('lskpdvevkxjdb845hmvjbgnkpynsn67bxmsauzyrq', 'hex'),
+		address: Buffer.from('klypdvevkxjdb845hmvjbgnkpynsn67bxmsauzyrq', 'hex'),
 	},
 ];

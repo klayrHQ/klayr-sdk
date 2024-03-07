@@ -33,7 +33,7 @@ export const getExpectedValidatorRewardsRequestSchema = {
 	properties: {
 		validatorAddress: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };

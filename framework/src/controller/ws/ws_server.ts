@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { IncomingMessage } from 'http';
 import { Socket } from 'net';
 import * as WebSocket from 'ws';

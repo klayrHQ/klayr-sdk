@@ -1,4 +1,4 @@
-import { BaseEndpoint, ModuleEndpointContext, cryptography } from 'lisk-sdk';
+import { BaseEndpoint, ModuleEndpointContext, cryptography } from 'klayr-sdk';
 import { counterKey, CounterStore, CounterStoreData } from './stores/counter';
 import { MessageStore, MessageStoreData } from './stores/message';
 import { ReactionStore, ReactionStoreData } from './stores/reaction';
@@ -19,11 +19,11 @@ export class HelloEndpoint extends BaseEndpoint {
 		if (typeof address !== 'string') {
 			throw new Error('Parameter address must be a string.');
 		}
-		cryptography.address.validateLisk32Address(address);
+		cryptography.address.validateKlayr32Address(address);
 
 		const reactions = await reactionSubStore.get(
 			ctx,
-			cryptography.address.getAddressFromLisk32Address(address),
+			cryptography.address.getAddressFromKlayr32Address(address),
 		);
 
 		return reactions;
@@ -36,10 +36,10 @@ export class HelloEndpoint extends BaseEndpoint {
 		if (typeof address !== 'string') {
 			throw new Error('Parameter address must be a string.');
 		}
-		cryptography.address.validateLisk32Address(address);
+		cryptography.address.validateKlayr32Address(address);
 		const helloMessage = await messageSubStore.get(
 			ctx,
-			cryptography.address.getAddressFromLisk32Address(address),
+			cryptography.address.getAddressFromKlayr32Address(address),
 		);
 
 		return helloMessage;

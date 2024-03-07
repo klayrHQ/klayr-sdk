@@ -68,7 +68,7 @@ export const terminatedEscrowStoreSchema = {
 };
 
 export const transferParamsSchema = {
-	$id: '/lisk/transferParams',
+	$id: '/klayr/transferParams',
 	title: 'Transfer transaction params',
 	type: 'object',
 	required: ['tokenID', 'amount', 'recipientAddress', 'data'],
@@ -86,7 +86,7 @@ export const transferParamsSchema = {
 		recipientAddress: {
 			dataType: 'bytes',
 			fieldNumber: 3,
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		data: {
 			dataType: 'string',
@@ -98,7 +98,7 @@ export const transferParamsSchema = {
 };
 
 export const crossChainTransferParamsSchema = {
-	$id: '/lisk/ccTransferParams',
+	$id: '/klayr/ccTransferParams',
 	type: 'object',
 	required: [
 		'tokenID',
@@ -129,7 +129,7 @@ export const crossChainTransferParamsSchema = {
 		recipientAddress: {
 			dataType: 'bytes',
 			fieldNumber: 4,
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		data: {
 			dataType: 'string',
@@ -159,7 +159,7 @@ export interface CCTransferMessageParams {
 }
 
 export const crossChainTransferMessageParams = {
-	$id: '/lisk/ccTransferMessageParams',
+	$id: '/klayr/ccTransferMessageParams',
 	type: 'object',
 	required: ['tokenID', 'amount', 'senderAddress', 'recipientAddress', 'data'],
 	properties: {
@@ -176,12 +176,12 @@ export const crossChainTransferMessageParams = {
 		senderAddress: {
 			dataType: 'bytes',
 			fieldNumber: 3,
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		recipientAddress: {
 			dataType: 'bytes',
 			fieldNumber: 4,
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		data: {
 			dataType: 'string',
@@ -203,7 +203,7 @@ export interface CCForwardMessageParams {
 }
 
 export const crossChainForwardMessageParams = {
-	$id: '/lisk/ccForwardMessageParams',
+	$id: '/klayr/ccForwardMessageParams',
 	type: 'object',
 	required: [
 		'tokenID',
@@ -228,7 +228,7 @@ export const crossChainForwardMessageParams = {
 		senderAddress: {
 			dataType: 'bytes',
 			fieldNumber: 3,
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		forwardToChainID: {
 			dataType: 'bytes',
@@ -239,7 +239,7 @@ export const crossChainForwardMessageParams = {
 		recipientAddress: {
 			dataType: 'bytes',
 			fieldNumber: 5,
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		data: {
 			dataType: 'string',
@@ -268,7 +268,7 @@ export const genesisTokenStoreSchema = {
 				properties: {
 					address: {
 						dataType: 'bytes',
-						format: 'lisk32',
+						format: 'klayr32',
 						fieldNumber: 1,
 					},
 					tokenID: {
@@ -382,7 +382,7 @@ export const getBalanceRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		tokenID: {
 			type: 'string',
@@ -428,7 +428,7 @@ export const getBalancesRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 	required: ['address'],
@@ -588,7 +588,7 @@ export const hasUserAccountRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		tokenID: {
 			type: 'string',

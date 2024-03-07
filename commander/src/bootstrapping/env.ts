@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -19,10 +19,10 @@ import * as yeoman from 'yeoman-environment';
 
 const env = yeoman.createEnv();
 
-env.register(require.resolve('./generators/init_generator'), 'lisk:init');
-env.register(require.resolve('./generators/init_plugin_generator'), 'lisk:init:plugin');
-env.register(require.resolve('./generators/plugin_generator'), 'lisk:generate:plugin');
-env.register(require.resolve('./generators/module_generator'), 'lisk:generate:module');
-env.register(require.resolve('./generators/command_generator'), 'lisk:generate:command');
+env.register(require.resolve('./generators/init_generator'), 'klayr:init');
+env.register(require.resolve('./generators/init_plugin_generator'), 'klayr:init:plugin');
+env.register(require.resolve('./generators/plugin_generator'), 'klayr:generate:plugin');
+env.register(require.resolve('./generators/module_generator'), 'klayr:generate:module');
+env.register(require.resolve('./generators/command_generator'), 'klayr:generate:command');
 
 export { env };

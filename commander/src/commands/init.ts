@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -17,14 +17,14 @@ import { Flags as flagParser } from '@oclif/core';
 import BaseBootstrapCommand from '../base_bootstrap_command';
 
 export default class InitCommand extends BaseBootstrapCommand {
-	static description = 'Bootstrap a blockchain application using Lisk SDK.';
+	static description = 'Bootstrap a blockchain application using Klayr SDK.';
 
 	static examples = [
 		'init',
-		'init --template lisk-ts',
+		'init --template klayr-ts',
 		'init --template @some-global-npm-package',
 		'init /project/path',
-		'init /project/path --template lisk-ts',
+		'init /project/path --template klayr-ts',
 	];
 
 	static flags = {
@@ -51,7 +51,7 @@ export default class InitCommand extends BaseBootstrapCommand {
 			flags: { registry?: string };
 		};
 
-		return this._runBootstrapCommand('lisk:init', {
+		return this._runBootstrapCommand('klayr:init', {
 			projectPath,
 			registry,
 		});

@@ -13,9 +13,9 @@
  */
 // TODO: Fix the test when functional test is fixed https://github.com/LiskHQ/lisk-sdk/issues/7209
 
-// import { codec } from '@liskhq/lisk-codec';
-// import { utils } from '@liskhq/lisk-cryptography';
-// import { P2P } from '@liskhq/lisk-p2p';
+// import { codec } from '@klayr/codec';
+// import { utils } from '@klayr/cryptography';
+// import { P2P } from '@klayr/p2p';
 
 // import { Application } from '../../../src';
 // import { createApplication, closeApplication, getPeerID, waitNBlocks } from '../utils/application';

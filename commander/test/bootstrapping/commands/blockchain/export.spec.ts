@@ -21,7 +21,7 @@ import { getConfig } from '../../../helpers/config';
 import { Awaited } from '../../../types';
 
 describe('blockchain:export', () => {
-	const defaultDataPath = join(homedir(), '.lisk', 'lisk-core');
+	const defaultDataPath = join(homedir(), '.klayr', 'klayr-core');
 
 	let stdout: string[];
 	let stderr: string[];

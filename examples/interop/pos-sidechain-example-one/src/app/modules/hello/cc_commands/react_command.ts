@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 
-import { BaseCCCommand, CrossChainMessageContext, codec, cryptography, db } from 'lisk-sdk';
+import { BaseCCCommand, CrossChainMessageContext, codec, cryptography, db } from 'klayr-sdk';
 import { CCReactMessageParamsSchema, CCReactMessageParams } from '../schemas';
 import { MAX_RESERVED_ERROR_STATUS, CROSS_CHAIN_COMMAND_NAME_REACT } from '../constants';
 import { ReactionStore, ReactionStoreData } from '../stores/reaction';
@@ -22,7 +22,7 @@ export class ReactCCCommand extends BaseCCCommand {
 		}
 
 		const params = codec.decode<CCReactMessageParams>(CCReactMessageParamsSchema, ccm.params);
-		const messageCreatorAddress = cryptography.address.getAddressFromLisk32Address(
+		const messageCreatorAddress = cryptography.address.getAddressFromKlayr32Address(
 			params.helloMessageID,
 		);
 		if (!(await this.stores.get(MessageStore).has(ctx, messageCreatorAddress))) {
@@ -40,7 +40,7 @@ export class ReactCCCommand extends BaseCCCommand {
 		// Get helloMessageID and reactionType from the parameters
 		const { helloMessageID, reactionType } = params;
 		const reactionSubstore = this.stores.get(ReactionStore);
-		const messageCreatorAddress = cryptography.address.getAddressFromLisk32Address(helloMessageID);
+		const messageCreatorAddress = cryptography.address.getAddressFromKlayr32Address(helloMessageID);
 		let msgReactions: ReactionStoreData;
 
 		// Get existing reactions for a Hello message, or initialize an empty reaction object, if none exists,yet.

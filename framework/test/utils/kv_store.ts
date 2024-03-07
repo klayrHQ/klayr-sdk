@@ -14,7 +14,7 @@
 import * as fs from 'fs-extra';
 import { Database } from '@liskhq/lisk-db';
 
-export const defaultPath = '/tmp/lisk-framework/test';
+export const defaultPath = '/tmp/klayr-framework/test';
 
 const getPath = (name: string): string => `${defaultPath}/${name}`;
 

@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction, TAG_TRANSACTION } from '@liskhq/lisk-chain';
-import { ed } from '@liskhq/lisk-cryptography';
-import { isHexString } from '@liskhq/lisk-validator';
+import { Transaction, TAG_TRANSACTION } from '@klayr/chain';
+import { ed } from '@klayr/cryptography';
+import { isHexString } from '@klayr/validator';
 import { VerificationResult, VerifyStatus } from '../../state_machine';
 import { AuthAccount } from './stores/auth_account';
 

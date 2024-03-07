@@ -72,7 +72,7 @@ export const getHelloRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };
@@ -98,7 +98,7 @@ export interface CCReactMessageParams {
  */
 export const CCReactMessageParamsSchema = {
 	/** The unique identifier of the schema. */
-	$id: '/lisk/hello/ccReactParams',
+	$id: '/klayr/hello/ccReactParams',
 	type: 'object',
 	/** The required parameters for the command. */
 	required: ['reactionType', 'helloMessageID', 'data'],

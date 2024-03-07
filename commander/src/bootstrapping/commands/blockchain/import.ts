@@ -38,8 +38,8 @@ export class ImportCommand extends Command {
 
 	static examples = [
 		'blockchain:import ./path/to/blockchain.tar.gz',
-		'blockchain:import ./path/to/blockchain.tar.gz --data-path ./lisk/',
-		'blockchain:import ./path/to/blockchain.tar.gz --data-path ./lisk/ --force',
+		'blockchain:import ./path/to/blockchain.tar.gz --data-path ./klayr/',
+		'blockchain:import ./path/to/blockchain.tar.gz --data-path ./klayr/ --force',
 	];
 
 	static flags = {

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import * as cryptography from '@liskhq/lisk-cryptography';
+import * as cryptography from '@klayr/cryptography';
 import { BaseCommand } from '../../base_command';
 import {
 	CommandExecuteContext,
@@ -54,7 +54,7 @@ export class TransferCommand extends BaseCommand {
 		);
 		if (availableBalance < params.amount) {
 			throw new InsufficientBalanceError(
-				cryptography.address.getLisk32AddressFromAddress(context.transaction.senderAddress),
+				cryptography.address.getKlayr32AddressFromAddress(context.transaction.senderAddress),
 				availableBalance.toString(),
 				params.amount.toString(),
 			);

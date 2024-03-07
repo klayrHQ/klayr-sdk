@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Block } from '@liskhq/lisk-chain';
-import { address } from '@liskhq/lisk-cryptography';
+import { Block } from '@klayr/chain';
+import { address } from '@klayr/cryptography';
 import { nodeUtils } from '../../../utils';
 import {
 	createTransferTransaction,
@@ -27,7 +27,7 @@ import { defaultConfig } from '../../../../src/modules/token/constants';
 describe('Transaction order', () => {
 	let processEnv: testing.BlockProcessingEnv;
 	let chainID: Buffer;
-	const databasePath = '/tmp/lisk/transaction_order/test';
+	const databasePath = '/tmp/klayr/transaction_order/test';
 	const genesis = testing.fixtures.defaultFaucetAccount;
 
 	beforeAll(async () => {
@@ -74,7 +74,7 @@ describe('Transaction order', () => {
 
 			it('should accept the block', async () => {
 				const createdBlock = await processEnv.getDataAccess().getBlockByID(newBlock.header.id);
-				expect(createdBlock).not.toBeUndefined();
+				expect(createdBlock).toBeDefined();
 			});
 		});
 
@@ -122,7 +122,7 @@ describe('Transaction order', () => {
 
 			it('should accept the block', async () => {
 				const createdBlock = await processEnv.getDataAccess().getBlockByID(newBlock.header.id);
-				expect(createdBlock).not.toBeUndefined();
+				expect(createdBlock).toBeDefined();
 			});
 		});
 
@@ -173,7 +173,7 @@ describe('Transaction order', () => {
 
 			it('should accept the block', async () => {
 				const createdBlock = await processEnv.getDataAccess().getBlockByID(newBlock.header.id);
-				expect(createdBlock).not.toBeUndefined();
+				expect(createdBlock).toBeDefined();
 			});
 		});
 
@@ -243,7 +243,7 @@ describe('Transaction order', () => {
 				const spendingTx = createTransferTransaction({
 					nonce: BigInt(0),
 					fee: BigInt('200000'),
-					recipientAddress: address.getAddressFromLisk32Address(genesis.address),
+					recipientAddress: address.getAddressFromKlayr32Address(genesis.address),
 					amount: BigInt('14000000000'),
 					chainID,
 					privateKey: accountWithoutBalance.privateKey,

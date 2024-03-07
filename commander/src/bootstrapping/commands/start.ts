@@ -17,9 +17,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Command, Flags as flagParser } from '@oclif/core';
 import * as fs from 'fs-extra';
-import { utils as cryptoUtils } from '@liskhq/lisk-cryptography';
-import { ApplicationConfig, Application, PartialApplicationConfig } from 'lisk-framework';
-import * as utils from '@liskhq/lisk-utils';
+import { utils as cryptoUtils } from '@klayr/cryptography';
+import { ApplicationConfig, Application, PartialApplicationConfig } from 'klayr-framework';
+import * as utils from '@klayr/utils';
 import { flagsWithParser } from '../../utils/flags';
 
 import {
@@ -57,47 +57,47 @@ export abstract class StartCommand extends Command {
 		port: flagParser.integer({
 			char: 'p',
 			description:
-				'Open port for the peer to peer incoming connections. Environment variable "LISK_PORT" can also be used.',
-			env: 'LISK_PORT',
+				'Open port for the peer to peer incoming connections. Environment variable "KLAYR_PORT" can also be used.',
+			env: 'KLAYR_PORT',
 		}),
 		'api-ipc': flagParser.boolean({
 			description:
-				'Enable IPC communication. This will load plugins as a child process and communicate over IPC. Environment variable "LISK_API_IPC" can also be used.',
-			env: 'LISK_API_IPC',
+				'Enable IPC communication. This will load plugins as a child process and communicate over IPC. Environment variable "KLAYR_API_IPC" can also be used.',
+			env: 'KLAYR_API_IPC',
 			default: false,
 		}),
 		'api-ws': flagParser.boolean({
 			description:
-				'Enable websocket communication for api-client. Environment variable "LISK_API_WS" can also be used.',
-			env: 'LISK_API_WS',
+				'Enable websocket communication for api-client. Environment variable "KLAYR_API_WS" can also be used.',
+			env: 'KLAYR_API_WS',
 			default: false,
 		}),
 		'api-http': flagParser.boolean({
 			description:
-				'Enable HTTP communication for api-client. Environment variable "LISK_API_HTTP" can also be used.',
-			env: 'LISK_API_HTTP',
+				'Enable HTTP communication for api-client. Environment variable "KLAYR_API_HTTP" can also be used.',
+			env: 'KLAYR_API_HTTP',
 			default: false,
 		}),
 		'api-port': flagParser.integer({
 			description:
-				'Port to be used for api-client. Environment variable "LISK_API_PORT" can also be used.',
-			env: 'LISK_API_WS_PORT',
+				'Port to be used for api-client. Environment variable "KLAYR_API_PORT" can also be used.',
+			env: 'KLAYR_API_WS_PORT',
 		}),
 		'api-host': flagParser.string({
 			description:
-				'Host to be used for api-client. Environment variable "LISK_API_HOST" can also be used.',
-			env: 'LISK_API_HOST',
+				'Host to be used for api-client. Environment variable "KLAYR_API_HOST" can also be used.',
+			env: 'KLAYR_API_HOST',
 		}),
 		log: flagParser.string({
 			char: 'l',
-			description: 'Log level. Environment variable "LISK_LOG_LEVEL" can also be used.',
-			env: 'LISK_LOG_LEVEL',
+			description: 'Log level. Environment variable "KLAYR_LOG_LEVEL" can also be used.',
+			env: 'KLAYR_LOG_LEVEL',
 			options: LOG_OPTIONS,
 		}),
 		'seed-peers': flagParser.string({
-			env: 'LISK_SEED_PEERS',
+			env: 'KLAYR_SEED_PEERS',
 			description:
-				'Seed peers to initially connect to in format of comma separated "ip:port". IP can be DNS name or IPV4 format. Environment variable "LISK_SEED_PEERS" can also be used.',
+				'Seed peers to initially connect to in format of comma separated "ip:port". IP can be DNS name or IPV4 format. Environment variable "KLAYR_SEED_PEERS" can also be used.',
 		}),
 	};
 
@@ -106,7 +106,7 @@ export abstract class StartCommand extends Command {
 		const dataPath = flags['data-path']
 			? flags['data-path']
 			: getDefaultPath(this.config.pjson.name);
-		this.log(`Starting Lisk ${this.config.pjson.name} at ${getFullPath(dataPath)}.`);
+		this.log(`Starting Klayr ${this.config.pjson.name} at ${getFullPath(dataPath)}.`);
 
 		const defaultNetworkConfigDir = getConfigDirs(this.getApplicationConfigDir(), true);
 		if (!defaultNetworkConfigDir.includes(flags.network)) {

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { blockHeaderSchemaV2, blockSchemaV2 } from '../../../../src/engine/legacy/schemas';
 import { decodeBlock, decodeBlockJSON, encodeBlock } from '../../../../src/engine/legacy/codec';
 import { blockFixtures } from './fixtures';

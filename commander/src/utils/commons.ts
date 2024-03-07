@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -13,10 +13,10 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import * as cryptography from '@liskhq/lisk-cryptography';
+import * as cryptography from '@klayr/cryptography';
 import { NETWORK, RELEASE_URL } from '../constants';
 
-export const liskSnapshotUrl = (url: string, network: NETWORK): string => {
+export const klayrSnapshotUrl = (url: string, network: NETWORK): string => {
 	if (!['testnet', 'mainnet', 'betanet', 'default'].includes(network.toLowerCase())) {
 		return '';
 	}

@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
-import { standardEventDataSchema } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
+import { validator } from '@klayr/validator';
+import { standardEventDataSchema } from '@klayr/chain';
+import { codec } from '@klayr/codec';
 import { TransactionExecutionResult } from '../abi';
 import { Logger } from '../logger';
 import { BaseCommand, BaseModule } from '../modules';

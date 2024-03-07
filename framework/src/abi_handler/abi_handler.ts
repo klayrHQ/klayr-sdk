@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 import { EventEmitter } from 'events';
-import { BlockAssets, BlockHeader, StateStore, Transaction } from '@liskhq/lisk-chain';
+import { BlockAssets, BlockHeader, StateStore, Transaction } from '@klayr/chain';
 import { StateDB, Database, Batch } from '@liskhq/lisk-db';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import {
 	ABI,
 	blockHeaderSchema,

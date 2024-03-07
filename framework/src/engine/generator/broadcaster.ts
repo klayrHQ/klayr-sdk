@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { TransactionPool } from '@liskhq/lisk-transaction-pool';
+import { codec } from '@klayr/codec';
+import { TransactionPool } from '@klayr/transaction-pool';
 import { NETWORK_EVENT_POST_TRANSACTIONS_ANNOUNCEMENT } from './constants';
 
 import { Logger } from '../../logger';

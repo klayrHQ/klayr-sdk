@@ -11,9 +11,9 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Block } from '@liskhq/lisk-chain';
+import { Block } from '@klayr/chain';
 
-import { address } from '@liskhq/lisk-cryptography';
+import { address } from '@klayr/cryptography';
 import { nodeUtils } from '../../../utils';
 import {
 	createChangeCommissionTransaction,
@@ -33,7 +33,7 @@ describe('PoS and reward', () => {
 	let chainID: Buffer;
 	let newBlock: Block;
 	let senderAccount: ReturnType<typeof nodeUtils.createAccount>;
-	const databasePath = '/tmp/lisk/pos_integration/test';
+	const databasePath = '/tmp/klayr/pos_integration/test';
 	const genesis = testing.fixtures.defaultFaucetAccount;
 
 	beforeAll(async () => {
@@ -105,7 +105,7 @@ describe('PoS and reward', () => {
 			expect(events.find(e => e.name === 'commandExecutionResult')).toHaveProperty('data', '0801');
 
 			const newValidator = await processEnv.invoke<{ name: string }>('pos_getValidator', {
-				address: address.getLisk32AddressFromAddress(senderAccount.address),
+				address: address.getKlayr32AddressFromAddress(senderAccount.address),
 			});
 			expect(newValidator.name).toBe('testvalidator');
 		});
@@ -149,7 +149,7 @@ describe('PoS and reward', () => {
 			expect(events.find(e => e.name === 'commandExecutionResult')).toHaveProperty('data', '0801');
 
 			const newValidator = await processEnv.invoke<{ name: string }>('pos_getValidator', {
-				address: address.getLisk32AddressFromAddress(newAccount.address),
+				address: address.getKlayr32AddressFromAddress(newAccount.address),
 			});
 			expect(newValidator.name).toBe('testvalidator2');
 		});
@@ -180,7 +180,7 @@ describe('PoS and reward', () => {
 				privateKey: newAccount.privateKey,
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('100000000000'),
 					},
 				],
@@ -203,14 +203,14 @@ describe('PoS and reward', () => {
 			});
 			expect(validator.commission).toBe(0);
 			const staker = await processEnv.invoke<StakerDataJSON>('pos_getStaker', {
-				address: address.getLisk32AddressFromAddress(newAccount.address),
+				address: address.getKlayr32AddressFromAddress(newAccount.address),
 			});
 			expect(staker.stakes[0].sharingCoefficients).toBeEmpty();
 			expect(validator.sharingCoefficients).not.toBeEmpty();
 
 			const claimableRewards = await processEnv.invoke<{ rewards: { reward: string }[] }>(
 				'pos_getClaimableRewards',
-				{ address: address.getLisk32AddressFromAddress(newAccount.address) },
+				{ address: address.getKlayr32AddressFromAddress(newAccount.address) },
 			);
 			const lockedReward = await processEnv.invoke<{ reward: string }>('pos_getLockedReward', {
 				address: nextValidator.address,
@@ -257,7 +257,7 @@ describe('PoS and reward', () => {
 				privateKey: newAccount.privateKey,
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('100000000000'),
 					},
 				],
@@ -277,14 +277,14 @@ describe('PoS and reward', () => {
 			});
 			expect(validator.commission).toBe(0);
 			const staker = await processEnv.invoke<StakerDataJSON>('pos_getStaker', {
-				address: address.getLisk32AddressFromAddress(newAccount.address),
+				address: address.getKlayr32AddressFromAddress(newAccount.address),
 			});
 			expect(staker.stakes[0].sharingCoefficients).toBeEmpty();
 			expect(validator.sharingCoefficients).not.toBeEmpty();
 
 			const claimableRewards = await processEnv.invoke<{ rewards: { reward: string }[] }>(
 				'pos_getClaimableRewards',
-				{ address: address.getLisk32AddressFromAddress(newAccount.address) },
+				{ address: address.getKlayr32AddressFromAddress(newAccount.address) },
 			);
 			const lockedReward = await processEnv.invoke<{ reward: string }>('pos_getLockedReward', {
 				address: nextValidator.address,
@@ -334,7 +334,7 @@ describe('PoS and reward', () => {
 				privateKey: newAccount.privateKey,
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('100000000000'),
 					},
 				],
@@ -363,14 +363,14 @@ describe('PoS and reward', () => {
 			});
 			expect(validator.commission).toBe(10000);
 			const staker = await processEnv.invoke<StakerDataJSON>('pos_getStaker', {
-				address: address.getLisk32AddressFromAddress(newAccount.address),
+				address: address.getKlayr32AddressFromAddress(newAccount.address),
 			});
 			expect(staker.stakes[0].sharingCoefficients).toBeEmpty();
 			expect(validator.sharingCoefficients).not.toBeEmpty();
 
 			const claimableRewards = await processEnv.invoke<{ rewards: { reward: string }[] }>(
 				'pos_getClaimableRewards',
-				{ address: address.getLisk32AddressFromAddress(newAccount.address) },
+				{ address: address.getKlayr32AddressFromAddress(newAccount.address) },
 			);
 			const lockedReward = await processEnv.invoke<{ reward: string }>('pos_getLockedReward', {
 				address: nextValidator.address,
@@ -404,7 +404,7 @@ describe('PoS and reward', () => {
 				privateKey: newAccount.privateKey,
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('100000000000'),
 					},
 				],
@@ -415,7 +415,7 @@ describe('PoS and reward', () => {
 				privateKey: Buffer.from(nextValidator.privateKey, 'hex'),
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('100000000000'),
 					},
 				],
@@ -444,14 +444,14 @@ describe('PoS and reward', () => {
 			});
 			expect(validator.commission).toBe(5000);
 			const staker = await processEnv.invoke<StakerDataJSON>('pos_getStaker', {
-				address: address.getLisk32AddressFromAddress(newAccount.address),
+				address: address.getKlayr32AddressFromAddress(newAccount.address),
 			});
 			expect(staker.stakes[0].sharingCoefficients).toBeEmpty();
 			expect(validator.sharingCoefficients).not.toBeEmpty();
 
 			const claimableRewards = await processEnv.invoke<{ rewards: { reward: string }[] }>(
 				'pos_getClaimableRewards',
-				{ address: address.getLisk32AddressFromAddress(newAccount.address) },
+				{ address: address.getKlayr32AddressFromAddress(newAccount.address) },
 			);
 			const lockedReward = await processEnv.invoke<{ reward: string }>('pos_getLockedReward', {
 				address: nextValidator.address,
@@ -460,7 +460,7 @@ describe('PoS and reward', () => {
 			expect(Number(claimableRewards.rewards[0].reward)).toBeLessThanOrEqual(
 				Number(lockedReward.reward),
 			);
-			// Reward should be 5LSK * 0.5 (50% commission) * 0.5 (50% of whole stake)
+			// Reward should be 5KLY * 0.5 (50% commission) * 0.5 (50% of whole stake)
 			expect(Number(lockedReward.reward)).toBe(125000000);
 		});
 
@@ -506,7 +506,7 @@ describe('PoS and reward', () => {
 				privateKey: newAccount.privateKey,
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('100000000000'),
 					},
 				],
@@ -517,7 +517,7 @@ describe('PoS and reward', () => {
 				privateKey: newAccount2.privateKey,
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('60000000000'),
 					},
 				],
@@ -528,7 +528,7 @@ describe('PoS and reward', () => {
 				privateKey: newAccount3.privateKey,
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('40000000000'),
 					},
 				],
@@ -539,7 +539,7 @@ describe('PoS and reward', () => {
 				privateKey: Buffer.from(nextValidator.privateKey, 'hex'),
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('100000000000'),
 					},
 				],
@@ -574,22 +574,22 @@ describe('PoS and reward', () => {
 			});
 			expect(validator.commission).toBe(5000);
 			const staker = await processEnv.invoke<StakerDataJSON>('pos_getStaker', {
-				address: address.getLisk32AddressFromAddress(newAccount.address),
+				address: address.getKlayr32AddressFromAddress(newAccount.address),
 			});
 			expect(staker.stakes[0].sharingCoefficients).toBeEmpty();
 			expect(validator.sharingCoefficients).not.toBeEmpty();
 
 			const claimableRewards = await processEnv.invoke<{ rewards: { reward: string }[] }>(
 				'pos_getClaimableRewards',
-				{ address: address.getLisk32AddressFromAddress(newAccount.address) },
+				{ address: address.getKlayr32AddressFromAddress(newAccount.address) },
 			);
 			const claimableRewards2 = await processEnv.invoke<{ rewards: { reward: string }[] }>(
 				'pos_getClaimableRewards',
-				{ address: address.getLisk32AddressFromAddress(newAccount2.address) },
+				{ address: address.getKlayr32AddressFromAddress(newAccount2.address) },
 			);
 			const claimableRewards3 = await processEnv.invoke<{ rewards: { reward: string }[] }>(
 				'pos_getClaimableRewards',
-				{ address: address.getLisk32AddressFromAddress(newAccount3.address) },
+				{ address: address.getKlayr32AddressFromAddress(newAccount3.address) },
 			);
 			const lockedReward = await processEnv.invoke<{ reward: string }>('pos_getLockedReward', {
 				address: nextValidator.address,
@@ -600,7 +600,7 @@ describe('PoS and reward', () => {
 					BigInt(claimableRewards2.rewards[0].reward) +
 					BigInt(claimableRewards3.rewards[0].reward),
 			).toBeLessThanOrEqual(BigInt(lockedReward.reward));
-			// Reward should be 5LSK * 0.5 (50% commission) * 0.666666 (66% of whole stake)
+			// Reward should be 5KLY * 0.5 (50% commission) * 0.666666 (66% of whole stake)
 			expect(Number(lockedReward.reward)).toBeGreaterThanOrEqual(166666666);
 		});
 
@@ -637,7 +637,7 @@ describe('PoS and reward', () => {
 				privateKey: newAccount.privateKey,
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('430000000000'),
 					},
 				],
@@ -649,7 +649,7 @@ describe('PoS and reward', () => {
 				privateKey: newAccount2.privateKey,
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('430000000000'),
 					},
 				],
@@ -665,7 +665,7 @@ describe('PoS and reward', () => {
 				privateKey: Buffer.from(nextValidator.privateKey, 'hex'),
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(nextValidator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(nextValidator.address),
 						amount: BigInt('100000000000'),
 					},
 				],
@@ -689,11 +689,11 @@ describe('PoS and reward', () => {
 
 			const claimableRewards = await processEnv.invoke<{ rewards: { reward: string }[] }>(
 				'pos_getClaimableRewards',
-				{ address: address.getLisk32AddressFromAddress(newAccount.address) },
+				{ address: address.getKlayr32AddressFromAddress(newAccount.address) },
 			);
 			const claimableRewards2 = await processEnv.invoke<{ rewards: { reward: string }[] }>(
 				'pos_getClaimableRewards',
-				{ address: address.getLisk32AddressFromAddress(newAccount2.address) },
+				{ address: address.getKlayr32AddressFromAddress(newAccount2.address) },
 			);
 			const lockedReward = await processEnv.invoke<{ reward: string }>('pos_getLockedReward', {
 				address: nextValidator.address,

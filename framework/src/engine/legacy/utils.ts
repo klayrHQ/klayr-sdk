@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import {
 	DB_KEY_LEGACY_BRACKET,
 	DB_KEY_TRANSACTIONS_BLOCK_ID,

@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { encrypt } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { encrypt } from '@klayr/cryptography';
 import { GENERATOR_STORE_INFO_PREFIX, GENERATOR_STORE_KEY_PREFIX } from './constants';
 import { NotFoundError } from './errors';
 import { GeneratorStore } from './generator_store';

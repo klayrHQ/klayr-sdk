@@ -25,7 +25,7 @@ export {
 	BlockHeaderJSON,
 	BlockAssetJSON,
 	standardEventDataSchema,
-} from '@liskhq/lisk-chain';
+} from '@klayr/chain';
 export {
 	BaseModule,
 	BaseMethod,

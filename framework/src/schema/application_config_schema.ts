@@ -327,7 +327,7 @@ export const applicationConfigSchema = {
 	additionalProperties: false,
 	default: {
 		system: {
-			dataPath: '~/.lisk/beta-sdk-app',
+			dataPath: '~/.klayr/beta-sdk-app',
 			version: '0.1.0',
 			keepEventsForHeights: 300,
 			keepInclusionProofsForHeights: 300,

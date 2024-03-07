@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Chain } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
-import { LiskValidationError } from '@liskhq/lisk-validator';
+import { Chain } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
+import { KlayrValidationError } from '@klayr/validator';
 import { ABI, ProveResponseJSON } from '../../../../src/abi';
 import { StateEndpoint } from '../../../../src/engine/endpoint/state';
 import { Logger } from '../../../../src/logger';
@@ -64,7 +64,7 @@ describe('state endpoint', () => {
 						},
 						chainID,
 					}),
-				).rejects.toThrow(LiskValidationError);
+				).rejects.toThrow(KlayrValidationError);
 			});
 
 			it('should reject with error when queryKeys is not an array', async () => {

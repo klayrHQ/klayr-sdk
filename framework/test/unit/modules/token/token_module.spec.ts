@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { BlockAssets } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
+import { BlockAssets } from '@klayr/chain';
+import { codec } from '@klayr/codec';
 import { genesisTokenStoreSchema, TokenModule } from '../../../../src/modules/token';
 import { LOCAL_ID_LENGTH, TOKEN_ID_LENGTH } from '../../../../src/modules/token/constants';
 import { EscrowStore } from '../../../../src/modules/token/stores/escrow';

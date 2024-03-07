@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import { apiClient, BlockJSON } from 'lisk-sdk';
+import { apiClient, BlockJSON } from 'klayr-sdk';
 
 interface NewBlockEvent {
 	blockHeader: {

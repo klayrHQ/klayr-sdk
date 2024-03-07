@@ -16,9 +16,9 @@
 // import * as os from 'os';
 // import * as fs from 'fs-extra';
 // import * as path from 'path';
-// import { codec } from '@liskhq/lisk-codec';
-// import { Transaction } from '@liskhq/lisk-chain';
-// import { P2P } from '@liskhq/lisk-p2p';
+// import { codec } from '@klayr/codec';
+// import { Transaction } from '@klayr/chain';
+// import { P2P } from '@klayr/p2p';
 
 // import { APP_EVENT_BLOCK_NEW } from '../../../src/constants';
 // import * as genesisBlockJSON from '../../fixtures/config/devnet/genesis_block.json';

@@ -13,9 +13,9 @@
  */
 import * as os from 'os';
 import * as path from 'path';
-import { Block, BlockAssets, BlockHeader, EVENT_KEY_LENGTH } from '@liskhq/lisk-chain';
-import { codec, Schema } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { Block, BlockAssets, BlockHeader, EVENT_KEY_LENGTH } from '@klayr/chain';
+import { codec, Schema } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { SparseMerkleTree, StateDB } from '@liskhq/lisk-db';
 import { Logger } from './logger';
 import { computeValidatorsHash } from './engine';

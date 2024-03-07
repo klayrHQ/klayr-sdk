@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 import * as path from 'path';
-import { Chain, Block, TransactionJSON } from '@liskhq/lisk-chain';
-import { address } from '@liskhq/lisk-cryptography';
+import { Chain, Block, TransactionJSON } from '@klayr/chain';
+import { address } from '@klayr/cryptography';
 import { Database } from '@liskhq/lisk-db';
 import { createLogger, Logger } from '../logger';
 import { Network } from './network';
@@ -341,7 +341,7 @@ export class Engine {
 			this._rpcServer
 				.publish(EVENT_CHAIN_VALIDATORS_CHANGE, {
 					nextValidators: update.nextValidators.map(v => ({
-						address: address.getLisk32AddressFromAddress(v.address),
+						address: address.getKlayr32AddressFromAddress(v.address),
 						blsKey: v.blsKey.toString('hex'),
 						generatorKey: v.generatorKey.toString('hex'),
 						bftWeight: v.bftWeight.toString(),

@@ -1,21 +1,21 @@
 {
-	"name": "lisk-sdk-mono-repo",
+	"name": "klayr-sdk-mono-repo",
 	"private": true,
 	"version": "0.1.0",
-	"description": "Reusable packages for use with the Lisk ecosystem",
+	"description": "Reusable packages for use with the Klayr ecosystem",
 	"author": "Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
 	"keywords": [
-		"lisk",
+		"klayr",
 		"blockchain"
 	],
-	"homepage": "https://github.com/LiskHQ/lisk-sdk#readme",
+	"homepage": "https://github.com/KlayrHQ/klayr-sdk#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/LiskHQ/lisk-sdk.git"
+		"url": "git+https://github.com/KlayrHQ/klayr-sdk.git"
 	},
 	"bugs": {
-		"url": "https://github.com/LiskHQ/lisk-sdk/issues"
+		"url": "https://github.com/KlayrHQ/klayr-sdk/issues"
 	},
 	"engines": {
 		"node": ">=18.12.0 <=18",
@@ -46,10 +46,10 @@
 		"test": "nx run-many --target=test",
 		"test:ci": "nx run-many --target=test:ci",
 		"test:since": "nx affected --target=test",
-		"test:elements": "lerna run test --ignore=lisk-commander --ignore=lisk-framework --ignore=lisk-sdk --ignore=@liskhq/lisk-framework* --ignore=lisk-sdk-test",
-		"test:framework": "lerna run test --scope=lisk-framework",
-		"test:framework-plugins": "lerna run test --scope=@liskhq/lisk-framework-*",
-		"test:commander": "lerna run test --scope=lisk-commander",
+		"test:elements": "lerna run test --ignore=klayr-commander --ignore=klayr-framework --ignore=klayr-sdk --ignore=@klayr/*-plugin --ignore=klayr-sdk-test",
+		"test:framework": "lerna run test --scope=klayr-framework",
+		"test:framework-plugins": "lerna run test --scope=@klayr/*-plugin",
+		"test:commander": "lerna run test --scope=klayr-commander",
 		"build": "nx run-many --target=build",
 		"build:since": "nx affected --target=build",
 		"init": "./scripts/init.sh",
@@ -64,7 +64,7 @@
 		"@typescript-eslint/eslint-plugin": "5.44.0",
 		"@typescript-eslint/parser": "5.44.0",
 		"eslint": "8.28.0",
-		"eslint-config-lisk-base": "2.0.1",
+		"eslint-config-klayr-base": "2.0.1",
 		"eslint-plugin-import": "2.26.0",
 		"eslint-plugin-jest": "27.1.6",
 		"events": "^3.1.0",
@@ -86,5 +86,8 @@
 		"@types/express-serve-static-core": "4.17.31",
 		"@types/serve-static": "1.15.0",
 		"@types/express": "4.17.14"
-	}
+	},
+	"eslintIgnore": [
+		"src/bootstrapping/templates/klayr-template-ts/templates/**/*"
+	]
 }

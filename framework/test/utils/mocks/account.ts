@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import { address, bls, legacy } from '@liskhq/lisk-cryptography';
-import { Mnemonic } from '@liskhq/lisk-passphrase';
+import { address, bls, legacy } from '@klayr/cryptography';
+import { Mnemonic } from '@klayr/passphrase';
 
 export const createAccount = () => {
 	const passphrase = Mnemonic.generateMnemonic(256);

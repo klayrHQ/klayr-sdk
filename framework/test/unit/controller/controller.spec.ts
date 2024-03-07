@@ -61,7 +61,7 @@ describe('Controller Class', () => {
 	};
 
 	const config = {
-		dataPath: '/user/.lisk/#LABEL',
+		dataPath: '/user/.klayr/#LABEL',
 	};
 	const childProcessMock = {
 		send: jest.fn(),
@@ -82,7 +82,7 @@ describe('Controller Class', () => {
 		plugins: `${config.dataPath}/plugins`,
 	};
 	const configController = {
-		dataPath: '/user/.lisk/#LABEL',
+		dataPath: '/user/.klayr/#LABEL',
 		dirs: systemDirs,
 	};
 	const chainID = Buffer.from('10000000', 'hex');
@@ -91,7 +91,7 @@ describe('Controller Class', () => {
 		...testing.fixtures.defaultConfig,
 		system: {
 			...testing.fixtures.defaultConfig.system,
-			dataPath: '/user/.lisk/#LABEL',
+			dataPath: '/user/.klayr/#LABEL',
 		},
 	} as ApplicationConfigForPlugin;
 	const pluginConfigs = {};

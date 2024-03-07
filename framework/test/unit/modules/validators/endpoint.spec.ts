@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils, address as cryptoAddress } from '@liskhq/lisk-cryptography';
+import { utils, address as cryptoAddress } from '@klayr/cryptography';
 import { ModuleEndpointContext } from '../../../../src';
 import { ValidatorsModule } from '../../../../src/modules/validators';
 import { BLSKeyStore } from '../../../../src/modules/validators/stores/bls_keys';
@@ -172,7 +172,7 @@ describe('ValidatorsModuleEndpoint', () => {
 			context = createTransientModuleEndpointContext({
 				stateStore,
 				params: {
-					address: cryptoAddress.getLisk32AddressFromAddress(validatorAddress),
+					address: cryptoAddress.getKlayr32AddressFromAddress(validatorAddress),
 				},
 			});
 		});

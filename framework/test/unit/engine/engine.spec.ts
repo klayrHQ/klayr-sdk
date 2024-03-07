@@ -12,8 +12,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Block, BlockAssets, Chain } from '@liskhq/lisk-chain';
-import { jobHandlers } from '@liskhq/lisk-utils';
+import { Block, BlockAssets, Chain } from '@klayr/chain';
+import { jobHandlers } from '@klayr/utils';
 import { Engine } from '../../../src/engine/engine';
 import {
 	Consensus,

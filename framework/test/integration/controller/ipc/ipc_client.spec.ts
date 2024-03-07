@@ -21,7 +21,7 @@ import { IPCClient } from '../../../../src/controller/ipc/ipc_client';
 // TODO: ZeroMQ tests are unstable with jest https://github.com/zeromq/zeromq.js/issues/416
 // eslint-disable-next-line jest/no-disabled-tests
 describe.skip('IPCClient', () => {
-	const socketsDir = pathResolve(`${homedir()}/.lisk/integration/ipc_client/sockets`);
+	const socketsDir = pathResolve(`${homedir()}/.klayr/integration/ipc_client/sockets`);
 	let server: IPCServer;
 	let client: IPCClient;
 
@@ -119,7 +119,7 @@ describe.skip('IPCClient', () => {
 			// Act
 			await Promise.all([sendtoClient(), listenOnClientSubscriber()]);
 			// Assert
-			expect(receivedMessage).toEqual('myData');
+			expect(receivedMessage).toBe('myData');
 		});
 
 		it('should be able to subscribe and receive events on multiple clients', async () => {
@@ -154,8 +154,8 @@ describe.skip('IPCClient', () => {
 				}
 			};
 			await Promise.all([send(), listenOnClient(), listenOnClient1()]);
-			expect(messageReceivedClient).toEqual('myData');
-			expect(messageReceivedClient1).toEqual('myData');
+			expect(messageReceivedClient).toBe('myData');
+			expect(messageReceivedClient1).toBe('myData');
 		});
 
 		it('should be able to subscribe and receive events to only subscribed clients', async () => {
@@ -217,10 +217,10 @@ describe.skip('IPCClient', () => {
 				listenOnClient2(),
 				listenOnClient3(),
 			]);
-			expect(messageReceivedClient).toEqual('xyz');
-			expect(messageReceivedClient1).toEqual('xyz');
-			expect(messageReceivedClient2).toEqual('myData');
-			expect(messageReceivedClient3).toEqual('myData');
+			expect(messageReceivedClient).toBe('xyz');
+			expect(messageReceivedClient1).toBe('xyz');
+			expect(messageReceivedClient2).toBe('myData');
+			expect(messageReceivedClient3).toBe('myData');
 		});
 	});
 
@@ -257,7 +257,7 @@ describe.skip('IPCClient', () => {
 			// Act
 			await Promise.all([requestRPC(), receiveRPCResponse(), handleRPC()]);
 			// Assert
-			expect(receivedResult).toEqual('myAction:Result');
+			expect(receivedResult).toBe('myAction:Result');
 		});
 	});
 });

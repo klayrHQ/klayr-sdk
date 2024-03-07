@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
-import * as cryptography from '@liskhq/lisk-cryptography';
+import { validator } from '@klayr/validator';
+import * as cryptography from '@klayr/cryptography';
 import { NotFoundError } from '../../state_machine';
 import { JSONObject, ModuleEndpointContext } from '../../types';
 import { ModuleConfig } from './types';
@@ -43,7 +43,7 @@ export class TokenEndpoint extends BaseEndpoint {
 	): Promise<{ balances: JSONObject<UserStoreData & { tokenID: Buffer }>[] }> {
 		validator.validate<{ address: string }>(getBalancesRequestSchema, context.params);
 
-		const address = cryptography.address.getAddressFromLisk32Address(context.params.address);
+		const address = cryptography.address.getAddressFromKlayr32Address(context.params.address);
 		const userStore = this.stores.get(UserStore);
 		const userData = await userStore.iterate(context, {
 			gte: Buffer.concat([address, Buffer.alloc(TOKEN_ID_LENGTH, 0)]),
@@ -68,7 +68,7 @@ export class TokenEndpoint extends BaseEndpoint {
 			context.params,
 		);
 
-		const address = cryptography.address.getAddressFromLisk32Address(context.params.address);
+		const address = cryptography.address.getAddressFromKlayr32Address(context.params.address);
 		const tokenID = Buffer.from(context.params.tokenID, 'hex');
 		const userStore = this.stores.get(UserStore);
 		try {
@@ -192,7 +192,7 @@ export class TokenEndpoint extends BaseEndpoint {
 			context.params,
 		);
 
-		const address = cryptography.address.getAddressFromLisk32Address(context.params.address);
+		const address = cryptography.address.getAddressFromKlayr32Address(context.params.address);
 		const tokenID = Buffer.from(context.params.tokenID, 'hex');
 		const userStore = this.stores.get(UserStore);
 

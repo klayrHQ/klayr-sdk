@@ -14,15 +14,15 @@
 
 'use strict';
 
-const { utils, ed, legacy } = require('@liskhq/lisk-cryptography');
-const { Codec } = require('@liskhq/lisk-codec');
+const { utils, ed, legacy } = require('@klayr/cryptography');
+const { Codec } = require('@klayr/codec');
 const { baseTransactionSchema } = require('../../utils/schema');
 
 const BaseGenerator = require('../base_generator');
 
 const codec = new Codec();
-const TAG_TRANSACTION = Buffer.from('LSK_TX_', 'utf8');
-const TAG_BLOCK_HEADER = Buffer.from('LSK_BH_', 'utf8');
+const TAG_TRANSACTION = Buffer.from('KLY_TX_', 'utf8');
+const TAG_BLOCK_HEADER = Buffer.from('KLY_BH_', 'utf8');
 const chainID = Buffer.from('10000000', 'hex');
 
 const pomAsset = {

@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2019 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -14,7 +14,7 @@
  *
  */
 import * as inquirer from 'inquirer';
-import { encrypt } from '@liskhq/lisk-cryptography';
+import { encrypt } from '@klayr/cryptography';
 import { getConfig } from '../../../helpers/config';
 import { DecryptCommand } from '../../../../src/commands/message/decrypt';
 import * as readerUtils from '../../../../src/utils/reader';

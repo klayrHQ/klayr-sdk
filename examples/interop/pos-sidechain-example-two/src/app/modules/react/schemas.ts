@@ -35,7 +35,7 @@ export interface CCReactCommandParams extends CCReactMessageParams {
  */
 export const CCReactMessageParamsSchema = {
 	/** The unique identifier of the schema. */
-	$id: '/lisk/react/ccmParams',
+	$id: '/klayr/react/ccmParams',
 	type: 'object',
 	/** The required parameters for the CCM. */
 	required: ['reactionType', 'helloMessageID', 'data'],
@@ -63,7 +63,7 @@ export const CCReactMessageParamsSchema = {
  */
 export const CCReactCommandParamsSchema = {
 	/** The unique identifier of the schema. */
-	$id: '/lisk/react/ccCommandParams',
+	$id: '/klayr/react/ccCommandParams',
 	type: 'object',
 	/** The required parameters for the command. */
 	required: ['reactionType', 'helloMessageID', 'receivingChainID', 'data', 'messageFee'],

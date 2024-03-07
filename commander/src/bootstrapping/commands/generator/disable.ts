@@ -19,9 +19,9 @@ export abstract class DisableCommand extends BaseGeneratorCommand {
 	static description = 'Disable block generation for given validator address.';
 
 	static examples = [
-		'generator:disable lskycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz',
-		'generator:disable lskycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz --data-path ./data',
-		'generator:disable lskycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz --data-path ./data --password your_password',
+		'generator:disable kly ycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz',
+		'generator:disable kly ycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz --data-path ./data',
+		'generator:disable kly ycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz --data-path ./data --password your_password',
 	];
 
 	static flags = {

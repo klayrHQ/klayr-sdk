@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { BaseStore } from 'lisk-sdk';
+import { BaseStore } from 'klayr-sdk';
 
 export interface CounterStoreData {
 	counter: number;

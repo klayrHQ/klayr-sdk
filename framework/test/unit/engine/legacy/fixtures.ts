@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
-import { regularMerkleTree } from '@liskhq/lisk-tree';
+import { utils } from '@klayr/cryptography';
+import { regularMerkleTree } from '@klayr/tree';
 import { encodeBlock, encodeBlockHeader } from '../../../../src/engine/legacy/codec';
 import { LegacyBlockHeader, LegacyBlockWithID } from '../../../../src/engine/legacy/types';
 

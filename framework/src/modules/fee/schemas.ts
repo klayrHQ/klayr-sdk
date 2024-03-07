@@ -30,7 +30,7 @@ export const configSchema = {
 		},
 		feePoolAddress: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 	required: ['feeTokenID', 'minFeePerByte'],

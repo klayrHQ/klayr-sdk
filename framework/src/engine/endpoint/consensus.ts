@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { StateStore } from '@liskhq/lisk-chain';
-import { address } from '@liskhq/lisk-cryptography';
+import { StateStore } from '@klayr/chain';
+import { address } from '@klayr/cryptography';
 import { Database } from '@liskhq/lisk-db';
 import { BFTMethod } from '../bft';
 import { BFTHeights } from '../bft/types';
@@ -59,7 +59,7 @@ export class ConsensusEndpoint {
 		} = await this._bftMethod.getBFTParameters(stateStore, ctx.params.height as number);
 
 		const validatorsJSON = validators.map(v => ({
-			address: address.getLisk32AddressFromAddress(v.address),
+			address: address.getKlayr32AddressFromAddress(v.address),
 			bftWeight: v.bftWeight.toString(),
 			blsKey: v.blsKey.toString('hex'),
 		}));
@@ -87,7 +87,7 @@ export class ConsensusEndpoint {
 		);
 
 		const validatorsJSON = validators.map(v => ({
-			address: address.getLisk32AddressFromAddress(v.address),
+			address: address.getKlayr32AddressFromAddress(v.address),
 			bftWeight: v.bftWeight.toString(),
 			blsKey: v.blsKey.toString('hex'),
 		}));

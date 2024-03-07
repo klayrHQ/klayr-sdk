@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { codec, Schema } from '@liskhq/lisk-codec';
+import { Transaction } from '@klayr/chain';
+import { codec, Schema } from '@klayr/codec';
 import { Logger } from '../logger';
 import { createMethodContext, createImmutableMethodContext } from './method_context';
 import { EventQueue } from './event_queue';

@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { bls, utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { Transaction } from '@liskhq/lisk-chain';
-import { EMPTY_BUFFER } from '@liskhq/lisk-chain/dist-node/constants';
+import { bls, utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { Transaction } from '@klayr/chain';
+import { EMPTY_BUFFER } from '@klayr/chain/dist-node/constants';
 import {
 	CommandExecuteContext,
 	CommandVerifyContext,

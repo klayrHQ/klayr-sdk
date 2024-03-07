@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
-import { Transaction } from '@liskhq/lisk-chain';
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
+import { utils } from '@klayr/cryptography';
+import { Transaction } from '@klayr/chain';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
 import * as testing from '../../../../../../src/testing';
 import { createTransactionContext } from '../../../../../../src/testing';
 import { RegisterSidechainCommand } from '../../../../../../src/modules/interoperability/mainchain/commands/register_sidechain';
@@ -46,7 +46,7 @@ import {
 import {
 	computeValidatorsHash,
 	getMainchainID,
-	getTokenIDLSK,
+	getTokenIDKLY,
 	getEncodedCCMAndID,
 } from '../../../../../../src/modules/interoperability/utils';
 import { PrefixedStateReadWriter } from '../../../../../../src/state_machine/prefixed_state_read_writer';
@@ -167,7 +167,7 @@ describe('RegisterSidechainCommand', () => {
 		registeredNamesSubstore = interopMod.stores.get(RegisteredNamesStore);
 		ownChainAccountSubstore = interopMod.stores.get(OwnChainAccountStore);
 		await ownChainAccountSubstore.set(createStoreGetter(stateStore), EMPTY_BYTES, {
-			name: 'lisk',
+			name: 'klayr',
 			chainID,
 			nonce: BigInt(0),
 		});
@@ -492,7 +492,7 @@ describe('RegisterSidechainCommand', () => {
 				inbox: { root: EMPTY_HASH, appendPath: [], size: 0 },
 				outbox: { root: EMPTY_HASH, appendPath: [], size: 0 },
 				partnerChainOutboxRoot: EMPTY_HASH,
-				messageFeeTokenID: getTokenIDLSK(chainID),
+				messageFeeTokenID: getTokenIDKLY(chainID),
 				minReturnFeePerByte: MIN_RETURN_FEE_PER_BYTE_BEDDOWS,
 			};
 
@@ -598,13 +598,13 @@ describe('RegisterSidechainCommand', () => {
 			expect(initializeEscrowAmountMock).toHaveBeenCalledWith(
 				expect.anything(),
 				context.params.chainID,
-				getTokenIDLSK(context.params.chainID),
+				getTokenIDKLY(context.params.chainID),
 			);
 		});
 
 		it('should update nonce in own chain acount substore', async () => {
 			// Arrange
-			const expectedValue = { name: 'lisk', chainID, nonce: BigInt(1) };
+			const expectedValue = { name: 'klayr', chainID, nonce: BigInt(1) };
 
 			// Act
 			await sidechainRegistrationCommand.execute(context);
@@ -621,7 +621,7 @@ describe('RegisterSidechainCommand', () => {
 			const encodedParams = codec.encode(registrationCCMParamsSchema, {
 				name: transactionParams.name,
 				chainID: newChainID,
-				messageFeeTokenID: getTokenIDLSK(chainID),
+				messageFeeTokenID: getTokenIDKLY(chainID),
 				minReturnFeePerByte: MIN_RETURN_FEE_PER_BYTE_BEDDOWS,
 			});
 			const ccm = {

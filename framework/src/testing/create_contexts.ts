@@ -13,16 +13,10 @@
  *
  */
 
-import {
-	BlockAssets,
-	BlockHeader,
-	BlockHeaderAttrs,
-	StateStore,
-	Transaction,
-} from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
+import { BlockAssets, BlockHeader, BlockHeaderAttrs, StateStore, Transaction } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { ModuleEndpointContext } from '../types';
 import { Logger } from '../logger';
 import {

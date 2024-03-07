@@ -13,11 +13,11 @@
  */
 
 import { InMemoryDatabase, Database } from '@liskhq/lisk-db';
-import { Chain, StateStore } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { objects } from '@liskhq/lisk-utils';
-import { validator } from '@liskhq/lisk-validator';
-import { address } from '@liskhq/lisk-cryptography';
+import { Chain, StateStore } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { objects } from '@klayr/utils';
+import { validator } from '@klayr/validator';
+import { address } from '@klayr/cryptography';
 import { Logger } from '../../logger';
 import { Network } from '../network';
 import {
@@ -220,7 +220,7 @@ export class NetworkEndpoint extends BaseNetworkEndpoint {
 				if (!isValidCommit) {
 					this._logger.trace(
 						{
-							validatorAddress: address.getLisk32AddressFromAddress(singleCommit.validatorAddress),
+							validatorAddress: address.getKlayr32AddressFromAddress(singleCommit.validatorAddress),
 							height: singleCommit.height,
 						},
 						'Received single commit is invalid',
@@ -230,7 +230,7 @@ export class NetworkEndpoint extends BaseNetworkEndpoint {
 				this._commitPool.addCommit(singleCommit);
 				this._logger.debug(
 					{
-						validatorAddress: address.getLisk32AddressFromAddress(singleCommit.validatorAddress),
+						validatorAddress: address.getKlayr32AddressFromAddress(singleCommit.validatorAddress),
 						height: singleCommit.height,
 					},
 					'Added received single commit to the pool',

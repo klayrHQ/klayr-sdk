@@ -57,7 +57,7 @@ describe('SupportedTokensStore', () => {
 			).resolves.toBeTrue();
 		});
 
-		it('should return true if tokenID is LSK', async () => {
+		it('should return true if tokenID is KLY ', async () => {
 			await store.set(context, Buffer.from([1, 0, 0, 0]), { supportedTokenIDs: [] });
 
 			await expect(
@@ -65,13 +65,13 @@ describe('SupportedTokensStore', () => {
 			).resolves.toBeTrue();
 		});
 
-		it('should return false if token is from mainchain but not LSK', async () => {
+		it('should return false if token is from mainchain but not KLY ', async () => {
 			await expect(
 				store.isSupported(context, Buffer.from([1, 0, 0, 0, 0, 0, 0, 1])),
 			).resolves.toBeFalse();
 		});
 
-		it('should return false if tokenID is LSK but different network', async () => {
+		it('should return false if tokenID is KLY  but different network', async () => {
 			await expect(
 				store.isSupported(context, Buffer.from([0, 0, 0, 0, 0, 0, 0, 0])),
 			).resolves.toBeFalse();
@@ -131,7 +131,7 @@ describe('SupportedTokensStore', () => {
 	});
 
 	describe('supportChain', () => {
-		it('should not insert data if chainID is LSK', async () => {
+		it('should not insert data if chainID is KLY ', async () => {
 			await store.set(context, ALL_SUPPORTED_TOKENS_KEY, { supportedTokenIDs: [] });
 			await store.supportChain(context, Buffer.from([1, 0, 0, 0]));
 
@@ -199,7 +199,7 @@ describe('SupportedTokensStore', () => {
 	});
 
 	describe('supportToken', () => {
-		it('should not insert data if chainID is LSK', async () => {
+		it('should not insert data if chainID is KLY ', async () => {
 			await store.set(context, ALL_SUPPORTED_TOKENS_KEY, { supportedTokenIDs: [] });
 			await store.supportToken(context, Buffer.from([1, 0, 0, 0, 0, 0, 0, 0]));
 
@@ -276,7 +276,7 @@ describe('SupportedTokensStore', () => {
 
 			await expect(
 				store.removeSupportForToken(context, Buffer.concat([ownChainID, Buffer.alloc(4)])),
-			).rejects.toThrow('Cannot remove support for LSK or native token.');
+			).rejects.toThrow('Cannot remove support for KLY  or native token.');
 		});
 
 		it('should not do anything if all tokens are supported', async () => {

@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Block, BlockAssets } from '@liskhq/lisk-chain';
+import { Block, BlockAssets } from '@klayr/chain';
 import { createBlock } from '../../../src/testing/create_block';
 import { defaultConfig } from '../../../src/testing/fixtures/config';
 import { createFakeBlockHeader } from '../../fixtures';
@@ -29,7 +29,7 @@ describe('Create Block', () => {
 			'hex',
 		),
 		binaryAddress: Buffer.from('3d865276b83b6c7761fe8a1d9725eb9d45e710ee', 'hex'),
-		address: 'lsknecmphq2n9en728fy37a7485tqvf7pn7nmbeb3',
+		address: 'klynecmphq2n9en728fy37a7485tqvf7pn7nmbeb3',
 	};
 
 	let genesisBlock: Block;

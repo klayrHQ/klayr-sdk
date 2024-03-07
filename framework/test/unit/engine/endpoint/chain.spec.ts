@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Event, StateStore } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
+import { Event, StateStore } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
 import { Batch, Database, InMemoryDatabase } from '@liskhq/lisk-db';
 import {
 	EMPTY_KEY,

@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { regularMerkleTree } from '@liskhq/lisk-tree';
-import { utils } from '@liskhq/lisk-cryptography';
-import { NotFoundError } from '@liskhq/lisk-chain';
+import { codec } from '@klayr/codec';
+import { regularMerkleTree } from '@klayr/tree';
+import { utils } from '@klayr/cryptography';
+import { NotFoundError } from '@klayr/chain';
 import {
 	CommandExecuteContext,
 	CommandVerifyContext,

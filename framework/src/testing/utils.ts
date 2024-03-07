@@ -44,7 +44,7 @@ export const waitUntilBlockHeight = async ({
 	});
 
 // Database utils
-const defaultDatabasePath = path.join(os.tmpdir(), 'lisk-framework', Date.now().toString());
+const defaultDatabasePath = path.join(os.tmpdir(), 'klayr-framework', Date.now().toString());
 export const getDBPath = (name: string, dbPath = defaultDatabasePath): string =>
 	path.join(dbPath, `${name}.db`);
 

@@ -7,7 +7,7 @@ import {
 	VerificationResult,
 	VerifyStatus,
 	codec,
-} from 'lisk-sdk';
+} from 'klayr-sdk';
 import { CROSS_CHAIN_COMMAND_NAME_REACT } from '../constants';
 import {
 	CCReactCommandParamsSchema,

@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2023 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -14,8 +14,8 @@
  *
  */
 
-import { Application } from 'lisk-framework';
-import { codec } from '@liskhq/lisk-codec';
+import { Application } from 'klayr-framework';
+import { codec } from '@klayr/codec';
 import { generateGenesisBlockDefaultPoSAssets } from '../../src/utils/genesis_creation';
 
 describe('genesis creation', () => {

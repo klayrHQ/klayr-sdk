@@ -11,9 +11,9 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Transaction, BlockAssets } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
+import { Transaction, BlockAssets } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
 import { Logger } from '../../../src/logger';
 import {
 	BlockHeader,

@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { utils as cryptoUtils } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { utils as cryptoUtils } from '@klayr/cryptography';
 import { RewardsAssignedEvent } from '../../../../src/modules/pos/events/rewards_assigned';
 import { InternalMethod } from '../../../../src/modules/pos/internal_method';
 import { createNewMethodContext } from '../../../../src/state_machine/method_context';

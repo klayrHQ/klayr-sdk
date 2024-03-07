@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 /* eslint-disable max-classes-per-file */
-import { utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { EMPTY_BUFFER } from '@liskhq/lisk-chain/dist-node/constants';
-import { validator } from '@liskhq/lisk-validator';
+import { utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { EMPTY_BUFFER } from '@klayr/chain/dist-node/constants';
+import { validator } from '@klayr/validator';
 import {
 	CommandExecuteContext,
 	MainchainInteroperabilityModule,

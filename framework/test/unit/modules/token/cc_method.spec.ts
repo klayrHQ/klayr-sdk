@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { address, utils } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { address, utils } from '@klayr/cryptography';
 import { TokenModule } from '../../../../src/modules/token';
 import {
 	CCM_STATUS_OK,
@@ -291,7 +291,7 @@ describe('TokenInteroperableMethod', () => {
 	});
 
 	describe('beforeCrossChainMessageForwarding', () => {
-		it('should throw if messageFeeTokenID is not LSK', async () => {
+		it('should throw if messageFeeTokenID is not KLY ', async () => {
 			jest
 				.spyOn(tokenInteropMethod['_interopMethod'], 'getMessageFeeTokenIDFromCCM')
 				.mockResolvedValue(defaultForeignTokenID);
@@ -325,7 +325,7 @@ describe('TokenInteroperableMethod', () => {
 					},
 					ccmFailed: false,
 				}),
-			).rejects.toThrow('Message fee token should be LSK.');
+			).rejects.toThrow('Message fee token should be KLY .');
 		});
 
 		it(`should emit ${TokenEventResult.SUCCESSFUL} if there is no ccm fee`, async () => {

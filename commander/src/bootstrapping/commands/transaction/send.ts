@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import * as validator from '@liskhq/lisk-validator';
+import * as validator from '@klayr/validator';
 import { BaseIPCClientCommand } from '../base_ipc_client';
 
 interface Args {

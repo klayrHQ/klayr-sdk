@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
 import { BaseCCMethod } from '../interoperability/base_cc_method';
 import {
 	BeforeCCMForwardingContext,
@@ -29,7 +29,7 @@ import { RecoverEvent } from './events/recover';
 import { EMPTY_BYTES } from '../interoperability/constants';
 import { BeforeCCMForwardingEvent } from './events/before_ccm_forwarding';
 import { splitTokenID } from './utils';
-import { getEncodedCCMAndID, getTokenIDLSK } from '../interoperability/utils';
+import { getEncodedCCMAndID, getTokenIDKLY } from '../interoperability/utils';
 import { InternalMethod } from './internal_method';
 
 export class TokenInteroperableMethod extends BaseCCMethod {
@@ -100,8 +100,8 @@ export class TokenInteroperableMethod extends BaseCCMethod {
 			ccm,
 		);
 
-		if (!messageFeeTokenID.equals(getTokenIDLSK(ctx.chainID))) {
-			throw new Error('Message fee token should be LSK.');
+		if (!messageFeeTokenID.equals(getTokenIDKLY(ctx.chainID))) {
+			throw new Error('Message fee token should be KLY .');
 		}
 
 		const escrowStore = this.stores.get(EscrowStore);

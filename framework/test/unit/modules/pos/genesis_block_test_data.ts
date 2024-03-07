@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { bls, address as cryptoAddress, legacy } from '@liskhq/lisk-cryptography';
-import { Mnemonic } from '@liskhq/lisk-passphrase';
+import { bls, address as cryptoAddress, legacy } from '@klayr/cryptography';
+import { Mnemonic } from '@klayr/passphrase';
 
 export const validators = new Array(120).fill(0).map((_, i) => {
 	const passphrase = Mnemonic.generateMnemonic();

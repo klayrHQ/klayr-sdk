@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { BlockHeader } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
+import { BlockHeader } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
 import { when } from 'jest-when';
 import {
 	createBlockContext,

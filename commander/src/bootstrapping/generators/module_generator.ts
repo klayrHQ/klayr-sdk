@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -22,14 +22,14 @@ interface ModuleGeneratorOptions extends BaseGeneratorOptions {
 }
 
 export default class ModuleGenerator extends BaseGenerator {
-	protected _liskModuleArgs: {
+	protected _klayrModuleArgs: {
 		moduleName: string;
 	};
 
 	public constructor(args: string | string[], opts: ModuleGeneratorOptions) {
 		super(args, opts);
 
-		this._liskModuleArgs = {
+		this._klayrModuleArgs = {
 			moduleName: opts.moduleName,
 		};
 	}
@@ -42,10 +42,10 @@ export default class ModuleGenerator extends BaseGenerator {
 		this.log('Generating module skeleton.');
 		this.composeWith(
 			{
-				Generator: this._liskTemplate.generators.module,
-				path: this._liskTemplatePath,
+				Generator: this._klayrTemplate.generators.module,
+				path: this._klayrTemplatePath,
 			},
-			this._liskModuleArgs,
+			this._klayrModuleArgs,
 		);
 	}
 

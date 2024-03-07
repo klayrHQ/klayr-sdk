@@ -12,12 +12,12 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 import { when } from 'jest-when';
-import { codec } from '@liskhq/lisk-codec';
-import { Block, Chain, BlockHeader } from '@liskhq/lisk-chain';
-import { objects } from '@liskhq/lisk-utils';
+import { codec } from '@klayr/codec';
+import { Block, Chain, BlockHeader } from '@klayr/chain';
+import { objects } from '@klayr/utils';
 
 import { InMemoryDatabase } from '@liskhq/lisk-db';
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import {
 	BlockSynchronizationMechanism,
 	Errors,

@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockHeader } from '@liskhq/lisk-chain';
-import { bls, utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
+import { BlockHeader } from '@klayr/chain';
+import { bls, utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
 import {
 	Certificate,
 	UnsignedCertificate,

@@ -13,7 +13,7 @@
  *
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { ModuleEndpointContext } from '../../../src';
 import { RequestContext } from '../../../src/engine/rpc/rpc_server';
 import { PrefixedStateReadWriter } from '../../../src/state_machine/prefixed_state_read_writer';

@@ -1,0 +1,53 @@
+{
+	"title": "Encoding for bytes types supported by klayr-codec",
+	"summary": "Examples of encoding bytes with klayr-codec",
+	"config": {
+		"network": "devnet"
+	},
+	"runner": "klayr_codec",
+	"handler": "bytes_encodings",
+	"testCases": [
+		{
+			"description": "Encoding of chunk of bytes",
+			"input": {
+				"object": {
+					"address": "e11a11364738225813f86ea85214400e5db08d6e"
+				},
+				"schema": {
+					"$id": "/object9",
+					"type": "object",
+					"properties": {
+						"address": {
+							"dataType": "bytes",
+							"fieldNumber": 1
+						}
+					}
+				}
+			},
+			"output": {
+				"value": "0a14e11a11364738225813f86ea85214400e5db08d6e"
+			}
+		},
+		{
+			"description": "Encoding of empty bytes",
+			"input": {
+				"object": {
+					"address": ""
+				},
+				"schema": {
+					"$id": "/object9",
+					"type": "object",
+					"properties": {
+						"address": {
+							"dataType": "bytes",
+							"fieldNumber": 1
+						}
+					}
+				}
+			},
+			"output": {
+				"value": "0a00"
+			}
+		}
+	]
+}

@@ -10,7 +10,7 @@ Genesis Configuration:
 blockTime: 5;
 bftBatchSize: 5;
 chainID: '04000000';
-name: 'lisk_mainchain';
+name: 'klayr_mainchain';
 ```
 
 - pos-sidechain-example-one
@@ -95,28 +95,28 @@ When the finalized height is reached, check chain status as described above and 
 
 ##### Transfer from mainchain to sidechain one
 
-- Run `ts-node pos-mainchain-fast/config/scripts/transfer_lsk_sidechain_one.ts` from `interop` folder.
-- Check balance for `lskxz85sur2yo22dmcxybe39uvh2fg7s2ezxq4ny9` using `token_getBalances` RPC on sidechain one.
+- Run `ts-node pos-mainchain-fast/config/scripts/transfer_kly_sidechain_one.ts` from `interop` folder.
+- Check balance for `klyxz85sur2yo22dmcxybe39uvh2fg7s2ezxq4ny9` using `token_getBalances` RPC on sidechain one.
 
 ##### Transfer from mainchain to sidechain two
 
-- Run `ts-node pos-mainchain-fast/config/scripts/transfer_lsk_sidechain_two.ts` from `interop` folder.
-- Check balance for `lskx5uqu2zzybdwrqswd8c6b5v5aj77yytn4k6mv6` using `token_getBalances` RPC on sidechain two.
+- Run `ts-node pos-mainchain-fast/config/scripts/transfer_kly_sidechain_two.ts` from `interop` folder.
+- Check balance for `klyx5uqu2zzybdwrqswd8c6b5v5aj77yytn4k6mv6` using `token_getBalances` RPC on sidechain two.
 
 ##### Transfer sidechain one to mainchain
 
-- Run `ts-node pos-sidechain-example-one/config/scripts/transfer_lsk_mainchain.ts` from `interop` folder.
-- Check balance for `lskzjzeam6szx4a65sxgavr98m9h4kctcx85nvy7h` using `token_getBalances` RPC on mainchain.
+- Run `ts-node pos-sidechain-example-one/config/scripts/transfer_kly_mainchain.ts` from `interop` folder.
+- Check balance for `klyzjzeam6szx4a65sxgavr98m9h4kctcx85nvy7h` using `token_getBalances` RPC on mainchain.
 
 ##### Transfer sidechain two to sidechain one
 
 - Run `ts-node pos-sidechain-example-one/config/scripts/transfer_sidechain_one.ts` from `interop` folder.
-- Check balance for `lskxvesvwgxpdnhp4rdukmsx42teehpxkeod7xv7f` using `token_getBalances` RPC on sidechain one.
+- Check balance for `klyxvesvwgxpdnhp4rdukmsx42teehpxkeod7xv7f` using `token_getBalances` RPC on sidechain one.
 
 ##### Transfer sidechain one to sidechain two
 
 - Run `ts-node pos-sidechain-example-one/config/scripts/transfer_sidechain_two.ts` from `interop` folder.
-- Check balance for `lskx5uqu2zzybdwrqswd8c6b5v5aj77yytn4k6mv6` using `token_getBalances` RPC on sidechain one.
+- Check balance for `klyx5uqu2zzybdwrqswd8c6b5v5aj77yytn4k6mv6` using `token_getBalances` RPC on sidechain one.
 
 ### Helper Scripts
 

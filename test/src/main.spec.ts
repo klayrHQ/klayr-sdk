@@ -15,7 +15,7 @@
 import * as childProcess from 'child_process';
 import * as path from 'path';
 import * as os from 'os';
-import { apiClient } from 'lisk-sdk';
+import { apiClient } from 'klayr-sdk';
 import * as debug from 'debug';
 import { specs as tokenSpecs } from './scenarios/modules/token';
 import * as passphrase from '../../examples/pos-mainchain/config/default/passphrase.json';
@@ -27,7 +27,7 @@ const dataPath = path.join(os.tmpdir(), Date.now().toString());
 
 jest.setTimeout(100000000);
 
-describe('Lisk SDK functional test', () => {
+describe('Klayr SDK functional test', () => {
 	const specs = [...tokenSpecs];
 	const appLog = debug('application');
 

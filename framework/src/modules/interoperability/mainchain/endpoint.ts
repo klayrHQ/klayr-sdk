@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
+import { validator } from '@klayr/validator';
 import { ModuleEndpointContext } from '../../../types';
 import { BaseInteroperabilityEndpoint } from '../base_interoperability_endpoint';
 import { CHAIN_REGISTRATION_FEE, EMPTY_BYTES, MIN_RETURN_FEE_PER_BYTE_BEDDOWS } from '../constants';

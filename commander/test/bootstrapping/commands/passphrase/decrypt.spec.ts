@@ -12,15 +12,15 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import * as cryptography from '@liskhq/lisk-cryptography';
+import * as cryptography from '@klayr/cryptography';
 import * as fs from 'fs-extra';
 import * as readerUtils from '../../../../src/utils/reader';
 import { DecryptCommand } from '../../../../src/bootstrapping/commands/passphrase/decrypt';
 import { getConfig } from '../../../helpers/config';
 import { Awaited } from '../../../types';
 
-jest.mock('@liskhq/lisk-cryptography', () => ({
-	...jest.requireActual('@liskhq/lisk-cryptography'),
+jest.mock('@klayr/cryptography', () => ({
+	...jest.requireActual('@klayr/cryptography'),
 }));
 
 describe('passphrase:decrypt', () => {

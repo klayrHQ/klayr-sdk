@@ -14,11 +14,11 @@
  */
 
 import * as fs from 'fs-extra';
-import { ed } from '@liskhq/lisk-cryptography';
-import { Application, IPCChannel, transactionSchema } from 'lisk-framework';
-import * as apiClient from '@liskhq/lisk-api-client';
-import { codec } from '@liskhq/lisk-codec';
-import { TransactionAttrs } from '@liskhq/lisk-chain';
+import { ed } from '@klayr/cryptography';
+import { Application, IPCChannel, transactionSchema } from 'klayr-framework';
+import * as apiClient from '@klayr/api-client';
+import { codec } from '@klayr/codec';
+import { TransactionAttrs } from '@klayr/chain';
 
 import {
 	tokenTransferParamsSchema,
@@ -194,7 +194,7 @@ describe('transaction:sign command', () => {
 							tokenID: '0000000000000000',
 							amount: '100',
 							data: 'send token',
-							recipientAddress: 'lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
+							recipientAddress: 'klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
 						},
 						command: 'transfer',
 						fee: '100000000',
@@ -224,7 +224,7 @@ describe('transaction:sign command', () => {
 
 			const messageBytes = codec.encode(multisigRegMsgSchema, messageForRegistration);
 
-			const MESSAGE_TAG_MULTISIG_REG = 'LSK_RMSG_';
+			const MESSAGE_TAG_MULTISIG_REG = 'KLY_RMSG_';
 			const networkIdentifier = Buffer.from(chainIDStr, 'hex');
 
 			const decodedParams = {
@@ -277,7 +277,7 @@ describe('transaction:sign command', () => {
 			};
 
 			const unsignedMultiSigTransaction = codec.encode(transactionSchema, msTx);
-			const TAG_TRANSACTION = 'LSK_TX_';
+			const TAG_TRANSACTION = 'KLY_TX_';
 			const signatureSender = ed.signDataWithPrivateKey(
 				TAG_TRANSACTION,
 				networkIdentifier,
@@ -495,7 +495,7 @@ describe('transaction:sign command', () => {
 								tokenID: '0000000000000000',
 								amount: '100',
 								data: 'send token',
-								recipientAddress: 'lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
+								recipientAddress: 'klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
 							},
 							command: 'transfer',
 							fee: '100000000',
@@ -570,7 +570,7 @@ describe('transaction:sign command', () => {
 
 			const messageBytes = codec.encode(multisigRegMsgSchema, messageForRegistration);
 
-			const MESSAGE_TAG_MULTISIG_REG = 'LSK_RMSG_';
+			const MESSAGE_TAG_MULTISIG_REG = 'KLY_RMSG_';
 			const chainID = Buffer.from(chainIDStr, 'hex');
 
 			const decodedParams = {
@@ -638,7 +638,7 @@ describe('transaction:sign command', () => {
 			};
 
 			const unsignedMultiSigTransaction = codec.encode(transactionSchema, msTx);
-			const TAG_TRANSACTION = 'LSK_TX_';
+			const TAG_TRANSACTION = 'KLY_TX_';
 			const decodedBaseTransaction: any = codec.decode(
 				transactionSchema,
 				unsignedMultiSigTransaction,
@@ -717,14 +717,14 @@ describe('transaction:sign command', () => {
 								'fa406b6952d377f0278920e3eb8da919e4cf5c68b02eeba5d8b3334fdc0369b6',
 							],
 							signatures: [
-								'b782005d5b55f390bf1e10ed88a076e448124a9be882414977876a3fd134a2047e14c6aeb8b58915c4bb51ba3490b7643710432019dac171467bad214e0ced07',
-								'082501104f42f0c8a47291b51630e6869aebb653fe224dca74a9027fc8494f5a2d6537bb1bc1b94d8b1a1af00d14fb50b9e0cd36e3bfb8ea3265c5e956064c0c',
-								'aa72f005da46a8782ff5edd5b2546baf6a8bb0d67284c4e7631abf6629feba65854203d961fb4c2a31c12c525c0b7c4f9c8a47118789f93cf6ebd158b294c707',
-								'6a3a179fbb076ca8e8c3e42e1e6d2ae447f39ae413df083e14685fd02a562ab3fac085080709387e3ecbf305b58b4f1957ea497e9e7834d55a8a71a946f5050d',
+								'4757b58a1e28ae6378801747109f1d89916352d478f58ef7439ec467a8ae0a5bd11918c1ba803603021dd5f27a243c67acfab33de1952fc06db884bdf5fe570c',
+								'edf1c5e200e8c6fab7cbe6775dead640ce51fb43c0aa9fb747d21b9a24fd348ff1059cfbac2e245cc3bdd5939bf369b3b6f502d7af496ea9f7be56ae43250e0c',
+								'43a60182a5f42f156bc5edb7e07aa77287bbf4d9a2f291954ffd7ff7a0f26c899d77561cd2e6b5481d709e9ba141dda09e2bab2a691273a656ac78c305a1ac00',
+								'4035ca3a7d00a52a85339bc90a466b27638065557d784028687bfd3a582b544c525ce445fbb641183021508e3014d64eb5a8a1f47031f9647244dc95a0d97d09',
 							],
 						},
 						signatures: [
-							'06f78300e3fae75408e3526fd08de832e953e0d252f441f57003a1f4ad84f350edf0a20a641f43abe7fb81121306750e23effd31f6f04fbd1156a9088585440c',
+							'6980ef957d5b048e7376775f26e3aaf6e0f29d388263178ddd60eb93475ce3a2864711c0dbb336fc97b61dd6103fbe435f4380c81139faf8671893b609cc0307',
 						],
 					},
 				});
@@ -833,7 +833,7 @@ describe('transaction:sign command', () => {
 								tokenID: '0000000000000000',
 								amount: '100',
 								data: 'send token',
-								recipientAddress: 'lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
+								recipientAddress: 'klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
 							},
 							command: 'transfer',
 							fee: '100000000',

@@ -13,9 +13,9 @@
  */
 
 import { when } from 'jest-when';
-import { codec } from '@liskhq/lisk-codec';
-import { Block, Chain } from '@liskhq/lisk-chain';
-import { utils, address } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { Block, Chain } from '@klayr/chain';
+import { utils, address } from '@klayr/cryptography';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
 import {
 	FastChainSwitchingMechanism,

@@ -20,7 +20,7 @@ export interface HashOnion {
 }
 
 export const hashOnionSchema = {
-	$id: 'lisk/random/hashOnion',
+	$id: 'klayr/random/hashOnion',
 	type: 'object',
 	required: ['count', 'distance', 'hashes'],
 	properties: {

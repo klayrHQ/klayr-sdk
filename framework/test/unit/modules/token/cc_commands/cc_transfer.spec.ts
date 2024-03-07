@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
 import { TokenModule, TokenMethod, ccuParamsSchema } from '../../../../../src';
 import { CrossChainTransferCommand } from '../../../../../src/modules/token/cc_commands/cc_transfer';
 import {

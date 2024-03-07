@@ -17,5 +17,5 @@ A set of test generators for unlocking transaction transactions by LIP-0023 and 
 
 ## Resources
 
-- [LIP-0023](https://github.com/LiskHQ/lips/blob/master/proposals/lip-0023.md)
-- [LIP-0024](https://github.com/LiskHQ/lips/blob/master/proposals/lip-0024.md)
+- [LIP-0023](https://github.com/KlayrHQ/lips/blob/master/proposals/lip-0023.md)
+- [LIP-0024](https://github.com/KlayrHQ/lips/blob/master/proposals/lip-0024.md)

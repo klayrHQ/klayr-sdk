@@ -12,14 +12,14 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Schema } from '@liskhq/lisk-codec';
+import { Schema } from '@klayr/codec';
 import { MethodContext } from '../../../src';
 import { BaseStore, computeSubstorePrefix } from '../../../src/modules/base_store';
 import { createTransientMethodContext } from '../../../src/testing';
 
 class SampleStore extends BaseStore<undefined> {
 	public schema: Schema = {
-		$id: '/lisk/test/sample',
+		$id: '/klayr/test/sample',
 		type: 'object',
 		properties: {},
 	};

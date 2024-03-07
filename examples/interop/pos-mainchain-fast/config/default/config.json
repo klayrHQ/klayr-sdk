@@ -1,6 +1,6 @@
 {
 	"system": {
-		"dataPath": "~/.lisk/pos-mainchain-fast",
+		"dataPath": "~/.klayr/pos-mainchain-fast",
 		"keepEventsForHeights": -1,
 		"keepInclusionProofsForHeights": -1,
 		"inclusionProofKeys": [

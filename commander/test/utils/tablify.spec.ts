@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2019 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -31,7 +31,7 @@ describe('tablify utils', () => {
 	describe('a non-empty object', () => {
 		it('should have the corresponding rows', () => {
 			const printValue = {
-				lisk: 'js',
+				klayr: 'js',
 				version: 1,
 			};
 			const returnValue = tablify(printValue);
@@ -114,15 +114,15 @@ describe('tablify utils', () => {
 		it('should have the corresponding rows', () => {
 			const printValue: ReadonlyArray<TestPrintValue> = [
 				{
-					lisk: 'js',
+					klayr: 'js',
 					version: 1,
 				},
 				{
-					lisk: 'ts',
+					klayr: 'ts',
 					version: 2,
 				},
 				{
-					lisk: 'jsx',
+					klayr: 'jsx',
 					version: 3,
 				},
 			];
@@ -141,11 +141,11 @@ describe('tablify utils', () => {
 		it('should have the corresponding rows', () => {
 			const printValue: ReadonlyArray<TestPrintValue> = [
 				{
-					lisk: 'js',
+					klayr: 'js',
 					version: 1,
 				},
 				{
-					'lisk-commander': 'ts',
+					'klayr-commander': 'ts',
 					version: 2,
 				},
 				{
@@ -188,7 +188,7 @@ describe('tablify utils', () => {
 		it('should have the corresponding rows', () => {
 			const printValue: ReadonlyArray<TestPrintValue> = [
 				{
-					lisk: 'js',
+					klayr: 'js',
 					version: 1,
 					assets: {
 						type: 0,
@@ -196,7 +196,7 @@ describe('tablify utils', () => {
 					signatures: ['publicKey1', 'publicKey2'],
 				},
 				{
-					lisk: 'ts',
+					klayr: 'ts',
 					version: 2,
 					data: {
 						testing: 'test-string',
@@ -206,7 +206,7 @@ describe('tablify utils', () => {
 					},
 				},
 				{
-					lisk: 'jsx',
+					klayr: 'jsx',
 					version: 3,
 					assets: {
 						type: 3,

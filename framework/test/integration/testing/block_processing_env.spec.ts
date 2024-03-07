@@ -12,11 +12,11 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { address } from '@liskhq/lisk-cryptography';
+import { address } from '@klayr/cryptography';
 import * as testing from '../../../src/testing';
 
 describe('getBlockProcessingEnv', () => {
-	const databasePath = '/tmp/lisk/processing_env/test';
+	const databasePath = '/tmp/klayr/processing_env/test';
 
 	let processEnv: testing.BlockProcessingEnv;
 
@@ -35,7 +35,7 @@ describe('getBlockProcessingEnv', () => {
 	it('should get genesis block as the last block', () => {
 		// Act & Assert
 		const { height } = processEnv.getLastBlock().header;
-		expect(height).toEqual(0);
+		expect(height).toBe(0);
 	});
 
 	it('should return all registered validators', async () => {
@@ -59,7 +59,7 @@ describe('getBlockProcessingEnv', () => {
 		const block = await processEnv.createBlock();
 
 		// Act & Assert
-		expect(processEnv.getLastBlock().header.height).toEqual(0);
+		expect(processEnv.getLastBlock().header.height).toBe(0);
 		await expect(processEnv.process(block)).toResolve();
 		expect(processEnv.getLastBlock().header.height).toEqual(block.header.height);
 		expect(processEnv.getLastBlock().header.id).toEqual(block.header.id);
@@ -82,7 +82,7 @@ describe('getBlockProcessingEnv', () => {
 		// Act & Assert
 		const block = await processEnv.createBlock();
 		expect(block.header.generatorAddress).toEqual(
-			address.getAddressFromLisk32Address(keys.address),
+			address.getAddressFromKlayr32Address(keys.address),
 		);
 	});
 });

@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -18,9 +18,9 @@ import { Config } from '@oclif/core';
 import pJSON = require('../../package.json');
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const getConfig = async (name = 'lisk-core') => {
+export const getConfig = async (name = 'klayr-core') => {
 	const config = await Config.load();
-	config.pjson.lisk = { addressPrefix: 'lsk' };
+	config.pjson.klayr = { addressPrefix: 'kly' };
 	config.pjson.version = pJSON.version;
 	config.pjson.name = name;
 	return config;

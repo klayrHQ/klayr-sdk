@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { address as cryptoAddress } from '@liskhq/lisk-cryptography';
-import { math } from '@liskhq/lisk-utils';
+import { address as cryptoAddress } from '@klayr/cryptography';
+import { math } from '@klayr/utils';
 import { defaultConfig, TOKEN_ID_LENGTH } from '../../../../src/modules/pos/constants';
 import {
 	ModuleConfig,
@@ -46,8 +46,8 @@ describe('utils', () => {
 			expect(shuffledValidatorList).toHaveLength(addressList.length);
 			shuffledValidatorList.forEach(validator =>
 				expect(
-					addressList.map(a => cryptoAddress.getLisk32AddressFromAddress(a.address)),
-				).toContain(cryptoAddress.getLisk32AddressFromAddress(validator.address)),
+					addressList.map(a => cryptoAddress.getKlayr32AddressFromAddress(a.address)),
+				).toContain(cryptoAddress.getKlayr32AddressFromAddress(validator.address)),
 			);
 
 			expect(shuffledValidatorList.map(b => b.address.toString('hex'))).toEqual(

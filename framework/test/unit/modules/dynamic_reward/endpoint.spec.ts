@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { utils, address as cryptoAddress } from '@liskhq/lisk-cryptography';
+import { utils, address as cryptoAddress } from '@klayr/cryptography';
 import { DynamicRewardModule } from '../../../../src/modules/dynamic_reward';
 import { DynamicRewardEndpoint } from '../../../../src/modules/dynamic_reward/endpoint';
 import { PrefixedStateReadWriter } from '../../../../src/state_machine/prefixed_state_read_writer';
@@ -88,7 +88,7 @@ describe('DynamicRewardModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						validatorAddress: cryptoAddress.getLisk32AddressFromAddress(address3),
+						validatorAddress: cryptoAddress.getKlayr32AddressFromAddress(address3),
 					},
 				}),
 			);
@@ -106,7 +106,7 @@ describe('DynamicRewardModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						validatorAddress: cryptoAddress.getLisk32AddressFromAddress(address2),
+						validatorAddress: cryptoAddress.getKlayr32AddressFromAddress(address2),
 					},
 					context: {
 						header: createFakeBlockHeader({ height: 10000 }),
@@ -127,7 +127,7 @@ describe('DynamicRewardModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						validatorAddress: cryptoAddress.getLisk32AddressFromAddress(address),
+						validatorAddress: cryptoAddress.getKlayr32AddressFromAddress(address),
 					},
 					context: {
 						header: createFakeBlockHeader({ height: 10000 }),
@@ -135,7 +135,7 @@ describe('DynamicRewardModuleEndpoint', () => {
 				}),
 			);
 
-			// total reward for active validators is 9LSK (5LSK - 0.5LSK) * 2, which will be distributed by weight
+			// total reward for active validators is 9KLY (5KLY - 0.5KLY) * 2, which will be distributed by weight
 			expect(response).toEqual({
 				blockReward: '464000000', // 9 * (230/500) + 0.5
 				dailyReward: '55602720000',

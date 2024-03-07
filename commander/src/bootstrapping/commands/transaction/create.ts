@@ -13,12 +13,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable no-param-reassign */
-import * as apiClient from '@liskhq/lisk-api-client';
-import { blockAssetSchema, eventSchema } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import * as cryptography from '@liskhq/lisk-cryptography';
-import * as transactions from '@liskhq/lisk-transactions';
-import { validator } from '@liskhq/lisk-validator';
+import * as apiClient from '@klayr/api-client';
+import { blockAssetSchema, eventSchema } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import * as cryptography from '@klayr/cryptography';
+import * as transactions from '@klayr/transactions';
+import { validator } from '@klayr/validator';
 import { Command, Flags as flagParser } from '@oclif/core';
 import {
 	Application,
@@ -28,7 +28,7 @@ import {
 	blockSchema,
 	transactionSchema,
 	ModuleMetadataJSON,
-} from 'lisk-framework';
+} from 'klayr-framework';
 import { PromiseResolvedType } from '../../../types';
 import { deriveKeypair } from '../../../utils/commons';
 import { DEFAULT_KEY_DERIVATION_PATH } from '../../../utils/config';
@@ -176,7 +176,7 @@ const createTransactionOnline = async (
 	const nodeInfo = await client.node.getNodeInfo();
 	const { address, privateKey, publicKey } = await getKeysFromFlags(flags);
 	const account = await client.invoke<{ nonce: string }>('auth_getAuthAccount', {
-		address: cryptography.address.getLisk32AddressFromAddress(address),
+		address: cryptography.address.getKlayr32AddressFromAddress(address),
 	});
 	const params = await getParamsObject(metadata, flags, args);
 
@@ -230,9 +230,9 @@ export abstract class CreateCommand extends Command {
 	];
 
 	static examples = [
-		'transaction:create token transfer 100000000 --params=\'{"amount":100000000,"tokenID":"0400000000000000","recipientAddress":"lskycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz","data":"send token"}\'',
-		'transaction:create token transfer 100000000 --params=\'{"amount":100000000,"tokenID":"0400000000000000","recipientAddress":"lskycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz","data":"send token"}\' --json',
-		'transaction:create token transfer 100000000 --offline --network mainnet --chain-id 10000000 --nonce 1 --params=\'{"amount":100000000,"tokenID":"0400000000000000","recipientAddress":"lskycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz","data":"send token"}\'',
+		'transaction:create token transfer 100000000 --params=\'{"amount":100000000,"tokenID":"0400000000000000","recipientAddress":"klyycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz","data":"send token"}\'',
+		'transaction:create token transfer 100000000 --params=\'{"amount":100000000,"tokenID":"0400000000000000","recipientAddress":"klyycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz","data":"send token"}\' --json',
+		'transaction:create token transfer 100000000 --offline --network mainnet --chain-id 10000000 --nonce 1 --params=\'{"amount":100000000,"tokenID":"0400000000000000","recipientAddress":"klyycz7hvr8yfu74bcwxy2n4mopfmjancgdvxq8xz","data":"send token"}\'',
 		'transaction:create token transfer 100000000 --file=/txn_params.json',
 		'transaction:create token transfer 100000000 --file=/txn_params.json --json',
 	];

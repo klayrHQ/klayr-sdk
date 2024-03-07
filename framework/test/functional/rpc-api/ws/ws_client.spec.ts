@@ -12,8 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { DB_KEY_ACCOUNTS_ADDRESS, concatDBKeys } from '@liskhq/lisk-chain';
-import { createWSClient } from '@liskhq/lisk-method-client';
+import { DB_KEY_ACCOUNTS_ADDRESS, concatDBKeys } from '@klayr/chain';
+// eslint-disable-next-line import/no-unresolved
+import { createWSClient } from '@klayr/method-client';
 import {
 	closeApplication,
 	waitNBlocks,
@@ -78,7 +79,7 @@ describe('method client ws mode', () => {
 			// Act
 			const block = await client.block.getByHeight(1);
 			// Assert
-			expect(block.header.height).toEqual(1);
+			expect(block.header.height).toBe(1);
 		});
 
 		it('should throw an error when action fails due to missing argument', async () => {

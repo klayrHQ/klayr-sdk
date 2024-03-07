@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { P2PRequestPacket } from '@liskhq/lisk-p2p/dist-node/types';
+import { codec } from '@klayr/codec';
+import { P2PRequestPacket } from '@klayr/p2p/dist-node/types';
 import { Database, NotFoundError } from '@liskhq/lisk-db';
 import { LegacyConfig } from '../../types';
 import { Network } from '../network';

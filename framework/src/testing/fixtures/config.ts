@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import { address as cryptoAddress } from '@liskhq/lisk-cryptography';
+import { address as cryptoAddress } from '@klayr/cryptography';
 import { ApplicationConfig } from '../../types';
 import * as accountFixture from './keys_fixture.json';
 
@@ -23,7 +23,7 @@ export const defaultConfig: ApplicationConfig = {
 		keepEventsForHeights: -1,
 		keepInclusionProofsForHeights: -1,
 		inclusionProofKeys: [],
-		dataPath: '~/.lisk/default',
+		dataPath: '~/.klayr/default',
 		backup: {
 			height: 0,
 		},
@@ -74,11 +74,11 @@ export const defaultConfig: ApplicationConfig = {
 
 export const getKeysFromDefaultConfig = (address: Buffer) => {
 	const account = accountFixture.keys.find(key =>
-		cryptoAddress.getAddressFromLisk32Address(key.address).equals(address),
+		cryptoAddress.getAddressFromKlayr32Address(key.address).equals(address),
 	);
 	if (!account) {
 		throw new Error(
-			`Validator with address: ${cryptoAddress.getLisk32AddressFromAddress(
+			`Validator with address: ${cryptoAddress.getKlayr32AddressFromAddress(
 				address,
 			)} does not exists in default config`,
 		);

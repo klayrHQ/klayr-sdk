@@ -13,10 +13,10 @@
  */
 
 import { InMemoryDatabase, NotFoundError } from '@liskhq/lisk-db';
-import { BlockHeader, StateStore } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { bls, utils } from '@liskhq/lisk-cryptography';
-import * as crypto from '@liskhq/lisk-cryptography';
+import { BlockHeader, StateStore } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { bls, utils } from '@klayr/cryptography';
+import * as crypto from '@klayr/cryptography';
 import { when } from 'jest-when';
 import { BFTParameterNotFoundError } from '../../../../../src/engine/bft/errors';
 import { CommitPool } from '../../../../../src/engine/consensus/certificate_generation/commit_pool';
@@ -43,9 +43,9 @@ import {
 import { AggregateCommit } from '../../../../../src/engine/consensus/types';
 import { COMMIT_SORT } from '../../../../../src/engine/consensus/certificate_generation/commit_list';
 
-jest.mock('@liskhq/lisk-cryptography', () => ({
+jest.mock('@klayr/cryptography', () => ({
 	__esModule: true,
-	...jest.requireActual('@liskhq/lisk-cryptography'),
+	...jest.requireActual('@klayr/cryptography'),
 }));
 
 describe('CommitPool', () => {

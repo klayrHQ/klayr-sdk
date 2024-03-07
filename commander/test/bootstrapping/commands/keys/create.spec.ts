@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2022 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -14,7 +14,7 @@
  *
  */
 
-import * as cryptography from '@liskhq/lisk-cryptography';
+import * as cryptography from '@klayr/cryptography';
 import * as fs from 'fs-extra';
 import * as readerUtils from '../../../../src/utils/reader';
 import { CreateCommand } from '../../../../src/bootstrapping/commands/keys/create';
@@ -22,8 +22,8 @@ import { getConfig } from '../../../helpers/config';
 import { Awaited } from '../../../types';
 import { OWNER_READ_WRITE } from '../../../../src/constants';
 
-jest.mock('@liskhq/lisk-cryptography', () => ({
-	...jest.requireActual('@liskhq/lisk-cryptography'),
+jest.mock('@klayr/cryptography', () => ({
+	...jest.requireActual('@klayr/cryptography'),
 }));
 
 describe('keys:create command', () => {
@@ -72,7 +72,7 @@ describe('keys:create command', () => {
 		defaultBlsPublicKey = cryptography.bls.getPublicKeyFromPrivateKey(defaultBlsPrivateKey);
 		defaultKeys = [
 			{
-				address: cryptography.address.getLisk32AddressFromAddress(defaultAddress),
+				address: cryptography.address.getKlayr32AddressFromAddress(defaultAddress),
 				keyPath: defaultAccountKeyPath,
 				publicKey: defaultAccountPublicKey.toString('hex'),
 				privateKey: defaultAccountPrivateKey.toString('hex'),
@@ -216,7 +216,7 @@ describe('keys:create command', () => {
 			expect(loggedData).toMatchObject({
 				keys: [
 					{
-						address: cryptography.address.getLisk32AddressFromPublicKey(legacyKeys.publicKey),
+						address: cryptography.address.getKlayr32AddressFromPublicKey(legacyKeys.publicKey),
 						keyPath: 'legacy',
 						publicKey: legacyKeys.publicKey.toString('hex'),
 						privateKey: legacyKeys.privateKey.toString('hex'),

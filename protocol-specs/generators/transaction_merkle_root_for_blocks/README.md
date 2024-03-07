@@ -12,4 +12,4 @@ Protocol specifications require a transactionRoot property of blocks, which is t
 
 ## Resources
 
-- [LIP-0032](https://github.com/LiskHQ/lips/blob/master/proposals/lip-0032.md)
+- [LIP-0032](https://github.com/KlayrHQ/lips/blob/master/proposals/lip-0032.md)

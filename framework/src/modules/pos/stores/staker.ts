@@ -31,7 +31,7 @@ export const stakerStoreSchema = {
 					validatorAddress: {
 						dataType: 'bytes',
 						fieldNumber: 1,
-						format: 'lisk32',
+						format: 'klayr32',
 					},
 					amount: {
 						dataType: 'uint64',
@@ -71,7 +71,7 @@ export const stakerStoreSchema = {
 					validatorAddress: {
 						dataType: 'bytes',
 						fieldNumber: 1,
-						format: 'lisk32',
+						format: 'klayr32',
 					},
 					amount: {
 						dataType: 'uint64',

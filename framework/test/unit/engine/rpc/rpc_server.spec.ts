@@ -241,7 +241,7 @@ describe('RPC server', () => {
 				jsonrpc: '2.0',
 				method: 'token_getBalance',
 				params: {
-					address: 'lske5sqed53fdcs4m9et28f2k7u9fk6hno9bauday',
+					address: 'klye5sqed53fdcs4m9et28f2k7u9fk6hno9bauday',
 					tokenID: '0000000000000000',
 				},
 			});

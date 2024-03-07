@@ -13,10 +13,10 @@
  */
 /* eslint-disable no-bitwise */
 
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
-import { NAME_REGEX } from '@liskhq/lisk-chain';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
+import { NAME_REGEX } from '@klayr/chain';
 import {
 	ActiveValidators,
 	CCMsg,
@@ -188,7 +188,7 @@ export const getMainchainID = (chainID: Buffer): Buffer => {
 };
 
 // TODO: Update to use Token method after merging development
-export const getTokenIDLSK = (chainID: Buffer): Buffer => {
+export const getTokenIDKLY = (chainID: Buffer): Buffer => {
 	const networkID = chainID.slice(0, 1);
 	// 3 bytes for remaining chainID bytes
 	return Buffer.concat([networkID, Buffer.alloc(7, 0)]);

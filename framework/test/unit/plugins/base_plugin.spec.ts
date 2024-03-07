@@ -13,7 +13,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import * as apiClient from '@liskhq/lisk-api-client';
+import * as apiClient from '@klayr/api-client';
 import { BasePlugin, GenesisConfig, systemDirs, testing } from '../../../src';
 import * as loggerModule from '../../../src/logger';
 import { getPluginExportPath } from '../../../src/plugins/base_plugin';

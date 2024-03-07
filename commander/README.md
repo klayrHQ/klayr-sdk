@@ -1,43 +1,43 @@
 ![Logo](../docs/assets/banner_commander.png)
 
-# Lisk Commander
+# Klayr Commander
 
-Lisk Commander is a command line tool to help developers to build a blockchain application using Lisk Framework.
+Klayr Commander is a command line tool to help developers to build a blockchain application using Klayr Framework.
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 ## Installation
 
 ```sh
-$ npm install --global --production lisk-commander
+$ npm install --global --production klayr-commander
 ```
 
-Upon successful completion, NPM will add the `lisk-commander` executable `lisk` to your PATH.
+Upon successful completion, NPM will add the `klayr-commander` executable `klayr` to your PATH.
 
 ## Usage
 
 ```shell
-$ lisk COMMAND
+$ klayr COMMAND
 running command...
-$ lisk (-v|--version|version)
-lisk-commander/5.0.0 darwin-x64 node-v12.20.0
-$ lisk --help [COMMAND]
-A command line interface for Lisk
+$ klayr (-v|--version|version)
+klayr-commander/5.0.0 darwin-x64 node-v12.20.0
+$ klayr --help [COMMAND]
+A command line interface for Klayr
 
 VERSION
-  lisk-commander/5.0.0 darwin-x64 node-v12.20.0
+  klayr-commander/5.0.0 darwin-x64 node-v12.20.0
 
 USAGE
-  $ lisk [COMMAND]
+  $ klayr [COMMAND]
 
 COMMANDS
-  account             Commands relating to Lisk accounts.
+  account             Commands relating to Klayr accounts.
   autocomplete        display autocomplete installation instructions
   hash-onion
   help                Displays help.
   message             Commands relating to user messages.
   network-identifier
-  passphrase          Commands relating to Lisk passphrases.
+  passphrase          Commands relating to Klayr passphrases.
 ```
 
 ## Autocomplete
@@ -45,12 +45,12 @@ COMMANDS
 To use autocomplete feature for commands & flags follow the instructions after running
 
 ```sh
-$ lisk autocomplete
+$ klayr autocomplete
 ```
 
 ### Running Tests
 
-Lisk Commander has an extensive set of unit tests. To run the tests, please install Lisk Commander from source, and then run the command:
+Klayr Commander has an extensive set of unit tests. To run the tests, please install Klayr Commander from source, and then run the command:
 
 ```sh
 $ npm test
@@ -60,11 +60,11 @@ $ npm test
 
 | Reason                          | How                                                                                             |
 | ------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Want to chat with our community | [Reach them on Discord](https://discord.gg/lisk)                                                |
-| Found a bug                     | [Open a new issue](https://github.com/LiskHQ/lisk/issues/new)                                   |
+| Want to chat with our community | [Reach them on Discord](http://klayr.chat)                                                      |
+| Found a bug                     | [Open a new issue](https://github.com/KlayrHQ/klayr-sdk/issues/new)                             |
 | Found a security issue          | [See our bounty program](https://blog.lisk.com/announcing-lisk-bug-bounty-program-5895bdd46ed4) |
 | Want to share your research     | [Propose your research](https://research.lisk.com)                                              |
-| Want to develop with us         | [Create a fork](https://github.com/LiskHQ/lisk/fork)                                            |
+| Want to develop with us         | [Create a fork](https://github.com/klayrhq/klayr-sdk/fork)                                      |
 
 ## License
 

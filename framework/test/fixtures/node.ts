@@ -16,7 +16,7 @@ export const cacheConfig = 'aCacheConfig';
 
 export const nodeOptions = {
 	system: {
-		dataPath: '~/.lisk/default',
+		dataPath: '~/.klayr/default',
 		keepEventsForHeights: 300,
 	},
 	rpc: {

@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { objects as objectUtils } from '@liskhq/lisk-utils';
+import { objects as objectUtils } from '@klayr/utils';
 
-import { MAX_UINT64 } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
+import { MAX_UINT64 } from '@klayr/validator';
+import { codec } from '@klayr/codec';
 import { GenesisBlockExecuteContext } from '../../state_machine';
 import { TokenMethod } from '../token';
 import { BaseCCCommand } from './base_cc_command';
@@ -36,7 +36,7 @@ import { RegisteredNamesStore } from './stores/registered_names';
 import { TerminatedOutboxStore } from './stores/terminated_outbox';
 import { TerminatedStateStore } from './stores/terminated_state';
 import { ChainInfo, GenesisInteroperability, OwnChainAccount } from './types';
-import { computeValidatorsHash, getTokenIDLSK } from './utils';
+import { computeValidatorsHash, getTokenIDKLY } from './utils';
 import { genesisInteroperabilitySchema } from './schemas';
 import { CcmProcessedEvent } from './events/ccm_processed';
 import { CcmSentFailedEvent } from './events/ccm_send_fail';
@@ -103,16 +103,16 @@ export abstract class BaseInteroperabilityModule extends BaseInteroperableModule
 
 	// Commented checks are the ones which need to be checked/applied
 	protected _verifyChannelData(ctx: GenesisBlockExecuteContext, chainInfo: ChainInfo) {
-		const mainchainTokenID = getTokenIDLSK(ctx.chainID);
+		const mainchainTokenID = getTokenIDKLY(ctx.chainID);
 
 		const { channelData } = chainInfo;
 
-		// channelData.messageFeeTokenID == Token.getTokenIDLSK();
+		// channelData.messageFeeTokenID == Token.getTokenIDKLY();
 		if (!channelData.messageFeeTokenID.equals(mainchainTokenID)) {
-			throw new Error('channelData.messageFeeTokenID is not equal to Token.getTokenIDLSK().');
+			throw new Error('channelData.messageFeeTokenID is not equal to Token.getTokenIDKLY().');
 		}
 
-		// channelData.minReturnFeePerByte == MIN_RETURN_FEE_PER_BYTE_LSK.
+		// channelData.minReturnFeePerByte == MIN_RETURN_FEE_PER_BYTE_KLY.
 		if (channelData.minReturnFeePerByte !== MIN_RETURN_FEE_PER_BYTE_BEDDOWS) {
 			throw new Error(
 				`channelData.minReturnFeePerByte is not equal to ${MIN_RETURN_FEE_PER_BYTE_BEDDOWS}.`,

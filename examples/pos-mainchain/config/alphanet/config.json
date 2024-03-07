@@ -1,6 +1,6 @@
 {
 	"system": {
-		"dataPath": "~/.lisk/pos-mainchain",
+		"dataPath": "~/.klayr/pos-mainchain",
 		"enableMetrics": true
 	},
 	"rpc": {

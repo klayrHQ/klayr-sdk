@@ -14,7 +14,7 @@ Modules are logic which define state changes that are executed on-chain, meaning
 
 > The implementation of each module is up to the user, but it must inherit from the `BaseModule` class and implement its methods.
 
-Custom Modules can be plugged into the Lisk Framework and implement a new protocol for the application.
+Custom Modules can be plugged into the Klayr Framework and implement a new protocol for the application.
 
 ```js
 // Exported as main file to javascript package

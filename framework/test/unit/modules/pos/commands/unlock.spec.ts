@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockHeader, Transaction } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
+import { BlockHeader, Transaction } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
 import * as testing from '../../../../../src/testing';
 import { UnlockCommand, CommandExecuteContext, PoSModule } from '../../../../../src';
 import {
@@ -27,7 +27,7 @@ import {
 	StakerData,
 	ModuleConfigJSON,
 } from '../../../../../src/modules/pos/types';
-import { liskToBeddows } from '../../../../utils/assets';
+import { klayrToBeddows } from '../../../../utils/assets';
 import { PrefixedStateReadWriter } from '../../../../../src/state_machine/prefixed_state_read_writer';
 import { InMemoryPrefixedStateDB } from '../../../../../src/testing';
 import { ValidatorStore } from '../../../../../src/modules/pos/stores/validator';
@@ -56,22 +56,22 @@ describe('UnlockCommand', () => {
 	const validator1 = {
 		name: 'validator1',
 		address: utils.getRandomBytes(32),
-		amount: liskToBeddows(100),
+		amount: klayrToBeddows(100),
 	};
 	const validator2 = {
 		name: 'validator2',
 		address: utils.getRandomBytes(32),
-		amount: liskToBeddows(200),
+		amount: klayrToBeddows(200),
 	};
 	const validator3 = {
 		name: 'validator3',
 		address: utils.getRandomBytes(32),
-		amount: liskToBeddows(300),
+		amount: klayrToBeddows(300),
 	};
 	const validator4 = {
 		name: 'validator4',
 		address: utils.getRandomBytes(32),
-		amount: liskToBeddows(400),
+		amount: klayrToBeddows(400),
 	};
 	const defaultValidatorInfo = {
 		totalStake: BigInt(100000000),

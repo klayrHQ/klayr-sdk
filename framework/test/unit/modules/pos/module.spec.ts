@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockAssets } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
+import { BlockAssets } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
 import { when } from 'jest-when';
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { GenesisConfig } from '../../../../src/types';
 import { PoSModule } from '../../../../src/modules/pos';
 import * as forgerSelectionLessTHan103Scenario from '../../../fixtures/pos_generator_selection/pos_generator_selection_less_than_103.json';
@@ -106,28 +106,28 @@ describe('PoS module', () => {
 					genesisConfig: { ...genesisConfig, blockTime: 3 } as any,
 					moduleConfig: { ...defaultConfig, failSafeInactiveWindow: 140_000 },
 				}),
-			).rejects.toThrow('Lisk validator found 1 error[s]:');
+			).rejects.toThrow('Klayr validator found 1 error[s]:');
 
 			await expect(
 				pos.init({
 					genesisConfig: { ...genesisConfig, blockTime: 5 } as any,
 					moduleConfig: { ...defaultConfig, failSafeInactiveWindow: 6_400_000 },
 				}),
-			).rejects.toThrow('Lisk validator found 1 error[s]:');
+			).rejects.toThrow('Klayr validator found 1 error[s]:');
 
 			await expect(
 				pos.init({
 					genesisConfig: { ...genesisConfig, blockTime: 7 } as any,
 					moduleConfig: { ...defaultConfig, punishmentWindowSelfStaking: 60_000 },
 				}),
-			).rejects.toThrow('Lisk validator found 1 error[s]:');
+			).rejects.toThrow('Klayr validator found 1 error[s]:');
 
 			await expect(
 				pos.init({
 					genesisConfig: { ...genesisConfig, blockTime: 8 } as any,
 					moduleConfig: { ...defaultConfig, punishmentWindowSelfStaking: 4_000_000 },
 				}),
-			).rejects.toThrow('Lisk validator found 1 error[s]:');
+			).rejects.toThrow('Klayr validator found 1 error[s]:');
 		});
 	});
 

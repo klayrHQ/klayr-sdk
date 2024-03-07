@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Chain, StateStore } from '@liskhq/lisk-chain';
-import { dataStructures } from '@liskhq/lisk-utils';
-import { address as addressUtil } from '@liskhq/lisk-cryptography';
+import { Chain, StateStore } from '@klayr/chain';
+import { dataStructures } from '@klayr/utils';
+import { address as addressUtil } from '@klayr/cryptography';
 import { Database } from '@liskhq/lisk-db';
 import { BFTModule } from '../bft';
 import { Consensus, Keypair } from './types';
@@ -91,7 +91,7 @@ export class SingleCommitHandler {
 		const pairs = this._keypairs.get(address);
 		if (!pairs) {
 			this._logger.warn(
-				{ address: addressUtil.getLisk32AddressFromAddress(address) },
+				{ address: addressUtil.getKlayr32AddressFromAddress(address) },
 				'Validator does not have registered BLS key on this node',
 			);
 			return [];
@@ -141,7 +141,7 @@ export class SingleCommitHandler {
 		}
 		if (!registeredValidator.blsKey.equals(blsPK)) {
 			this._logger.warn(
-				{ address: addressUtil.getLisk32AddressFromAddress(generatorAddress) },
+				{ address: addressUtil.getKlayr32AddressFromAddress(generatorAddress) },
 				'Validator does not have registered BLS key',
 			);
 			return;
@@ -157,7 +157,7 @@ export class SingleCommitHandler {
 		this._logger.debug(
 			{
 				height,
-				generator: addressUtil.getLisk32AddressFromAddress(generatorAddress),
+				generator: addressUtil.getKlayr32AddressFromAddress(generatorAddress),
 			},
 			'Certified single commit',
 		);

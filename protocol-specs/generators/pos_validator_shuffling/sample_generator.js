@@ -14,8 +14,8 @@
 
 'use strict';
 
-const { utils, ed } = require('@liskhq/lisk-cryptography');
-const { Mnemonic } = require('@liskhq/lisk-passphrase');
+const { utils, ed } = require('@klayr/cryptography');
+const { Mnemonic } = require('@klayr/passphrase');
 const fs = require('fs');
 
 const [numberOfValidators = 103, filePath] = process.argv.slice(2);

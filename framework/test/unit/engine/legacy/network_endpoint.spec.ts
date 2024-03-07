@@ -12,10 +12,10 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { utils } from '@liskhq/lisk-cryptography';
-import { Block } from '@liskhq/lisk-chain';
+import { utils } from '@klayr/cryptography';
+import { Block } from '@klayr/chain';
 import { Database, InMemoryDatabase } from '@liskhq/lisk-db';
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { LegacyNetworkEndpoint } from '../../../../src/engine/legacy/network_endpoint';
 import { loggerMock } from '../../../../src/testing/mocks';
 import { Network } from '../../../../src/engine/network';

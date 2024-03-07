@@ -13,11 +13,11 @@
  */
 /* eslint-disable max-classes-per-file */
 
-import { codec } from '@liskhq/lisk-codec';
-import { Transaction } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
-import { MerkleTree } from '@liskhq/lisk-tree';
-import { Proof } from '@liskhq/lisk-tree/dist-node/merkle_tree/types';
+import { codec } from '@klayr/codec';
+import { Transaction } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
+import { MerkleTree } from '@klayr/tree';
+import { Proof } from '@klayr/tree/dist-node/merkle_tree/types';
 import {
 	CROSS_CHAIN_COMMAND_NAME_TRANSFER,
 	CommandExecuteContext,
