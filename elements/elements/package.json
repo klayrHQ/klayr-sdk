@@ -1,6 +1,6 @@
 {
 	"name": "@klayr/elements",
-	"version": "6.0.1",
+	"version": "6.0.2-alpha.0",
 	"description": "Elements for building blockchain applications in the Klayr network",
 	"author": "Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
@@ -35,18 +35,18 @@
 		"build:check": "node -e \"require('./dist-node')\""
 	},
 	"dependencies": {
-		"@klayr/api-client": "^6.0.1",
-		"@klayr/chain": "^0.5.0",
-		"@klayr/codec": "^0.4.0",
-		"@klayr/cryptography": "^4.0.0",
-		"@liskhq/lisk-db": "0.3.10",
-		"@klayr/p2p": "^0.9.0",
-		"@klayr/passphrase": "^4.0.0",
-		"@klayr/transaction-pool": "^0.7.0",
-		"@klayr/transactions": "^6.0.0",
-		"@klayr/tree": "^0.4.0",
-		"@klayr/utils": "^0.4.0",
-		"@klayr/validator": "^0.8.0"
+		"@klayr/api-client": "^6.0.2-alpha.0",
+		"@klayr/chain": "^0.5.1-alpha.0",
+		"@klayr/codec": "^0.4.1-alpha.0",
+		"@klayr/cryptography": "^4.0.1-alpha.0",
+		"@klayr/p2p": "^0.9.1-alpha.0",
+		"@klayr/passphrase": "^4.0.1-alpha.0",
+		"@klayr/transaction-pool": "^0.7.1-alpha.0",
+		"@klayr/transactions": "^6.0.1-alpha.0",
+		"@klayr/tree": "^0.4.1-alpha.0",
+		"@klayr/utils": "^0.4.1-alpha.0",
+		"@klayr/validator": "^0.8.1-alpha.0",
+		"@liskhq/lisk-db": "0.3.10"
 	},
 	"devDependencies": {
 		"@types/jest": "29.2.3",
