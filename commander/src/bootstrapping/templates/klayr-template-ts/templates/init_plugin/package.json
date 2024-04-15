@@ -28,7 +28,7 @@
 		"build:check": "node -e \"require('./dist-node')\""
 	},
 	"dependencies": {
-		"klayr-sdk": "^6.0.1"
+		"klayr-sdk": "^6.0.2"
 	},
 	"devDependencies": {
 		"@types/jest": "26.0.21",

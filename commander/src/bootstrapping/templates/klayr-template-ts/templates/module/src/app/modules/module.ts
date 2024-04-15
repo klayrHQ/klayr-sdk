@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable @typescript-eslint/member-ordering */
 
