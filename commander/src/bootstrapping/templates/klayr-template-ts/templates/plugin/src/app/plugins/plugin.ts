@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { BasePlugin } from 'klayr-sdk';
 
  /* eslint-disable class-methods-use-this */

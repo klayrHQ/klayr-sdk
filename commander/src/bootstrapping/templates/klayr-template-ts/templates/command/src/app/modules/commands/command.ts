@@ -1,9 +1,8 @@
-/* eslint-disable class-methods-use-this */
-
+/* eslint-disable */
 import {
-    BaseCommand,
-    CommandVerifyContext,
-    CommandExecuteContext,
+	BaseCommand,
+	CommandVerifyContext,
+	CommandExecuteContext,
 	VerificationResult,
 	VerifyStatus,
 } from 'klayr-sdk';

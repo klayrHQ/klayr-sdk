@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { <%= commandClass %> } from '../../../../../src/app/modules/<%= moduleName %>/commands/<%= commandFileName %>';
 
 describe('<%= commandClass %>', () => {
