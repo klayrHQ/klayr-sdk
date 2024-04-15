@@ -35,7 +35,7 @@ export const snapshotStoreSchema = {
 					address: {
 						dataType: 'bytes',
 						fieldNumber: 1,
-						format: 'lisk32',
+						format: 'klayr32',
 					},
 					weight: {
 						dataType: 'uint64',

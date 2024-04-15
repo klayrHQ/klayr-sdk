@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { SparseMerkleTree } from '@liskhq/lisk-db';
 import {
 	CommandExecuteContext,

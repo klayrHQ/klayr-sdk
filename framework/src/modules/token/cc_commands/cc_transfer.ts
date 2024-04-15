@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { codec } from '@liskhq/lisk-codec';
-import { validator } from '@liskhq/lisk-validator';
+import { codec } from '@klayr/codec';
+import { validator } from '@klayr/validator';
 // import { NotFoundError } from '@liskhq/lisk-db';
 import { BaseCCCommand } from '../../interoperability/base_cc_command';
 import { CrossChainMessageContext } from '../../interoperability/types';

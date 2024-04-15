@@ -27,7 +27,7 @@ function cleanup() {
 }
 trap cleanup INT QUIT TERM EXIT
 
-git clone --depth 1 --branch "$COMMITISH" https://github.com/LiskHQ/lisk-sdk.git "$WORKING_DIR"
+git clone --depth 1 --branch "$COMMITISH" https://github.com/klayrhq/klayr-sdk.git "$WORKING_DIR"
 
 if [ -e "$HOME/.nvm/nvm.sh" ]; then
 	set +e; source "$HOME/.nvm/nvm.sh"; set -e

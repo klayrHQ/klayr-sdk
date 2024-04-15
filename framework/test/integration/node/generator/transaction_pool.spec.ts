@@ -11,13 +11,13 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Transaction } from '@liskhq/lisk-chain';
+import { Transaction } from '@klayr/chain';
 import * as testing from '../../../../src/testing';
 import { nodeUtils } from '../../../utils';
 import { createTransferTransaction } from '../../../utils/mocks/transaction';
 
 describe('Transaction pool', () => {
-	const databasePath = '/tmp/lisk/generator/transaction_pool';
+	const databasePath = '/tmp/klayr/generator/transaction_pool';
 	const genesis = testing.fixtures.defaultFaucetAccount;
 
 	let processEnv: testing.BlockProcessingEnv;

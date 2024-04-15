@@ -12,12 +12,12 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils as cryptoUtils } from '@liskhq/lisk-cryptography';
-import * as cryptography from '@liskhq/lisk-cryptography';
-import { regularMerkleTree } from '@liskhq/lisk-tree';
-import { codec } from '@liskhq/lisk-codec';
+import { utils as cryptoUtils } from '@klayr/cryptography';
+import * as cryptography from '@klayr/cryptography';
+import { regularMerkleTree } from '@klayr/tree';
+import { codec } from '@klayr/codec';
 import { SparseMerkleTree } from '@liskhq/lisk-db';
-import { validator } from '@liskhq/lisk-validator';
+import { validator } from '@klayr/validator';
 import {
 	BLS_PUBLIC_KEY_LENGTH,
 	BLS_SIGNATURE_LENGTH,

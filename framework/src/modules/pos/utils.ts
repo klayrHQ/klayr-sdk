@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils, ed } from '@liskhq/lisk-cryptography';
-import { math } from '@liskhq/lisk-utils';
+import { utils, ed } from '@klayr/cryptography';
+import { math } from '@klayr/utils';
 import {
 	ModuleConfig,
 	ModuleConfigJSON,

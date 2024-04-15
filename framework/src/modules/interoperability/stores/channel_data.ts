@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { regularMerkleTree } from '@liskhq/lisk-tree';
+import { regularMerkleTree } from '@klayr/tree';
 import { BaseStore, StoreGetter } from '../../base_store';
 import { HASH_LENGTH, STORE_PREFIX } from '../constants';
 import { ChannelData } from '../types';

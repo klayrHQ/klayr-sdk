@@ -13,7 +13,7 @@
  */
 /* eslint-disable class-methods-use-this */
 
-import { Schema } from '@liskhq/lisk-codec';
+import { Schema } from '@klayr/codec';
 import { GenesisConfig } from '../types';
 import {
 	BlockAfterExecuteContext,

@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { address as cryptoAddress, utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { math } from '@liskhq/lisk-utils';
+import { address as cryptoAddress, utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { math } from '@klayr/utils';
 import { COMMISSION, defaultConfig, EMPTY_KEY } from '../../../../src/modules/pos/constants';
 import { PoSEndpoint } from '../../../../src/modules/pos/endpoint';
 import { InMemoryPrefixedStateDB } from '../../../../src/testing/in_memory_prefixed_state';
@@ -105,7 +105,7 @@ describe('PosModuleEndpoint', () => {
 		isBanned: false,
 		reportMisbehaviorHeights: [0],
 		consecutiveMissedBlocks: 0,
-		address: cryptoAddress.getLisk32AddressFromAddress(address),
+		address: cryptoAddress.getKlayr32AddressFromAddress(address),
 		commission: 0,
 		lastCommissionIncreaseHeight: 0,
 		sharingCoefficients: [validatorSharingCoefficient1, validatorSharingCoefficient2],
@@ -149,7 +149,7 @@ describe('PosModuleEndpoint', () => {
 					createTransientModuleEndpointContext({
 						stateStore,
 						params: {
-							address: cryptoAddress.getLisk32AddressFromAddress(address),
+							address: cryptoAddress.getKlayr32AddressFromAddress(address),
 						},
 					}),
 				);
@@ -163,7 +163,7 @@ describe('PosModuleEndpoint', () => {
 					createTransientModuleEndpointContext({
 						stateStore,
 						params: {
-							address: cryptoAddress.getLisk32AddressFromAddress(address),
+							address: cryptoAddress.getKlayr32AddressFromAddress(address),
 						},
 					}),
 				);
@@ -184,7 +184,7 @@ describe('PosModuleEndpoint', () => {
 					createTransientModuleEndpointContext({
 						stateStore,
 						params: {
-							address: cryptoAddress.getLisk32AddressFromAddress(address),
+							address: cryptoAddress.getKlayr32AddressFromAddress(address),
 						},
 					}),
 				);
@@ -193,7 +193,7 @@ describe('PosModuleEndpoint', () => {
 					...validatorData,
 					totalStake: validatorData.totalStake.toString(),
 					selfStake: validatorData.selfStake.toString(),
-					address: cryptoAddress.getLisk32AddressFromAddress(address),
+					address: cryptoAddress.getKlayr32AddressFromAddress(address),
 					sharingCoefficients: [
 						{
 							tokenID: token1.toString('hex'),
@@ -218,7 +218,7 @@ describe('PosModuleEndpoint', () => {
 					createTransientModuleEndpointContext({
 						stateStore,
 						params: {
-							address: cryptoAddress.getLisk32AddressFromAddress(address),
+							address: cryptoAddress.getKlayr32AddressFromAddress(address),
 						},
 					}),
 				);
@@ -231,8 +231,8 @@ describe('PosModuleEndpoint', () => {
 
 	describe('getAllValidators', () => {
 		describe('when input address is valid', () => {
-			const address1Str = cryptoAddress.getLisk32AddressFromAddress(address1);
-			const address2Str = cryptoAddress.getLisk32AddressFromAddress(address2);
+			const address1Str = cryptoAddress.getKlayr32AddressFromAddress(address1);
+			const address2Str = cryptoAddress.getKlayr32AddressFromAddress(address2);
 
 			const addresses = [address1Str, address2Str];
 
@@ -284,14 +284,14 @@ describe('PosModuleEndpoint', () => {
 				posEndpoint.getLockedStakedAmount(
 					createTransientModuleEndpointContext({ stateStore, params: { address: true } }),
 				),
-			).rejects.toThrow('Lisk validator found 1 error[s]:');
+			).rejects.toThrow('Klayr validator found 1 error[s]:');
 		});
 
 		it('should return amount locked for stakes', async () => {
 			const resp = await posEndpoint.getLockedStakedAmount(
 				createTransientModuleEndpointContext({
 					stateStore,
-					params: { address: cryptoAddress.getLisk32AddressFromAddress(address) },
+					params: { address: cryptoAddress.getKlayr32AddressFromAddress(address) },
 				}),
 			);
 			expect(resp.amount).toEqual(Number(200 + 10 + 30).toString());
@@ -324,12 +324,12 @@ describe('PosModuleEndpoint', () => {
 			).rejects.toThrow('Parameter address must be a string');
 		});
 
-		it('should reject if input address is not lisk32 format', async () => {
+		it('should reject if input address is not klayr32 format', async () => {
 			await expect(
 				posEndpoint.getPendingUnlocks(
 					createTransientModuleEndpointContext({
 						params: {
-							address: 'lskos7tnf5jx4e6jq400000000000000000000000',
+							address: 'klyos7tnf5jx4e6jq400000000000000000000000',
 						},
 					}),
 				),
@@ -341,7 +341,7 @@ describe('PosModuleEndpoint', () => {
 				posEndpoint.getPendingUnlocks(
 					createTransientModuleEndpointContext({
 						params: {
-							address: 'lskos7tnf5jx4e6jq4bf5z4gwo2ow5he4khn75gpo',
+							address: 'klyos7tnf5jx4e6jq4bf5z4gwo2ow5he4khn75gpo',
 						},
 					}),
 				),
@@ -408,7 +408,7 @@ describe('PosModuleEndpoint', () => {
 							}),
 						},
 						params: {
-							address: cryptoAddress.getLisk32AddressFromAddress(address),
+							address: cryptoAddress.getKlayr32AddressFromAddress(address),
 						},
 					}),
 				),
@@ -416,7 +416,7 @@ describe('PosModuleEndpoint', () => {
 				pendingUnlocks: [
 					{
 						...pendingUnlocks[0],
-						validatorAddress: cryptoAddress.getLisk32AddressFromAddress(
+						validatorAddress: cryptoAddress.getKlayr32AddressFromAddress(
 							pendingUnlocks[0].validatorAddress,
 						),
 						amount: pendingUnlocks[0].amount.toString(),
@@ -426,7 +426,7 @@ describe('PosModuleEndpoint', () => {
 					},
 					{
 						...pendingUnlocks[1],
-						validatorAddress: cryptoAddress.getLisk32AddressFromAddress(
+						validatorAddress: cryptoAddress.getKlayr32AddressFromAddress(
 							pendingUnlocks[1].validatorAddress,
 						),
 						amount: pendingUnlocks[1].amount.toString(),
@@ -435,7 +435,7 @@ describe('PosModuleEndpoint', () => {
 					},
 					{
 						...pendingUnlocks[2],
-						validatorAddress: cryptoAddress.getLisk32AddressFromAddress(
+						validatorAddress: cryptoAddress.getKlayr32AddressFromAddress(
 							pendingUnlocks[2].validatorAddress,
 						),
 						amount: pendingUnlocks[2].amount.toString(),
@@ -522,7 +522,7 @@ describe('PosModuleEndpoint', () => {
 				posEndpoint.getValidatorsByStake(
 					createTransientModuleEndpointContext({ stateStore, params: { limit: true } }),
 				),
-			).rejects.toThrow('Lisk validator found 1 error[s]:');
+			).rejects.toThrow('Klayr validator found 1 error[s]:');
 		});
 
 		it('should throw if limit is less than -1', async () => {
@@ -541,7 +541,7 @@ describe('PosModuleEndpoint', () => {
 			expect(resp.validators).toHaveLength(6);
 			expect(resp.validators[0]).toEqual({
 				...validatorData,
-				address: cryptoAddress.getLisk32AddressFromAddress(address5),
+				address: cryptoAddress.getKlayr32AddressFromAddress(address5),
 				name: '6',
 				totalStake: validatorData.totalStake.toString(),
 				selfStake: validatorData.selfStake.toString(),
@@ -562,7 +562,7 @@ describe('PosModuleEndpoint', () => {
 			expect(resp.validators).toHaveLength(2);
 			expect(resp.validators[0]).toEqual({
 				...validatorData,
-				address: cryptoAddress.getLisk32AddressFromAddress(address5),
+				address: cryptoAddress.getKlayr32AddressFromAddress(address5),
 				name: '6',
 				totalStake: validatorData.totalStake.toString(),
 				selfStake: validatorData.selfStake.toString(),
@@ -576,7 +576,7 @@ describe('PosModuleEndpoint', () => {
 			});
 			expect(resp.validators[1]).toEqual({
 				...validatorData,
-				address: cryptoAddress.getLisk32AddressFromAddress(address4),
+				address: cryptoAddress.getKlayr32AddressFromAddress(address4),
 				name: '5',
 				totalStake: validatorData.totalStake.toString(),
 				selfStake: validatorData.selfStake.toString(),
@@ -597,7 +597,7 @@ describe('PosModuleEndpoint', () => {
 			expect(resp.validators).toHaveLength(6);
 			expect(resp.validators[0]).toEqual({
 				...validatorData,
-				address: cryptoAddress.getLisk32AddressFromAddress(address5),
+				address: cryptoAddress.getKlayr32AddressFromAddress(address5),
 				name: '6',
 				totalStake: validatorData.totalStake.toString(),
 				selfStake: validatorData.selfStake.toString(),
@@ -611,7 +611,7 @@ describe('PosModuleEndpoint', () => {
 			});
 			expect(resp.validators[5]).toEqual({
 				...validatorData,
-				address: cryptoAddress.getLisk32AddressFromAddress(address3),
+				address: cryptoAddress.getKlayr32AddressFromAddress(address3),
 				name: '4',
 				totalStake: validatorData.totalStake.toString(),
 				selfStake: validatorData.selfStake.toString(),
@@ -664,7 +664,7 @@ describe('PosModuleEndpoint', () => {
 				posEndpoint.getLockedReward(
 					createTransientModuleEndpointContext({ stateStore, params: { limit: true } }),
 				),
-			).rejects.toThrow('Lisk validator found 2 error[s]:');
+			).rejects.toThrow('Klayr validator found 2 error[s]:');
 		});
 
 		it('should reject with invalid token ID params', async () => {
@@ -672,10 +672,10 @@ describe('PosModuleEndpoint', () => {
 				posEndpoint.getLockedReward(
 					createTransientModuleEndpointContext({
 						stateStore,
-						params: { address: cryptoAddress.getLisk32AddressFromAddress(address), tokenID: 123 },
+						params: { address: cryptoAddress.getKlayr32AddressFromAddress(address), tokenID: 123 },
 					}),
 				),
-			).rejects.toThrow('Lisk validator found 1 error[s]:');
+			).rejects.toThrow('Klayr validator found 1 error[s]:');
 		});
 
 		it('should return full amount when token ID requested is not governance tokenID', async () => {
@@ -683,7 +683,7 @@ describe('PosModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						address: cryptoAddress.getLisk32AddressFromAddress(address),
+						address: cryptoAddress.getKlayr32AddressFromAddress(address),
 						tokenID: Buffer.alloc(8).toString('hex'),
 					},
 				}),
@@ -696,7 +696,7 @@ describe('PosModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						address: cryptoAddress.getLisk32AddressFromAddress(address),
+						address: cryptoAddress.getKlayr32AddressFromAddress(address),
 						tokenID: config.posTokenID.toString('hex'),
 					},
 				}),
@@ -725,7 +725,7 @@ describe('PosModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						address: cryptoAddress.getLisk32AddressFromAddress(addressStaker),
+						address: cryptoAddress.getKlayr32AddressFromAddress(addressStaker),
 					},
 				}),
 			);
@@ -772,7 +772,7 @@ describe('PosModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						address: cryptoAddress.getLisk32AddressFromAddress(address),
+						address: cryptoAddress.getKlayr32AddressFromAddress(address),
 					},
 				}),
 			);
@@ -819,7 +819,7 @@ describe('PosModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						validatorAddress: cryptoAddress.getLisk32AddressFromAddress(address),
+						validatorAddress: cryptoAddress.getKlayr32AddressFromAddress(address),
 						validatorReward: '500000000',
 						stake: '100000000000',
 					},

@@ -13,7 +13,7 @@
  *
  */
 
-import { Mnemonic } from '@liskhq/lisk-passphrase';
+import { Mnemonic } from '@klayr/passphrase';
 import { Command } from '@oclif/core';
 import * as fs from 'fs-extra';
 import * as path from 'path';

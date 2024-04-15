@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import * as cryptography from '@liskhq/lisk-cryptography';
+import * as cryptography from '@klayr/cryptography';
 import * as fs from 'fs-extra';
 import * as readerUtils from '../../../../src/utils/reader';
 import { EncryptCommand } from '../../../../src/bootstrapping/commands/passphrase/encrypt';
@@ -20,8 +20,8 @@ import { getConfig } from '../../../helpers/config';
 import { Awaited } from '../../../types';
 import { OWNER_READ_WRITE } from '../../../../src/constants';
 
-jest.mock('@liskhq/lisk-cryptography', () => ({
-	...jest.requireActual('@liskhq/lisk-cryptography'),
+jest.mock('@klayr/cryptography', () => ({
+	...jest.requireActual('@klayr/cryptography'),
 }));
 
 describe('passphrase:encrypt', () => {

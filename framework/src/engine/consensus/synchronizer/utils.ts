@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Chain } from '@liskhq/lisk-chain';
+import { Chain } from '@klayr/chain';
 import { BlockExecutor } from './type';
 import { Logger } from '../../../logger';
 import { isDifferentChain, isValidBlock } from '../fork_choice/fork_choice_rule';

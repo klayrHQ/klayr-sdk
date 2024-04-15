@@ -13,8 +13,8 @@
  */
 
 import { Batch, Database, NotFoundError } from '@liskhq/lisk-db';
-import { utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
+import { utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
 import { decodeLegacyChainBracketInfo, encodeLegacyChainBracketInfo } from './codec';
 import { LegacyChainBracketInfo } from './types';
 import {

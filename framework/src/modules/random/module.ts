@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { objects } from '@liskhq/lisk-utils';
-import { validator } from '@liskhq/lisk-validator';
+import { utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { objects } from '@klayr/utils';
+import { validator } from '@klayr/validator';
 import {
 	BlockAfterExecuteContext,
 	BlockVerifyContext,

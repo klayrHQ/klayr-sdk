@@ -17,7 +17,7 @@ import * as path from 'path';
 import * as fs from 'fs-extra';
 import * as os from 'os';
 
-const defaultDir = '.lisk';
+const defaultDir = '.klayr';
 const getConfigPath = (dataPath: string): string => path.join(dataPath, 'config');
 
 export const getDefaultPath = (name: string): string => path.join(os.homedir(), defaultDir, name);

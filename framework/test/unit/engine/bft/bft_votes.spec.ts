@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { StateStore } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
+import { StateStore } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
-import { objects } from '@liskhq/lisk-utils';
+import { objects } from '@klayr/utils';
 import { BFTParametersCache } from '../../../../src/engine/bft/bft_params';
 import {
 	getHeightNotPrevoted,

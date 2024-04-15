@@ -101,7 +101,7 @@ export class SupportedTokensStore extends BaseStore<SupportedTokensStoreData> {
 	}
 
 	public async supportChain(context: StoreGetter, chainID: Buffer): Promise<void> {
-		// LSK or native token do not need entry
+		// KLY  or native token do not need entry
 		if (this._isMainchainOrNative(Buffer.concat([chainID, Buffer.alloc(LOCAL_ID_LENGTH)]))) {
 			return;
 		}
@@ -113,7 +113,7 @@ export class SupportedTokensStore extends BaseStore<SupportedTokensStoreData> {
 	}
 
 	public async removeSupportForChain(context: StoreGetter, chainID: Buffer): Promise<void> {
-		// LSK or native token do not need entry
+		// KLY  or native token do not need entry
 		if (this._isMainchainOrNative(Buffer.concat([chainID, Buffer.alloc(LOCAL_ID_LENGTH)]))) {
 			return;
 		}
@@ -129,7 +129,7 @@ export class SupportedTokensStore extends BaseStore<SupportedTokensStoreData> {
 	}
 
 	public async supportToken(context: StoreGetter, tokenID: Buffer): Promise<void> {
-		// LSK or native token do not need entry
+		// KLY  or native token do not need entry
 		if (this._isMainchainOrNative(tokenID)) {
 			return;
 		}
@@ -158,7 +158,7 @@ export class SupportedTokensStore extends BaseStore<SupportedTokensStoreData> {
 
 	public async removeSupportForToken(context: StoreGetter, tokenID: Buffer): Promise<void> {
 		if (this._isMainchainOrNative(tokenID)) {
-			throw new Error('Cannot remove support for LSK or native token.');
+			throw new Error('Cannot remove support for KLY  or native token.');
 		}
 		const allSupported = await this.allSupported(context);
 		if (allSupported) {

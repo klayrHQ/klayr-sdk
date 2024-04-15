@@ -12,12 +12,12 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
-import * as crypto from '@liskhq/lisk-cryptography';
-import { Transaction } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { validator } from '@liskhq/lisk-validator';
-import { objects } from '@liskhq/lisk-utils';
+import { utils } from '@klayr/cryptography';
+import * as crypto from '@klayr/cryptography';
+import { Transaction } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { validator } from '@klayr/validator';
+import { objects } from '@klayr/utils';
 import { RegisterMainchainCommand } from '../../../../../../src/modules/interoperability/sidechain/commands/register_mainchain';
 import {
 	CCMStatusCode,
@@ -71,8 +71,8 @@ import { InvalidRegistrationSignatureEvent } from '../../../../../../src/modules
 import { CcmSendSuccessEvent } from '../../../../../../src/modules/interoperability/events/ccm_send_success';
 import { InvalidNameError } from '../../../../../../src/modules/interoperability/errors';
 
-jest.mock('@liskhq/lisk-cryptography', () => ({
-	...jest.requireActual('@liskhq/lisk-cryptography'),
+jest.mock('@klayr/cryptography', () => ({
+	...jest.requireActual('@klayr/cryptography'),
 }));
 
 describe('RegisterMainchainCommand', () => {

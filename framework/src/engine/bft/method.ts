@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockHeader, StateStore } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
-import { objects } from '@liskhq/lisk-utils';
+import { BlockHeader, StateStore } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
+import { objects } from '@klayr/utils';
 import {
 	areDistinctHeadersContradicting,
 	computeValidatorsHash,

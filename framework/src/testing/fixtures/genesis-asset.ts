@@ -13,7 +13,7 @@
  *
  */
 
-import { address } from '@liskhq/lisk-cryptography';
+import { address } from '@klayr/cryptography';
 import { genesisStoreSchema } from '../../modules/pos/schemas';
 import { genesisTokenStoreSchema } from '../../modules/token';
 import * as accounts from './keys_fixture.json';
@@ -31,8 +31,8 @@ export const blockAssetsJSON = [
 				}))
 				.sort((a, b) =>
 					address
-						.getAddressFromLisk32Address(a.address)
-						.compare(address.getAddressFromLisk32Address(b.address)),
+						.getAddressFromKlayr32Address(a.address)
+						.compare(address.getAddressFromKlayr32Address(b.address)),
 				),
 			supplySubstore: [
 				{

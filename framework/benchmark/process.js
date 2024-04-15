@@ -13,9 +13,9 @@
  */
 const testing = require('../dist-node/testing');
 const os = require('os');
-const { address, ed } = require('@liskhq/lisk-cryptography');
-const { codec } = require('@liskhq/lisk-codec');
-const { Transaction, TAG_TRANSACTION } = require('@liskhq/lisk-chain');
+const { address, ed } = require('@klayr/cryptography');
+const { codec } = require('@klayr/codec');
+const { Transaction, TAG_TRANSACTION } = require('@klayr/chain');
 const { transferParamsSchema } = require('../dist-node/modules/token/schemas');
 
 const defaultTokenID = chainID => Buffer.concat([chainID, Buffer.from([0, 0, 0, 0])]);
@@ -48,7 +48,7 @@ const createTransferTransaction = input => {
 const genesis = testing.fixtures.defaultFaucetAccount;
 
 (async () => {
-	const databasePath = `${os.tmpdir()}/lisk/test`;
+	const databasePath = `${os.tmpdir()}/klayr/test`;
 	const processEnv = await testing.getBlockProcessingEnv({
 		options: {
 			databasePath,
@@ -63,7 +63,7 @@ const genesis = testing.fixtures.defaultFaucetAccount;
 		for (let j = 0; j < 90; j++) {
 			const transaction = createTransferTransaction({
 				nonce: BigInt(authData.nonce) + BigInt(j),
-				recipientAddress: address.getAddressFromLisk32Address(genesis.address),
+				recipientAddress: address.getAddressFromKlayr32Address(genesis.address),
 				amount: BigInt(1_0000_0000),
 				chainID: processEnv.getChainID(),
 				fee: BigInt(5000_0000) + BigInt(2000_0000),

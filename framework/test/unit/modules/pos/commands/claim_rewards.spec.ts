@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { utils, address } from '@liskhq/lisk-cryptography';
+import { Transaction } from '@klayr/chain';
+import { utils, address } from '@klayr/cryptography';
 import { testing } from '../../../../../src';
 import { ClaimRewardsCommand } from '../../../../../src/modules/pos/commands/claim_rewards';
 import { MAX_NUMBER_BYTES_Q96 } from '../../../../../src/modules/pos/constants';

@@ -13,9 +13,9 @@
  *
  */
 
-import { APIClient, createIPCClient } from '@liskhq/lisk-api-client';
-import { codec } from '@liskhq/lisk-codec';
-import { objects } from '@liskhq/lisk-utils';
+import { APIClient, createIPCClient } from '@klayr/api-client';
+import { codec } from '@klayr/codec';
+import { objects } from '@klayr/utils';
 import { homedir } from 'os';
 import { existsSync, rmdirSync } from 'fs-extra';
 import { defaultConfig } from './fixtures';

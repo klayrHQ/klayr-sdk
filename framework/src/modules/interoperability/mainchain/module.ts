@@ -11,9 +11,9 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { objects as objectUtils } from '@liskhq/lisk-utils';
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
+import { objects as objectUtils } from '@klayr/utils';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
 import { ModuleMetadata } from '../../base_module';
 import { BaseInteroperabilityModule } from '../base_interoperability_module';
 import { MainchainInteroperabilityMethod } from './method';

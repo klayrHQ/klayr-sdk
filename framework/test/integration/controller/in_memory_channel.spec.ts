@@ -25,7 +25,7 @@ describe('InMemoryChannel', () => {
 		error: jest.fn(),
 	};
 
-	const socketsDir = pathResolve(`${homedir()}/.lisk/integration/in_memory/sockets`);
+	const socketsDir = pathResolve(`${homedir()}/.klayr/integration/in_memory/sockets`);
 	const dbPath = pathResolve(tmpdir(), 'state.db');
 
 	const config: any = {

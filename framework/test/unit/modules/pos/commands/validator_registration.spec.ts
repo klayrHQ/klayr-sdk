@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { Transaction } from '@klayr/chain';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import * as testing from '../../../../../src/testing';
 import { RegisterValidatorCommand } from '../../../../../src/modules/pos/commands/register_validator';
 import { validatorRegistrationCommandParamsSchema } from '../../../../../src/modules/pos/schemas';
@@ -139,7 +139,7 @@ describe('Validator registration command', () => {
 					name: '1'.repeat(MAX_LENGTH_NAME + 1),
 				}),
 			).toThrow(
-				`Lisk validator found 1 error[s]:\nProperty '.name' must NOT have more than ${MAX_LENGTH_NAME} characters`,
+				`Klayr validator found 1 error[s]:\nProperty '.name' must NOT have more than ${MAX_LENGTH_NAME} characters`,
 			);
 		});
 
@@ -150,7 +150,7 @@ describe('Validator registration command', () => {
 					name: '',
 				}),
 			).toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.name' must NOT have fewer than 1 characters",
+				"Klayr validator found 1 error[s]:\nProperty '.name' must NOT have fewer than 1 characters",
 			);
 		});
 

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockAssets, Transaction } from '@liskhq/lisk-chain';
+import { BlockAssets, Transaction } from '@klayr/chain';
 import { Logger } from '../logger';
 import { createMethodContext, createImmutableMethodContext } from './method_context';
 import { EVENT_INDEX_AFTER_TRANSACTIONS, EVENT_INDEX_BEFORE_TRANSACTIONS } from './constants';

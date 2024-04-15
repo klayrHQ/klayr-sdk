@@ -13,7 +13,7 @@
  *
  */
 import * as fs from 'fs-extra';
-import * as apiClient from '@liskhq/lisk-api-client';
+import * as apiClient from '@klayr/api-client';
 
 import { getConfig } from '../../../helpers/config';
 import { BaseIPCClientCommand } from '../../../../src/bootstrapping/commands/base_ipc_client';
@@ -39,7 +39,7 @@ describe('system:node-info command', () => {
 				offset: 2160,
 				distance: 3000000,
 			},
-			communityIdentifier: 'Lisk',
+			communityIdentifier: 'Klayr',
 			activeValidators: 101,
 			standbyValidators: 2,
 			totalAmount: '10000000000000000',

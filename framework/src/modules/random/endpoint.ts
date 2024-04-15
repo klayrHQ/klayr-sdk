@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
-import * as cryptography from '@liskhq/lisk-cryptography';
+import { validator } from '@klayr/validator';
+import * as cryptography from '@klayr/cryptography';
 import { NotFoundError } from '@liskhq/lisk-db';
 import { ModuleEndpointContext } from '../../types';
 import { BaseEndpoint } from '../base_endpoint';
@@ -49,7 +49,7 @@ export class RandomEndpoint extends BaseEndpoint {
 
 		return {
 			valid: getSeedRevealValidity(
-				cryptography.address.getAddressFromLisk32Address(generatorAddress),
+				cryptography.address.getAddressFromKlayr32Address(generatorAddress),
 				Buffer.from(seedReveal, 'hex'),
 				validatorReveals,
 			),
@@ -59,7 +59,7 @@ export class RandomEndpoint extends BaseEndpoint {
 	public async setHashOnion(ctx: ModuleEndpointContext): Promise<void> {
 		validator.validate<SetHashOnionRequest>(hashOnionSchema, ctx.params);
 
-		const address = cryptography.address.getAddressFromLisk32Address(ctx.params.address);
+		const address = cryptography.address.getAddressFromKlayr32Address(ctx.params.address);
 		const seed = ctx.params.seed
 			? Buffer.from(ctx.params.seed, 'hex')
 			: cryptography.utils.generateHashOnionSeed();
@@ -108,7 +108,7 @@ export class RandomEndpoint extends BaseEndpoint {
 		});
 
 		const seeds = hashOnions.map(({ key, value }) => ({
-			address: cryptography.address.getLisk32AddressFromAddress(key),
+			address: cryptography.address.getKlayr32AddressFromAddress(key),
 			seed: value.hashes[value.hashes.length - 1].toString('hex'),
 			count: value.count,
 			distance: value.distance,
@@ -120,7 +120,7 @@ export class RandomEndpoint extends BaseEndpoint {
 	public async hasHashOnion(ctx: ModuleEndpointContext): Promise<HasHashOnionResponse> {
 		validator.validate<HasHashOnionRequest>(addressSchema, ctx.params);
 
-		const address = cryptography.address.getAddressFromLisk32Address(ctx.params.address);
+		const address = cryptography.address.getAddressFromKlayr32Address(ctx.params.address);
 		const hashOnionStore = this.offchainStores.get(HashOnionStore);
 		const hasSeed = await hashOnionStore.has(ctx, address);
 
@@ -160,7 +160,7 @@ export class RandomEndpoint extends BaseEndpoint {
 	public async getHashOnionUsage(ctx: ModuleEndpointContext): Promise<GetHashOnionUsageResponse> {
 		validator.validate<GetHashOnionUsageRequest>(addressSchema, ctx.params);
 
-		const address = cryptography.address.getAddressFromLisk32Address(ctx.params.address);
+		const address = cryptography.address.getAddressFromKlayr32Address(ctx.params.address);
 		const hashOnionStore = this.offchainStores.get(HashOnionStore);
 		const hashOnion = await hashOnionStore.get(ctx, address);
 		const seed = hashOnion.hashes[hashOnion.hashes.length - 1].toString('hex');
@@ -187,7 +187,7 @@ export class RandomEndpoint extends BaseEndpoint {
 		validator.validate<SetHashOnionUsageRequest>(setHashOnionUsageRequest, ctx.params);
 
 		const { address, usedHashOnions } = ctx.params;
-		const generatorAddress = cryptography.address.getAddressFromLisk32Address(address);
+		const generatorAddress = cryptography.address.getAddressFromKlayr32Address(address);
 
 		const usedHashOnionStore = this.offchainStores.get(UsedHashOnionsStore);
 		await usedHashOnionStore.set(ctx, generatorAddress, { usedHashOnions });

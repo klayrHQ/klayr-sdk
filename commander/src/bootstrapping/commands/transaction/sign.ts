@@ -13,7 +13,7 @@
  *
  */
 import { Command, Flags as flagParser } from '@oclif/core';
-import * as apiClient from '@liskhq/lisk-api-client';
+import * as apiClient from '@klayr/api-client';
 import {
 	Application,
 	blockHeaderSchema,
@@ -22,11 +22,11 @@ import {
 	PartialApplicationConfig,
 	RegisteredSchema,
 	transactionSchema,
-} from 'lisk-framework';
-import * as transactions from '@liskhq/lisk-transactions';
+} from 'klayr-framework';
+import * as transactions from '@klayr/transactions';
 
-import { blockAssetSchema, eventSchema } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
+import { blockAssetSchema, eventSchema } from '@klayr/chain';
+import { codec } from '@klayr/codec';
 import { flagsWithParser } from '../../../utils/flags';
 import { getPassphraseFromPrompt } from '../../../utils/reader';
 import {

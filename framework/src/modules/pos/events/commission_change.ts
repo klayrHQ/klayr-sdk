@@ -27,7 +27,7 @@ export const commissionChangeEventParams = {
 	properties: {
 		validatorAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 1,
 		},
 		oldCommission: {

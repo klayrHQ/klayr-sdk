@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { objects } from '@liskhq/lisk-utils';
-import { validator } from '@liskhq/lisk-validator';
+import { objects } from '@klayr/utils';
+import { validator } from '@klayr/validator';
 import { BaseModule, ModuleInitArgs, ModuleMetadata } from '../base_module';
 import {
 	CONTEXT_STORE_KEY_BLOCK_REDUCTION,

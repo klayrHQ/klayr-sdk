@@ -14,7 +14,7 @@
  */
 
 import * as fs from 'fs-extra';
-import * as cryptography from '@liskhq/lisk-cryptography';
+import * as cryptography from '@klayr/cryptography';
 import { HashOnionCommand } from '../../../src/bootstrapping/commands/hash-onion';
 import { getConfig } from '../../helpers/config';
 import { Awaited } from '../../types';

@@ -16,10 +16,10 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as psList from 'ps-list';
 import * as assert from 'assert';
-import { Block } from '@liskhq/lisk-chain';
+import { Block } from '@klayr/chain';
 import { Database, StateDB } from '@liskhq/lisk-db';
-import { validator } from '@liskhq/lisk-validator';
-import { objects, jobHandlers } from '@liskhq/lisk-utils';
+import { validator } from '@klayr/validator';
+import { objects, jobHandlers } from '@klayr/utils';
 import {
 	APP_EVENT_SHUTDOWN,
 	APP_EVENT_READY,
@@ -291,12 +291,12 @@ export class Application {
 		this.logger = this._initLogger();
 		this.logger.info(`Starting the app at ${this.config.system.dataPath}`);
 		this.logger.info(
-			'If you experience any type of error, please open an issue on Lisk GitHub: https://github.com/LiskHQ/lisk-sdk/issues',
+			'If you experience any type of error, please open an issue on Klayr GitHub [klayr sdk github]: https://github.com/klayrhq/klayr-sdk/issues',
 		);
 		this.logger.info(
-			'Contribution guidelines can be found at Lisk-sdk: https://github.com/LiskHQ/lisk-sdk/blob/development/docs/CONTRIBUTING.md',
+			'Contribution guidelines can be found at Klayr-sdk [klayr sdk github]: https://github.com/klayrhq/klayr-sdk/blob/development/docs/CONTRIBUTING.md',
 		);
-		this.logger.info('Booting the application with Lisk Framework');
+		this.logger.info('Booting the application with Klayr Framework');
 
 		// Validate the instance
 		await this._validatePidFile();
@@ -430,8 +430,8 @@ export class Application {
 			const pid = parseInt((await fs.readFile(pidPath)).toString(), 10);
 			const pidRunning = await isPidRunning(pid);
 
-			this.logger.info({ pid }, 'Previous Lisk PID');
-			this.logger.info({ pid: process.pid }, 'Current Lisk PID');
+			this.logger.info({ pid }, 'Previous Klayr PID');
+			this.logger.info({ pid: process.pid }, 'Current Klayr PID');
 
 			if (pidRunning && pid !== process.pid) {
 				this.logger.error(

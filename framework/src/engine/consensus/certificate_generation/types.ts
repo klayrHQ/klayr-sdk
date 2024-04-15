@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Chain } from '@liskhq/lisk-chain';
+import { Chain } from '@klayr/chain';
 import { Database } from '@liskhq/lisk-db';
 import { BFTMethod } from '../../bft';
 import { Network } from '../../network';

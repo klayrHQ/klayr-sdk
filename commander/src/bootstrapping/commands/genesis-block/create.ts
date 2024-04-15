@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -14,13 +14,13 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import { Application, PartialApplicationConfig } from 'lisk-framework';
-import { objects } from '@liskhq/lisk-utils';
+import { Application, PartialApplicationConfig } from 'klayr-framework';
+import { objects } from '@klayr/utils';
 import { Command, Flags as flagParser } from '@oclif/core';
 import * as fs from 'fs-extra';
 import { isAbsolute, join, resolve } from 'path';
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
 import { homedir } from 'os';
 import { GenesisAssetsInput, genesisAssetsSchema } from '../../../utils/genesis_creation';
 import { flagsWithParser } from '../../../utils/flags';

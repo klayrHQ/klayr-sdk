@@ -1,1 +1,1 @@
-# Test (Functional tests for Lisk SDK)
+# Test (Functional tests for Klayr SDK)

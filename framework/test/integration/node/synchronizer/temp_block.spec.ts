@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Chain } from '@liskhq/lisk-chain';
+import { Chain } from '@klayr/chain';
 
 import { nodeUtils } from '../../../utils';
 import {
@@ -31,7 +31,7 @@ describe('Temp block', () => {
 	let chain: Chain;
 	let chainID: Buffer;
 	const genesis = testing.fixtures.defaultFaucetAccount;
-	const databasePath = '/tmp/lisk/temp_block/test';
+	const databasePath = '/tmp/klayr/temp_block/test';
 	const numberOfValidators = 103;
 
 	beforeAll(async () => {

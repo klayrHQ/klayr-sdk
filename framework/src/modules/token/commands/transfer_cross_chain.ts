@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import * as cryptography from '@liskhq/lisk-cryptography';
-import { dataStructures } from '@liskhq/lisk-utils';
+import { codec } from '@klayr/codec';
+import * as cryptography from '@klayr/cryptography';
+import { dataStructures } from '@klayr/utils';
 import { BaseCommand } from '../../base_command';
 import {
 	CommandExecuteContext,
@@ -109,7 +109,7 @@ export class TransferCrossChainCommand extends BaseCommand {
 
 				if (availableBalance < amount) {
 					throw new InsufficientBalanceError(
-						cryptography.address.getLisk32AddressFromAddress(context.transaction.senderAddress),
+						cryptography.address.getKlayr32AddressFromAddress(context.transaction.senderAddress),
 						availableBalance.toString(),
 						amount.toString(),
 						tokenID.toString('hex'),
@@ -153,7 +153,7 @@ export class TransferCrossChainCommand extends BaseCommand {
 
 		if (senderAccount.availableBalance < params.amount) {
 			throw new InsufficientBalanceError(
-				cryptography.address.getLisk32AddressFromAddress(senderAddress),
+				cryptography.address.getKlayr32AddressFromAddress(senderAddress),
 				senderAccount.availableBalance.toString(),
 				params.amount.toString(),
 				params.tokenID.toString('hex'),

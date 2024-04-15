@@ -13,7 +13,7 @@
  *
  */
 import * as fs from 'fs-extra';
-import * as apiClient from '@liskhq/lisk-api-client';
+import * as apiClient from '@klayr/api-client';
 
 import { getConfig } from '../../../helpers/config';
 import { BaseIPCClientCommand } from '../../../../src/bootstrapping/commands/base_ipc_client';

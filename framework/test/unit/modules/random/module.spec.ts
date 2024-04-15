@@ -12,11 +12,11 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils, address } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { BlockAssets, StateStore } from '@liskhq/lisk-chain';
+import { utils, address } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { BlockAssets, StateStore } from '@klayr/chain';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
-import { dataStructures } from '@liskhq/lisk-utils';
+import { dataStructures } from '@klayr/utils';
 import * as genesisValidators from '../../../fixtures/genesis_validators.json';
 import { RandomModule } from '../../../../src/modules/random';
 import {
@@ -63,7 +63,7 @@ describe('RandomModule', () => {
 			await hashOnionStore.set(
 				// eslint-disable-next-line no-loop-func
 				{ getOffchainStore: (p1, p2) => offchainStore.getStore(p1, p2) },
-				address.getAddressFromLisk32Address(validator.address),
+				address.getAddressFromKlayr32Address(validator.address),
 				{
 					count: validator.hashOnion.count,
 					distance: validator.hashOnion.distance,
@@ -96,7 +96,7 @@ describe('RandomModule', () => {
 	});
 
 	describe('_getNextHashOnion', () => {
-		const generatorAddress = address.getAddressFromLisk32Address(
+		const generatorAddress = address.getAddressFromKlayr32Address(
 			genesisValidators.validators[0].address,
 		);
 		const { hashOnion } = genesisValidators.validators[0];
@@ -259,7 +259,7 @@ describe('RandomModule', () => {
 			],
 		};
 
-		const targetValidatorAddress = address.getAddressFromLisk32Address(targetValidator.address);
+		const targetValidatorAddress = address.getAddressFromKlayr32Address(targetValidator.address);
 
 		it('should assign seed reveal to block header asset, update and overwrite the used hash onion when forging the same height', async () => {
 			// Arrange
@@ -645,7 +645,7 @@ describe('RandomModule', () => {
 				getStore: jest.fn() as any,
 				header: {
 					height: 15,
-					generatorAddress: address.getAddressFromLisk32Address(targetValidator.address),
+					generatorAddress: address.getAddressFromKlayr32Address(targetValidator.address),
 				} as any,
 			});
 

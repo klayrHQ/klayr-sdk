@@ -29,12 +29,12 @@ export const rewardsAssignedEventParams = {
 	properties: {
 		stakerAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 1,
 		},
 		validatorAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 2,
 		},
 		tokenID: {

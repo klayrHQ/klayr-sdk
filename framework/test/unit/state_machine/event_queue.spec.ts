@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { EVENT_MAX_EVENT_SIZE_BYTES } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
+import { EVENT_MAX_EVENT_SIZE_BYTES } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
 import { EventQueue } from '../../../src/state_machine/event_queue';
 
 describe('EventQueue', () => {

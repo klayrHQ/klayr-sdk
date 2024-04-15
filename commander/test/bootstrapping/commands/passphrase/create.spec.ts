@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2022 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -14,7 +14,7 @@
  *
  */
 
-import { Mnemonic } from '@liskhq/lisk-passphrase';
+import { Mnemonic } from '@klayr/passphrase';
 import * as fs from 'fs-extra';
 import { CreateCommand } from '../../../../src/bootstrapping/commands/passphrase/create';
 import { getConfig } from '../../../helpers/config';

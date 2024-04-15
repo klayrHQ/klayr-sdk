@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 import { when } from 'jest-when';
-import { Transaction } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
+import { Transaction } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
 import { SparseMerkleTree } from '@liskhq/lisk-db';
 import {
 	COMMAND_NAME_STATE_RECOVERY_INIT,
@@ -264,7 +264,7 @@ describe('Sidechain InitializeStateRecoveryCommand', () => {
 			);
 
 			await expect(stateRecoveryInitCommand.verify(commandVerifyContext)).rejects.toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.lastCertificate.stateRoot' minLength not satisfied",
+				"Klayr validator found 1 error[s]:\nProperty '.lastCertificate.stateRoot' minLength not satisfied",
 			);
 		});
 

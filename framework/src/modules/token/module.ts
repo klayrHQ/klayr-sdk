@@ -11,10 +11,10 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { isUInt64, validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
-import { objects, dataStructures } from '@liskhq/lisk-utils';
-import { address } from '@liskhq/lisk-cryptography';
+import { isUInt64, validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
+import { objects, dataStructures } from '@klayr/utils';
+import { address } from '@klayr/cryptography';
 import { ADDRESS_LENGTH, CHAIN_ID_LENGTH, defaultConfig, TOKEN_ID_LENGTH } from './constants';
 import { TransferCommand } from './commands/transfer';
 import { ModuleInitArgs, ModuleMetadata } from '../base_module';
@@ -245,7 +245,7 @@ export class TokenModule extends BaseInteroperableModule {
 			// Validate uniqueness of address/tokenID pair
 			if (userKeySet.has(key)) {
 				throw new Error(
-					`Address ${address.getLisk32AddressFromAddress(
+					`Address ${address.getKlayr32AddressFromAddress(
 						userData.address,
 					)} and tokenID ${userData.tokenID.toString('hex')} pair is duplicated.`,
 				);
@@ -267,7 +267,7 @@ export class TokenModule extends BaseInteroperableModule {
 				// Validate locked balances must not be zero
 				if (lockedBalance.amount === BigInt(0)) {
 					throw new Error(
-						`Address ${address.getLisk32AddressFromAddress(
+						`Address ${address.getKlayr32AddressFromAddress(
 							userData.address,
 						)} contains 0 amount locked balance.`,
 					);
@@ -281,7 +281,7 @@ export class TokenModule extends BaseInteroperableModule {
 			// Validate locked balance module ID uniqueness
 			if (lockedBalanceModuleIDSet.size !== userData.lockedBalances.length) {
 				throw new Error(
-					`Address ${address.getLisk32AddressFromAddress(
+					`Address ${address.getKlayr32AddressFromAddress(
 						userData.address,
 					)} has duplicate module in locked balances.`,
 				);

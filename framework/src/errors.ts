@@ -13,7 +13,7 @@
  */
 /* eslint-disable max-classes-per-file */
 
-import { LiskErrorObject } from '@liskhq/lisk-validator/dist-node/types';
+import { KlayrErrorObject } from '@klayr/validator/dist-node/types';
 
 export class FrameworkError extends Error {
 	public name: string;
@@ -76,8 +76,8 @@ export class ValidationError extends FrameworkError {
 
 export class AggregateValidationError extends FrameworkError {
 	public code = 'ERR_AGGREGATE_VALIDATION';
-	public value: LiskErrorObject[];
-	public constructor(message: string, value: LiskErrorObject[]) {
+	public value: KlayrErrorObject[];
+	public constructor(message: string, value: KlayrErrorObject[]) {
 		super(message);
 		this.value = value;
 	}

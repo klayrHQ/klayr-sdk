@@ -14,8 +14,8 @@
 
 'use strict';
 
-const { utils, ed } = require('@liskhq/lisk-cryptography');
-const { Mnemonic } = require('@liskhq/lisk-passphrase');
+const { utils, ed } = require('@klayr/cryptography');
+const { Mnemonic } = require('@klayr/passphrase');
 const crypto = require('crypto');
 const fs = require('fs');
 
@@ -35,7 +35,7 @@ const generateValidators = (num, fixedNum) => {
 		validatorList.push({
 			address,
 			validatorWeight,
-			// lsk: (validatorWeight / (BigInt(10) ** BigInt(8))),
+			// kly : (validatorWeight / (BigInt(10) ** BigInt(8))),
 		});
 	}
 

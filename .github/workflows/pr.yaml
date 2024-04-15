@@ -82,7 +82,7 @@ jobs:
         uses: ./.github/actions/prepare-build
         with:
           cache-key: ${{ github.event.number }}
-      - run:  yarn nx run-many --target=test:integration --projects=lisk-framework
+      - run:  yarn nx run-many --target=test:integration --projects=klayr-framework
 
   functional-test:
     runs-on: ubuntu-latest
@@ -97,4 +97,4 @@ jobs:
         uses: ./.github/actions/prepare-build
         with:
           cache-key: ${{ github.event.number }}
-      - run:  yarn nx run-many --target=test:debug --projects=lisk-sdk-test
+      - run:  yarn nx run-many --target=test:debug --projects=klayr-sdk-test

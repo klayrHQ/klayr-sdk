@@ -13,7 +13,7 @@
  *
  */
 
-import { encrypt } from '@liskhq/lisk-cryptography';
+import { encrypt } from '@klayr/cryptography';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { flagsWithParser } from '../../../utils/flags';

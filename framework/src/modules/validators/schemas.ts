@@ -63,7 +63,7 @@ export const getValidatorRequestSchema = {
 	properties: {
 		address: {
 			dataType: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 	required: ['address'],

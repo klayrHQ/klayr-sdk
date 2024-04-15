@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { createIPCClient } from '@liskhq/lisk-api-client';
+import { createIPCClient } from '@klayr/api-client';
 import { Application } from '../../../../src';
 import { closeApplication, createApplicationWithHelloPlugin } from '../../utils/application';
 
@@ -69,8 +69,8 @@ describe.skip('plugin in child process', () => {
 		// Assert
 		expect(data).toBeUndefined();
 		expect(helloMessage.data).toEqual({ message: 'hello event' });
-		expect(helloMessage.module).toEqual('hello');
-		expect(helloMessage.name).toEqual('greet');
+		expect(helloMessage.module).toBe('hello');
+		expect(helloMessage.name).toBe('greet');
 	});
 
 	it('should return undefined when void action `hello_blankAction` is called', async () => {

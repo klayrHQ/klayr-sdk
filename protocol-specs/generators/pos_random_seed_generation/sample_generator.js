@@ -14,8 +14,8 @@
 
 'use strict';
 
-const { getPrivateAndPublicKeyFromPassphrase } = require('@liskhq/lisk-cryptography');
-const { Mnemonic } = require('@liskhq/lisk-passphrase');
+const { getPrivateAndPublicKeyFromPassphrase } = require('@klayr/cryptography');
+const { Mnemonic } = require('@klayr/passphrase');
 const crypto = require('crypto');
 const fs = require('fs');
 
@@ -34,7 +34,7 @@ const generateValidators = (num, fixedNum) => {
 		validatorList.push({
 			publicKey,
 			validatorWeight: validatorWeight.toString(),
-			// lsk: (validatorWeight / (BigInt(10) ** BigInt(8))).toString(),
+			// kly : (validatorWeight / (BigInt(10) ** BigInt(8))).toString(),
 		});
 	}
 

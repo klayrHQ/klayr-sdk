@@ -13,12 +13,12 @@
  */
 /* eslint-disable no-bitwise */
 
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { SparseMerkleTree } from '@liskhq/lisk-db';
-import { utils } from '@liskhq/lisk-cryptography';
-import { regularMerkleTree } from '@liskhq/lisk-tree';
-import { objects } from '@liskhq/lisk-utils';
-import { validator } from '@liskhq/lisk-validator';
+import { utils } from '@klayr/cryptography';
+import { regularMerkleTree } from '@klayr/tree';
+import { objects } from '@klayr/utils';
+import { validator } from '@klayr/validator';
 import {
 	EMPTY_BYTES,
 	EMPTY_FEE_ADDRESS,

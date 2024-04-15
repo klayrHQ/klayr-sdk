@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
 import { CommandExecuteContext, CommandVerifyContext } from '../../state_machine';
 import { BaseInteroperabilityCommand } from './base_interoperability_command';
 import { BaseInteroperabilityInternalMethod } from './base_interoperability_internal_methods';

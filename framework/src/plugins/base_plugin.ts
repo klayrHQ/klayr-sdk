@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 import { join } from 'path';
-import { validator } from '@liskhq/lisk-validator';
-import { APIClient, createIPCClient } from '@liskhq/lisk-api-client';
-import { objects } from '@liskhq/lisk-utils';
+import { validator } from '@klayr/validator';
+import { APIClient, createIPCClient } from '@klayr/api-client';
+import { objects } from '@klayr/utils';
 import { Logger } from '../logger';
 import { systemDirs } from '../system_dirs';
 import { ApplicationConfigForPlugin, PluginConfig, SchemaWithDefault } from '../types';

@@ -1,5 +1,5 @@
 docs/
-lisk/
+klayr/
 templates/
 types/
 examples/
@@ -9,3 +9,4 @@ coverage
 benchmark
 .eslintrc.js
 ecosystem.config.js
+commander/src/bootstrapping/templates/klayr-template-ts/templates/**/*

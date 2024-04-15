@@ -11,9 +11,9 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Block, BlockHeader } from '@liskhq/lisk-chain';
+import { Block, BlockHeader } from '@klayr/chain';
 
-import { address } from '@liskhq/lisk-cryptography';
+import { address } from '@klayr/cryptography';
 import { nodeUtils } from '../../../utils';
 import {
 	createTransferTransaction,
@@ -31,7 +31,7 @@ describe('Transaction order', () => {
 	let blockGenerator: Keys;
 	let newBlock: Block;
 	let senderAccount: ReturnType<typeof nodeUtils.createAccount>;
-	const databasePath = '/tmp/lisk/report_misbehavior/test';
+	const databasePath = '/tmp/klayr/report_misbehavior/test';
 	const genesis = testing.fixtures.defaultFaucetAccount;
 
 	beforeAll(async () => {
@@ -88,7 +88,7 @@ describe('Transaction order', () => {
 				privateKey: Buffer.from(blockGenerator.privateKey, 'hex'),
 				stakes: [
 					{
-						validatorAddress: address.getAddressFromLisk32Address(blockGenerator.address),
+						validatorAddress: address.getAddressFromKlayr32Address(blockGenerator.address),
 						amount: BigInt('100000000000'),
 					},
 				],

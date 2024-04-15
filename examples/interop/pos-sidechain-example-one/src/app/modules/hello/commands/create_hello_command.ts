@@ -6,7 +6,7 @@ import {
 	CommandExecuteContext,
 	VerificationResult,
 	VerifyStatus,
-} from 'lisk-sdk';
+} from 'klayr-sdk';
 import { createHelloSchema } from '../schemas';
 import { MessageStore } from '../stores/message';
 import { counterKey, CounterStore, CounterStoreData } from '../stores/counter';

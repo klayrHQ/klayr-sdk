@@ -1,4 +1,4 @@
-import { Schema } from '@liskhq/lisk-codec';
+import { Schema } from '@klayr/codec';
 import { Flags as flagParser } from '@oclif/core';
 import { BaseIPCClientCommand } from '../base_ipc_client';
 
@@ -13,7 +13,7 @@ export class ListCommand extends BaseIPCClientCommand {
 		'endopint:list getBalance',
 		'endpoint:list get -m token ',
 		'endpoint:list getBalances -m token -i --pretty',
-		'endpoint:list getBalances -m token -d ~/.lisk/pos-mainchain',
+		'endpoint:list getBalances -m token -d ~/.klayr/pos-mainchain',
 	];
 
 	static args = [
@@ -61,20 +61,20 @@ export class ListCommand extends BaseIPCClientCommand {
 		if (args.endpoint !== undefined) {
 			const searchExpression = new RegExp(args.endpoint, 'i');
 
-			result = modules.reduce((aggregatedResult, liskModule) => {
-				const endpoints = liskModule.endpoints
+			result = modules.reduce((aggregatedResult, klayrModule) => {
+				const endpoints = klayrModule.endpoints
 					.filter(endpoint => endpoint.name.match(searchExpression))
-					.map(endpoint => ({ ...endpoint, name: `${liskModule.name}_${endpoint.name}` }));
+					.map(endpoint => ({ ...endpoint, name: `${klayrModule.name}_${endpoint.name}` }));
 
 				return aggregatedResult.concat(endpoints);
 			}, initialValue);
 		} else {
 			result = modules.reduce(
-				(aggregatedResult, liskModule) =>
+				(aggregatedResult, klayrModule) =>
 					aggregatedResult.concat(
-						liskModule.endpoints.map(endpoint => ({
+						klayrModule.endpoints.map(endpoint => ({
 							...endpoint,
-							name: `${liskModule.name}_${endpoint.name}`,
+							name: `${klayrModule.name}_${endpoint.name}`,
 						})),
 					),
 				initialValue,

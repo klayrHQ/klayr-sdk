@@ -31,7 +31,7 @@ export const CHAIN_ID_LENGTH = 4;
 export const HASH_LENGTH = 32;
 export const LOCAL_ID_LENGTH = 4;
 export const TOKEN_ID_LENGTH = CHAIN_ID_LENGTH + LOCAL_ID_LENGTH;
-export const LOCAL_ID_LSK = Buffer.alloc(LOCAL_ID_LENGTH, 0);
+export const LOCAL_ID_KLY = Buffer.alloc(LOCAL_ID_LENGTH, 0);
 export const USER_ACCOUNT_INITIALIZATION_FEE = BigInt(5000000);
 export const ESCROW_ACCOUNT_INITIALIZATION_FEE = BigInt(5000000);
 

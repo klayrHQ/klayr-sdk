@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2019 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -14,14 +14,14 @@
  *
  */
 import * as inquirer from 'inquirer';
-import * as cryptography from '@liskhq/lisk-cryptography';
+import * as cryptography from '@klayr/cryptography';
 import { getConfig } from '../../../helpers/config';
 import { EncryptCommand } from '../../../../src/commands/message/encrypt';
 import * as readerUtils from '../../../../src/utils/reader';
 import { Awaited } from '../../../types';
 
-jest.mock('@liskhq/lisk-cryptography', () => ({
-	...jest.requireActual('@liskhq/lisk-cryptography'),
+jest.mock('@klayr/cryptography', () => ({
+	...jest.requireActual('@klayr/cryptography'),
 }));
 
 describe('message:encrypt', () => {

@@ -22,7 +22,7 @@ export abstract class BaseGeneratorCommand extends BaseIPCClientCommand {
 		{
 			name: 'address',
 			required: true,
-			description: 'Address of an account in a lisk32 format.',
+			description: 'Address of an account in a klayr32 format.',
 		},
 	];
 

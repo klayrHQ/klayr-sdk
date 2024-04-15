@@ -14,7 +14,7 @@ import {
 	TransactionVerifyContext,
 	utils,
 	VerificationResult,
-} from 'lisk-sdk';
+} from 'klayr-sdk';
 import { CreateHelloCommand } from './commands/create_hello_command';
 import { ReactCCCommand } from './cc_commands/react_command';
 import { HelloEndpoint } from './endpoint';

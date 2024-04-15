@@ -4,7 +4,7 @@ import {
 	CCMsg,
 	ChannelData,
 	OwnChainAccount,
-} from 'lisk-sdk';
+} from 'klayr-sdk';
 
 export type TokenID = Buffer;
 

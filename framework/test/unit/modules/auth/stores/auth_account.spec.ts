@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { StoreGetter } from '../../../../../src';
 import { AuthAccount, AuthAccountStore } from '../../../../../src/modules/auth/stores/auth_account';
 import { PrefixedStateReadWriter } from '../../../../../src/state_machine/prefixed_state_read_writer';

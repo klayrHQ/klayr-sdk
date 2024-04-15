@@ -1,57 +1,57 @@
 ![Logo](../docs/assets/banner_elements.png)
 
-# Lisk Elements
+# Klayr Elements
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-## What is Lisk Elements
+## What is Klayr Elements
 
-Lisk Elements is a collection of libraries, each of them implementing some form of blockchain application functionality such as cryptography, transactions, p2p, etc. Each library is designed to be compatible with the [Lisk Protocol](https://lisk.com/documentation/lisk-sdk/protocol).
+Klayr Elements is a collection of libraries, each of them implementing some form of blockchain application functionality such as cryptography, transactions, p2p, etc. Each library is designed to be compatible with the [Klayr Protocol](https://klayr.xyz/documentation/klayr-sdk/protocol).
 
-Lisk Elements supports the modular architecture of the Lisk SDK, where libraries can be created or modified to suit individual blockchain application requirements.
+Klayr Elements supports the modular architecture of the Klayr SDK, where libraries can be created or modified to suit individual blockchain application requirements.
 
 ## Packages
 
-| Package                                                  |                              Version                               | Description                                                                                              |
-| -------------------------------------------------------- | :----------------------------------------------------------------: | -------------------------------------------------------------------------------------------------------- |
-| [lisk-elements](./lisk-elements)                         |         ![npm](https://img.shields.io/npm/v/lisk-elements)         | Package contains everything                                                                              |
-| [@liskhq/lisk-api-client](./lisk-api-client)             |    ![npm](https://img.shields.io/npm/v/@liskhq/lisk-api-client)    | An API client for the Lisk network                                                                       |
-| [@liskhq/lisk-chain](./lisk-chain)                       |      ![npm](https://img.shields.io/npm/v/@liskhq/lisk-chain)       | Implements blocks and state management that are used for block processing according to the Lisk protocol |
-| [@liskhq/lisk-codec](./lisk-codec)                       |      ![npm](https://img.shields.io/npm/v/@liskhq/lisk-codec)       | Decoder and encoder using Lisk JSON schema according to the Lisk protocol                                |
-| [@liskhq/lisk-cryptography](./lisk-cryptography)         |   ![npm](https://img.shields.io/npm/v/@liskhq/lisk-cryptography)   | General cryptographic functions for use with Lisk-related software                                       |
-| [@liskhq/lisk-db](./lisk-db)                             |        ![npm](https://img.shields.io/npm/v/@liskhq/lisk-db)        | A database access implementation for use with Lisk-related software                                      |
-| [@liskhq/lisk-p2p](./lisk-p2p)                           |       ![npm](https://img.shields.io/npm/v/@liskhq/lisk-p2p)        | _unstructured_ P2P library for the Lisk protocol                                                         |
-| [@liskhq/lisk-passphrase](./lisk-passphrase)             |    ![npm](https://img.shields.io/npm/v/@liskhq/lisk-passphrase)    | Mnemonic passphrase helpers for use with Lisk-related software                                           |
-| [@liskhq/lisk-transactions](./lisk-transactions)         |   ![npm](https://img.shields.io/npm/v/@liskhq/lisk-transactions)   | Everything related to transactions according to the Lisk protocol                                        |
-| [@liskhq/lisk-transaction-pool](./lisk-transaction-pool) | ![npm](https://img.shields.io/npm/v/@liskhq/lisk-transaction-pool) | Transaction pool implementation for the Lisk network                                                     |
-| [@liskhq/lisk-tree](./lisk-tree)                         |       ![npm](https://img.shields.io/npm/v/@liskhq/lisk-tree)       | Merkle tree implementations for use with Lisk-related software                                           |
-| [@liskhq/lisk-utils](./lisk-utils)                       |      ![npm](https://img.shields.io/npm/v/@liskhq/lisk-utils)       | Generic utility functions for use with Lisk-related software                                             |
-| [@liskhq/lisk-validator](./lisk-validator)               |    ![npm](https://img.shields.io/npm/v/@liskhq/lisk-validator)     | Validation library according to the Lisk protocol                                                        |
+| Package                                       |                           Version                            | Description                                                                                               |
+| --------------------------------------------- | :----------------------------------------------------------: | --------------------------------------------------------------------------------------------------------- |
+| [@klayr/elements](./elements)                 |     ![npm](https://img.shields.io/npm/v/@klayr/elements)     | Package contains everything                                                                               |
+| [@klayr/api-client](./api-client)             |    ![npm](https://img.shields.io/npm/v/@klayr/api-client)    | An API client for the Klayr network                                                                       |
+| [@klayr/chain](./chain)                       |      ![npm](https://img.shields.io/npm/v/@klayr/chain)       | Implements blocks and state management that are used for block processing according to the Klayr protocol |
+| [@klayr/codec](./codec)                       |      ![npm](https://img.shields.io/npm/v/@klayr/codec)       | Decoder and encoder using Klayr JSON schema according to the Klayr protocol                               |
+| [@klayr/cryptography](./cryptography)         |   ![npm](https://img.shields.io/npm/v/@klayr/cryptography)   | General cryptographic functions for use with Klayr-related software                                       |
+| [@liskhq/lisk-db](./lisk-db)                  |     ![npm](https://img.shields.io/npm/v/@liskhq/lisk-db)     | A database access implementation for use with Klayr-related software                                      |
+| [@klayr/p2p](./p2p)                           |       ![npm](https://img.shields.io/npm/v/@klayr/p2p)        | _unstructured_ P2P library for the Klayr protocol                                                         |
+| [@klayr/passphrase](./passphrase)             |    ![npm](https://img.shields.io/npm/v/@klayr/passphrase)    | Mnemonic passphrase helpers for use with Klayr-related software                                           |
+| [@klayr/transactions](./transactions)         |   ![npm](https://img.shields.io/npm/v/@klayr/transactions)   | Everything related to transactions according to the Klayr protocol                                        |
+| [@klayr/transaction-pool](./transaction-pool) | ![npm](https://img.shields.io/npm/v/@klayr/transaction-pool) | Transaction pool implementation for the Klayr network                                                     |
+| [@klayr/tree](./tree)                         |       ![npm](https://img.shields.io/npm/v/@klayr/tree)       | Merkle tree implementations for use with Klayr-related software                                           |
+| [@klayr/utils](./utils)                       |      ![npm](https://img.shields.io/npm/v/@klayr/utils)       | Generic utility functions for use with Klayr-related software                                             |
+| [@klayr/validator](./validator)               |    ![npm](https://img.shields.io/npm/v/@klayr/validator)     | Validation library according to the Klayr protocol                                                        |
 
 ## Installation
 
 If you want to install all elements as dependency of your project you can install it via.
 
 ```sh
-$ npm install --save lisk-elements
+$ npm install --save @klayr/elements
 ```
 
 Or you can install individual packages what you need e.g.
 
 ```sh
-$ npm install --save @liskhq/lisk-transactions
-$ npm install --save @liskhq/lisk-cryptography
+$ npm install --save @klayr/transactions
+$ npm install --save @klayr/cryptography
 ```
 
 ## Get Involved
 
 | Reason                          | How                                                                                             |
 | ------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Want to chat with our community | [Reach them on Discord](https://discord.gg/lisk)                                                |
-| Found a bug                     | [Open a new issue](https://github.com/LiskHQ/lisk-sdk/issues/new)                               |
+| Want to chat with our community | [Reach them on Discord](http://klayr.chat)                                                      |
+| Found a bug                     | [Open a new issue](https://github.com/KlayrHQ/klayr-sdk/issues/new)                             |
 | Found a security issue          | [See our bounty program](https://blog.lisk.com/announcing-lisk-bug-bounty-program-5895bdd46ed4) |
 | Want to share your research     | [Propose your research](https://research.lisk.com)                                              |
-| Want to develop with us         | [Create a fork](https://github.com/LiskHQ/lisk-sdk/fork)                                        |
+| Want to develop with us         | [Create a fork](https://github.com/KlayrHQ/klayr-sdk/fork)                                      |
 
 ## License
 

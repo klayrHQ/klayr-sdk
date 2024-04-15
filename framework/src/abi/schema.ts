@@ -12,18 +12,13 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import {
-	blockHeaderSchema,
-	blockSchema,
-	blockAssetSchema,
-	transactionSchema,
-} from '@liskhq/lisk-chain';
+import { blockHeaderSchema, blockSchema, blockAssetSchema, transactionSchema } from '@klayr/chain';
 import {
 	MIN_MODULE_NAME_LENGTH,
 	MAX_MODULE_NAME_LENGTH,
 	MIN_EVENT_NAME_LENGTH,
 	MAX_EVENT_NAME_LENGTH,
-} from '@liskhq/lisk-chain/dist-node/constants';
+} from '@klayr/chain/dist-node/constants';
 
 export { blockHeaderSchema, blockSchema };
 

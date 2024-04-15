@@ -12,12 +12,12 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Block, BlockAssets, Chain, StateStore, Event, Transaction } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
+import { Block, BlockAssets, Chain, StateStore, Event, Transaction } from '@klayr/chain';
+import { codec } from '@klayr/codec';
 import { when } from 'jest-when';
-import { Mnemonic } from '@liskhq/lisk-passphrase';
+import { Mnemonic } from '@klayr/passphrase';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
-import { utils, address as cryptoAddress, bls, legacy } from '@liskhq/lisk-cryptography';
+import { utils, address as cryptoAddress, bls, legacy } from '@klayr/cryptography';
 import { ApplyPenaltyError } from '../../../../src/errors';
 import { Consensus } from '../../../../src/engine/consensus/consensus';
 import { NetworkEndpoint } from '../../../../src/engine/consensus/network_endpoint';

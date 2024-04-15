@@ -55,7 +55,7 @@ export const bftParametersSchema = {
 				properties: {
 					address: {
 						dataType: 'bytes',
-						format: 'lisk32',
+						format: 'klayr32',
 						fieldNumber: 1,
 					},
 					bftWeight: {

@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockAsset, BlockAssets } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import * as cryptography from '@liskhq/lisk-cryptography';
-import { objects } from '@liskhq/lisk-utils';
+import { BlockAsset, BlockAssets } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import * as cryptography from '@klayr/cryptography';
+import { objects } from '@klayr/utils';
 import { RandomMethod } from '../../../../src/modules/random/method';
 import { SEED_LENGTH } from '../../../../src/modules/random/constants';
 import { blockHeaderAssetRandomModule } from '../../../../src/modules/random/schemas';

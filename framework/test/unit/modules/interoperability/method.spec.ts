@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { MainchainInteroperabilityModule, TokenMethod, ChannelData } from '../../../../src';
 import { BaseInteroperabilityMethod } from '../../../../src/modules/interoperability/base_interoperability_method';
 import {
@@ -199,7 +199,7 @@ describe('Sample Method', () => {
 	});
 
 	describe('send', () => {
-		const sendingAddress = Buffer.from('lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9');
+		const sendingAddress = Buffer.from('klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9');
 		const sendingChainID = Buffer.from('10001000', 'hex');
 		const ownChainAccountSidechain = {
 			name: 'mychain',

@@ -15,8 +15,8 @@
 'use strict';
 
 const { join: pathJoin } = require('path');
-const { validator } = require('@liskhq/lisk-validator');
-const schema = require('../schema/lisk_protocol_specs.schema.json');
+const { validator } = require('@klayr/validator');
+const schema = require('../schema/klayr_protocol_specs.schema.json');
 const { getFilesFromDir } = require('../utils');
 
 const generatorsOutputPath = pathJoin(__dirname, '../generator_outputs');

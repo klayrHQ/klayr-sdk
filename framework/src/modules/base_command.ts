@@ -13,7 +13,7 @@
  */
 /* eslint-disable class-methods-use-this */
 
-import { Schema, emptySchema } from '@liskhq/lisk-codec';
+import { Schema, emptySchema } from '@klayr/codec';
 import { CommandVerifyContext, CommandExecuteContext, VerificationResult } from '../state_machine';
 import { NamedRegistry } from './named_registry';
 

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Schema, emptySchema } from '@liskhq/lisk-codec';
+import { Schema, emptySchema } from '@klayr/codec';
 import { NamedRegistry } from '../named_registry';
 import { CCCommandExecuteContext, ImmutableCrossChainMessageContext } from './types';
 

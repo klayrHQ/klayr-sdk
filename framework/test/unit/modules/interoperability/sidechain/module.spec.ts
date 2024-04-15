@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import {
 	CreateGenesisBlockContextParams,
 	InMemoryPrefixedStateDB,
@@ -33,7 +33,7 @@ import { PrefixedStateReadWriter } from '../../../../../src/state_machine/prefix
 import {
 	computeValidatorsHash,
 	getMainchainID,
-	getTokenIDLSK,
+	getTokenIDKLY,
 	validNameChars,
 } from '../../../../../src/modules/interoperability/utils';
 import {
@@ -155,7 +155,7 @@ describe('initGenesisState', () => {
 					},
 					channelData: {
 						...defaultData.chainInfos[0].channelData,
-						messageFeeTokenID: getTokenIDLSK(chainID),
+						messageFeeTokenID: getTokenIDKLY(chainID),
 					},
 					chainValidators: {
 						...chainValidators,
@@ -391,7 +391,7 @@ describe('initGenesisState', () => {
 									},
 									channelData: {
 										...defaultData.chainInfos[0].channelData,
-										messageFeeTokenID: getTokenIDLSK(chainID),
+										messageFeeTokenID: getTokenIDKLY(chainID),
 									},
 									chainValidators: {
 										...chainValidators,

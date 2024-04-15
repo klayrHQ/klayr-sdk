@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { address as cryptoAddress } from '@liskhq/lisk-cryptography';
+import { address as cryptoAddress } from '@klayr/cryptography';
 import { ModuleEndpointContext } from '../../types';
 import { RewardEndpoint } from '../reward/endpoint';
 import {
@@ -47,9 +47,9 @@ export class DynamicRewardEndpoint extends RewardEndpoint {
 		if (typeof validatorAddress !== 'string') {
 			throw new Error('Parameter validatorAddress must be a string.');
 		}
-		cryptoAddress.validateLisk32Address(validatorAddress);
+		cryptoAddress.validateKlayr32Address(validatorAddress);
 
-		const address = cryptoAddress.getAddressFromLisk32Address(validatorAddress);
+		const address = cryptoAddress.getAddressFromKlayr32Address(validatorAddress);
 		const validatorParams = await this._validatorMethod.getValidatorsParams(context);
 		const totalBFTWeight = validatorParams.validators.reduce(
 			(prev, curr) => prev + curr.bftWeight,

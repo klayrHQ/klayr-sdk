@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { BlockHeader, StateStore } from '@liskhq/lisk-chain';
+import { BlockHeader, StateStore } from '@klayr/chain';
 import { BFTMethod } from './method';
 import {
 	EMPTY_KEY,

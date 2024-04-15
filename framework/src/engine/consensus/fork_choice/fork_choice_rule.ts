@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockHeader } from '@liskhq/lisk-chain';
+import { BlockHeader } from '@klayr/chain';
 import { BFTHeader } from '../types';
 
 export enum ForkStatus {
@@ -107,7 +107,7 @@ export const forkChoice = (
 	lastBlockHeader: BlockHeader,
 	slots: Slots,
 ): ForkStatus => {
-	// Current time since Lisk Epoch
+	// Current time since Klayr Epoch
 	const receivedBFTHeader = {
 		...blockHeader.toObject(),
 		receivedAt: Math.floor(Date.now() / 1000),

@@ -13,10 +13,10 @@
  *
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { legacy } from '@liskhq/lisk-cryptography';
-import { validateTransaction } from '@liskhq/lisk-transactions';
+import { Transaction } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { legacy } from '@klayr/cryptography';
+import { validateTransaction } from '@klayr/transactions';
 import { CommandClass } from './types';
 
 interface CreateTransactionInput {

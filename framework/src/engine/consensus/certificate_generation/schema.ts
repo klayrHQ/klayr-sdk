@@ -104,7 +104,7 @@ export const singleCommitSchema = {
 			minLength: ADDRESS_LENGTH,
 			maxLength: ADDRESS_LENGTH,
 			fieldNumber: 3,
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		certificateSignature: {
 			dataType: 'bytes',

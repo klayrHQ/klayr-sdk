@@ -13,7 +13,7 @@
  */
 /* eslint-disable max-classes-per-file */
 
-import { objects } from '@liskhq/lisk-utils';
+import { objects } from '@klayr/utils';
 import * as childProcess from 'child_process';
 import * as fs from 'fs-extra';
 import * as os from 'os';
@@ -418,7 +418,7 @@ describe('Application', () => {
 			await app.shutdown();
 		});
 
-		it('should delete all files in ~/.lisk/tmp/sockets', () => {
+		it('should delete all files in ~/.klayr/tmp/sockets', () => {
 			const { sockets: socketsPath } = systemDirs(app.config.system.dataPath);
 
 			// Assert
@@ -477,7 +477,7 @@ describe('Application', () => {
 			const unlinkSyncSpy = jest.spyOn(fs, 'unlinkSync').mockReturnValue();
 			await app.shutdown();
 			expect(unlinkSyncSpy).toHaveBeenCalledWith(
-				'/user/.lisk/beta-sdk-app/tmp/pids/controller.pid',
+				'/user/.klayr/beta-sdk-app/tmp/pids/controller.pid',
 			);
 		});
 	});

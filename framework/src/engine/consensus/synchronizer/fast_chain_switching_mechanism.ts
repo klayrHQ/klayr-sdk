@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Chain, Block, BlockHeader } from '@liskhq/lisk-chain';
+import { Chain, Block, BlockHeader } from '@klayr/chain';
 import { BaseSynchronizer } from './base_synchronizer';
 import { clearBlocksTempTable, restoreBlocks, deleteBlocksAfterHeight } from './utils';
 import { ApplyPenaltyAndAbortError, AbortError, BlockProcessingError } from './errors';

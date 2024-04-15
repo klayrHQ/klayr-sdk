@@ -27,7 +27,7 @@ export const validatorRegisteredDataSchema = {
 		address: {
 			dataType: 'bytes',
 			fieldNumber: 1,
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		name: {
 			dataType: 'string',

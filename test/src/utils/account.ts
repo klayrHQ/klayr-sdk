@@ -13,7 +13,7 @@
  *
  */
 
-import { passphrase, cryptography } from 'lisk-sdk';
+import { passphrase, cryptography } from 'klayr-sdk';
 
 export const createAccount = async () => {
 	const accountKeyPath = "m/44'/134'/0'";
@@ -26,7 +26,7 @@ export const createAccount = async () => {
 	);
 	const publicKey = cryptography.ed.getPublicKeyFromPrivateKey(privateKey);
 
-	const address = cryptography.address.getLisk32AddressFromPublicKey(publicKey);
+	const address = cryptography.address.getKlayr32AddressFromPublicKey(publicKey);
 
 	const generatorPrivateKey = await cryptography.ed.getPrivateKeyFromPhraseAndPath(
 		mnemonicPassphrase,

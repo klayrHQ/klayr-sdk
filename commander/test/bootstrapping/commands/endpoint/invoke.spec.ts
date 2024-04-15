@@ -13,7 +13,7 @@
  *
  */
 import * as fs from 'fs-extra';
-import * as apiClient from '@liskhq/lisk-api-client';
+import * as apiClient from '@klayr/api-client';
 import * as appUtils from '../../../../src/utils/application';
 import { getConfig } from '../../../helpers/config';
 import { BaseIPCClientCommand, InvokeCommand } from '../../../../src';
@@ -49,7 +49,7 @@ describe('endpoint:invoke command', () => {
 				[
 					'consensus_getBFTParameters',
 					'{"height": 2}',
-					'-d  ~/.lisk/pos-mainchain',
+					'-d  ~/.klayr/pos-mainchain',
 					'-f ./input.json',
 				],
 				config,
@@ -58,7 +58,7 @@ describe('endpoint:invoke command', () => {
 	});
 
 	it('should call invoke with the provided action', async () => {
-		await InvokeCommand.run(['consensus_getBFTParameters', '-d  ~/.lisk/pos-mainchain'], config);
+		await InvokeCommand.run(['consensus_getBFTParameters', '-d  ~/.klayr/pos-mainchain'], config);
 
 		expect(invokeMock).toHaveBeenCalledTimes(1);
 		expect(invokeMock).toHaveBeenCalledWith('consensus_getBFTParameters');
@@ -66,7 +66,7 @@ describe('endpoint:invoke command', () => {
 
 	it('should call invoke the provided action with parameters if provided', async () => {
 		await InvokeCommand.run(
-			['consensus_getBFTParameters', '{"height": 2}', '-d  ~/.lisk/pos-mainchain'],
+			['consensus_getBFTParameters', '{"height": 2}', '-d  ~/.klayr/pos-mainchain'],
 			config,
 		);
 
@@ -79,7 +79,7 @@ describe('endpoint:invoke command', () => {
 
 	it('should call printJSON with the result of client.invoke', async () => {
 		await InvokeCommand.run(
-			['consensus_getBFTParameters', '{"height": 2}', '-d  ~/.lisk/pos-mainchain'],
+			['consensus_getBFTParameters', '{"height": 2}', '-d  ~/.klayr/pos-mainchain'],
 			config,
 		);
 

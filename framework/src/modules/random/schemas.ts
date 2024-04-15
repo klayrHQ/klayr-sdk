@@ -27,14 +27,14 @@ export interface SetHashOnionRequest extends AddressRequest {
 }
 
 export const hashOnionSchema = {
-	$id: 'lisk/random/setSeedRequestSchema',
+	$id: 'klayr/random/setSeedRequestSchema',
 	type: 'object',
 	title: 'Random setSeed request',
 	required: ['address'],
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		seed: {
 			type: 'string',
@@ -82,19 +82,19 @@ export interface HasHashOnionResponse {
 }
 
 export const addressSchema = {
-	$id: 'lisk/random/addressSchema',
+	$id: 'klayr/random/addressSchema',
 	type: 'object',
 	required: ['address'],
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };
 
 export const hasHashOnionResponseSchema = {
-	$id: 'lisk/random/hasHashOnionResponseSchema',
+	$id: 'klayr/random/hasHashOnionResponseSchema',
 	type: 'object',
 	required: ['hasSeed', 'remaining'],
 	properties: {
@@ -116,7 +116,7 @@ export interface GetHashOnionUsageResponse {
 export type GetHashOnionUsageRequest = AddressRequest;
 
 export const getHashOnionUsageResponse = {
-	$id: 'lisk/random/getHashOnionUsageResponse',
+	$id: 'klayr/random/getHashOnionUsageResponse',
 	type: 'object',
 	required: ['usedHashOnions', 'seed'],
 	properties: {
@@ -149,13 +149,13 @@ export interface SetHashOnionUsageRequest extends AddressRequest {
 }
 
 export const setHashOnionUsageRequest = {
-	$id: 'lisk/random/setHashOnionUsageRequest',
+	$id: 'klayr/random/setHashOnionUsageRequest',
 	type: 'object',
 	required: ['address', 'usedHashOnions'],
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		usedHashOnions: {
 			type: 'array',
@@ -202,7 +202,7 @@ export const randomModuleGeneratorConfig = {
 				properties: {
 					address: {
 						type: 'string',
-						format: 'lisk32',
+						format: 'klayr32',
 					},
 					hashOnion: {
 						type: 'object',
@@ -254,7 +254,7 @@ export const registeredHashOnionsStoreSchema = {
 				properties: {
 					address: {
 						dataType: 'bytes',
-						format: 'lisk32',
+						format: 'klayr32',
 						fieldNumber: 1,
 					},
 					seedHash: {
@@ -274,7 +274,7 @@ export const isSeedRevealValidRequestSchema = {
 	properties: {
 		generatorAddress: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		seedReveal: {
 			type: 'string',

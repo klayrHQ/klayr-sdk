@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { objects as objectUtils } from '@liskhq/lisk-utils';
+import { objects as objectUtils } from '@klayr/utils';
 import { SparseMerkleTree } from '@liskhq/lisk-db';
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { BaseInteroperabilityCommand } from './base_interoperability_command';
 import { RECOVERED_STORE_VALUE } from './constants';
 import { stateRecoveryParamsSchema } from './schemas';

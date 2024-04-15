@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
+import { validator } from '@klayr/validator';
 import { BaseEndpoint } from '../base_endpoint';
 import { BaseCCMethod } from './base_cc_method';
 import {

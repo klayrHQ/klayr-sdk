@@ -21,7 +21,7 @@ import { IPCClient } from '../../../../src/controller/ipc/ipc_client';
 // TODO: ZeroMQ tests are unstable with jest https://github.com/zeromq/zeromq.js/issues/416
 // eslint-disable-next-line jest/no-disabled-tests
 describe.skip('IPCServer', () => {
-	const socketsDir = pathResolve(`${homedir()}/.lisk/integration/ipc_server/sockets`);
+	const socketsDir = pathResolve(`${homedir()}/.klayr/integration/ipc_server/sockets`);
 	let server: IPCServer;
 	let client: IPCClient;
 
@@ -84,7 +84,7 @@ describe.skip('IPCServer', () => {
 			// Act
 			await Promise.all([send(), receive()]);
 			// Assert
-			expect(receivedMessage).toEqual('hello');
+			expect(receivedMessage).toBe('hello');
 		});
 	});
 });

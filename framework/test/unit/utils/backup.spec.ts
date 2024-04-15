@@ -16,7 +16,7 @@ import * as os from 'os';
 import * as path from 'path';
 import * as fs from 'fs';
 import { Database } from '@liskhq/lisk-db';
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { backupDatabase } from '../../../src/utils/backup';
 
 describe('backup', () => {

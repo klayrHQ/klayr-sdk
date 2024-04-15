@@ -11,9 +11,9 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { emptySchema } from '@liskhq/lisk-codec';
-import { Schema } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { emptySchema } from '@klayr/codec';
+import { Schema } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { IterateOptions } from '@liskhq/lisk-db';
 import { ImmutableSubStore, SubStore } from '../state_machine/types';
 

@@ -1,8 +1,8 @@
-# Lisk Protocol Specs Schema
+# Klayr Protocol Specs Schema
 
-Following document will specify the format and validation specification in form of JSON-Schema. You can find the [raw json schema here](./lisk_protocol_specs.schema.json).
+Following document will specify the format and validation specification in form of JSON-Schema. You can find the [raw json schema here](./klayr_protocol_specs.schema.json).
 
-# LiskProtocolSpec Properties
+# KlayrProtocolSpec Properties
 
 | Property                | Type     | Required | Nullable       |
 | :---------------------- | -------- | -------- | -------------- |

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { BlockAssets, ImmutableMethodContext } from '../../state_machine';
 import { BaseMethod } from '../base_method';
 import { NamedRegistry } from '../named_registry';

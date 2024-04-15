@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { codec } from '@liskhq/lisk-codec';
-import { validator } from '@liskhq/lisk-validator';
+import { codec } from '@klayr/codec';
+import { validator } from '@klayr/validator';
 import { ModuleInitArgs, ModuleMetadata } from '../../base_module';
 import { BaseInteroperabilityModule } from '../base_interoperability_module';
 import { SidechainInteroperabilityMethod } from './method';

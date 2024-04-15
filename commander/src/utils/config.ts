@@ -1,6 +1,6 @@
 export const defaultConfig = {
 	system: {
-		dataPath: '~/.lisk/beta-sdk-app',
+		dataPath: '~/.klayr/beta-sdk-app',
 		keepEventsForHeights: 300,
 		logLevel: 'info',
 	},

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 import * as fs from 'fs';
-import { Block } from '@liskhq/lisk-chain';
+import { Block } from '@klayr/chain';
 import { EngineConfig } from '../types';
 import { Logger } from '../logger';
 import { getPathFromDataPath } from './path';

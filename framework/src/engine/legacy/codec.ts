@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec, Schema } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { codec, Schema } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import {
 	blockHeaderSchemaV2,
 	blockSchemaV2,

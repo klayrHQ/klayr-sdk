@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { address, utils } from '@liskhq/lisk-cryptography';
+import { address, utils } from '@klayr/cryptography';
 import { TokenMethod, TokenModule, MethodContext } from '../../../../src';
 import {
 	USER_ACCOUNT_INITIALIZATION_FEE,
@@ -114,14 +114,14 @@ describe('token endpoint', () => {
 				params: { address: INVALID_ADDRESS },
 			});
 			await expect(endpoint.getBalances(moduleEndpointContext)).rejects.toThrow(
-				'.address\' must match format "lisk32"',
+				'.address\' must match format "klayr32"',
 			);
 		});
 
 		it('should return empty balances if account does not exist', async () => {
 			const moduleEndpointContext = createTransientModuleEndpointContext({
 				stateStore,
-				params: { address: address.getLisk32AddressFromAddress(utils.getRandomBytes(20)) },
+				params: { address: address.getKlayr32AddressFromAddress(utils.getRandomBytes(20)) },
 			});
 			const resp = await endpoint.getBalances(moduleEndpointContext);
 			expect(resp).toEqual({ balances: [] });
@@ -130,7 +130,7 @@ describe('token endpoint', () => {
 		it('should return all the balances', async () => {
 			const moduleEndpointContext = createTransientModuleEndpointContext({
 				stateStore,
-				params: { address: address.getLisk32AddressFromAddress(addr) },
+				params: { address: address.getKlayr32AddressFromAddress(addr) },
 			});
 			const resp = await endpoint.getBalances(moduleEndpointContext);
 			expect(resp).toEqual({
@@ -165,14 +165,14 @@ describe('token endpoint', () => {
 				params: { address: INVALID_ADDRESS },
 			});
 			await expect(endpoint.getBalance(moduleEndpointContext)).rejects.toThrow(
-				'.address\' must match format "lisk32"',
+				'.address\' must match format "klayr32"',
 			);
 		});
 
 		it('should reject when input has invalid tokenID', async () => {
 			const moduleEndpointContext = createTransientModuleEndpointContext({
 				stateStore,
-				params: { address: address.getLisk32AddressFromAddress(addr), tokenID: INVALID_TOKEN_ID },
+				params: { address: address.getKlayr32AddressFromAddress(addr), tokenID: INVALID_TOKEN_ID },
 			});
 			await expect(endpoint.getBalance(moduleEndpointContext)).rejects.toThrow(
 				".tokenID' must NOT have fewer than 16 characters",
@@ -183,7 +183,7 @@ describe('token endpoint', () => {
 			const moduleEndpointContext = createTransientModuleEndpointContext({
 				stateStore,
 				params: {
-					address: address.getLisk32AddressFromAddress(utils.getRandomBytes(20)),
+					address: address.getKlayr32AddressFromAddress(utils.getRandomBytes(20)),
 					tokenID: nativeTokenID.toString('hex'),
 				},
 			});
@@ -198,7 +198,7 @@ describe('token endpoint', () => {
 			const moduleEndpointContext = createTransientModuleEndpointContext({
 				stateStore,
 				params: {
-					address: address.getLisk32AddressFromAddress(addr),
+					address: address.getKlayr32AddressFromAddress(addr),
 					tokenID: nativeTokenID.toString('hex'),
 				},
 			});
@@ -217,7 +217,7 @@ describe('token endpoint', () => {
 			const moduleEndpointContext = createTransientModuleEndpointContext({
 				stateStore,
 				params: {
-					address: address.getLisk32AddressFromAddress(addr),
+					address: address.getKlayr32AddressFromAddress(addr),
 					tokenID: nativeTokenID.toString('hex'),
 				},
 			});
@@ -365,14 +365,14 @@ describe('token endpoint', () => {
 			});
 
 			await expect(endpoint.hasUserAccount(moduleEndpointContext)).rejects.toThrow(
-				'Property \'.address\' must match format "lisk32"',
+				'Property \'.address\' must match format "klayr32"',
 			);
 		});
 
 		it('should throw an error if an invalid tokenID is provided', async () => {
 			const moduleEndpointContext = createTransientModuleEndpointContext({
 				stateStore,
-				params: { tokenID: INVALID_TOKEN_ID, address: address.getLisk32AddressFromAddress(addr) },
+				params: { tokenID: INVALID_TOKEN_ID, address: address.getKlayr32AddressFromAddress(addr) },
 			});
 
 			await expect(endpoint.hasUserAccount(moduleEndpointContext)).rejects.toThrow(
@@ -385,7 +385,7 @@ describe('token endpoint', () => {
 				stateStore,
 				params: {
 					tokenID: nativeTokenID.toString('hex'),
-					address: address.getLisk32AddressFromAddress(addr),
+					address: address.getKlayr32AddressFromAddress(addr),
 				},
 			});
 
@@ -397,7 +397,7 @@ describe('token endpoint', () => {
 				stateStore,
 				params: {
 					tokenID: nativeTokenID.toString('hex'),
-					address: address.getLisk32AddressFromAddress(Buffer.alloc(20)),
+					address: address.getKlayr32AddressFromAddress(Buffer.alloc(20)),
 				},
 			});
 

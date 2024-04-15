@@ -7335,17 +7335,17 @@ escape-string-regexp@^2.0.0:
 
 eslint-config-airbnb-base@14.2.1:
   version "14.2.1"
-  resolved "https://npm.lisk.io/eslint-config-airbnb-base/-/eslint-config-airbnb-base-14.2.1.tgz#8a2eb38455dc5a312550193b319cdaeef042cd1e"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-14.2.1.tgz#8a2eb38455dc5a312550193b319cdaeef042cd1e"
   integrity sha512-GOrQyDtVEc1Xy20U7vsB2yAoB4nBlfH5HZJeatRXHleO+OS5Ot+MWij4Dpltw4/DyIkqUfqz1epfhVR5XWWQPA==
   dependencies:
     confusing-browser-globals "^1.0.10"
     object.assign "^4.1.2"
     object.entries "^1.1.2"
 
-eslint-config-lisk-base@2.0.1:
+eslint-config-klayr-base@2.0.1:
   version "2.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-lisk-base/-/eslint-config-lisk-base-2.0.1.tgz#f9886032bafd4643bc3940c129c3fcfe5d684ff1"
-  integrity sha512-A6fK9qOChiRc/7r0QyDIXCStxKQd/TmhOJlZnN/IK5viW5TAs9XBhlFcG1cXVNPYtRBhhNX2nosBTWPwjLfyiQ==
+  resolved "https://registry.yarnpkg.com/eslint-config-klayr-base/-/eslint-config-klayr-base-2.0.1.tgz#3b0697bc45ce026adb793164538da16e6ec17690"
+  integrity sha512-m+JUplgrGbp93o8QPwK2JK2qRY7FFX8XHdNxw+kRVAE4Som1qjWQaqMjLBs/8fXbPVqs0yUJOTgGnpw+mplgMA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "4.19.0"
     "@typescript-eslint/parser" "4.19.0"
@@ -7357,7 +7357,7 @@ eslint-config-lisk-base@2.0.1:
 
 eslint-config-prettier@8.1.0:
   version "8.1.0"
-  resolved "https://npm.lisk.io/eslint-config-prettier/-/eslint-config-prettier-8.1.0.tgz#4ef1eaf97afe5176e6a75ddfb57c335121abc5a6"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.1.0.tgz#4ef1eaf97afe5176e6a75ddfb57c335121abc5a6"
   integrity sha512-oKMhGv3ihGbCIimCAjqkdzx2Q+jthoqnXSP+d86M9tptwugycmTFdVR4IpLgq2c4SHifbwO90z2fQ8/Aio73yw==
 
 eslint-config-react-app@^6.0.0:

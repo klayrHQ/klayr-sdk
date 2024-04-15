@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2020 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -13,7 +13,7 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import { Schema } from '@liskhq/lisk-codec';
+import { Schema } from '@klayr/codec';
 
 import * as path from 'path';
 import * as fs from 'fs';

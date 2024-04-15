@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Block, Chain, BlockHeader } from '@liskhq/lisk-chain';
-import { dataStructures } from '@liskhq/lisk-utils';
+import { Block, Chain, BlockHeader } from '@klayr/chain';
+import { dataStructures } from '@klayr/utils';
 import { BaseSynchronizer } from './base_synchronizer';
 import {
 	computeLargestSubsetMaxBy,

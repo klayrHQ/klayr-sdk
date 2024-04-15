@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * KlayrHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -18,14 +18,14 @@ import { BaseGeneratorOptions } from '../../types';
 import BaseGenerator from './base_generator';
 
 export default class InitPluginGenerator extends BaseGenerator {
-	protected _liskInitPluginArgs: {
+	protected _klayrInitPluginArgs: {
 		name: string;
 	};
 	protected _registry?: string;
 
 	public constructor(args: string | string[], opts: { name: string } & BaseGeneratorOptions) {
 		super(args, opts);
-		this._liskInitPluginArgs = {
+		this._klayrInitPluginArgs = {
 			name: opts.name,
 		};
 		// Enable skipInstall for env so that the only generator install will run
@@ -40,18 +40,18 @@ export default class InitPluginGenerator extends BaseGenerator {
 	}
 
 	public configuring(): void {
-		this.log('Updating .liskrc.json file');
-		this._liskRC.setPath('template', this._liskTemplateName);
+		this.log('Updating .klayrrc.json file');
+		this._klayrRC.setPath('template', this._klayrTemplateName);
 	}
 
 	public writing(): void {
 		this.log('Creating plugin project structure');
 		this.composeWith(
 			{
-				Generator: this._liskTemplate.generators.initPlugin,
-				path: this._liskTemplatePath,
+				Generator: this._klayrTemplate.generators.initPlugin,
+				path: this._klayrTemplatePath,
 			},
-			this._liskInitPluginArgs,
+			this._klayrInitPluginArgs,
 		);
 	}
 

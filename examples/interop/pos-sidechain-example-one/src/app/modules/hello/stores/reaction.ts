@@ -1,4 +1,4 @@
-import { BaseStore } from 'lisk-sdk';
+import { BaseStore } from 'klayr-sdk';
 
 export interface ReactionStoreData {
 	reactions: {

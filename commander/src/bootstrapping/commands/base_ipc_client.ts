@@ -13,9 +13,9 @@
  *
  */
 
-import * as apiClient from '@liskhq/lisk-api-client';
+import * as apiClient from '@klayr/api-client';
 import { Command } from '@oclif/core';
-import { RegisteredSchema, ModuleMetadataJSON } from 'lisk-framework';
+import { RegisteredSchema, ModuleMetadataJSON } from 'klayr-framework';
 import { PromiseResolvedType } from '../../types';
 import { isApplicationRunning } from '../../utils/application';
 import { flagsWithParser } from '../../utils/flags';

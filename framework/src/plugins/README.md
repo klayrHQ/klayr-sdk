@@ -17,7 +17,7 @@ Plugins define an off-chain logic which are not part of the blockchain protocol,
 
 > The implementation of each plugin is up-to user but it must inherit from `BasePlugin` class and implement its methods.
 
-Custom Plugin can be plugged into Lisk Framework and may offer new features/capabilities for the application.
+Custom Plugin can be plugged into Klayr Framework and may offer new features/capabilities for the application.
 They extend the existing instance with a specific (and circumscribed) set of features.
 
 ```js
@@ -117,4 +117,4 @@ Communicates with plugins which do not reside in the same process as the Control
 
 To load a plugin as a child process, make sure you have `ipc` enabled in the config file and set the option `loadAsChildProcess: true` when registering the plugin using the Application method `registerPlugin`.
 
-Currently, the only Lisk native plugin supported is HTTP Method plugin which will be loaded as child process if you have `ipc` enabled.
+Currently, the only Klayr native plugin supported is HTTP Method plugin which will be loaded as child process if you have `ipc` enabled.

@@ -13,7 +13,7 @@
  *
  */
 
-import { ed, bls, utils, encrypt } from '@liskhq/lisk-cryptography';
+import { ed, bls, utils, encrypt } from '@klayr/cryptography';
 import * as fs from 'fs-extra';
 
 import * as readerUtils from '../../../../src/utils/reader';

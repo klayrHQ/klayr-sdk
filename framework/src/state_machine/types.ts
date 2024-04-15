@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Transaction } from '@liskhq/lisk-chain';
-import { Schema } from '@liskhq/lisk-codec';
+import { Transaction } from '@klayr/chain';
+import { Schema } from '@klayr/codec';
 import { IterateOptions } from '@liskhq/lisk-db';
 import { TransactionVerifyResult } from '../abi';
 import { Logger } from '../logger';

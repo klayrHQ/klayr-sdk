@@ -16,4 +16,4 @@ A set of test generators for random seed generation by LIP-0022
 
 ## Resources
 
-- [LIP-0022](https://github.com/LiskHQ/lips/blob/master/proposals/lip-0022.md#random-seeds-computation)
+- [LIP-0022](https://github.com/KlayrHQ/lips/blob/master/proposals/lip-0022.md#random-seeds-computation)

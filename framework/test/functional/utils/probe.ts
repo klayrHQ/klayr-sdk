@@ -13,7 +13,7 @@
  */
 // TODO: Fix the test when functional test is fixed https://github.com/LiskHQ/lisk-sdk/issues/7209
 
-// import { P2P, events } from '@liskhq/lisk-p2p';
+// import { P2P, events } from '@klayr/p2p';
 // import { customNodeInfoSchema } from '../../../src/node/network/schema';
 
 // export const createProbe = async (config: {

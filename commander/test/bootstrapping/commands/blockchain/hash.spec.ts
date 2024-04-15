@@ -23,7 +23,7 @@ import { HashCommand } from '../../../../src/bootstrapping/commands/blockchain/h
 import { getConfig } from '../../../helpers/config';
 import { Awaited } from '../../../types';
 
-const defaultDataPath = join(homedir(), '.lisk', 'lisk-core');
+const defaultDataPath = join(homedir(), '.klayr', 'klayr-core');
 
 describe('blockchain:hash', () => {
 	const pid = 56869;

@@ -13,16 +13,10 @@
  */
 
 import { NotFoundError } from '@liskhq/lisk-db';
-import {
-	Block,
-	stateDiffSchema,
-	Transaction,
-	DB_KEY_DIFF_STATE,
-	concatDBKeys,
-} from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
+import { Block, stateDiffSchema, Transaction, DB_KEY_DIFF_STATE, concatDBKeys } from '@klayr/chain';
+import { codec } from '@klayr/codec';
 
-import { address, utils } from '@liskhq/lisk-cryptography';
+import { address, utils } from '@klayr/cryptography';
 import { nodeUtils } from '../../../utils';
 import {
 	createValidatorRegisterTransaction,
@@ -35,7 +29,7 @@ import * as testing from '../../../../src/testing';
 describe('Delete block', () => {
 	let processEnv: testing.BlockProcessingEnv;
 	let chainID: Buffer;
-	const databasePath = '/tmp/lisk/delete_block/test';
+	const databasePath = '/tmp/klayr/delete_block/test';
 	const emptyDiffState = codec.encode(stateDiffSchema, {
 		updated: [],
 		created: [],
@@ -140,7 +134,7 @@ describe('Delete block', () => {
 				const recipientBalance = await processEnv.invoke<{ availableBalance: string }>(
 					'token_getBalance',
 					{
-						address: address.getLisk32AddressFromAddress(recipientAccount.address),
+						address: address.getKlayr32AddressFromAddress(recipientAccount.address),
 						tokenID: defaultTokenID(processEnv.getChainID()).toString('hex'),
 					},
 				);

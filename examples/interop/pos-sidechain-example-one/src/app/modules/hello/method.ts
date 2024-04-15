@@ -1,4 +1,4 @@
-import { BaseMethod, ImmutableMethodContext } from 'lisk-sdk';
+import { BaseMethod, ImmutableMethodContext } from 'klayr-sdk';
 import { MessageStore, MessageStoreData } from './stores/message';
 
 export class HelloMethod extends BaseMethod {

@@ -44,7 +44,7 @@ export const beforeCCCExecutionEventSchema = {
 		},
 		relayerAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 3,
 		},
 		result: {

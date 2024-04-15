@@ -12,11 +12,11 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockHeader, Chain, StateStore } from '@liskhq/lisk-chain';
-import { dataStructures } from '@liskhq/lisk-utils';
-import { bls } from '@liskhq/lisk-cryptography';
+import { BlockHeader, Chain, StateStore } from '@klayr/chain';
+import { dataStructures } from '@klayr/utils';
+import { bls } from '@klayr/cryptography';
 import { Database } from '@liskhq/lisk-db';
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { EMPTY_BUFFER, NETWORK_EVENT_COMMIT_MESSAGES, COMMIT_RANGE_STORED } from './constants';
 import { BFTParameterNotFoundError } from '../../bft/errors';
 import { PkSigPair, AggregateCommit } from '../types';
