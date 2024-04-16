@@ -9,7 +9,7 @@
 [![DeepScan grade](https://deepscan.io/api/teams/6759/projects/8869/branches/113509/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=6759&pid=8869&bid=113509)
 ![GitHub issues](https://img.shields.io/github/issues-raw/klayrhq/klayr-sdk)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/klayrhq/klayr-sdk)
-[![codecov](https://codecov.io/gh/KlayrHQ/klayr-sdk/branch/development/graph/badge.svg?token=2JhT7caf5x)](https://codecov.io/gh/KlayrHQ/klayr-sdk)
+[![codecov](https://codecov.io/gh/KlayrHQ/klayr-sdk/branch/development/graph/badge.svg?token=VFEWLE7UX4)](https://codecov.io/gh/KlayrHQ/klayr-sdk)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 ## What is the Klayr SDK?
