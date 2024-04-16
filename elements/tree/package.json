@@ -1,6 +1,6 @@
 {
 	"name": "@klayr/tree",
-	"version": "0.4.1-alpha.1",
+	"version": "0.4.1",
 	"description": "Library containing Merkle tree implementations for use with Klayr-related software",
 	"author": "Klayr Holding B.V. <admin@klayr.xyz>, Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
@@ -35,8 +35,8 @@
 		"build:check": "node -e \"require('./dist-node')\""
 	},
 	"dependencies": {
-		"@klayr/cryptography": "^4.0.1-alpha.1",
-		"@klayr/utils": "^0.4.1-alpha.1"
+		"@klayr/cryptography": "^4.0.1",
+		"@klayr/utils": "^0.4.1"
 	},
 	"devDependencies": {
 		"@types/jest": "29.2.3",
