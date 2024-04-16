@@ -1,6 +1,6 @@
 {
 	"name": "@klayr/monitor-plugin",
-	"version": "0.4.2-alpha.1",
+	"version": "0.4.2-alpha.2",
 	"description": "A plugin for klayr-framework that provides network statistics of the running node",
 	"author": "Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
@@ -40,7 +40,7 @@
 		"express": "4.18.2",
 		"express-rate-limit": "6.7.0",
 		"ip": "1.1.5",
-		"klayr-sdk": "^6.0.2-alpha.2"
+		"klayr-sdk": "^6.0.2-alpha.3"
 	},
 	"devDependencies": {
 		"@types/cors": "2.8.12",
