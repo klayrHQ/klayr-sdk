@@ -1,5 +1,5 @@
 {
-	"version": "6.0.2-alpha.0",
+	"version": "6.0.2-alpha.1",
 	"commands": {
 		"console": {
 			"id": "console",
@@ -111,7 +111,7 @@
 				{
 					"name": "projectPath",
 					"description": "Path to create the project.",
-					"default": "/Users/corbifex/Developer/klayr/v6.01"
+					"default": "/Users/corbifex/Developer/klayr/v6.01/commander"
 				}
 			]
 		},
