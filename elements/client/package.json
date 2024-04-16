@@ -91,5 +91,6 @@
 		"tsconfig-paths": "4.1.0",
 		"typescript": "5.0.2",
 		"ws": "7.4.6"
-	}
+	},
+	"gitHead": "504e1cbea21588c168a4e981e74a52cd5d8180be"
 }
