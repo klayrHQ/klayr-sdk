@@ -1,6 +1,6 @@
 {
 	"name": "klayr-commander",
-	"version": "6.0.2",
+	"version": "6.0.3",
 	"description": "A command line interface for Klayr",
 	"author": "Klayr Holding B.V. <admin@klayr.xyz>, Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",

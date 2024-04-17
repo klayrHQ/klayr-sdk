@@ -20,12 +20,12 @@ Upon successful completion, NPM will add the `klayr-commander` executable `klayr
 $ klayr COMMAND
 running command...
 $ klayr (-v|--version|version)
-klayr-commander/5.0.0 darwin-x64 node-v12.20.0
+klayr-commander/6.0.3 darwin-x64 node-v18.20.2
 $ klayr --help [COMMAND]
 A command line interface for Klayr
 
 VERSION
-  klayr-commander/5.0.0 darwin-x64 node-v12.20.0
+  klayr-commander/6.0.3 darwin-x64 node-v18.20.2
 
 USAGE
   $ klayr [COMMAND]
