@@ -73,7 +73,7 @@ describe('CommitPool', () => {
 			existBFTParameters: jest.fn(),
 		};
 
-		blockTime = 10;
+		blockTime = 7;
 		minCertifyHeight = 0;
 
 		getBlockHeaderByHeight = jest.fn();
@@ -114,7 +114,7 @@ describe('CommitPool', () => {
 		const height = 1020;
 		const maxHeightCertified = 950;
 		const maxHeightPrecommitted = 1000;
-		const numActiveValidators = 103;
+		const numActiveValidators = 53;
 		const staleGossipedCommit = {
 			blockID,
 			certificateSignature: utils.getRandomBytes(96),
@@ -477,7 +477,7 @@ describe('CommitPool', () => {
 
 			blockHeader = createFakeBlockHeader({
 				height: 1031,
-				timestamp: 10310,
+				timestamp: 7217,
 				generatorAddress: utils.getRandomBytes(20),
 			});
 
@@ -835,7 +835,7 @@ describe('CommitPool', () => {
 			height = 1030;
 			maxHeightCertified = 1000;
 			maxHeightPrecommitted = 1050;
-			timestamp = 10300;
+			timestamp = 7210;
 
 			blockHeader = createFakeBlockHeader({
 				height,

@@ -16,7 +16,7 @@ name: 'klayr_mainchain';
 - pos-sidechain-example-one
 
 ```js
-blockTime: 5;
+blockTime: 7;
 bftBatchSize: 5;
 chainID: '04000001';
 name: 'sidechain_example_one';
@@ -25,7 +25,7 @@ name: 'sidechain_example_one';
 - pos-sidechain-example-two
 
 ```js
-blockTime: 5;
+blockTime: 7;
 bftBatchSize: 5;
 chainID: '04000002';
 name: 'sidechain_example_two';

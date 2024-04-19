@@ -86,7 +86,7 @@ describe('RegisterMainchainCommand', () => {
 	const mainchainID = Buffer.from([0, 0, 0, 0]);
 	const mainchainTokenID = Buffer.concat([mainchainID, Buffer.alloc(4)]);
 	const mainchainValidators = sortValidatorsByBLSKey(unsortedMainchainValidators);
-	const mainchainCertificateThreshold = BigInt(68);
+	const mainchainCertificateThreshold = BigInt(35);
 	const transactionParams: MainchainRegistrationParams = {
 		ownName: 'testchain',
 		ownChainID,
@@ -303,7 +303,7 @@ describe('RegisterMainchainCommand', () => {
 	});
 
 	describe('execute', () => {
-		const mainchainThreshold = 68;
+		const mainchainThreshold = 35;
 		const params = {
 			ownChainID,
 			ownName: 'testchain',

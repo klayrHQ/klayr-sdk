@@ -26,7 +26,7 @@ import { ChainEndpoint } from '../../../../src/engine/endpoint/chain';
 import { createRequestContext } from '../../../utils/mocks/endpoint';
 
 describe('Chain endpoint', () => {
-	const DEFAULT_INTERVAL = 10;
+	const DEFAULT_INTERVAL = 7;
 	let stateStore: StateStore;
 	let endpoint: ChainEndpoint;
 	let db: InMemoryDatabase;
@@ -42,7 +42,7 @@ describe('Chain endpoint', () => {
 			bftMethod: {
 				getSlotNumber: jest.fn().mockReturnValue(0),
 				getSlotTime: jest.fn().mockReturnValue(0),
-				blockTime: jest.fn().mockReturnValue(10),
+				blockTime: jest.fn().mockReturnValue(7),
 			} as any,
 		});
 		db = new InMemoryDatabase();

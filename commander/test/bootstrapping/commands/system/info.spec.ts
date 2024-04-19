@@ -32,7 +32,7 @@ describe('system:node-info command', () => {
 		syncing: false,
 		unconfirmedTransactions: 0,
 		genesisConfig: {
-			blockTime: 10,
+			blockTime: 7,
 			maxTransactionsSize: 15360,
 			rewards: {
 				milestones: ['500000000', '400000000', '300000000', '200000000', '100000000'],
@@ -40,7 +40,7 @@ describe('system:node-info command', () => {
 				distance: 3000000,
 			},
 			communityIdentifier: 'Klayr',
-			activeValidators: 101,
+			activeValidators: 51,
 			standbyValidators: 2,
 			totalAmount: '10000000000000000',
 			validatorListRoundOffset: 2,

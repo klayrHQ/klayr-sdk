@@ -26,7 +26,7 @@ const configDevEnvValues: Config = {
 
 export const getKeyPath = (offset: number) => `m/44'/134'/${offset}'`;
 
-const MAX_BLOCKS = 103 * 3;
+const MAX_BLOCKS = 53 * 3;
 const MAX_TRANSACTIONS = 150;
 
 const sortByBlockHeight = (a: Block, b: Block) => b.header.height - a.header.height;

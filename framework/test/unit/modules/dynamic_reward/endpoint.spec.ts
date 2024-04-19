@@ -32,6 +32,7 @@ describe('DynamicRewardModuleEndpoint', () => {
 			'300000000', // Milestone 2
 			'200000000', // Milestone 3
 			'100000000', // Milestone 4
+			'200000000', // Milestone 5
 		],
 		tokenID: '0000000000000000',
 		factorMinimumRewardActiveValidators: 1000,
@@ -62,8 +63,8 @@ describe('DynamicRewardModuleEndpoint', () => {
 				}),
 			} as any,
 			{
-				getRoundLength: jest.fn().mockReturnValue(103),
-				getNumberOfActiveValidators: jest.fn().mockReturnValue(101),
+				getRoundLength: jest.fn().mockReturnValue(53),
+				getNumberOfActiveValidators: jest.fn().mockReturnValue(51),
 			} as any,
 		);
 		stateStore = new PrefixedStateReadWriter(new InMemoryPrefixedStateDB());
@@ -116,9 +117,9 @@ describe('DynamicRewardModuleEndpoint', () => {
 
 			expect(response).toEqual({
 				blockReward: '500000000',
-				dailyReward: '59916758400',
-				monthlyReward: '1797502752000',
-				yearlyReward: '21869616816000',
+				dailyReward: '116441971200',
+				monthlyReward: '3493259136000',
+				yearlyReward: '42501319488000',
 			});
 		});
 
@@ -138,9 +139,9 @@ describe('DynamicRewardModuleEndpoint', () => {
 			// total reward for active validators is 9KLY (5KLY - 0.5KLY) * 2, which will be distributed by weight
 			expect(response).toEqual({
 				blockReward: '464000000', // 9 * (230/500) + 0.5
-				dailyReward: '55602720000',
-				monthlyReward: '1668081600000',
-				yearlyReward: '20294992800000',
+				dailyReward: '108058147200',
+				monthlyReward: '3241744416000',
+				yearlyReward: '39441223728000',
 			});
 		});
 	});

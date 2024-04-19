@@ -52,7 +52,7 @@ describe('forger:getStakers action', () => {
 			// Assert
 			expect(stakers).toMatchSnapshot();
 			expect(stakers).toBeInstanceOf(Array);
-			expect(stakers).toHaveLength(103);
+			expect(stakers).toHaveLength(53);
 			expect(stakers[0]).toMatchObject(
 				expect.objectContaining({
 					address: expect.any(String),

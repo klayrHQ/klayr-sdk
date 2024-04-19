@@ -142,7 +142,7 @@ describe('method client ipc mode', () => {
 			// Act
 			const validators = await client.invoke('pos_getAllValidators');
 			// Assert
-			expect(validators).toHaveLength(103);
+			expect(validators).toHaveLength(53);
 		});
 
 		it('should throw an error on invalid action', async () => {

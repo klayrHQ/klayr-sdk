@@ -191,7 +191,7 @@ describe('BFT votes', () => {
 			const stateStore = new StateStore(new InMemoryDatabase());
 			const paramsStore = stateStore.getStore(MODULE_STORE_PREFIX_BFT, STORE_PREFIX_BFT_PARAMETERS);
 			await paramsStore.setWithSchema(
-				utils.intToBuffer(101, 4),
+				utils.intToBuffer(51, 4),
 				{
 					prevoteThreshold: BigInt(68),
 					precommitThreshold: BigInt(68),
@@ -341,7 +341,7 @@ describe('BFT votes', () => {
 			const stateStore = new StateStore(new InMemoryDatabase());
 			const paramsStore = stateStore.getStore(MODULE_STORE_PREFIX_BFT, STORE_PREFIX_BFT_PARAMETERS);
 			await paramsStore.setWithSchema(
-				utils.intToBuffer(101, 4),
+				utils.intToBuffer(51, 4),
 				{
 					prevoteThreshold: BigInt(68),
 					precommitThreshold: BigInt(68),
@@ -379,7 +379,7 @@ describe('BFT votes', () => {
 			const stateStore = new StateStore(new InMemoryDatabase());
 			const paramsStore = stateStore.getStore(MODULE_STORE_PREFIX_BFT, STORE_PREFIX_BFT_PARAMETERS);
 			await paramsStore.setWithSchema(
-				utils.intToBuffer(101, 4),
+				utils.intToBuffer(51, 4),
 				{
 					prevoteThreshold: BigInt(103),
 					precommitThreshold: BigInt(68),
@@ -421,7 +421,7 @@ describe('BFT votes', () => {
 			const stateStore = new StateStore(new InMemoryDatabase());
 			const paramsStore = stateStore.getStore(MODULE_STORE_PREFIX_BFT, STORE_PREFIX_BFT_PARAMETERS);
 			await paramsStore.setWithSchema(
-				utils.intToBuffer(101, 4),
+				utils.intToBuffer(51, 4),
 				{
 					prevoteThreshold: BigInt(68),
 					precommitThreshold: BigInt(67),
@@ -459,7 +459,7 @@ describe('BFT votes', () => {
 			const stateStore = new StateStore(new InMemoryDatabase());
 			const paramsStore = stateStore.getStore(MODULE_STORE_PREFIX_BFT, STORE_PREFIX_BFT_PARAMETERS);
 			await paramsStore.setWithSchema(
-				utils.intToBuffer(101, 4),
+				utils.intToBuffer(51, 4),
 				{
 					prevoteThreshold: BigInt(68),
 					precommitThreshold: BigInt(103),

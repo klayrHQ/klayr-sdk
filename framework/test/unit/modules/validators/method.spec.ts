@@ -57,7 +57,7 @@ describe('ValidatorsModuleMethod', () => {
 	let validatorsSubStore: ValidatorKeysStore;
 	let blsKeysSubStore: BLSKeyStore;
 	let validatorsParamsSubStore: ValidatorsParamsStore;
-	const blockTime = 10;
+	const blockTime = 7;
 	const genesisConfig: any = { blockTime };
 	const moduleConfig: any = {};
 	const address = utils.getRandomBytes(ADDRESS_LENGTH);
@@ -674,7 +674,7 @@ describe('ValidatorsModuleMethod', () => {
 		});
 
 		it('should be able to return generators with at least one generator assigned more than one slot if input timestamps are valid and difference between input timestamps is greater than one round', async () => {
-			const validatorsPerRound = 101;
+			const validatorsPerRound = 51;
 			const timePerRound = validatorsPerRound * blockTime;
 
 			const result = await validatorsModule.method.getGeneratorsBetweenTimestamps(
@@ -693,7 +693,7 @@ describe('ValidatorsModuleMethod', () => {
 		});
 
 		it('should be able to return with all generators assigned at least 2 slots and at least one generator assigned more than 2 slots if input timestamps are valid and difference between input timestamps is greater than 2 rounds', async () => {
-			const validatorsPerRound = 101;
+			const validatorsPerRound = 51;
 			const timePerRound = validatorsPerRound * blockTime;
 
 			const result = await validatorsModule.method.getGeneratorsBetweenTimestamps(

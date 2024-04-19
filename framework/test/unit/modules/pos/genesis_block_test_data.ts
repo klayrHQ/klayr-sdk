@@ -78,7 +78,7 @@ export const validAsset = {
 	],
 	genesisData: {
 		initRounds: 3,
-		initValidators: validators.slice(0, 101).map(v => v.address),
+		initValidators: validators.slice(0, 51).map(v => v.address),
 	},
 };
 
@@ -91,7 +91,7 @@ export const invalidAssets: any[] = [
 					...validators[0],
 					name: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
 				},
-				...validators.slice(1, 101),
+				...validators.slice(1, 51),
 			],
 			stakers: [
 				{
@@ -114,7 +114,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 	],
@@ -126,7 +126,7 @@ export const invalidAssets: any[] = [
 					...validators[0],
 					name: '@@@__++',
 				},
-				...validators.slice(1, 101),
+				...validators.slice(1, 51),
 			],
 			stakers: [
 				{
@@ -149,7 +149,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'Invalid validator name',
@@ -162,7 +162,7 @@ export const invalidAssets: any[] = [
 					...validators[0],
 					name: validators[1].name,
 				},
-				...validators.slice(1, 101),
+				...validators.slice(1, 51),
 			],
 			stakers: [
 				{
@@ -185,7 +185,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'Validator name is not unique',
@@ -198,7 +198,7 @@ export const invalidAssets: any[] = [
 					...validators[0],
 					address: validators[1].address,
 				},
-				...validators.slice(1, 101),
+				...validators.slice(1, 51),
 			],
 			stakers: [
 				{
@@ -221,7 +221,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'Validator address is not unique',
@@ -243,7 +243,7 @@ export const invalidAssets: any[] = [
 						},
 					],
 				},
-				...validators.slice(1, 101),
+				...validators.slice(1, 51),
 			],
 			stakers: [
 				{
@@ -266,7 +266,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'SharingCoefficients must be sorted by tokenID',
@@ -294,7 +294,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'Sent stake exceeds max stake',
@@ -329,7 +329,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'Sent stake validator address is not unique',
@@ -369,7 +369,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'Sent stake validator address is not lexicographically ordered',
@@ -404,7 +404,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'Sent stake includes non existing validator address',
@@ -448,7 +448,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'Validator does not have corresponding sharing coefficient or the coefficient value is not consistent',
@@ -470,7 +470,7 @@ export const invalidAssets: any[] = [
 						},
 					],
 				},
-				...validators.slice(1, 101),
+				...validators.slice(1, 51),
 			],
 			stakers: [
 				{
@@ -503,7 +503,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'Validator does not have corresponding sharing coefficient or the coefficient value is not consistent',
@@ -533,7 +533,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'PendingUnlocks exceeds max unlocking',
@@ -573,7 +573,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'PendingUnlocks are not lexicographically ordered',
@@ -608,7 +608,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'Pending unlocks includes non existing validator address',
@@ -655,7 +655,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: validators.slice(0, 101).map(v => v.address),
+				initValidators: validators.slice(0, 51).map(v => v.address),
 			},
 		},
 		'Staker address is not unique',
@@ -685,7 +685,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: [validators[1].address, ...validators.slice(1, 101).map(v => v.address)],
+				initValidators: [validators[1].address, ...validators.slice(1, 51).map(v => v.address)],
 			},
 		},
 		'Init validators address is not unique',
@@ -715,7 +715,7 @@ export const invalidAssets: any[] = [
 			],
 			genesisData: {
 				initRounds: 3,
-				initValidators: [Buffer.alloc(20, 0), ...validators.slice(1, 101).map(v => v.address)],
+				initValidators: [Buffer.alloc(20, 0), ...validators.slice(1, 51).map(v => v.address)],
 			},
 		},
 		'Init validators includes non existing validator address',

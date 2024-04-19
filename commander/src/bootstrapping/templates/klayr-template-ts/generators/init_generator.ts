@@ -122,7 +122,7 @@ export default class InitGenerator extends Generator {
 			'config/default/dev-validators.json',
 			'--no-encrypt',
 			'--count',
-			'103',
+			'53',
 			'--passphrase',
 			passphrase,
 		]);
@@ -133,7 +133,7 @@ export default class InitGenerator extends Generator {
 		const { genesisAssets } = generateGenesisBlockDefaultPoSAssets({
 			chainID: this.answers.chainID,
 			keysList: keys as never,
-			numberOfValidators: 101,
+			numberOfValidators: 51,
 			tokenDistribution: BigInt('100000000000000'),
 		});
 		fs.writeJsonSync(

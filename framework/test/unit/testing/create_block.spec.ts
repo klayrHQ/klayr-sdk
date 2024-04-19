@@ -103,7 +103,7 @@ describe('Create Block', () => {
 		const block = await createBlock({
 			privateKey: genesis.privateKey,
 			chainID,
-			timestamp: genesisBlock.header.timestamp + 10,
+			timestamp: genesisBlock.header.timestamp + 7,
 			previousBlockID: genesisBlock.header.id,
 			header: {},
 			transactions: [],

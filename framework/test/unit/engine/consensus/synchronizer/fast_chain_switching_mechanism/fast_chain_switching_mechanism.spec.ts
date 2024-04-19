@@ -34,7 +34,7 @@ import {
 describe('fast_chain_switching_mechanism', () => {
 	const genesisBlock = getGenesisBlock();
 	const finalizedHeight = genesisBlock.header.height + 1;
-	const numberOfValidators = 103;
+	const numberOfValidators = 53;
 
 	let finalizedBlock: Block;
 	let lastBlock: Block;

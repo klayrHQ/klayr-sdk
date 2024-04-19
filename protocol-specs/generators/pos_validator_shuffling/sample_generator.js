@@ -18,7 +18,7 @@ const { utils, ed } = require('@klayr/cryptography');
 const { Mnemonic } = require('@klayr/passphrase');
 const fs = require('fs');
 
-const [numberOfValidators = 103, filePath] = process.argv.slice(2);
+const [numberOfValidators = 53, filePath] = process.argv.slice(2);
 
 const generateValidators = num => {
 	const validatorList = [];

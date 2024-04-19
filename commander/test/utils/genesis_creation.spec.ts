@@ -25,7 +25,7 @@ describe('genesis creation', () => {
 			const { genesisAssets } = generateGenesisBlockDefaultPoSAssets({
 				chainID: chainID.toString('hex'),
 				keysList: [],
-				numberOfValidators: 101,
+				numberOfValidators: 51,
 				tokenDistribution: BigInt('100000000000000'),
 			});
 

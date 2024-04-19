@@ -365,7 +365,7 @@ export const applicationConfigSchema = {
 			block: {
 				fromFile: './config/genesis_block.blob',
 			},
-			blockTime: 10,
+			blockTime: 7,
 			bftBatchSize: BFT_BATCH_SIZE,
 			maxTransactionsSize: MAX_TRANSACTIONS_SIZE,
 			minimumCertifyHeight: 1,

@@ -10,7 +10,7 @@
 		{
 			"description": "Random seed for round not passed the middle of the round",
 			"config": {
-				"blocksPerRound": 103
+				"blocksPerRound": 53
 			},
 			"input": {
 				"blocks": [

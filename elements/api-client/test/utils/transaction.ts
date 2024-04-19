@@ -34,7 +34,7 @@ export const nodeInfo: NodeInfo = {
 	syncing: false,
 	unconfirmedTransactions: 2243,
 	genesis: {
-		blockTime: 10,
+		blockTime: 7,
 		maxTransactionsSize: 15360,
 		bftBatchSize: 68,
 		chainID: '00000000',

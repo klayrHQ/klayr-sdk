@@ -9,11 +9,11 @@ exports[`schema/application_config_schema.js application config schema must matc
       "keys": {},
     },
     "genesis": {
-      "bftBatchSize": 103,
+      "bftBatchSize": 53,
       "block": {
         "fromFile": "./config/genesis_block.blob",
       },
-      "blockTime": 10,
+      "blockTime": 7,
       "maxTransactionsSize": 15360,
       "minimumCertifyHeight": 1,
     },

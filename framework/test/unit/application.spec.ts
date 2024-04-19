@@ -157,7 +157,7 @@ describe('Application', () => {
 			customConfig.genesis = {
 				...config.genesis,
 				maxTransactionsSize: 15 * 1024,
-				blockTime: 5,
+				blockTime: 7,
 			};
 
 			const { app } = Application.defaultApplication(customConfig);

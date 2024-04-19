@@ -50,7 +50,7 @@ import {
 } from '../../../../src/modules/reward/constants';
 
 describe('DynamicRewardModule', () => {
-	const defaultRoundLength = 103;
+	const defaultRoundLength = 53;
 
 	let rewardModule: DynamicRewardModule;
 	let tokenMethod: TokenMethod;

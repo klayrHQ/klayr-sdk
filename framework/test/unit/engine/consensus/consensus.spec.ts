@@ -128,7 +128,7 @@ describe('consensus', () => {
 			network,
 			bft,
 			genesisConfig: {
-				blockTime: 10,
+				blockTime: 7,
 			} as any,
 			systemConfig: applicationConfigSchema.default.system,
 		});

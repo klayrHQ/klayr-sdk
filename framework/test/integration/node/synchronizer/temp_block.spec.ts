@@ -32,7 +32,7 @@ describe('Temp block', () => {
 	let chainID: Buffer;
 	const genesis = testing.fixtures.defaultFaucetAccount;
 	const databasePath = '/tmp/klayr/temp_block/test';
-	const numberOfValidators = 103;
+	const numberOfValidators = 53;
 
 	beforeAll(async () => {
 		processEnv = await testing.getBlockProcessingEnv({

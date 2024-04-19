@@ -105,7 +105,7 @@ describe('utils', () => {
 				blockID: Buffer.alloc(0),
 				height: 1030,
 				stateRoot: Buffer.alloc(0),
-				timestamp: 10300,
+				timestamp: 7210,
 				validatorsHash: Buffer.alloc(0),
 			};
 
@@ -179,7 +179,7 @@ describe('utils', () => {
 				blockID: Buffer.alloc(0),
 				height: 1030,
 				stateRoot: Buffer.alloc(0),
-				timestamp: 10300,
+				timestamp: 7210,
 				validatorsHash: Buffer.alloc(0),
 			};
 

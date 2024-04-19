@@ -871,7 +871,7 @@ export class PoSModule extends BaseModule {
 	}
 
 	// updates schema to dynamically assign min/max range values for properties that depend on block time
-	private _getConfigSchema(blockTime = 10) {
+	private _getConfigSchema(blockTime = 7) {
 		const SECONDS_IN_A_DAY = 60 * 60 * 24;
 		const blocksPerDay = SECONDS_IN_A_DAY / blockTime;
 

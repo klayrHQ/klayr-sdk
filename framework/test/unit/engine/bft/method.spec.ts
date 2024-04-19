@@ -43,7 +43,7 @@ describe('BFT Method', () => {
 	beforeEach(() => {
 		bftMethod = new BFTMethod();
 		validatorsMethod = { getValidatorKeys: jest.fn() };
-		bftMethod.init(103, 10);
+		bftMethod.init(53, 7);
 	});
 
 	describe('areHeadersContradicting', () => {
@@ -846,7 +846,7 @@ describe('BFT Method', () => {
 			validatorsInvalidBLSKeys[13].blsKey = Buffer.alloc(48, 0);
 
 			await expect(
-				bftMethod.setBFTParameters(stateStore, BigInt(68), BigInt(68), validatorsInvalidBLSKeys),
+				bftMethod.setBFTParameters(stateStore, BigInt(35), BigInt(35), validatorsInvalidBLSKeys),
 			).not.toReject();
 		});
 

@@ -38,7 +38,7 @@ describe('BFT processing', () => {
 		scenario7ValidatorsPartialSwitch,
 		scenario11ValidatorsPartialSwitch,
 	];
-	const blockTime = 10;
+	const blockTime = 7;
 
 	for (const scenario of bftScenarios) {
 		// eslint-disable-next-line no-loop-func

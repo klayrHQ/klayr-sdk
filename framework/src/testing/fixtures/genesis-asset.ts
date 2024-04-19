@@ -65,7 +65,7 @@ export const blockAssetsJSON = [
 			stakers: [],
 			genesisData: {
 				initRounds: 3,
-				initValidators: accounts.keys.slice(0, 101).map(account => account.address),
+				initValidators: accounts.keys.slice(0, 51).map(account => account.address),
 			},
 		},
 		schema: genesisStoreSchema,

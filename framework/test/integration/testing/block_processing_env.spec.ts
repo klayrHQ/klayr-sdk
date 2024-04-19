@@ -41,7 +41,7 @@ describe('getBlockProcessingEnv', () => {
 	it('should return all registered validators', async () => {
 		// Act & Assert
 		const validators = await processEnv.invoke<{ list: string[] }>('chain_getGeneratorList');
-		expect(validators.list).toHaveLength(101);
+		expect(validators.list).toHaveLength(51);
 	});
 
 	it('should return a valid passphrase for next validator', async () => {

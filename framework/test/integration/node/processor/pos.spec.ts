@@ -657,7 +657,7 @@ describe('PoS and reward', () => {
 
 			newBlock = await processEnv.createBlock([stakeTx, stakeTx2]);
 			await processEnv.process(newBlock);
-			await processEnv.processUntilHeight(newBlock.header.height + 103);
+			await processEnv.processUntilHeight(newBlock.header.height + 53);
 
 			const selfStakeTx = createValidatorStakeTransaction({
 				chainID,

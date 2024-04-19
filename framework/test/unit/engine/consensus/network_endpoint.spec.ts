@@ -163,7 +163,7 @@ describe('p2p endpoint', () => {
 			await endpoint.handleRPCGetBlocksFromId(blockIds, defaultPeerId);
 			// Assert
 			expect(chain.dataAccess.getBlockHeaderByID).toHaveBeenCalledWith(id);
-			expect(chain.dataAccess.getBlocksByHeightBetween).toHaveBeenCalledWith(3, 105);
+			expect(chain.dataAccess.getBlocksByHeightBetween).toHaveBeenCalledWith(3, 55);
 		});
 	});
 

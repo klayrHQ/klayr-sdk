@@ -10,7 +10,7 @@
 		{
 			"description": "Random seeds generation for first round",
 			"config": {
-				"blocksPerRound": 103
+				"blocksPerRound": 53
 			},
 			"input": {
 				"blocks": [
