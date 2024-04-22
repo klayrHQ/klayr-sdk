@@ -1,6 +1,6 @@
 {
 	"name": "pos-sidechain-example-one",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"private": true,
 	"description": "POS sidechain example application to test interoperability",
 	"author": "Lisk Foundation &amp;lt;admin@lisk.com&amp;gt;, lightcurve GmbH &amp;lt;admin@lightcurve.io&amp;gt;",
@@ -108,12 +108,12 @@
 		}
 	},
 	"dependencies": {
-		"@klayr/chain-connector-plugin": "^0.1.2",
-		"@klayr/dashboard-plugin": "^0.3.2",
-		"@klayr/faucet-plugin": "^0.3.2",
-		"@klayr/generator-plugin": "^0.4.2",
-		"@klayr/monitor-plugin": "^0.4.2",
-		"@klayr/report-misbehavior-plugin": "^0.4.2",
+		"@klayr/chain-connector-plugin": "^0.1.3",
+		"@klayr/dashboard-plugin": "^0.3.3",
+		"@klayr/faucet-plugin": "^0.3.3",
+		"@klayr/generator-plugin": "^0.4.3",
+		"@klayr/monitor-plugin": "^0.4.3",
+		"@klayr/report-misbehavior-plugin": "^0.4.3",
 		"@oclif/core": "1.20.4",
 		"@oclif/plugin-autocomplete": "1.3.6",
 		"@oclif/plugin-help": "5.1.19",
@@ -121,8 +121,8 @@
 		"axios": "1.2.0",
 		"fs-extra": "11.1.0",
 		"inquirer": "8.2.5",
-		"klayr-commander": "^6.0.2",
-		"klayr-sdk": "^6.0.2",
+		"klayr-commander": "^6.0.4",
+		"klayr-sdk": "^6.0.3",
 		"tar": "6.1.12",
 		"tslib": "2.4.1"
 	},

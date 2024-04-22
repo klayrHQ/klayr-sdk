@@ -1,6 +1,6 @@
 {
 	"name": "@klayr/chain",
-	"version": "0.5.1",
+	"version": "0.5.2",
 	"description": "Blocks and state management implementation that are used for block processing according to the Klayr protocol",
 	"author": "Klayr Holding B.V. <admin@klayr.xyz>, Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
@@ -35,16 +35,16 @@
 		"build:check": "node -e \"require('./dist-node')\""
 	},
 	"dependencies": {
-		"@klayr/codec": "^0.4.1",
-		"@klayr/cryptography": "^4.0.1",
-		"@klayr/tree": "^0.4.1",
-		"@klayr/utils": "^0.4.1",
-		"@klayr/validator": "^0.8.1",
+		"@klayr/codec": "^0.4.2",
+		"@klayr/cryptography": "^4.0.2",
+		"@klayr/tree": "^0.4.2",
+		"@klayr/utils": "^0.4.2",
+		"@klayr/validator": "^0.8.2",
 		"@liskhq/lisk-db": "0.3.10",
 		"debug": "4.3.4"
 	},
 	"devDependencies": {
-		"@klayr/passphrase": "^4.0.1",
+		"@klayr/passphrase": "^4.0.2",
 		"@types/debug": "4.1.5",
 		"@types/faker": "4.1.10",
 		"@types/jest": "29.2.3",

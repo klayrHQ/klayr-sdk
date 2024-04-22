@@ -1,6 +1,6 @@
 {
 	"name": "klayr-protocol-specs",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"private": true,
 	"description": "Klayr protocol specs generator",
 	"main": "src/index.js",
@@ -18,10 +18,10 @@
 		"npm": ">=8.1.0"
 	},
 	"dependencies": {
-		"@klayr/codec": "^0.4.1",
-		"@klayr/cryptography": "^4.0.1",
-		"@klayr/passphrase": "^4.0.1",
-		"@klayr/validator": "^0.8.1",
+		"@klayr/codec": "^0.4.2",
+		"@klayr/cryptography": "^4.0.2",
+		"@klayr/passphrase": "^4.0.2",
+		"@klayr/validator": "^0.8.2",
 		"@liskhq/bignum": "1.3.1",
 		"protobufjs": "6.11.3"
 	},
