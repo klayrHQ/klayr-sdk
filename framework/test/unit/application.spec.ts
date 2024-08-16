@@ -13,7 +13,7 @@
  */
 /* eslint-disable max-classes-per-file */
 
-import { objects } from '@liskhq/lisk-utils';
+import { objects } from '@klayr/utils';
 import * as childProcess from 'child_process';
 import * as fs from 'fs-extra';
 import * as os from 'os';
@@ -319,7 +319,7 @@ describe('Application', () => {
 			await app.shutdown();
 		});
 
-		// Skip for https://github.com/LiskHQ/lisk-sdk/issues/8184
+		// Skip for https://github.com/Klayrhq/klayr-sdk/issues/8184
 		// eslint-disable-next-line jest/no-disabled-tests
 		it.skip('should start ABI server', () => {
 			expect(ABIServer.prototype.start).toHaveBeenCalledTimes(1);
@@ -329,7 +329,7 @@ describe('Application', () => {
 			expect(ABIHandler.prototype.cacheGenesisState).toHaveBeenCalledTimes(1);
 		});
 
-		// Skip for https://github.com/LiskHQ/lisk-sdk/issues/8184
+		// Skip for https://github.com/Klayrhq/klayr-sdk/issues/8184
 		// eslint-disable-next-line jest/no-disabled-tests
 		it.skip('should start engine', () => {
 			expect(childProcess.fork).toHaveBeenCalledTimes(1);
@@ -340,7 +340,7 @@ describe('Application', () => {
 			]);
 		});
 
-		// Skip for https://github.com/LiskHQ/lisk-sdk/issues/8184
+		// Skip for https://github.com/Klayrhq/klayr-sdk/issues/8184
 		// eslint-disable-next-line jest/no-disabled-tests
 		it.skip('should register engine signal handler', () => {
 			expect(engineProcessMock.on).toHaveBeenCalledWith('exit', expect.any(Function));
@@ -411,7 +411,7 @@ describe('Application', () => {
 			await app.shutdown();
 		});
 
-		it('should delete all files in ~/.lisk/tmp/sockets', () => {
+		it('should delete all files in ~/.klayr/tmp/sockets', () => {
 			const { sockets: socketsPath } = systemDirs(app.config.system.dataPath);
 
 			// Assert
@@ -448,7 +448,7 @@ describe('Application', () => {
 			clearControllerPidFileSpy = jest.spyOn(app as any, '_clearControllerPidFile');
 		});
 
-		// Skip for https://github.com/LiskHQ/lisk-sdk/issues/8184
+		// Skip for https://github.com/Klayrhq/klayr-sdk/issues/8184
 		// eslint-disable-next-line jest/no-disabled-tests
 		it.skip('should stop the engine', async () => {
 			await app.shutdown();
@@ -470,7 +470,7 @@ describe('Application', () => {
 			const unlinkSyncSpy = jest.spyOn(fs, 'unlinkSync').mockReturnValue();
 			await app.shutdown();
 			expect(unlinkSyncSpy).toHaveBeenCalledWith(
-				'/user/.lisk/beta-sdk-app/tmp/pids/controller.pid',
+				'/user/.klayr/beta-sdk-app/tmp/pids/controller.pid',
 			);
 		});
 	});

@@ -12,16 +12,16 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction, TAG_TRANSACTION } from '@liskhq/lisk-chain';
-import { ed } from '@liskhq/lisk-cryptography';
-import { isHexString } from '@liskhq/lisk-validator';
+import { Transaction, TAG_TRANSACTION } from '@klayr/chain';
+import { ed } from '@klayr/cryptography';
+import { isHexString } from '@klayr/validator';
 import { VerificationResult, VerifyStatus } from '../../state_machine';
 import { AuthAccount } from './stores/auth_account';
 
 /**
  * Verifies that the given `signature` corresponds to given `chainID`, `publicKey` and `transactionBytes`
  *
- * https://github.com/LiskHQ/lips/blob/main/proposals/lip-0041.md#transaction-verification
+ * https://github.com/Klayrhq/lips/blob/main/proposals/lip-0041.md#transaction-verification
  */
 export const verifySignature = (
 	chainID: Buffer,
@@ -48,7 +48,7 @@ export const verifySignature = (
 };
 
 /**
- * https://github.com/LiskHQ/lips/blob/main/proposals/lip-0041.md#transaction-verification
+ * https://github.com/Klayrhq/lips/blob/main/proposals/lip-0041.md#transaction-verification
  * Current code is already in sync with LIP. No change needed.
  */
 export const verifyMultiSignatureTransaction = (

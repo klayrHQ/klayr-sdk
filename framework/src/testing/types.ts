@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import { APIClient } from '@liskhq/lisk-api-client';
+import { APIClient } from '@klayr/api-client';
 import { BaseCommand } from '../modules';
 import { BasePlugin } from '../plugins/base_plugin';
 

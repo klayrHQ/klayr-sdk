@@ -11,14 +11,14 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-// TODO: Fix the test when functional test is fixed https://github.com/LiskHQ/lisk-sdk/issues/7209
+// TODO: Fix the test when functional test is fixed https://github.com/Klayrhq/klayr-sdk/issues/7209
 
 // import * as os from 'os';
 // import * as fs from 'fs-extra';
 // import * as path from 'path';
-// import { codec } from '@liskhq/lisk-codec';
-// import { Transaction } from '@liskhq/lisk-chain';
-// import { P2P } from '@liskhq/lisk-p2p';
+// import { codec } from '@klayr/codec';
+// import { Transaction } from '@klayr/chain';
+// import { P2P } from '@klayr/p2p';
 
 // import { APP_EVENT_BLOCK_NEW } from '../../../src/constants';
 // import * as genesisBlockJSON from '../../fixtures/config/devnet/genesis_block.json';
@@ -34,7 +34,7 @@
 // 	label: string,
 // 	consoleLogLevel?: string,
 // ): Promise<Application> => {
-// 	const rootPath = '~/.lisk/functional';
+// 	const rootPath = '~/.klayr/functional';
 // 	const config = {
 // 		...configJSON,
 // 		rootPath,
@@ -83,7 +83,7 @@
 // 	rpcConfig?: Partial<RPCConfig>;
 // 	consoleLogLevel?: string;
 // }): Promise<Application> => {
-// 	const rootPath = path.join(os.homedir(), '.lisk/functional-with-plugin');
+// 	const rootPath = path.join(os.homedir(), '.klayr/functional-with-plugin');
 // 	const config = {
 // 		...configJSON,
 // 		rootPath,
@@ -91,7 +91,7 @@
 // 		logger: {
 // 			consoleLogLevel: consoleLogLevel ?? 'fatal',
 // 			fileLogLevel: 'fatal',
-// 			logFileName: 'lisk.log',
+// 			logFileName: 'klayr.log',
 // 		},
 // 		network: {
 // 			...configJSON.network,

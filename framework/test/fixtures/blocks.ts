@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils, address, legacy } from '@liskhq/lisk-cryptography';
-import { Mnemonic } from '@liskhq/lisk-passphrase';
-import { MerkleTree } from '@liskhq/lisk-tree';
-import { Block, BlockAssets, BlockHeader, BlockHeaderAttrs, Transaction } from '@liskhq/lisk-chain';
+import { utils, address, legacy } from '@klayr/cryptography';
+import { Mnemonic } from '@klayr/passphrase';
+import { MerkleTree } from '@klayr/tree';
+import { Block, BlockAssets, BlockHeader, BlockHeaderAttrs, Transaction } from '@klayr/chain';
 
 export const defaultChainID = Buffer.from('1000000', 'hex');
 

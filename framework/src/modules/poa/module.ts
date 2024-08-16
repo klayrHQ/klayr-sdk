@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { objects } from '@liskhq/lisk-utils';
-import { validator } from '@liskhq/lisk-validator';
+import { codec } from '@klayr/codec';
+import { objects } from '@klayr/utils';
+import { validator } from '@klayr/validator';
 import { BaseModule, ModuleInitArgs, ModuleMetadata } from '../base_module';
 import { PoAMethod } from './method';
 import { PoAEndpoint } from './endpoint';
@@ -153,7 +153,7 @@ export class PoAModule extends BaseModule {
 		this.endpoint.init(this._moduleConfig.authorityRegistrationFee);
 	}
 
-	// LIP: https://github.com/LiskHQ/lips/blob/main/proposals/lip-0047.md#after-transactions-execution
+	// LIP: https://github.com/Klayrhq/lips/blob/main/proposals/lip-0047.md#after-transactions-execution
 	public async afterTransactionsExecute(context: BlockAfterExecuteContext): Promise<void> {
 		const chainPropertiesStore = this.stores.get(ChainPropertiesStore);
 		const chainProperties = await chainPropertiesStore.get(context, EMPTY_BYTES);

@@ -13,12 +13,12 @@
  */
 /* eslint-disable no-bitwise */
 
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { SparseMerkleTree } from '@liskhq/lisk-db';
-import { utils } from '@liskhq/lisk-cryptography';
-import { regularMerkleTree } from '@liskhq/lisk-tree';
-import { objects } from '@liskhq/lisk-utils';
-import { validator } from '@liskhq/lisk-validator';
+import { utils } from '@klayr/cryptography';
+import { regularMerkleTree } from '@klayr/tree';
+import { objects } from '@klayr/utils';
+import { validator } from '@klayr/validator';
 import {
 	EMPTY_BYTES,
 	EMPTY_FEE_ADDRESS,
@@ -635,7 +635,7 @@ export abstract class BaseInteroperabilityInternalMethod extends BaseInternalMet
 	}
 
 	/**
-	 * @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0053.md#verifyoutboxrootwitness
+	 * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#verifyoutboxrootwitness
 	 */
 	public verifyOutboxRootWitness(
 		_context: ImmutableMethodContext,
@@ -669,7 +669,7 @@ export abstract class BaseInteroperabilityInternalMethod extends BaseInternalMet
 	}
 
 	/**
-	 * @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0053.md#verifypartnerchainoutboxroot
+	 * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#verifypartnerchainoutboxroot
 	 */
 	public async verifyPartnerChainOutboxRoot(
 		context: CommandExecuteContext<CrossChainUpdateTransactionParams>,
@@ -730,7 +730,7 @@ export abstract class BaseInteroperabilityInternalMethod extends BaseInternalMet
 	}
 
 	/**
-	 * https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#islive
+	 * https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#islive
 	 * Different in mainchain and sidechain so to be implemented in each module store separately
 	 */
 	public abstract isLive(

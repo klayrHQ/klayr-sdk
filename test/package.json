@@ -1,21 +1,21 @@
 {
-	"name": "lisk-sdk-test",
+	"name": "klayr-sdk-test",
 	"version": "0.1.0",
-	"description": "Functional tests for Lisk SDK",
+	"description": "Functional tests for Klayr SDK",
 	"private": true,
 	"author": "Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
 	"keywords": [
-		"lisk",
+		"klayr",
 		"blockchain"
 	],
-	"homepage": "https://github.com/LiskHQ/lisk-sdk#readme",
+	"homepage": "https://github.com/Klayrhq/klayr-sdk#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/LiskHQ/lisk-sdk.git"
+		"url": "git+https://github.com/Klayrhq/klayr-sdk.git"
 	},
 	"bugs": {
-		"url": "https://github.com/LiskHQ/lisk-sdk/issues"
+		"url": "https://github.com/Klayrhq/klayr-sdk/issues"
 	},
 	"engines": {
 		"node": ">=18.12.0 <=18",
@@ -32,7 +32,7 @@
 	},
 	"dependencies": {
 		"debug": "4.3.4",
-		"lisk-sdk": "^6.1.0"
+		"klayr-sdk": "^6.1.0"
 	},
 	"devDependencies": {
 		"@types/jest": "29.2.3",
@@ -40,7 +40,7 @@
 		"@typescript-eslint/eslint-plugin": "5.44.0",
 		"@typescript-eslint/parser": "5.44.0",
 		"eslint": "8.28.0",
-		"eslint-config-lisk-base": "2.0.1",
+		"eslint-config-klayr-base": "2.0.1",
 		"eslint-plugin-import": "2.26.0",
 		"eslint-plugin-jest": "27.1.6",
 		"jest": "29.3.1",

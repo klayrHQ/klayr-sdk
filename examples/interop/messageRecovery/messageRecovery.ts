@@ -8,20 +8,20 @@ import {
 	db,
 	MODULE_NAME_INTEROPERABILITY,
 	messageRecoveryParamsSchema,
-} from 'lisk-sdk';
+} from 'klayr-sdk';
 
-// to transfer some LSK, we can use this script - examples/interop/pos-mainchain-fast/config/scripts/transfer_lsk_sidechain_one.ts
+// to transfer some LSK, we can use this script - examples/interop/pos-mainchain-fast/config/scripts/transfer_kly_sidechain_one.ts
 
 import { join } from 'path';
 import { ensureDir } from 'fs-extra';
-import { checkDBError } from '@liskhq/lisk-framework-chain-connector-plugin/dist-node/db';
-import { MerkleTree } from '@liskhq/lisk-tree';
-import { utils } from '@liskhq/lisk-cryptography';
+import { checkDBError } from '@klayr/chain-connector-plugin/dist-node/db';
+import { MerkleTree } from '@klayr/tree';
+import { utils } from '@klayr/cryptography';
 import * as os from 'os';
 import { ccmsInfoSchema } from './schema';
 
 export const relayerKeyInfo = {
-	address: 'lsk952ztknjoa3h58es4vgu5ovnoscv3amo7zg4zz',
+	address: 'kly952ztknjoa3h58es4vgu5ovnoscv3amo7zg4zz',
 	keyPath: "m/44'/134'/3'",
 	publicKey: '8960f85f7ab3cc473f29c3a00e6ad66c569f2a84125388274a4f382e11306099',
 	privateKey:
@@ -55,13 +55,13 @@ export interface Proof {
  * Sequence of steps. Also, some steps are mentioned in `initializeMessageRecovery.ts`
  *
  * pm2 stop all
- * rm -rf ~/.lisk
+ * rm -rf ~/.klayr
  * ./start_nodes
  * ts-node ./messageRecovery/events/parse_events.ts (start parsing events)
  *
  * --------------------
  *
- * Make sure ```exports.LIVENESS_LIMIT = 2592000;``` in ```lisk-framework/dist-node/modules/interoperability/constants.js```
+ * Make sure ```exports.LIVENESS_LIMIT = 2592000;``` in ```klayr-framework/dist-node/modules/interoperability/constants.js```
  * ts-node pos-mainchain-fast/config/scripts/sidechain_registration.ts  (Register sidechain (keep chain connector ON))
  * ts-node pos-sidechain-example-one/config/scripts/mainchain_registration.ts
  *
@@ -71,7 +71,7 @@ export interface Proof {
  * Start saving inclusion proofs
  * - ts-node ./messageRecovery/initializeMessageRecovery.ts (in new console tab/window)
  *
- * Change constant in ```exports.LIVENESS_LIMIT = 30;``` in ```/lisk-sdk/examples/interop/pos-mainchain-fast/node_modules/lisk-framework/dist-node/modules/interoperability/constants.js```
+ * Change constant in ```exports.LIVENESS_LIMIT = 30;``` in ```/klayr-sdk/examples/interop/pos-mainchain-fast/node_modules/klayr-framework/dist-node/modules/interoperability/constants.js```
  * Wait for at least 30 sec
  *
  * ------------------
@@ -92,13 +92,13 @@ export interface Proof {
  */
 
 (async () => {
-	const mainchainClient = await apiClient.createIPCClient(`~/.lisk/mainchain-node-one`);
+	const mainchainClient = await apiClient.createIPCClient(`~/.klayr/mainchain-node-one`);
 	const mainchainNodeInfo = await mainchainClient.invoke('system_getNodeInfo');
 
-	const sidechainClient = await apiClient.createIPCClient(`~/.lisk/pos-sidechain-example-one`);
+	const sidechainClient = await apiClient.createIPCClient(`~/.klayr/pos-sidechain-example-one`);
 	const sidechainNodeInfo = await sidechainClient.invoke('system_getNodeInfo');
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#message-recovery-from-the-sidechain-channel-outbox
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#message-recovery-from-the-sidechain-channel-outbox
 	// TODO: The proof of inclusion for the pending CCMs into the outboxRoot property of the terminated outbox account has to be available.
 
 	/**
@@ -113,11 +113,11 @@ export interface Proof {
 	// sidechain channel is stored on mainchain (during sidechain registration process - LIP 43)
 
 	// All cross-chain messages must have the correct format, which is checked by the following logic:
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0049.md#validateformat
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0049.md#validateformat
 
 	// ``` The pending CCMs to be recovered have to be available to the sender of the recovery command. ```
 	// Before preparing this array, it's worth to check Verification section of `Message Recovery Command`
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#verification-1
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#verification-1
 
 	type KVStore = db.Database;
 	const DB_KEY_EVENTS = Buffer.from([1]);
@@ -156,7 +156,7 @@ export interface Proof {
 	const toBytes = (ccm: CCMsg) => codec.encode(ccmSchema, ccm);
 
 	const LEAF_PREFIX = Buffer.from('00', 'hex');
-	const eventsModel = new EventsModel(await getDBInstance('~/.lisk'));
+	const eventsModel = new EventsModel(await getDBInstance('~/.klayr'));
 	const merkleTree = new MerkleTree();
 
 	const ccms = await eventsModel.getCCMs();
@@ -198,7 +198,7 @@ export interface Proof {
 		siblingHashes: proof.siblingHashes as Buffer[],
 	};
 
-	// PRE-REQUISITE: examples/interop/pos-mainchain-fast/config/scripts/transfer_lsk_sidechain_one.ts
+	// PRE-REQUISITE: examples/interop/pos-mainchain-fast/config/scripts/transfer_kly_sidechain_one.ts
 	// Final transaction to be submitted
 
 	// In case of recovery, it will simply swap sending/receiving chains & run each CCM in input crossChainMessages[] again
@@ -212,7 +212,7 @@ export interface Proof {
 		nonce: BigInt(
 			(
 				await mainchainClient.invoke<{ nonce: string }>('auth_getAuthAccount', {
-					address: cryptography.address.getLisk32AddressFromPublicKey(
+					address: cryptography.address.getKlayr32AddressFromPublicKey(
 						Buffer.from(relayerKeyInfo.publicKey, 'hex'),
 					),
 				})

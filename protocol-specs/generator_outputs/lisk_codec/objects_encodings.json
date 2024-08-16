@@ -1,10 +1,10 @@
 {
-	"title": "Encoding for objects types supported by lisk-codec",
-	"summary": "Examples of encoding objects with lisk-codec",
+	"title": "Encoding for objects types supported by klayr-codec",
+	"summary": "Examples of encoding objects with klayr-codec",
 	"config": {
 		"network": "devnet"
 	},
-	"runner": "lisk_codec",
+	"runner": "klayr_codec",
 	"handler": "objects_encodings",
 	"testCases": [
 		{
@@ -16,7 +16,7 @@
 					"isValidator": true,
 					"name": "validator",
 					"asset": {
-						"data": "Check out the Lisk SDK now in binary!",
+						"data": "Check out the Klayr SDK now in binary!",
 						"fooBar": {
 							"foo": 9,
 							"bar": 9
@@ -71,7 +71,7 @@
 				}
 			},
 			"output": {
-				"value": "0a14e11a11364738225813f86ea85214400e5db08d6e1080ade2041801220976616c696461746f722a2d0a25436865636b206f757420746865204c69736b2053444b206e6f7720696e2062696e61727921120408091009"
+				"value": "0a14e11a11364738225813f86ea85214400e5db08d6e1080ade2041801220976616c696461746f722a2e0a26436865636b206f757420746865204b6c6179722053444b206e6f7720696e2062696e61727921120408091009"
 			}
 		},
 		{

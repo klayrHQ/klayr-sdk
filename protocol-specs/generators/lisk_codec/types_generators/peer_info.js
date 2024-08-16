@@ -15,7 +15,7 @@
 const protobuf = require('protobufjs');
 
 const prepareProtobuffersObjects = () =>
-	protobuf.loadSync('./generators/lisk_codec/proto_files/peer_sample.proto');
+	protobuf.loadSync('./generators/klayr_codec/proto_files/peer_sample.proto');
 
 const { PeerInfo } = prepareProtobuffersObjects();
 

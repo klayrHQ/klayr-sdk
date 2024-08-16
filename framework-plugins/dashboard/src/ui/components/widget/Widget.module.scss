@@ -1,0 +1,60 @@
+@import '../../styles/constants';
+
+.root {
+	display: block;
+	margin: 10px 0;
+}
+
+.header {
+	margin-bottom: 15px;
+	width: 100%;
+}
+
+.body {
+	@include klayr-scrollbar;
+	border-radius: 6px;
+	color: $color-white;
+	padding: 20px;
+	width: 100%;
+	box-sizing: border-box;
+	display: block;
+}
+
+.body-dark {
+	background: $color-background-darker;
+}
+
+.body-light {
+	background: $color-ink-blue;
+}
+
+.widget-body-scrollbar {
+	overflow-y: scroll;
+	box-sizing: border-box;
+	overflow-y: auto;
+	overflow-x: inherit;
+
+	&.widget-body-m {
+		height: 277px;
+	}
+
+	&.widget-body-l {
+		height: 399px;
+	}
+}
+
+.widget-body-m {
+	min-height: 277px;
+}
+
+.widget-body-l {
+	min-height: 399px;
+}
+
+.widget-body-s {
+	min-height: 175px;
+}
+
+.widget-body-xs {
+	min-height: 100px;
+}

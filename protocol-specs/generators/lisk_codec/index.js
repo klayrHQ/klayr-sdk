@@ -55,7 +55,7 @@ const generateTestSuite = (data, handler, encodingTestCases, decodingTestCases) 
 		config: {
 			network: 'devnet',
 		},
-		runner: 'lisk_codec',
+		runner: 'klayr_codec',
 		handler: `${handler}_encodings`,
 		testCases: encodingTestCases,
 	}),
@@ -65,17 +65,17 @@ const generateTestSuite = (data, handler, encodingTestCases, decodingTestCases) 
 		config: {
 			network: 'devnet',
 		},
-		runner: 'lisk_codec',
+		runner: 'klayr_codec',
 		handler: `${handler}_decodings`,
 		testCases: decodingTestCases,
 	}),
 ];
 
-module.exports = BaseGenerator.runGenerator('lisk_codec', [
+module.exports = BaseGenerator.runGenerator('klayr_codec', [
 	...generateTestSuite(
 		{
-			title: 'for number types supported by lisk-codec',
-			summary: 'Examples of encoding numbers with lisk-codec',
+			title: 'for number types supported by klayr-codec',
+			summary: 'Examples of encoding numbers with klayr-codec',
 		},
 		'number',
 		validNumberEncodingsTestCases,
@@ -83,8 +83,8 @@ module.exports = BaseGenerator.runGenerator('lisk_codec', [
 	),
 	...generateTestSuite(
 		{
-			title: 'for boolean types supported by lisk-codec',
-			summary: 'Examples of encoding booleans with lisk-codec',
+			title: 'for boolean types supported by klayr-codec',
+			summary: 'Examples of encoding booleans with klayr-codec',
 		},
 		'boolean',
 		validBooleanEncodingsTestCases,
@@ -92,8 +92,8 @@ module.exports = BaseGenerator.runGenerator('lisk_codec', [
 	),
 	...generateTestSuite(
 		{
-			title: 'for string types supported by lisk-codec',
-			summary: 'Examples of encoding strings with lisk-codec',
+			title: 'for string types supported by klayr-codec',
+			summary: 'Examples of encoding strings with klayr-codec',
 		},
 		'string',
 		validStringsEncodingTestCases,
@@ -101,8 +101,8 @@ module.exports = BaseGenerator.runGenerator('lisk_codec', [
 	),
 	...generateTestSuite(
 		{
-			title: 'for bytes types supported by lisk-codec',
-			summary: 'Examples of encoding bytes with lisk-codec',
+			title: 'for bytes types supported by klayr-codec',
+			summary: 'Examples of encoding bytes with klayr-codec',
 		},
 		'bytes',
 		validBytesEncodingsTestCases,
@@ -110,8 +110,8 @@ module.exports = BaseGenerator.runGenerator('lisk_codec', [
 	),
 	...generateTestSuite(
 		{
-			title: 'for objects types supported by lisk-codec',
-			summary: 'Examples of encoding objects with lisk-codec',
+			title: 'for objects types supported by klayr-codec',
+			summary: 'Examples of encoding objects with klayr-codec',
 		},
 		'objects',
 		validObjectEncodingsTestCases,
@@ -119,8 +119,8 @@ module.exports = BaseGenerator.runGenerator('lisk_codec', [
 	),
 	...generateTestSuite(
 		{
-			title: 'for arrays types supported by lisk-codec',
-			summary: 'Examples of encoding arrays with lisk-codec',
+			title: 'for arrays types supported by klayr-codec',
+			summary: 'Examples of encoding arrays with klayr-codec',
 		},
 		'arrays',
 		validArrayEncodingsTestCases,
@@ -128,8 +128,8 @@ module.exports = BaseGenerator.runGenerator('lisk_codec', [
 	),
 	...generateTestSuite(
 		{
-			title: 'for block types supported by lisk-codec',
-			summary: 'Examples of encoding block with lisk-codec',
+			title: 'for block types supported by klayr-codec',
+			summary: 'Examples of encoding block with klayr-codec',
 		},
 		'block',
 		validBlockEncodingsTestCases,
@@ -137,8 +137,8 @@ module.exports = BaseGenerator.runGenerator('lisk_codec', [
 	),
 	...generateTestSuite(
 		{
-			title: 'for genesis block types supported by lisk-codec',
-			summary: 'Examples of encoding block with lisk-codec',
+			title: 'for genesis block types supported by klayr-codec',
+			summary: 'Examples of encoding block with klayr-codec',
 		},
 		'genesis_block',
 		validGenesisBlockAssetEncodingsTestCases,
@@ -146,8 +146,8 @@ module.exports = BaseGenerator.runGenerator('lisk_codec', [
 	),
 	...generateTestSuite(
 		{
-			title: 'for block header types supported by lisk-codec',
-			summary: 'Examples of encoding block header with lisk-codec',
+			title: 'for block header types supported by klayr-codec',
+			summary: 'Examples of encoding block header with klayr-codec',
 		},
 		'block_header',
 		validBlockHeaderEncodingsTestCases,
@@ -155,8 +155,8 @@ module.exports = BaseGenerator.runGenerator('lisk_codec', [
 	),
 	...generateTestSuite(
 		{
-			title: 'for block asset types supported by lisk-codec',
-			summary: 'Examples of encoding block asset with lisk-codec',
+			title: 'for block asset types supported by klayr-codec',
+			summary: 'Examples of encoding block asset with klayr-codec',
 		},
 		'block_asset',
 		validBlockAssetEncodingsTestCases,
@@ -164,8 +164,8 @@ module.exports = BaseGenerator.runGenerator('lisk_codec', [
 	),
 	...generateTestSuite(
 		{
-			title: 'for account types supported by lisk-codec',
-			summary: 'Examples of encoding account with lisk-codec',
+			title: 'for account types supported by klayr-codec',
+			summary: 'Examples of encoding account with klayr-codec',
 		},
 		'account',
 		validAccountEncodingTestCases,
@@ -173,8 +173,8 @@ module.exports = BaseGenerator.runGenerator('lisk_codec', [
 	),
 	...generateTestSuite(
 		{
-			title: 'for transaction types supported by lisk-codec',
-			summary: 'Examples of encoding transaction with lisk-codec',
+			title: 'for transaction types supported by klayr-codec',
+			summary: 'Examples of encoding transaction with klayr-codec',
 		},
 		'transaction',
 		validTransactionEncodingsTestCases,

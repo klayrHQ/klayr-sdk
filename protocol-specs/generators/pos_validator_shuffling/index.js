@@ -14,7 +14,7 @@
 
 'use strict';
 
-const { utils } = require('@liskhq/lisk-cryptography');
+const { utils } = require('@klayr/cryptography');
 const BaseGenerator = require('../base_generator');
 const previousValidatorList = require('./validator_address_list.json').validatorList;
 

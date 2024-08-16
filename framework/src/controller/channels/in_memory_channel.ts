@@ -14,7 +14,7 @@
 
 import { ListenerFn } from 'eventemitter2';
 import { Batch, Database, StateDB } from '@liskhq/lisk-db';
-import { StateStore } from '@liskhq/lisk-chain';
+import { StateStore } from '@klayr/chain';
 import { Event, EventCallback } from '../event';
 import { Request } from '../request';
 import { BaseChannel, InvokeRequest } from './base_channel';

@@ -12,16 +12,16 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-export * as cryptography from '@liskhq/lisk-cryptography';
-export * as p2p from '@liskhq/lisk-p2p';
-export * as passphrase from '@liskhq/lisk-passphrase';
-export * as apiClient from '@liskhq/lisk-api-client';
-export * as transactionPool from '@liskhq/lisk-transaction-pool';
-export * as transactions from '@liskhq/lisk-transactions';
-export * as utils from '@liskhq/lisk-utils';
-export * as tree from '@liskhq/lisk-tree';
-export * as validator from '@liskhq/lisk-validator';
+export * as cryptography from '@klayr/cryptography';
+export * as p2p from '@klayr/p2p';
+export * as passphrase from '@klayr/passphrase';
+export * as apiClient from '@klayr/api-client';
+export * as transactionPool from '@klayr/transaction-pool';
+export * as transactions from '@klayr/transactions';
+export * as utils from '@klayr/utils';
+export * as tree from '@klayr/tree';
+export * as validator from '@klayr/validator';
 export * as db from '@liskhq/lisk-db';
-export * as chain from '@liskhq/lisk-chain';
-export { codec, Schema } from '@liskhq/lisk-codec';
-export * from 'lisk-framework';
+export * as chain from '@klayr/chain';
+export { codec, Schema } from '@klayr/codec';
+export * from 'klayr-framework';

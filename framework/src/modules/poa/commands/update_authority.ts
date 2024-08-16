@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { MAX_UINT64 } from '@liskhq/lisk-validator';
-import { bls } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { objects as objectUtils } from '@liskhq/lisk-utils';
+import { MAX_UINT64 } from '@klayr/validator';
+import { bls } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { objects as objectUtils } from '@klayr/utils';
 import { BaseCommand } from '../../base_command';
 import { updateAuthoritySchema, validatorSignatureMessageSchema } from '../schemas';
 import {
@@ -36,7 +36,7 @@ import { UpdateAuthorityParams, ValidatorsMethod } from '../types';
 import { ChainPropertiesStore, SnapshotStore, ValidatorStore } from '../stores';
 import { AuthorityUpdateEvent } from '../events/authority_update';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0047.md#update-authority-command
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0047.md#update-authority-command
 export class UpdateAuthorityCommand extends BaseCommand {
 	public schema = updateAuthoritySchema;
 	private _validatorsMethod!: ValidatorsMethod;

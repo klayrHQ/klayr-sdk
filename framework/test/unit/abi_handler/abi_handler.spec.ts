@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 import * as fs from 'fs';
-import { Block, BlockAssets, Transaction } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { Block, BlockAssets, Transaction } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { StateDB } from '@liskhq/lisk-db';
 import { Modules } from '../../../src';
 import { ABIHandler } from '../../../src/abi_handler/abi_handler';

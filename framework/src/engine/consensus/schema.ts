@@ -16,7 +16,7 @@ export interface RPCBlocksByIdData {
 }
 
 export const getBlocksFromIdRequestSchema = {
-	$id: 'lisk/getBlocksFromIdRequest',
+	$id: 'klayr/getBlocksFromIdRequest',
 	title: 'Get Blocks From Id Request',
 	type: 'object',
 	required: ['blockId'],
@@ -31,7 +31,7 @@ export const getBlocksFromIdRequestSchema = {
 };
 
 export const getBlocksFromIdResponseSchema = {
-	$id: 'lisk/getBlocksFromIdResponse',
+	$id: 'klayr/getBlocksFromIdResponse',
 	title: 'Get Blocks From Id Response',
 	type: 'object',
 	required: ['blocks'],
@@ -47,7 +47,7 @@ export const getBlocksFromIdResponseSchema = {
 };
 
 export const getHighestCommonBlockRequestSchema = {
-	$id: '/lisk/getHighestCommonBlockRequest',
+	$id: '/klayr/getHighestCommonBlockRequest',
 	title: 'Get Highest Common Block Request',
 	type: 'object',
 	required: ['ids'],
@@ -70,7 +70,7 @@ export interface RPCHighestCommonBlockRequest {
 }
 
 export const getHighestCommonBlockResponseSchema = {
-	$id: '/lisk/getHighestCommonBlockResponse',
+	$id: '/klayr/getHighestCommonBlockResponse',
 	title: 'Get Highest Common Block Response',
 	type: 'object',
 	required: ['id'],
@@ -93,7 +93,7 @@ export interface EventPostBlockData {
 }
 
 export const postBlockEventSchema = {
-	$id: '/lisk/postBlockEvent',
+	$id: '/klayr/postBlockEvent',
 	title: 'Post Block Event',
 	type: 'object',
 	required: ['block'],

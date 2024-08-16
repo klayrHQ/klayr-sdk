@@ -1,4 +1,4 @@
-import { apiClient, codec, cryptography, Schema, Transaction } from 'lisk-sdk';
+import { apiClient, codec, cryptography, Schema, Transaction } from 'klayr-sdk';
 // Replace this with the path to a file storing the public and private key of a mainchain account who will send the sidechain registration transaction.
 // (Can be any account with enough tokens).
 import { keys } from '../default/dev-validators.json';
@@ -19,11 +19,11 @@ type ModulesMetadata = [
 	// Update this with the chain ID of the receiving chain
 	const sidechainID = Buffer.from('04000001', 'hex');
 	// Update this with the recipient address
-	const recipientLSKAddress = 'lskxz85sur2yo22dmcxybe39uvh2fg7s2ezxq4ny9';
-	const recipientAddress = address.getAddressFromLisk32Address(recipientLSKAddress);
+	const recipientklyAddress = 'klyxz85sur2yo22dmcxybe39uvh2fg7s2ezxq4ny9';
+	const recipientAddress = address.getAddressFromKlayr32Address(recipientklyAddress);
 
 	// Connect to the mainchain node
-	const mainchainClient = await apiClient.createIPCClient(`~/.lisk/mainchain-node-one`);
+	const mainchainClient = await apiClient.createIPCClient(`~/.klayr/mainchain-node-one`);
 
 	// Get node info data from mainchain
 	const mainchainNodeInfo = await mainchainClient.invoke('system_getNodeInfo');
@@ -51,7 +51,7 @@ type ModulesMetadata = [
 	// Get public key and nonce of the sender account
 	const relayerkeyInfo = keys[2];
 	const { nonce } = await mainchainClient.invoke<{ nonce: string }>('auth_getAuthAccount', {
-		address: address.getLisk32AddressFromPublicKey(Buffer.from(relayerkeyInfo.publicKey, 'hex')),
+		address: address.getKlayr32AddressFromPublicKey(Buffer.from(relayerkeyInfo.publicKey, 'hex')),
 	});
 
 	// Create transferCrossChain transaction
@@ -81,7 +81,7 @@ type ModulesMetadata = [
 	console.log(
 		`Sent cross chain transfer transaction (amount: ${
 			params.amount
-		}, recipientAddress: ${recipientLSKAddress}) to sidechain (receivingChainID: ${params.receivingChainID.toString(
+		}, recipientAddress: ${recipientklyAddress}) to sidechain (receivingChainID: ${params.receivingChainID.toString(
 			'hex',
 		)}) node ${nodeAlias}. Result from transaction pool is: `,
 		result,

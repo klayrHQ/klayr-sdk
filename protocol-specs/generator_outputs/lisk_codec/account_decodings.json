@@ -1,10 +1,10 @@
 {
-	"title": "Decoding for account types supported by lisk-codec",
-	"summary": "Examples of encoding account with lisk-codec",
+	"title": "Decoding for account types supported by klayr-codec",
+	"summary": "Examples of encoding account with klayr-codec",
 	"config": {
 		"network": "devnet"
 	},
-	"runner": "lisk_codec",
+	"runner": "klayr_codec",
 	"handler": "account_decodings",
 	"testCases": [
 		{

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { address as cryptoAddress, utils } from '@liskhq/lisk-cryptography';
+import { address as cryptoAddress, utils } from '@klayr/cryptography';
 import { Modules } from '../../../../src';
 import { PoAEndpoint } from '../../../../src/modules/poa/endpoint';
 import { PrefixedStateReadWriter } from '../../../../src/state_machine/prefixed_state_read_writer';
@@ -38,7 +38,7 @@ describe('PoAModuleEndpoint', () => {
 
 	const validatorData = {
 		name: 'validator1',
-		address: cryptoAddress.getLisk32AddressFromAddress(address1),
+		address: cryptoAddress.getKlayr32AddressFromAddress(address1),
 		weight: BigInt(1),
 	};
 
@@ -77,7 +77,7 @@ describe('PoAModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						address: cryptoAddress.getLisk32AddressFromAddress(address1),
+						address: cryptoAddress.getKlayr32AddressFromAddress(address1),
 					},
 				}),
 			);
@@ -95,7 +95,7 @@ describe('PoAModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						address: cryptoAddress.getLisk32AddressFromAddress(address1),
+						address: cryptoAddress.getKlayr32AddressFromAddress(address1),
 					},
 				}),
 			);
@@ -108,11 +108,11 @@ describe('PoAModuleEndpoint', () => {
 				poaEndpoint.getValidator(
 					createTransientModuleEndpointContext({
 						stateStore,
-						params: { address: cryptoAddress.getLisk32AddressFromAddress(address3) },
+						params: { address: cryptoAddress.getKlayr32AddressFromAddress(address3) },
 					}),
 				),
 			).rejects.toThrow(
-				`Validator not found in snapshot for address ${cryptoAddress.getLisk32AddressFromAddress(
+				`Validator not found in snapshot for address ${cryptoAddress.getKlayr32AddressFromAddress(
 					address3,
 				)}`,
 			);
@@ -120,8 +120,8 @@ describe('PoAModuleEndpoint', () => {
 	});
 
 	describe('getAllValidators', () => {
-		const address1Str = cryptoAddress.getLisk32AddressFromAddress(address1);
-		const address2Str = cryptoAddress.getLisk32AddressFromAddress(address2);
+		const address1Str = cryptoAddress.getKlayr32AddressFromAddress(address1);
+		const address2Str = cryptoAddress.getKlayr32AddressFromAddress(address2);
 
 		const addresses = [address1Str, address2Str];
 

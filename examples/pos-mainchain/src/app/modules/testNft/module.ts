@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Modules } from 'lisk-sdk';
+import { Modules } from 'klayr-sdk';
 import { TestNftEndpoint } from './endpoint';
 import { TestNftMethod } from './method';
 import { MintNftCommand } from './commands/mint_nft';

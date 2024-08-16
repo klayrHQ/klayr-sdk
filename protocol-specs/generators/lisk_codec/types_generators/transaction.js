@@ -15,7 +15,7 @@
 const protobuf = require('protobufjs');
 
 const prepareProtobuffersBaseTransaction = () =>
-	protobuf.loadSync('./generators/lisk_codec/proto_files/block.proto');
+	protobuf.loadSync('./generators/klayr_codec/proto_files/block.proto');
 
 const { BaseTransaction, VoteTransaction, MultisigTransaction } =
 	prepareProtobuffersBaseTransaction();

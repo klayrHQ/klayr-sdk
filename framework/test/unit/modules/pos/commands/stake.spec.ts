@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { address, utils } from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
+import { Transaction } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { address, utils } from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
 import { StateMachine, Modules } from '../../../../../src';
 import {
 	BASE_STAKE_AMOUNT,
@@ -42,7 +42,7 @@ import { PrefixedStateReadWriter } from '../../../../../src/state_machine/prefix
 
 import { createTransactionContext, InMemoryPrefixedStateDB } from '../../../../../src/testing';
 import { createStoreGetter } from '../../../../../src/testing/utils';
-import { liskToBeddows } from '../../../../utils/assets';
+import { klayrtoBeddows } from '../../../../utils/assets';
 import { DEFAULT_LOCAL_ID } from '../../../../utils/mocks/transaction';
 
 describe('StakeCommand', () => {
@@ -74,8 +74,8 @@ describe('StakeCommand', () => {
 	const validatorAddress1 = utils.getRandomBytes(20);
 	const validatorAddress2 = utils.getRandomBytes(20);
 	const validatorAddress3 = utils.getRandomBytes(20);
-	const validator1StakeAmount = liskToBeddows(90);
-	const validator2StakeAmount = liskToBeddows(50);
+	const validator1StakeAmount = klayrtoBeddows(90);
+	const validator2StakeAmount = klayrtoBeddows(50);
 
 	let defaultValidator: ValidatorAccount;
 	let validator1: ValidatorAccount;
@@ -213,7 +213,7 @@ describe('StakeCommand', () => {
 						.fill(0)
 						.map(() => ({
 							validatorAddress,
-							amount: liskToBeddows(8),
+							amount: klayrtoBeddows(8),
 						})),
 				}),
 			).toThrow('must NOT have more than 20 items');
@@ -226,7 +226,7 @@ describe('StakeCommand', () => {
 						.fill(0)
 						.map(() => ({
 							validatorAddress: utils.getRandomBytes(21),
-							amount: liskToBeddows(0),
+							amount: klayrtoBeddows(0),
 						})),
 				}),
 			).toThrow('address length invalid');
@@ -275,7 +275,7 @@ describe('StakeCommand', () => {
 		describe('when transaction.params.stakes contains valid contents', () => {
 			it('should not throw errors with valid upstake case', async () => {
 				transactionParamsDecoded = {
-					stakes: [{ validatorAddress, amount: liskToBeddows(20) }],
+					stakes: [{ validatorAddress, amount: klayrtoBeddows(20) }],
 				};
 
 				transaction.params = codec.encode(stakeCommand.schema, transactionParamsDecoded);
@@ -292,7 +292,7 @@ describe('StakeCommand', () => {
 
 			it('should not throw errors with valid downstake cast', async () => {
 				transactionParamsDecoded = {
-					stakes: [{ validatorAddress, amount: liskToBeddows(-20) }],
+					stakes: [{ validatorAddress, amount: klayrtoBeddows(-20) }],
 				};
 				transaction.params = codec.encode(stakeCommand.schema, transactionParamsDecoded);
 				context = createTransactionContext({
@@ -308,8 +308,8 @@ describe('StakeCommand', () => {
 			it('should not throw errors with valid mixed stakes case', async () => {
 				transactionParamsDecoded = {
 					stakes: [
-						{ validatorAddress: utils.getRandomBytes(20), amount: liskToBeddows(20) },
-						{ validatorAddress: utils.getRandomBytes(20), amount: liskToBeddows(-20) },
+						{ validatorAddress: utils.getRandomBytes(20), amount: klayrtoBeddows(20) },
+						{ validatorAddress: utils.getRandomBytes(20), amount: klayrtoBeddows(-20) },
 					],
 				};
 
@@ -331,7 +331,7 @@ describe('StakeCommand', () => {
 				transactionParamsDecoded = {
 					stakes: Array(MAX_NUMBER_SENT_STAKES + 1)
 						.fill(0)
-						.map(() => ({ validatorAddress: utils.getRandomBytes(20), amount: liskToBeddows(10) })),
+						.map(() => ({ validatorAddress: utils.getRandomBytes(20), amount: klayrtoBeddows(10) })),
 				};
 
 				transaction.params = codec.encode(stakeCommand.schema, transactionParamsDecoded);
@@ -354,7 +354,7 @@ describe('StakeCommand', () => {
 						.fill(0)
 						.map(() => ({
 							validatorAddress: utils.getRandomBytes(20),
-							amount: liskToBeddows(-10),
+							amount: klayrtoBeddows(-10),
 						})),
 				};
 
@@ -375,8 +375,8 @@ describe('StakeCommand', () => {
 			it('should throw error', async () => {
 				transactionParamsDecoded = {
 					stakes: [
-						{ validatorAddress, amount: liskToBeddows(10) },
-						{ validatorAddress, amount: liskToBeddows(-10) },
+						{ validatorAddress, amount: klayrtoBeddows(10) },
+						{ validatorAddress, amount: klayrtoBeddows(-10) },
 					],
 				};
 
@@ -396,7 +396,7 @@ describe('StakeCommand', () => {
 		describe('when transaction.params.stakes includes zero amount', () => {
 			it('should throw error', async () => {
 				transactionParamsDecoded = {
-					stakes: [{ validatorAddress, amount: liskToBeddows(0) }],
+					stakes: [{ validatorAddress, amount: klayrtoBeddows(0) }],
 				};
 
 				transaction.params = codec.encode(stakeCommand.schema, transactionParamsDecoded);
@@ -447,7 +447,7 @@ describe('StakeCommand', () => {
 		describe('when transaction.params.stakes contain positive amount', () => {
 			it('should emit ValidatorStakedEvent with STAKE_SUCCESSFUL result', async () => {
 				transactionParamsDecoded = {
-					stakes: [{ validatorAddress: validatorAddress1, amount: liskToBeddows(10) }],
+					stakes: [{ validatorAddress: validatorAddress1, amount: klayrtoBeddows(10) }],
 				};
 
 				transaction.params = codec.encode(stakeCommand.schema, transactionParamsDecoded);
@@ -475,7 +475,7 @@ describe('StakeCommand', () => {
 
 			it('should throw error if stake amount is more than balance', async () => {
 				transactionParamsDecoded = {
-					stakes: [{ validatorAddress, amount: liskToBeddows(100) }],
+					stakes: [{ validatorAddress, amount: klayrtoBeddows(100) }],
 				};
 
 				transaction.params = codec.encode(stakeCommand.schema, transactionParamsDecoded);
@@ -602,13 +602,13 @@ describe('StakeCommand', () => {
 			});
 
 			it("should increase staker's stakes.amount and validator's totalStake when an existing staker further increases their stake", async () => {
-				const previousStakeAmount = liskToBeddows(120);
-				const newStakeAmount = liskToBeddows(88);
+				const previousStakeAmount = klayrtoBeddows(120);
+				const newStakeAmount = klayrtoBeddows(88);
 
 				const validatorAccount: ValidatorAccount = {
 					...validator1,
 					totalStake: previousStakeAmount,
-					selfStake: liskToBeddows(50),
+					selfStake: klayrtoBeddows(50),
 				};
 				const stakerData: StakerData = {
 					stakes: [
@@ -762,7 +762,7 @@ describe('StakeCommand', () => {
 			});
 
 			it('should update stake which has non-zero amount', async () => {
-				const downStakeAmount = liskToBeddows(10);
+				const downStakeAmount = klayrtoBeddows(10);
 
 				transactionParamsDecoded = {
 					stakes: [{ validatorAddress: validatorAddress1, amount: downStakeAmount * BigInt(-1) }],
@@ -826,7 +826,7 @@ describe('StakeCommand', () => {
 			});
 
 			it('should throw error and emit ValidatorStakedEvent with STAKE_FAILED_INVALID_UNSTAKE_PARAMETERS result when downstaked validator is not already upstaked', async () => {
-				const downStakeAmount = liskToBeddows(10);
+				const downStakeAmount = klayrtoBeddows(10);
 
 				transactionParamsDecoded = {
 					stakes: [{ validatorAddress: validatorAddress3, amount: downStakeAmount * BigInt(-1) }],
@@ -859,8 +859,8 @@ describe('StakeCommand', () => {
 		});
 
 		describe('when transaction.params.stakes contain negative and positive amount', () => {
-			const positiveStakeValidator1 = liskToBeddows(10);
-			const negativeStakeValidator2 = liskToBeddows(-20);
+			const positiveStakeValidator1 = klayrtoBeddows(10);
+			const negativeStakeValidator2 = klayrtoBeddows(-20);
 			beforeEach(async () => {
 				transactionParamsDecoded = {
 					stakes: [
@@ -1096,7 +1096,7 @@ describe('StakeCommand', () => {
 
 					transactionParamsDecoded = {
 						...transactionParamsDecoded,
-						stakes: [{ validatorAddress: nonExistingValidatorAddress, amount: liskToBeddows(76) }],
+						stakes: [{ validatorAddress: nonExistingValidatorAddress, amount: klayrtoBeddows(76) }],
 					};
 
 					transaction.params = codec.encode(stakeCommand.schema, transactionParamsDecoded);
@@ -1144,7 +1144,7 @@ describe('StakeCommand', () => {
 
 						stakerData.stakes.push({
 							validatorAddress: uniqueValidatorAddress,
-							amount: liskToBeddows(20),
+							amount: klayrtoBeddows(20),
 							sharingCoefficients: [{ tokenID: Buffer.alloc(8), coefficient: Buffer.alloc(24) }],
 						});
 					}
@@ -1177,7 +1177,7 @@ describe('StakeCommand', () => {
 						);
 						stakes.push({
 							validatorAddress: uniqueValidatorAddress,
-							amount: liskToBeddows(10),
+							amount: klayrtoBeddows(10),
 						});
 					}
 
@@ -1215,7 +1215,7 @@ describe('StakeCommand', () => {
 
 			describe(`when transaction.params.stakes downstakes decrease stakerData.sentStakes entries, yet upstakes make account exceeds more than ${MAX_NUMBER_SENT_STAKES} stakes`, () => {
 				it('should throw error and emit ValidatorStakedEvent with STAKE_FAILED_TOO_MANY_SENT_STAKES failure', async () => {
-					const amount = liskToBeddows(20);
+					const amount = klayrtoBeddows(20);
 					const stakerData = await stakerStore.getOrDefault(
 						createStoreGetter(stateStore),
 						senderAddress,
@@ -1362,7 +1362,7 @@ describe('StakeCommand', () => {
 
 						const pendingUnlock = {
 							validatorAddress: uniqueValidatorAddress,
-							amount: liskToBeddows(20),
+							amount: klayrtoBeddows(20),
 							unstakeHeight: i,
 						};
 						stakerData.pendingUnlocks.push(pendingUnlock);
@@ -1393,7 +1393,7 @@ describe('StakeCommand', () => {
 
 						const stake = {
 							validatorAddress: uniqueValidatorAddress,
-							amount: liskToBeddows(20),
+							amount: klayrtoBeddows(20),
 							sharingCoefficients: [],
 						};
 						stakerData.stakes.push(stake);
@@ -1405,11 +1405,11 @@ describe('StakeCommand', () => {
 					const stakes = [
 						{
 							validatorAddress: stakerData.stakes[0].validatorAddress,
-							amount: liskToBeddows(-10),
+							amount: klayrtoBeddows(-10),
 						},
 						{
 							validatorAddress: stakerData.stakes[1].validatorAddress,
-							amount: liskToBeddows(-10),
+							amount: klayrtoBeddows(-10),
 						},
 					];
 
@@ -1454,7 +1454,7 @@ describe('StakeCommand', () => {
 					);
 					stakerData.stakes.push({
 						validatorAddress: validatorAddress1,
-						amount: liskToBeddows(70),
+						amount: klayrtoBeddows(70),
 						sharingCoefficients: [],
 					});
 					await stakerStore.set(createStoreGetter(stateStore), senderAddress, stakerData);
@@ -1463,7 +1463,7 @@ describe('StakeCommand', () => {
 						stakes: [
 							{
 								validatorAddress: validatorAddress1,
-								amount: liskToBeddows(-80),
+								amount: klayrtoBeddows(-80),
 							},
 						],
 					};
@@ -1496,10 +1496,10 @@ describe('StakeCommand', () => {
 		});
 
 		describe('when transaction.params.stakes contains self-stake', () => {
-			const senderStakeAmountPositive = liskToBeddows(80);
-			const senderStakeAmountNegative = liskToBeddows(20);
-			const totalStake = liskToBeddows(20);
-			const selfStake = liskToBeddows(20);
+			const senderStakeAmountPositive = klayrtoBeddows(80);
+			const senderStakeAmountNegative = klayrtoBeddows(20);
+			const totalStake = klayrtoBeddows(20);
+			const selfStake = klayrtoBeddows(20);
 
 			beforeEach(async () => {
 				const validatorInfo = {
@@ -1632,9 +1632,9 @@ describe('StakeCommand', () => {
 		});
 
 		describe('when transaction.params.stakes does not contain self-stake', () => {
-			const senderStakeAmountPositive = liskToBeddows(80);
-			const senderStakeAmountNegative = liskToBeddows(20);
-			const validatorSelfStake = liskToBeddows(2000);
+			const senderStakeAmountPositive = klayrtoBeddows(80);
+			const senderStakeAmountNegative = klayrtoBeddows(20);
+			const validatorSelfStake = klayrtoBeddows(2000);
 			let validatorInfo;
 			beforeEach(async () => {
 				validatorInfo = {

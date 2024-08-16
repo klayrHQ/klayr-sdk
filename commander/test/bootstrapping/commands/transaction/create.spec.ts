@@ -13,12 +13,12 @@
  *
  */
 import * as inquirer from 'inquirer';
-import { Application, transactionSchema } from 'lisk-framework';
-import * as cryptography from '@liskhq/lisk-cryptography';
-import * as apiClient from '@liskhq/lisk-api-client';
-import * as transactions from '@liskhq/lisk-transactions';
+import { Application, transactionSchema } from 'klayr-framework';
+import * as cryptography from '@klayr/cryptography';
+import * as apiClient from '@klayr/api-client';
+import * as transactions from '@klayr/transactions';
 
-import { emptySchema } from '@liskhq/lisk-codec';
+import { emptySchema } from '@klayr/codec';
 import { join } from 'path';
 import * as appUtils from '../../../../src/utils/application';
 import * as readerUtils from '../../../../src/utils/reader';
@@ -36,11 +36,11 @@ import { Awaited } from '../../../types';
 describe('transaction:create command', () => {
 	const passphrase = 'peanut hundred pen hawk invite exclude brain chunk gadget wait wrong ready';
 	const transferParams =
-		'{"tokenID": "0000000000000000","amount":100,"recipientAddress":"lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9","data":"send token"}';
+		'{"tokenID": "0000000000000000","amount":100,"recipientAddress":"klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9","data":"send token"}';
 	const voteParams =
-		'{"stakes":[{"validatorAddress":"lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9","amount":100},{"validatorAddress":"lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9","amount":-50}]}';
+		'{"stakes":[{"validatorAddress":"klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9","amount":100},{"validatorAddress":"klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9","amount":-50}]}';
 	const unVoteParams =
-		'{"stakes":[{"validatorAddress":"lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9","amount":-50}]}';
+		'{"stakes":[{"validatorAddress":"klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9","amount":-50}]}';
 	const { publicKey } = cryptography.legacy.getPrivateAndPublicKeyFromPassphrase(passphrase);
 	const senderPublicKey = publicKey.toString('hex');
 	const mockEncodedTransaction = Buffer.from('encoded transaction');
@@ -49,7 +49,7 @@ describe('transaction:create command', () => {
 			tokenID: '0000000000000000',
 			amount: '100',
 			data: 'send token',
-			recipientAddress: 'lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
+			recipientAddress: 'klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
 		},
 		command: 'transfer',
 		fee: '100000000',
@@ -157,7 +157,7 @@ describe('transaction:create command', () => {
 		jest.spyOn(inquirer, 'prompt').mockResolvedValue({
 			tokenID: '0000000000000000',
 			amount: 100,
-			recipientAddress: 'lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
+			recipientAddress: 'klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
 			data: 'send token',
 		});
 		jest.spyOn(readerUtils, 'getPassphraseFromPrompt').mockResolvedValue(passphrase);
@@ -371,7 +371,7 @@ describe('transaction:create command', () => {
 								'token',
 								'transfer',
 								'100000000',
-								'--params={"tokenID":"0000000000000000","amount":100,"recipientAddress":"lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9"}',
+								'--params={"tokenID":"0000000000000000","amount":100,"recipientAddress":"klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9"}',
 								`--passphrase=${passphrase}`,
 								'--offline',
 								'--chain-id=873da85a2cee70da631d90b0f17fada8c3ac9b83b2613f4ca5fddd374d1034b3.',
@@ -381,7 +381,7 @@ describe('transaction:create command', () => {
 							config,
 						),
 					).rejects.toThrow(
-						"Lisk validator found 1 error[s]:\nMissing property, must have required property 'data'",
+						"Klayr validator found 1 error[s]:\nMissing property, must have required property 'data'",
 					);
 				});
 			});
@@ -575,7 +575,7 @@ describe('transaction:create command', () => {
 								tokenID: '0000000000000000',
 								amount: '100',
 								data: 'send token',
-								recipientAddress: 'lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
+								recipientAddress: 'klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
 							},
 							signatures: [],
 						},
@@ -615,7 +615,7 @@ describe('transaction:create command', () => {
 								tokenID: '0000000000000000',
 								amount: '100',
 								data: 'send token',
-								recipientAddress: 'lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
+								recipientAddress: 'klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
 							},
 							signatures: [expect.any(String)],
 						},
@@ -871,7 +871,7 @@ describe('transaction:create command', () => {
 								tokenID: '0000000000000000',
 								amount: '100',
 								data: 'send token',
-								recipientAddress: 'lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
+								recipientAddress: 'klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
 							},
 							signatures: [
 								'3cc8c8c81097fe59d9df356b3c3f1dd10f619bfabb54f5d187866092c67e0102c64dbe24f357df493cc7ebacdd2e55995db8912245b718d88ebf7f4f4ac01f04',

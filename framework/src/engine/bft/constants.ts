@@ -25,5 +25,5 @@ export const EMPTY_KEY = Buffer.alloc(0);
 export const MAX_UINT32 = 2 ** 32 - 1;
 
 export const defaultConfig = {
-	batchSize: 103,
+	batchSize: 53,
 };

@@ -16,8 +16,8 @@ import { when } from 'jest-when';
 import * as fs from 'fs-extra';
 import * as os from 'os';
 import * as path from 'path';
-import { Application } from 'lisk-framework';
-import { utils } from '@liskhq/lisk-cryptography';
+import { Application } from 'klayr-framework';
+import { utils } from '@klayr/cryptography';
 
 import { StartCommand } from '../../../src/bootstrapping/commands/start';
 import { getConfig } from '../../helpers/config';
@@ -67,23 +67,23 @@ describe('start', () => {
 			plugins: {},
 		} as never);
 		when(fs.readJSON as jest.Mock)
-			.calledWith('~/.lisk/lisk-core/config/default/config.json')
+			.calledWith('~/.klayr/klayr-core/config/default/config.json')
 			.mockResolvedValue({
 				system: {
 					logLevel: 'error',
 				},
 				plugins: {},
 			})
-			.calledWith('~/.lisk/lisk-core/config/config.json')
+			.calledWith('~/.klayr/klayr-core/config/config.json')
 			.mockResolvedValue({
 				system: {
 					logLevel: 'error',
 				},
 				plugins: {},
 			})
-			.calledWith('~/.lisk/lisk-core/config/default/genesis_block.blob')
+			.calledWith('~/.klayr/klayr-core/config/default/genesis_block.blob')
 			.mockResolvedValue(genesis)
-			.calledWith('~/.lisk/lisk-core/config/devnet/genesis_block.json')
+			.calledWith('~/.klayr/klayr-core/config/devnet/genesis_block.json')
 			.mockResolvedValue(genesis);
 		jest.spyOn(fs, 'readdirSync');
 		when(fs.readdirSync as jest.Mock)
@@ -104,14 +104,14 @@ describe('start', () => {
 			await StartCommandExtended.run([], config);
 			const [usedConfig] = (StartCommandExtended.prototype.getApplication as jest.Mock).mock
 				.calls[0];
-			expect(usedConfig.system.dataPath).toContain('lisk-core');
+			expect(usedConfig.system.dataPath).toContain('klayr-core');
 		});
 	});
 
 	describe('when config already exist in the folder and called with --overwrite-config', () => {
 		it('should delete the default config and save the devnet config', async () => {
 			await StartCommandExtended.run(['-n', 'default', '--overwrite-config'], config);
-			expect(fs.ensureDirSync).toHaveBeenCalledWith('~/.lisk/lisk-core/config');
+			expect(fs.ensureDirSync).toHaveBeenCalledWith('~/.klayr/klayr-core/config');
 			expect(fs.copySync).toHaveBeenCalledTimes(1);
 		});
 	});
@@ -195,12 +195,12 @@ describe('start', () => {
 		});
 
 		it('should update the config value from env', async () => {
-			process.env.LISK_LOG_LEVEL = 'warn';
+			process.env.KLAYR_LOG_LEVEL = 'warn';
 			await StartCommandExtended.run([], config);
 			const [usedConfig] = (StartCommandExtended.prototype.getApplication as jest.Mock).mock
 				.calls[0];
 			expect(usedConfig.system.logLevel).toBe('warn');
-			process.env.LISK_CONSOLE_LOG_LEVEL = '';
+			process.env.KLAYR_CONSOLE_LOG_LEVEL = '';
 		});
 	});
 
@@ -213,12 +213,12 @@ describe('start', () => {
 		});
 
 		it('should update the config value for env', async () => {
-			process.env.LISK_PORT = '1234';
+			process.env.KLAYR_PORT = '1234';
 			await StartCommandExtended.run([], config);
 			const [usedConfig] = (StartCommandExtended.prototype.getApplication as jest.Mock).mock
 				.calls[0];
 			expect(usedConfig.network.port).toBe(1234);
-			process.env.LISK_PORT = '';
+			process.env.KLAYR_PORT = '';
 		});
 	});
 
@@ -231,7 +231,7 @@ describe('start', () => {
 		});
 
 		it('should update the config value using env variable', async () => {
-			process.env.LISK_SEED_PEERS = 'localhost:12234,74.49.3.35:2238';
+			process.env.KLAYR_SEED_PEERS = 'localhost:12234,74.49.3.35:2238';
 			await StartCommandExtended.run([], config);
 			const [usedConfig] = (StartCommandExtended.prototype.getApplication as jest.Mock).mock
 				.calls[0];
@@ -239,7 +239,7 @@ describe('start', () => {
 				{ ip: 'localhost', port: 12234 },
 				{ ip: '74.49.3.35', port: 2238 },
 			]);
-			process.env.LISK_SEED_PEERS = '';
+			process.env.KLAYR_SEED_PEERS = '';
 		});
 	});
 });

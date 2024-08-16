@@ -26,7 +26,7 @@ export interface TerminatedStateAccountJSON {
 	initialized?: boolean;
 }
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#terminated-state-substore
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#terminated-state-substore
 export const terminatedStateSchema = {
 	$id: '/modules/interoperability/terminatedState',
 	type: 'object',

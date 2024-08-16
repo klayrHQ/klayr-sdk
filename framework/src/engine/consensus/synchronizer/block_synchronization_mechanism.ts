@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Block, Chain, BlockHeader } from '@liskhq/lisk-chain';
-import { dataStructures } from '@liskhq/lisk-utils';
+import { Block, Chain, BlockHeader } from '@klayr/chain';
+import { dataStructures } from '@klayr/utils';
 import { BaseSynchronizer } from './base_synchronizer';
 import {
 	computeLargestSubsetMaxBy,
@@ -400,7 +400,7 @@ export class BlockSynchronizationMechanism extends BaseSynchronizer {
 	 * If invalid, an exception is thrown.
 	 *
 	 * This behavior is defined in section `2. Step: Obtain tip of chain` in LIP-0014
-	 * @link https://github.com/LiskHQ/lips/blob/master/proposals/lip-0014.md#block-synchronization-mechanism
+	 * @link https://github.com/Klayrhq/lips/blob/master/proposals/lip-0014.md#block-synchronization-mechanism
 	 */
 	private async _requestAndValidateLastBlock(peerId: string): Promise<void> {
 		this._logger.debug({ peerId }, 'Requesting tip of the chain from peer');
@@ -446,7 +446,7 @@ export class BlockSynchronizationMechanism extends BaseSynchronizer {
 	 * Computes the best peer to continue working with
 	 * according to the set of rules defined in Step 1. of Block Synchronization Mechanism
 	 *
-	 * @link https://github.com/LiskHQ/lips/blob/master/proposals/lip-0014.md#block-synchronization-mechanism
+	 * @link https://github.com/Klayrhq/lips/blob/master/proposals/lip-0014.md#block-synchronization-mechanism
 	 */
 	private _computeBestPeer(): Peer {
 		const peers = this._network.getConnectedPeers() as unknown as Peer[];

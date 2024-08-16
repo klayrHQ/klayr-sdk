@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2019 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -18,19 +18,19 @@ import * as tablifyUtil from '../../src/utils/tablify';
 
 describe('print utils', () => {
 	const objectToPrint = {
-		lisk: 'Some prefix: \u001B[4mJS\u001B[0m',
+		klayr: 'Some prefix: \u001B[4mJS\u001B[0m',
 	};
 	const objectToPrintWithoutANSI = {
-		lisk: 'Some prefix: JS',
+		klayr: 'Some prefix: JS',
 	};
 	const arrayToPrint = [
-		{ lisk: 'Some prefix: \u001B[4mJS\u001B[0m' },
-		{ lisk: 'Some suffix: \u001B[4awesome\u001B[0m' },
+		{ klayr: 'Some prefix: \u001B[4mJS\u001B[0m' },
+		{ klayr: 'Some suffix: \u001B[4awesome\u001B[0m' },
 	];
-	const arrayToPrintWithoutANSI = [{ lisk: 'Some prefix: JS' }, { lisk: 'Some suffix: awesome' }];
+	const arrayToPrintWithoutANSI = [{ klayr: 'Some prefix: JS' }, { klayr: 'Some suffix: awesome' }];
 
 	const tablifyResult = 'tablify-result';
-	const stringifyResult = '[{"lisk":"Some prefix: JS"},{"lisk":"Some suffix: awesome"}]';
+	const stringifyResult = '[{"klayr":"Some prefix: JS"},{"klayr":"Some suffix: awesome"}]';
 
 	type Printer = (result: ReadonlyArray<StringMap> | StringMap) => void;
 	let log: jest.Mock;

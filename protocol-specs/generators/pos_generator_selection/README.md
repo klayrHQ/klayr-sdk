@@ -16,4 +16,4 @@ A set of test generators for standby validator selection by LIP-0022
 
 ## Resources
 
-- [LIP-0022](https://github.com/LiskHQ/lips/blob/master/proposals/lip-0022.md)
+- [LIP-0022](https://github.com/Klayrhq/lips/blob/master/proposals/lip-0022.md)

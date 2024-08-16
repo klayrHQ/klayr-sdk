@@ -1,6 +1,6 @@
 {
 	"system": {
-		"dataPath": "~/.lisk/pos-mainchain",
+		"dataPath": "~/.klayr/pos-mainchain",
 		"enableMetrics": true
 	},
 	"rpc": {
@@ -10,8 +10,8 @@
 		"block": {
 			"fromFile": "./config/genesis_block.blob"
 		},
-		"blockTime": 10,
-		"bftBatchSize": 103,
+		"blockTime": 7,
+		"bftBatchSize": 53,
 		"chainID": "04000000",
 		"maxTransactionsSize": 15360
 	},

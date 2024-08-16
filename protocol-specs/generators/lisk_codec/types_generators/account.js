@@ -15,7 +15,7 @@
 const protobuf = require('protobufjs');
 
 const prepareProtobuffersBlock = () =>
-	protobuf.loadSync('./generators/lisk_codec/proto_files/account.proto');
+	protobuf.loadSync('./generators/klayr_codec/proto_files/account.proto');
 
 const { Account } = prepareProtobuffersBlock();
 

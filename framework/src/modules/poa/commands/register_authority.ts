@@ -24,7 +24,7 @@ import { RegisterAuthorityParams, ValidatorsMethod, FeeMethod } from '../types';
 import { COMMAND_REGISTER_AUTHORITY, POA_VALIDATOR_NAME_REGEX } from '../constants';
 import { ValidatorStore, NameStore } from '../stores';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0047.md#register-authority-command
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0047.md#register-authority-command
 export class RegisterAuthorityCommand extends BaseCommand {
 	public schema = registerAuthoritySchema;
 	private _validatorsMethod!: ValidatorsMethod;

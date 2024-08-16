@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -18,7 +18,7 @@ import { homedir } from 'os';
 import * as fs from 'fs-extra';
 import { join, resolve } from 'path';
 import * as inquirer from 'inquirer';
-import { isHexString } from '@liskhq/lisk-validator';
+import { isHexString } from '@klayr/validator';
 import { defaultConfig } from '../../../utils/config';
 import { handleOutputFlag } from '../../../utils/output';
 
@@ -43,7 +43,7 @@ export class CreateCommand extends Command {
 		}),
 		'chain-id': flagParser.string({
 			char: 'i',
-			description: 'ChainID in hex format. For example, Lisk mainnet mainchain is 00000000',
+			description: 'ChainID in hex format. For example, Klayr mainnet mainchain is 00000000',
 			required: true,
 		}),
 	};
@@ -68,7 +68,7 @@ export class CreateCommand extends Command {
 		const configPath = resolve(output);
 		const filePath = join(configPath, 'config');
 
-		defaultConfig.system.dataPath = join(homedir(), '.lisk', label);
+		defaultConfig.system.dataPath = join(homedir(), '.klayr', label);
 		(defaultConfig.genesis as Record<string, unknown>).chainID = chainID;
 
 		// check for existing file at given location & ask the user before overwriting

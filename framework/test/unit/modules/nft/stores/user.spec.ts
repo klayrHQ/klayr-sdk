@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { UserStore } from '../../../../../src/modules/nft/stores/user';
 import { LENGTH_ADDRESS, LENGTH_NFT_ID } from '../../../../../src/modules/nft/constants';
 

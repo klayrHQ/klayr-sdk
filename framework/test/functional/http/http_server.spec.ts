@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-// TODO: Fix the test when functional test is fixed https://github.com/LiskHQ/lisk-sdk/issues/7209
+// TODO: Fix the test when functional test is fixed https://github.com/Klayrhq/klayr-sdk/issues/7209
 
 // import axios from 'axios';
 // import { createApplication, closeApplication } from '../utils/application';

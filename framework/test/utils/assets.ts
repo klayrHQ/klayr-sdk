@@ -12,4 +12,4 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-export const liskToBeddows = (lisk: number) => BigInt(10) ** BigInt(8) * BigInt(lisk);
+export const klayrtoBeddows = (klayr: number) => BigInt(10) ** BigInt(8) * BigInt(klayr);

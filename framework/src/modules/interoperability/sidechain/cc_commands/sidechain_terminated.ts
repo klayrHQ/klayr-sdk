@@ -29,7 +29,7 @@ interface CCMSidechainTerminatedParams {
 	stateRoot: Buffer;
 }
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0049.md#sidechain-terminated-message-1
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0049.md#sidechain-terminated-message-1
 export class SidechainCCSidechainTerminatedCommand extends BaseInteroperabilityCCCommand<SidechainInteroperabilityInternalMethod> {
 	public schema = sidechainTerminatedCCMParamsSchema;
 

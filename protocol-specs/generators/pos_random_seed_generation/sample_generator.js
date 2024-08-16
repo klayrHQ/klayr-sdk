@@ -14,8 +14,8 @@
 
 'use strict';
 
-const { getPrivateAndPublicKeyFromPassphrase } = require('@liskhq/lisk-cryptography');
-const { Mnemonic } = require('@liskhq/lisk-passphrase');
+const { getPrivateAndPublicKeyFromPassphrase } = require('@klayr/cryptography');
+const { Mnemonic } = require('@klayr/passphrase');
 const crypto = require('crypto');
 const fs = require('fs');
 

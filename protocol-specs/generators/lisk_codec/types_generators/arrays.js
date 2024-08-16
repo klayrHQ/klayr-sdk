@@ -15,7 +15,7 @@
 const protobuf = require('protobufjs');
 
 const prepareProtobuffersArrays = () =>
-	protobuf.loadSync('./generators/lisk_codec/proto_files/arrays.proto');
+	protobuf.loadSync('./generators/klayr_codec/proto_files/arrays.proto');
 
 const { ArrayOfIntegers, ArrayBools, ArrayString, ArrayObjects } = prepareProtobuffersArrays();
 
@@ -52,7 +52,7 @@ const arrayOfBooleans = { list: [true, true, false, true, false, false] };
 const arrayBoolsEncoded = ArrayBools.encode(arrayOfBooleans).finish();
 
 const stringSchema = getArraySchemaFor('string');
-const arrayOfStrings = { list: ['lisk', '', 'gogogog'] };
+const arrayOfStrings = { list: ['klayr', '', 'gogogog'] };
 const arrayStringsEncoded = ArrayString.encode(arrayOfStrings).finish();
 
 const objectSchema = getArraySchemaFor({

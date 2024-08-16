@@ -10,7 +10,7 @@
 		{
 			"description": "Random seeds generation for the case when a validator have invalid pre-image for seed reveal",
 			"config": {
-				"blocksPerRound": 103
+				"blocksPerRound": 53
 			},
 			"input": {
 				"blocks": [

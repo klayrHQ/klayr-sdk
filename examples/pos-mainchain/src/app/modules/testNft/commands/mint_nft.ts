@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Modules, StateMachine } from 'lisk-sdk';
+import { Modules, StateMachine } from 'klayr-sdk';
 import { NFTAttributes } from '../types';
 import { mintNftParamsSchema } from '../schema';
 

@@ -22,14 +22,14 @@ import {
 	BlockAssets,
 	StateStore,
 	EVENT_KEY_LENGTH,
-} from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { address as addressUtil } from '@liskhq/lisk-cryptography';
+} from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { address as addressUtil } from '@klayr/cryptography';
 import { Database, Batch, SparseMerkleTree } from '@liskhq/lisk-db';
-import { TransactionPool, events, TransactionStatus } from '@liskhq/lisk-transaction-pool';
-import { MerkleTree } from '@liskhq/lisk-tree';
-import { dataStructures, jobHandlers } from '@liskhq/lisk-utils';
-import { validator } from '@liskhq/lisk-validator';
+import { TransactionPool, events, TransactionStatus } from '@klayr/transaction-pool';
+import { MerkleTree } from '@klayr/tree';
+import { dataStructures, jobHandlers } from '@klayr/utils';
+import { validator } from '@klayr/validator';
 import { EVENT_NETWORK_READY } from '../events';
 import { Logger } from '../../logger';
 import { EngineConfig } from '../../types';
@@ -355,7 +355,7 @@ export class Generator {
 			this._logger.info({ address: key.address }, 'saving generator from file');
 			if (key.encrypted && Object.keys(key.encrypted).length) {
 				await subStore.set(
-					addressUtil.getAddressFromLisk32Address(key.address),
+					addressUtil.getAddressFromKlayr32Address(key.address),
 					codec.encode(generatorKeysSchema, {
 						type: 'encrypted',
 						data: codec.encode(encryptedMessageSchema, key.encrypted),
@@ -363,7 +363,7 @@ export class Generator {
 				);
 			} else if (key.plain) {
 				await subStore.set(
-					addressUtil.getAddressFromLisk32Address(key.address),
+					addressUtil.getAddressFromKlayr32Address(key.address),
 					codec.encode(generatorKeysSchema, {
 						type: 'plain',
 						data: codec.encode(plainGeneratorKeysSchema, {
@@ -402,7 +402,7 @@ export class Generator {
 					blsSecretKey: keys.blsPrivateKey,
 				});
 				this._logger.info(
-					`Block generation enabled for address: ${addressUtil.getLisk32AddressFromAddress(key)}`,
+					`Block generation enabled for address: ${addressUtil.getKlayr32AddressFromAddress(key)}`,
 				);
 			}
 		}
@@ -501,7 +501,7 @@ export class Generator {
 			{
 				id: generatedBlock.header.id,
 				height: generatedBlock.header.height,
-				generatorAddress: addressUtil.getLisk32AddressFromAddress(generator.address),
+				generatorAddress: addressUtil.getKlayr32AddressFromAddress(generator.address),
 			},
 			'Generated new block',
 		);

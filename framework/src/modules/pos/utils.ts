@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { ed } from '@liskhq/lisk-cryptography';
-import { math } from '@liskhq/lisk-utils';
+import { ed } from '@klayr/cryptography';
+import { math } from '@klayr/utils';
 import {
 	ModuleConfig,
 	ModuleConfigJSON,
@@ -234,7 +234,7 @@ export const getMinPunishedHeight = (pomHeights: number[], punishmentWindow: num
 
 	const lastPomHeight = Math.max(...pomHeights);
 
-	// https://github.com/LiskHQ/lips/blob/master/proposals/lip-0024.md#update-to-validity-of-unlock-transaction
+	// https://github.com/Klayrhq/lips/blob/master/proposals/lip-0024.md#update-to-validity-of-unlock-transaction
 	return lastPomHeight + punishmentWindow;
 };
 

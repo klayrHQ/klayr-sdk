@@ -15,5 +15,5 @@
 import { BaseCCChannelTerminatedCommand } from '../../base_cc_commands/channel_terminated';
 import { SidechainInteroperabilityInternalMethod } from '../internal_method';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0049.md#channel-terminated-message-1
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0049.md#channel-terminated-message-1
 export class SidechainCCChannelTerminatedCommand extends BaseCCChannelTerminatedCommand<SidechainInteroperabilityInternalMethod> {}

@@ -1,4 +1,4 @@
-import { apiClient, codec, cryptography, Schema, Transaction } from 'lisk-sdk';
+import { apiClient, codec, cryptography, Schema, Transaction } from 'klayr-sdk';
 import { keys } from '../default/dev-validators.json';
 type ModulesMetadata = [
 	{
@@ -11,14 +11,14 @@ type ModulesMetadata = [
 (async () => {
 	const { address } = cryptography;
 
-	const recipientLSKAddress = 'lskx5uqu2zzybdwrqswd8c6b5v5aj77yytn4k6mv6';
+	const recipientklyAddress = 'klyx5uqu2zzybdwrqswd8c6b5v5aj77yytn4k6mv6';
 	const nodeAlias = 'one';
 	const tokenID = Buffer.from('0400000100000000', 'hex');
 	const messageFeeTokenID = Buffer.from('0400000000000000', 'hex');
 	const sidechainID = Buffer.from('04000002', 'hex');
-	const recipientAddress = address.getAddressFromLisk32Address(recipientLSKAddress);
+	const recipientAddress = address.getAddressFromKlayr32Address(recipientklyAddress);
 
-	const sidechainClient = await apiClient.createIPCClient(`~/.lisk/pos-sidechain-example-one`);
+	const sidechainClient = await apiClient.createIPCClient(`~/.klayr/pos-sidechain-example-one`);
 
 	const mainchainNodeInfo = await sidechainClient.invoke('system_getNodeInfo');
 
@@ -45,7 +45,7 @@ type ModulesMetadata = [
 	const relayerkeyInfo = keys[48];
 
 	const { nonce } = await sidechainClient.invoke<{ nonce: string }>('auth_getAuthAccount', {
-		address: address.getLisk32AddressFromPublicKey(Buffer.from(relayerkeyInfo.publicKey, 'hex')),
+		address: address.getKlayr32AddressFromPublicKey(Buffer.from(relayerkeyInfo.publicKey, 'hex')),
 	});
 
 	const tx = new Transaction({
@@ -70,7 +70,7 @@ type ModulesMetadata = [
 	});
 
 	console.log(
-		`Sent cross chain transfer transaction (amount: ${params.amount.toString()}, recipient: ${recipientLSKAddress}) from sidechain (sidechainID: ${
+		`Sent cross chain transfer transaction (amount: ${params.amount.toString()}, recipient: ${recipientklyAddress}) from sidechain (sidechainID: ${
 			params.receivingChainID
 		}) node ${nodeAlias} to mainchain. Result from transaction pool is: `,
 		result,

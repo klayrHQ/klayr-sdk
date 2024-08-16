@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { objects as objectUtils } from '@liskhq/lisk-utils';
-import * as cryptography from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { objects as objectUtils } from '@klayr/utils';
+import * as cryptography from '@klayr/cryptography';
 import { BaseCommand } from '../../base_command';
 import {
 	CommandExecuteContext,

@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -23,7 +23,7 @@ export enum NETWORK {
 	DEVNET = 'devnet',
 }
 export const DEFAULT_NETWORK = NETWORK.DEFAULT;
-export const RELEASE_URL = 'https://downloads.lisk.com/lisk';
+export const RELEASE_URL = 'https://downloads.klayr.xyz/klayr';
 export const OWNER_READ_WRITE = 0o600;
 
 export const plainGeneratorKeysSchema = {

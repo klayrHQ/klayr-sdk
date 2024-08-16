@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
-import { utils, address } from '@liskhq/lisk-cryptography';
+import { Transaction } from '@klayr/chain';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
+import { utils, address } from '@klayr/cryptography';
 import * as testing from '../../../../../src/testing';
 import { ChangeCommissionCommand } from '../../../../../src/modules/pos/commands/change_commission';
 import { changeCommissionCommandParamsSchema as schema } from '../../../../../src/modules/pos/schemas';

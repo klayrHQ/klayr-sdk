@@ -14,7 +14,7 @@
 import { BaseStore } from '../../base_store';
 import { CHAIN_ID_LENGTH, STORE_PREFIX } from '../constants';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#registered-names-substore
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#registered-names-substore
 export const registeredNamesSchema = {
 	$id: '/modules/interoperability/chainId',
 	type: 'object',

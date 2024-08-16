@@ -13,10 +13,10 @@
  */
 /* eslint-disable jest/expect-expect */
 
-import { codec } from '@liskhq/lisk-codec';
-import * as cryptography from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
-import { utils } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import * as cryptography from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
+import { utils } from '@klayr/cryptography';
 import { Modules, Transaction, StateMachine } from '../../../../../src';
 import { TransferCrossChainCommand } from '../../../../../src/modules/token/commands/transfer_cross_chain';
 import { CROSS_CHAIN_COMMAND_NAME_TRANSFER } from '../../../../../src/modules/token/constants';
@@ -80,7 +80,7 @@ describe('CCTransfer command', () => {
 		tokenID: Buffer,
 		amount: bigint,
 	) =>
-		`${cryptography.address.getLisk32AddressFromAddress(
+		`${cryptography.address.getKlayr32AddressFromAddress(
 			senderAddress,
 		)} balance ${availableBalance.toString()} for ${tokenID.toString(
 			'hex',

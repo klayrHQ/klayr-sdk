@@ -1,10 +1,10 @@
 {
-	"title": "Encoding for block header types supported by lisk-codec",
-	"summary": "Examples of encoding block header with lisk-codec",
+	"title": "Encoding for block header types supported by klayr-codec",
+	"summary": "Examples of encoding block header with klayr-codec",
 	"config": {
 		"network": "devnet"
 	},
-	"runner": "lisk_codec",
+	"runner": "klayr_codec",
 	"handler": "block_header_encodings",
 	"testCases": [
 		{

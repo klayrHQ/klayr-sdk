@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { GenesisNFTStore } from '../../../../src/modules/nft/types';
 import {
 	LENGTH_ADDRESS,

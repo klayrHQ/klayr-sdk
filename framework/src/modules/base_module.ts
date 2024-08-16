@@ -13,7 +13,7 @@
  */
 /* eslint-disable class-methods-use-this */
 
-import { Schema } from '@liskhq/lisk-codec';
+import { Schema } from '@klayr/codec';
 import { GenesisConfig } from '../types';
 import { BaseCommand } from './base_command';
 import { BaseEndpoint } from './base_endpoint';
@@ -83,7 +83,7 @@ export interface ModuleMetadata {
 export type ModuleMetadataJSON = ModuleMetadata & { name: string };
 
 /**
- * The `BaseModule` represents Lisk modules by providing a generic interface, from which each module extends from.
+ * The `BaseModule` represents Klayr modules by providing a generic interface, from which each module extends from.
  */
 export abstract class BaseModule {
 	/**
@@ -122,7 +122,7 @@ export abstract class BaseModule {
 	}
 
 	/**
-	 * An endpoint is an interface between a module and an external system. Lisk endpoints support RPC communication.
+	 * An endpoint is an interface between a module and an external system. Klayr endpoints support RPC communication.
 	 * The module-specific RPC endpoints can be invoked by external services, like UIs, to get relevant data from the application.
 	 *
 	 * Endpoints allow us to conveniently get data from the blockchain.

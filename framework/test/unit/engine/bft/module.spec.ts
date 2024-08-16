@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { StateStore } from '@liskhq/lisk-chain';
+import { StateStore } from '@klayr/chain';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
 import { BFTModule } from '../../../../src/engine/bft';
 import {

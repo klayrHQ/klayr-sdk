@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import * as cryptography from '@liskhq/lisk-cryptography';
+import * as cryptography from '@klayr/cryptography';
 import { BaseCommand } from '../../base_command';
 import {
 	CommandExecuteContext,
@@ -51,11 +51,11 @@ export class TransferCommand extends BaseCommand {
 	private _internalMethod!: InternalMethod;
 
 	/**
-	 * The `init()` hook of a command is called by the Lisk Framework when the node starts.
+	 * The `init()` hook of a command is called by the Klayr Framework when the node starts.
 	 *
 	 * In this context, you have the opportunity to validate and cache the module config or perform initializations that are intended to occur only once.
 	 *
-	 * @see [Command initialization](https://lisk.com/documentation/beta/understand-blockchain/sdk/modules-commands.html#command-initialization)
+	 * @see [Command initialization](https://klayr.xyz/documentation/beta/understand-blockchain/sdk/modules-commands.html#command-initialization)
 	 *
 	 * @param args Contains the module methods and internal module methods.
 	 */
@@ -81,7 +81,7 @@ export class TransferCommand extends BaseCommand {
 		);
 		if (availableBalance < params.amount) {
 			throw new InsufficientBalanceError(
-				cryptography.address.getLisk32AddressFromAddress(context.transaction.senderAddress),
+				cryptography.address.getKlayr32AddressFromAddress(context.transaction.senderAddress),
 				availableBalance.toString(),
 				params.amount.toString(),
 			);

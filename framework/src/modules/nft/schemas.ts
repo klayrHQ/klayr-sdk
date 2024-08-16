@@ -22,7 +22,7 @@ import {
 } from './constants';
 
 export const transferParamsSchema = {
-	$id: '/lisk/nftTransferParams',
+	$id: '/klayr/nftTransferParams',
 	type: 'object',
 	required: ['nftID', 'recipientAddress', 'data'],
 	properties: {
@@ -34,7 +34,7 @@ export const transferParamsSchema = {
 		},
 		recipientAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 2,
 		},
 		data: {
@@ -47,7 +47,7 @@ export const transferParamsSchema = {
 };
 
 export const crossChainNFTTransferMessageParamsSchema = {
-	$id: '/lisk/crossChainNFTTransferMessageParamsSchmema',
+	$id: '/klayr/crossChainNFTTransferMessageParamsSchmema',
 	type: 'object',
 	required: ['nftID', 'senderAddress', 'recipientAddress', 'attributesArray', 'data'],
 	properties: {
@@ -59,12 +59,12 @@ export const crossChainNFTTransferMessageParamsSchema = {
 		},
 		senderAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 2,
 		},
 		recipientAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 3,
 		},
 		attributesArray: {
@@ -105,7 +105,7 @@ export interface CCTransferMessageParams {
 }
 
 export const crossChainTransferParamsSchema = {
-	$id: '/lisk/crossChainNFTTransferParamsSchema',
+	$id: '/klayr/crossChainNFTTransferParamsSchema',
 	type: 'object',
 	required: [
 		'nftID',
@@ -130,7 +130,7 @@ export const crossChainTransferParamsSchema = {
 		},
 		recipientAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 3,
 		},
 		data: {
@@ -156,7 +156,7 @@ export const getNFTsRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 	required: ['address'],
@@ -205,7 +205,7 @@ export const hasNFTRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		id: {
 			type: 'string',

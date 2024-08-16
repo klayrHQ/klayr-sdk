@@ -13,8 +13,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
+import { utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
 import { Types } from '../../../../src';
 import { LegacyChainHandler } from '../../../../src/engine/legacy/legacy_chain_handler';

@@ -2,23 +2,23 @@
 	"peers": {
 		"list": [
 			{
-				"ip": "testnet-seed-01.lisk.com",
+				"ip": "testnet-seed-01.klayr.xyz",
 				"port": 7001
 			},
 			{
-				"ip": "testnet-seed-02.lisk-nodes.net",
+				"ip": "testnet-seed-02.klayr.net",
 				"port": 7001
 			},
 			{
-				"ip": "testnet-seed-03.lisk.com",
+				"ip": "testnet-seed-03.klayr.one",
 				"port": 7001
 			},
 			{
-				"ip": "testnet-seed-04.lisk-nodes.net",
+				"ip": "testnet-seed-04.klayr.dev",
 				"port": 7001
 			},
 			{
-				"ip": "testnet-seed-05.lisk.com",
+				"ip": "testnet-seed-05.klayr.network",
 				"port": 7001
 			}
 		]

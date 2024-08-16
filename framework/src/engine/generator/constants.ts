@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 
 export const DEFAULT_RELEASE_LIMIT = 100;
 export const DEFAULT_RELEASE_INTERVAL = 5000;

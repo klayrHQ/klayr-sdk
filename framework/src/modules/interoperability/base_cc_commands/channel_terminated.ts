@@ -18,7 +18,7 @@ import { CCCommandExecuteContext } from '../types';
 import { BaseInteroperabilityInternalMethod } from '../base_interoperability_internal_methods';
 import { TerminatedStateStore } from '../stores/terminated_state';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0049.md#channel-terminated-message-1
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0049.md#channel-terminated-message-1
 export abstract class BaseCCChannelTerminatedCommand<
 	T extends BaseInteroperabilityInternalMethod,
 > extends BaseInteroperabilityCCCommand<T> {

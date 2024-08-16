@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockAsset, BlockAssets } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import * as cryptography from '@liskhq/lisk-cryptography';
-import { objects } from '@liskhq/lisk-utils';
+import { BlockAsset, BlockAssets } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import * as cryptography from '@klayr/cryptography';
+import { objects } from '@klayr/utils';
 import { RandomMethod } from '../../../../src/modules/random/method';
 import { SEED_LENGTH } from '../../../../src/modules/random/constants';
 import { blockHeaderAssetRandomModule } from '../../../../src/modules/random/schemas';
@@ -69,7 +69,7 @@ describe('RandomModuleMethod', () => {
 			context = createTransientMethodContext({});
 			randomStore = randomModule.stores.get(ValidatorRevealsStore);
 			await randomStore.set(context, EMPTY_BYTES, {
-				validatorReveals: twoRoundsValidators.slice(0, 103),
+				validatorReveals: twoRoundsValidators.slice(0, 53),
 			});
 		});
 
@@ -152,7 +152,7 @@ describe('RandomModuleMethod', () => {
 			const twoRoundsValidatorsClone1 = objects.cloneDeep(twoRoundsValidators);
 			twoRoundsValidatorsClone1[5].generatorAddress = Buffer.alloc(0);
 			await randomStore.set(context, EMPTY_BYTES, {
-				validatorReveals: twoRoundsValidatorsClone1.slice(0, 103),
+				validatorReveals: twoRoundsValidatorsClone1.slice(0, 53),
 			});
 			const hashes = twoRoundsValidatorsHashes[generatorAddress.toString('hex')];
 			const blockAsset: BlockAsset = {
@@ -175,7 +175,7 @@ describe('RandomModuleMethod', () => {
 			const twoRoundsValidatorsClone2 = twoRoundsValidators;
 			twoRoundsValidatorsClone2[5].seedReveal = cryptography.utils.getRandomBytes(17);
 			await randomStore.set(context, EMPTY_BYTES, {
-				validatorReveals: twoRoundsValidatorsClone2.slice(0, 103),
+				validatorReveals: twoRoundsValidatorsClone2.slice(0, 53),
 			});
 			const hashes = twoRoundsValidatorsHashes[generatorAddress.toString('hex')];
 			const blockAsset: BlockAsset = {
@@ -198,7 +198,7 @@ describe('RandomModuleMethod', () => {
 			const twoRoundsValidatorsClone3 = objects.cloneDeep(twoRoundsValidators);
 			twoRoundsValidatorsClone3[5].generatorAddress = generatorAddress;
 			await randomStore.set(context, EMPTY_BYTES, {
-				validatorReveals: twoRoundsValidatorsClone3.slice(0, 103),
+				validatorReveals: twoRoundsValidatorsClone3.slice(0, 53),
 			});
 			const hashes =
 				twoRoundsValidatorsHashes[twoRoundsValidators[5].generatorAddress.toString('hex')];

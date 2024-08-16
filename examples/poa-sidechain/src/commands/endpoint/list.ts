@@ -1,1 +1,1 @@
-export { ListCommand } from 'lisk-commander';
+export { ListCommand } from 'klayr-commander';

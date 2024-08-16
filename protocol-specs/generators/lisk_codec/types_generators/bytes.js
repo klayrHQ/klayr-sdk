@@ -15,7 +15,7 @@
 const protobuf = require('protobufjs');
 
 const prepareProtobuffersBytes = () =>
-	protobuf.loadSync('./generators/lisk_codec/proto_files/bytes.proto');
+	protobuf.loadSync('./generators/klayr_codec/proto_files/bytes.proto');
 
 const { Bytes } = prepareProtobuffersBytes();
 

@@ -1,10 +1,10 @@
 {
-	"title": "Encoding for boolean types supported by lisk-codec",
-	"summary": "Examples of encoding booleans with lisk-codec",
+	"title": "Encoding for boolean types supported by klayr-codec",
+	"summary": "Examples of encoding booleans with klayr-codec",
 	"config": {
 		"network": "devnet"
 	},
-	"runner": "lisk_codec",
+	"runner": "klayr_codec",
 	"handler": "boolean_encodings",
 	"testCases": [
 		{

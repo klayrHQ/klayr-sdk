@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
-import { TransactionAttrs } from '@liskhq/lisk-chain';
-import { utils, address } from '@liskhq/lisk-cryptography';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
+import { TransactionAttrs } from '@klayr/chain';
+import { utils, address } from '@klayr/cryptography';
 
 import { Modules, Transaction, StateMachine } from '../../../../../src';
 import { UpdateGeneratorKeyParams, ValidatorsMethod } from '../../../../../src/modules/poa/types';

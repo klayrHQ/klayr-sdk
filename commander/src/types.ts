@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2020 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -23,7 +23,7 @@ export interface BaseGeneratorOptions extends GeneratorOptions {
 	registry?: string;
 }
 
-export interface LiskTemplate {
+export interface Klayrtemplate {
 	generators: {
 		init: GeneratorConstructor;
 		initPlugin: GeneratorConstructor;

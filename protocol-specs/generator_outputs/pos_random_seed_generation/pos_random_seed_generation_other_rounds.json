@@ -10,7 +10,7 @@
 		{
 			"description": "Random seeds generation for two rounds",
 			"config": {
-				"blocksPerRound": 103
+				"blocksPerRound": 53
 			},
 			"input": {
 				"blocks": [
@@ -1459,14 +1459,14 @@
 				]
 			},
 			"output": {
-				"randomSeed1": "251cef422571b2ef520eed289f4d64b5",
-				"randomSeed2": "1ebc2c57112bc594c7ca32a76a89f70e"
+				"randomSeed1": "da188e15a13724e7524137daf672081e",
+				"randomSeed2": "eb420d371d5dc844d43c7b3260b6d6e1"
 			}
 		},
 		{
 			"description": "Random seeds generation for three rounds",
 			"config": {
-				"blocksPerRound": 103
+				"blocksPerRound": 53
 			},
 			"input": {
 				"blocks": [
@@ -3636,14 +3636,14 @@
 				]
 			},
 			"output": {
-				"randomSeed1": "e2da98258bc71904b892a5c076fb0a35",
-				"randomSeed2": "cf19a137331cd3a23a4ce47ff8e63906"
+				"randomSeed1": "df2567b046623ab7ba891bc4795ba2d6",
+				"randomSeed2": "73ad2f9a87cab75dba46dfe5b82e8ee7"
 			}
 		},
 		{
 			"description": "Random seeds generation for five rounds",
 			"config": {
-				"blocksPerRound": 103
+				"blocksPerRound": 53
 			},
 			"input": {
 				"blocks": [
@@ -7255,8 +7255,8 @@
 				]
 			},
 			"output": {
-				"randomSeed1": "f81be5b77f53a8c23c362ed635739a2c",
-				"randomSeed2": "09a929cf02f58d22db53873b33ebf5b4"
+				"randomSeed1": "89c3032466108fa6c61570385f37cb84",
+				"randomSeed2": "2d4db13a1c5c1f9a85808cb1f3667c66"
 			}
 		}
 	]

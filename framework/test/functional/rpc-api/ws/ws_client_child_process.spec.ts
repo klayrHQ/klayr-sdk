@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { createWSClient } from '@liskhq/lisk-api-client';
+import { createWSClient } from '@klayr/api-client';
 import { Application } from '../../../../src';
 import { closeApplication, createApplicationWithHelloPlugin } from '../../utils/application';
 

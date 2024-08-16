@@ -12,11 +12,11 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { address } from '@liskhq/lisk-cryptography';
+import { address } from '@klayr/cryptography';
 import * as testing from '../../../src/testing';
 
 describe('getBlockProcessingEnv', () => {
-	const databasePath = '/tmp/lisk/processing_env/test';
+	const databasePath = '/tmp/klayr/processing_env/test';
 
 	let processEnv: testing.BlockProcessingEnv;
 
@@ -41,7 +41,7 @@ describe('getBlockProcessingEnv', () => {
 	it('should return all registered validators', async () => {
 		// Act & Assert
 		const validators = await processEnv.invoke<{ list: string[] }>('chain_getGeneratorList');
-		expect(validators.list).toHaveLength(101);
+		expect(validators.list).toHaveLength(51);
 	});
 
 	it('should return a valid passphrase for next validator', async () => {
@@ -82,7 +82,7 @@ describe('getBlockProcessingEnv', () => {
 		// Act & Assert
 		const block = await processEnv.createBlock();
 		expect(block.header.generatorAddress).toEqual(
-			address.getAddressFromLisk32Address(keys.address),
+			address.getAddressFromKlayr32Address(keys.address),
 		);
 	});
 });

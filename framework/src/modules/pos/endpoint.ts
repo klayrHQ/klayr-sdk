@@ -12,11 +12,11 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { address as cryptoAddress } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
+import { address as cryptoAddress } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
 import { NotFoundError } from '@liskhq/lisk-db';
-import { validator } from '@liskhq/lisk-validator';
-import { dataStructures, math } from '@liskhq/lisk-utils';
+import { validator } from '@klayr/validator';
+import { dataStructures, math } from '@klayr/utils';
 import { ModuleEndpointContext } from '../../types';
 import { BaseEndpoint } from '../base_endpoint';
 import {
@@ -85,10 +85,10 @@ export class PoSEndpoint extends BaseEndpoint {
 		if (typeof address !== 'string') {
 			throw new Error('Parameter address must be a string.');
 		}
-		cryptoAddress.validateLisk32Address(address);
+		cryptoAddress.validateKlayr32Address(address);
 		const stakerData = await stakerSubStore.get(
 			ctx,
-			cryptoAddress.getAddressFromLisk32Address(address),
+			cryptoAddress.getAddressFromKlayr32Address(address),
 		);
 
 		return codec.toJSON(stakerStoreSchema, stakerData);
@@ -100,11 +100,11 @@ export class PoSEndpoint extends BaseEndpoint {
 		if (typeof address !== 'string') {
 			throw new Error('Parameter address must be a string.');
 		}
-		cryptoAddress.validateLisk32Address(address);
+		cryptoAddress.validateKlayr32Address(address);
 
 		const validatorAccount = await validatorSubStore.get(
 			ctx,
-			cryptoAddress.getAddressFromLisk32Address(address),
+			cryptoAddress.getAddressFromKlayr32Address(address),
 		);
 
 		return {
@@ -129,7 +129,7 @@ export class PoSEndpoint extends BaseEndpoint {
 			const validatorAccount = await validatorSubStore.get(ctx, data.key);
 			const validatorAccountJSON = {
 				...codec.toJSON<ValidatorAccountJSON>(validatorStoreSchema, validatorAccount),
-				address: cryptoAddress.getLisk32AddressFromAddress(data.key),
+				address: cryptoAddress.getKlayr32AddressFromAddress(data.key),
 				punishmentPeriods: this._calculatePunishmentPeriods(
 					validatorAccount.reportMisbehaviorHeights,
 				),
@@ -146,7 +146,7 @@ export class PoSEndpoint extends BaseEndpoint {
 
 		const amount = await this._internalMethod.getLockedStakedAmount(
 			ctx,
-			cryptoAddress.getAddressFromLisk32Address(params.address),
+			cryptoAddress.getAddressFromKlayr32Address(params.address),
 		);
 		return {
 			amount: amount.toString(),
@@ -189,8 +189,8 @@ export class PoSEndpoint extends BaseEndpoint {
 		if (typeof address !== 'string') {
 			throw new Error('Parameter address must be a string.');
 		}
-		cryptoAddress.validateLisk32Address(address);
-		const addressBytes = cryptoAddress.getAddressFromLisk32Address(address);
+		cryptoAddress.validateKlayr32Address(address);
+		const addressBytes = cryptoAddress.getAddressFromKlayr32Address(address);
 		const stakerSubStore = this.stores.get(StakerStore);
 		let stakerData: StakerData;
 		try {
@@ -227,7 +227,7 @@ export class PoSEndpoint extends BaseEndpoint {
 				...unlock,
 				unlockable: ctx.header.height > expectedUnlockableHeight && isCertified,
 				amount: unlock.amount.toString(),
-				validatorAddress: cryptoAddress.getLisk32AddressFromAddress(unlock.validatorAddress),
+				validatorAddress: cryptoAddress.getKlayr32AddressFromAddress(unlock.validatorAddress),
 				expectedUnlockableHeight,
 			});
 		}
@@ -272,7 +272,7 @@ export class PoSEndpoint extends BaseEndpoint {
 			const validatorAccount = await validatorSubStore.get(ctx, address);
 			const validatorAccountJSON = {
 				...codec.toJSON<ValidatorAccountJSON>(validatorStoreSchema, validatorAccount),
-				address: cryptoAddress.getLisk32AddressFromAddress(address),
+				address: cryptoAddress.getKlayr32AddressFromAddress(address),
 				punishmentPeriods: this._calculatePunishmentPeriods(
 					validatorAccount.reportMisbehaviorHeights,
 				),
@@ -287,7 +287,7 @@ export class PoSEndpoint extends BaseEndpoint {
 		validator.validate<GetLockedRewardRequest>(getLockedRewardRequestSchema, ctx.params);
 
 		const tokenID = Buffer.from(ctx.params.tokenID, 'hex');
-		const address = cryptoAddress.getAddressFromLisk32Address(ctx.params.address);
+		const address = cryptoAddress.getAddressFromKlayr32Address(ctx.params.address);
 		let locked = await this._tokenMethod.getLockedAmount(
 			ctx.getImmutableMethodContext(),
 			address,
@@ -317,7 +317,7 @@ export class PoSEndpoint extends BaseEndpoint {
 		);
 
 		const rewards = new dataStructures.BufferMap<bigint>();
-		const address = cryptoAddress.getAddressFromLisk32Address(context.params.address);
+		const address = cryptoAddress.getAddressFromKlayr32Address(context.params.address);
 		const { stakes } = await this.stores.get(StakerStore).getOrDefault(context, address);
 
 		for (const stake of stakes) {
@@ -367,7 +367,7 @@ export class PoSEndpoint extends BaseEndpoint {
 		const validatorReward = q96(BigInt(ctx.params.validatorReward));
 		const validatorAccount = await this.stores
 			.get(ValidatorStore)
-			.get(ctx, cryptoAddress.getAddressFromLisk32Address(ctx.params.validatorAddress));
+			.get(ctx, cryptoAddress.getAddressFromKlayr32Address(ctx.params.validatorAddress));
 		const commission = q96(validatorAccount.commission).div(q96(BigInt(10000)));
 		const rewardFraction = q96(BigInt(1)).sub(commission);
 		const totalStake = q96(BigInt(validatorAccount.totalStake) + BigInt(ctx.params.stake));

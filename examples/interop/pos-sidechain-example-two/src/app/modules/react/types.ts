@@ -1,4 +1,4 @@
-import { StateMachine, Modules } from 'lisk-sdk';
+import { StateMachine, Modules } from 'klayr-sdk';
 
 export type TokenID = Buffer;
 // Parameters of the reactCrossChain CCM

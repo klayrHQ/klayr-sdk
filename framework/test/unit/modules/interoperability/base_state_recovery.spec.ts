@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { Transaction } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { SparseMerkleTree } from '@liskhq/lisk-db';
 import { StateMachine, Modules } from '../../../../src';
 import { BaseCCCommand } from '../../../../src/modules/interoperability/base_cc_command';

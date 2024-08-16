@@ -15,7 +15,7 @@
 
 'use strict';
 
-const { utils } = require('@liskhq/lisk-cryptography');
+const { utils } = require('@klayr/cryptography');
 const BaseGenerator = require('../base_generator');
 
 const publicKeys = [
@@ -29,7 +29,7 @@ const publicKeys = [
 	'225b8a862942c7c65010fc031f2de01802b93bb094fd2d2cc546166b0dafcedf',
 ];
 
-const PREFIX_LISK = 'lsk';
+const PREFIX_KLAYR = 'kly';
 const CHARSET = 'zxvcpmbn3465o978uyrtkqew2adsjhfg';
 const GENERATOR = [0x3b6a57b2, 0x26508e6d, 0x1ea119fa, 0x3d4233dd, 0x2a1462b3];
 
@@ -84,7 +84,7 @@ const getBase32Address = publicKey => {
 	const binaryAddress = getBinaryAddress(publicKey);
 	const uint5Address = convertUIntArray(Uint8Array.from(binaryAddress), 8, 5);
 	const uint5Checksum = createChecksum(uint5Address);
-	return `${PREFIX_LISK}${convertUInt5ToBase32(uint5Address.concat(uint5Checksum))}`;
+	return `${PREFIX_KLAYR}${convertUInt5ToBase32(uint5Address.concat(uint5Checksum))}`;
 };
 
 const generateTestCasesForAddressFromPubKey = publicKey => ({

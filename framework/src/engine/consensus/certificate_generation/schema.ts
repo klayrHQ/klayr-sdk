@@ -20,7 +20,7 @@ import {
 import { ADDRESS_LENGTH } from '../../../modules/validators/constants';
 
 /**
- * @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0061.md#schema
+ * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0061.md#schema
  */
 export const unsignedCertificateSchema = {
 	$id: '/consensus/unsignedCertificate',
@@ -57,7 +57,7 @@ export const unsignedCertificateSchema = {
 };
 
 /**
- * @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0061.md#schema
+ * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0061.md#schema
  */
 export const certificateSchema = {
 	$id: '/consensus/certificate',
@@ -104,7 +104,7 @@ export const singleCommitSchema = {
 			minLength: ADDRESS_LENGTH,
 			maxLength: ADDRESS_LENGTH,
 			fieldNumber: 3,
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		certificateSignature: {
 			dataType: 'bytes',

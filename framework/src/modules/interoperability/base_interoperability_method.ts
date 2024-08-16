@@ -97,7 +97,7 @@ export abstract class BaseInteroperabilityMethod<
 		return this.getChannel(context, updatedChainID);
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#getmessagefeetokenid
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#getmessagefeetokenid
 	public async getMessageFeeTokenID(
 		context: ImmutableMethodContext,
 		chainID: Buffer,
@@ -113,7 +113,7 @@ export abstract class BaseInteroperabilityMethod<
 		return this.getMessageFeeTokenID(context, ccm.sendingChainID);
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#getminreturnfeeperbyte
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#getminreturnfeeperbyte
 	public async getMinReturnFeePerByte(
 		context: ImmutableMethodContext,
 		chainID: Buffer,
@@ -122,7 +122,7 @@ export abstract class BaseInteroperabilityMethod<
 		return channel.minReturnFeePerByte;
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#send
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#send
 	// eslint-disable-next-line @typescript-eslint/require-await
 	public async send(
 		context: MethodContext,
@@ -147,7 +147,7 @@ export abstract class BaseInteroperabilityMethod<
 		);
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#error
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#error
 	// eslint-disable-next-line @typescript-eslint/require-await
 	public async error(context: MethodContext, ccm: CCMsg, errorStatus: number): Promise<void> {
 		if (errorStatus >= 0 && errorStatus <= MAX_RESERVED_ERROR_STATUS) {
@@ -167,7 +167,7 @@ export abstract class BaseInteroperabilityMethod<
 		);
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#terminatechain
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#terminatechain
 	public async terminateChain(context: MethodContext, chainID: Buffer): Promise<void> {
 		// Chain was already terminated, do nothing.
 		if (await this.stores.get(TerminatedStateStore).has(context, chainID)) {

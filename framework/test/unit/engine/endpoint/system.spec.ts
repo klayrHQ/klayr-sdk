@@ -21,8 +21,8 @@ import {
 	eventSchema,
 	standardEventDataSchema,
 	transactionSchema,
-} from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
+} from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
 import { SystemEndpoint } from '../../../../src/engine/endpoint/system';
 import { createFakeBlockHeader } from '../../../../src/testing';
 import { nodeOptions } from '../../../fixtures';

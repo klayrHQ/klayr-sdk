@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Block } from '@liskhq/lisk-chain';
+import { Block } from '@klayr/chain';
 
 export interface BlockExecutor {
 	validate: (block: Block) => void;

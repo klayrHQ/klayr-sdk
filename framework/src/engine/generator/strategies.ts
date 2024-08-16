@@ -11,10 +11,10 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { TransactionPool, PooledTransaction } from '@liskhq/lisk-transaction-pool';
-import { dataStructures } from '@liskhq/lisk-utils';
-import { Transaction, BlockHeader, BlockAssets, Event } from '@liskhq/lisk-chain';
-import { address } from '@liskhq/lisk-cryptography';
+import { TransactionPool, PooledTransaction } from '@klayr/transaction-pool';
+import { dataStructures } from '@klayr/utils';
+import { Transaction, BlockHeader, BlockAssets, Event } from '@klayr/chain';
+import { address } from '@klayr/cryptography';
 import { ABI, TransactionExecutionResult, TransactionVerifyResult } from '../../abi';
 
 export class HighFeeGenerationStrategy {

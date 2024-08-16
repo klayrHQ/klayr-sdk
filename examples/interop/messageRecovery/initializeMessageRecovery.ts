@@ -15,7 +15,7 @@ import {
 	db,
 	ProveResponse,
 	OutboxRootWitness,
-} from 'lisk-sdk';
+} from 'klayr-sdk';
 import { join } from 'path';
 import { ensureDir } from 'fs-extra';
 import * as os from 'os';
@@ -159,7 +159,7 @@ const inboxOutboxProps = {
 	},
 };
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#channel-data-substore
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#channel-data-substore
 const channelSchema = {
 	$id: '/example/modules/interoperability/channel',
 	type: 'object',
@@ -282,7 +282,7 @@ class InclusionProofModel {
 }
 
 const relayerKeyInfo = {
-	address: 'lsk952ztknjoa3h58es4vgu5ovnoscv3amo7zg4zz',
+	address: 'kly952ztknjoa3h58es4vgu5ovnoscv3amo7zg4zz',
 	keyPath: "m/44'/134'/3'",
 	publicKey: '8960f85f7ab3cc473f29c3a00e6ad66c569f2a84125388274a4f382e11306099',
 	privateKey:
@@ -306,7 +306,7 @@ const relayerKeyInfo = {
  * Steps:
  * cd examples/interop/
  *
- * make sure `exports.LIVENESS_LIMIT = 2592000;` in `lisk-framework/dist-node/modules/interoperability/constants.js`
+ * make sure `exports.LIVENESS_LIMIT = 2592000;` in `klayr-framework/dist-node/modules/interoperability/constants.js`
  * ./start_example  (script to configure & register chains)
  *
  * Call `chainConnector_getSentCCUs` to see if any CCU was sent (sidechain status must change to ACTIVE after first CCU)
@@ -329,7 +329,7 @@ const relayerKeyInfo = {
  * pwd
  * /examples/interop/pos-mainchain-fast
  *
- * Change constant in `lisk-framework/dist-node/modules/interoperability/constants.js`
+ * Change constant in `klayr-framework/dist-node/modules/interoperability/constants.js`
  * // exports.LIVENESS_LIMIT = 2592000;
  * => exports.LIVENESS_LIMIT = 30; // Next wait for 30 seconds
  *
@@ -339,7 +339,7 @@ const relayerKeyInfo = {
  *
  * Run `terminateSidechainForLiveness` command  in console (note: `--send` is missing here)
  * cd pos-mainchain-fast
- * ./bin/run transaction:create interoperability terminateSidechainForLiveness  200000000 --json --passphrase="two thunder nurse process feel fence addict size broccoli swing city speed build slide virus ridge jazz mushroom road fish border argue weapon lens" --key-derivation-path="m/44'/134'/1'" --data-path ~/.lisk/mainchain-node-one
+ * ./bin/run transaction:create interoperability terminateSidechainForLiveness  200000000 --json --passphrase="two thunder nurse process feel fence addict size broccoli swing city speed build slide virus ridge jazz mushroom road fish border argue weapon lens" --key-derivation-path="m/44'/134'/1'" --data-path ~/.klayr/mainchain-node-one
  *  Please enter: chainID:  04000001   (taken from examples/interop/README.md)
  *
  * 3. Call `txpool_postTransaction` to `http://127.0.0.1:7881/rpc` with generated transaction
@@ -351,15 +351,15 @@ const relayerKeyInfo = {
 
 	let inclusionProofModel: InclusionProofModel;
 	try {
-		inclusionProofModel = new InclusionProofModel(await getDBInstance('~/.lisk'));
+		inclusionProofModel = new InclusionProofModel(await getDBInstance('~/.klayr'));
 		console.log('DB is initialized.');
 	} catch (error) {
 		console.log('Error occurred while initializing DB', error);
 		process.exit();
 	}
 
-	const mainchainClient = await apiClient.createIPCClient(`~/.lisk/mainchain-node-one`);
-	const sidechainClient = await apiClient.createIPCClient(`~/.lisk/pos-sidechain-example-one`);
+	const mainchainClient = await apiClient.createIPCClient(`~/.klayr/mainchain-node-one`);
+	const sidechainClient = await apiClient.createIPCClient(`~/.klayr/pos-sidechain-example-one`);
 
 	const mainchainNodeInfo = await mainchainClient.invoke('system_getNodeInfo');
 	const sidechainNodeInfo = await sidechainClient.invoke('system_getNodeInfo');
@@ -387,7 +387,7 @@ const relayerKeyInfo = {
 		).proof;
 		console.log('proof: ', proof);
 
-		// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0039.md#proof-verification
+		// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0039.md#proof-verification
 		// To check the proof, the Verifier calls ```verify(queryKeys, proof, merkleRoot) function```
 		const smt = new db.SparseMerkleTree();
 		console.log(
@@ -487,7 +487,7 @@ const relayerKeyInfo = {
 					nonce: BigInt(
 						(
 							await mainchainClient.invoke<{ nonce: string }>('auth_getAuthAccount', {
-								address: cryptography.address.getLisk32AddressFromPublicKey(
+								address: cryptography.address.getKlayr32AddressFromPublicKey(
 									Buffer.from(relayerKeyInfo.publicKey, 'hex'),
 								),
 							})

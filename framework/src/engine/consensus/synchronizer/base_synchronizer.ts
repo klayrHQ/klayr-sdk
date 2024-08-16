@@ -12,9 +12,9 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Block, Chain, BlockHeader } from '@liskhq/lisk-chain';
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
+import { Block, Chain, BlockHeader } from '@klayr/chain';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
 import { Logger } from '../../../logger';
 import { ApplyPenaltyAndRestartError, ApplyPenaltyAndAbortError } from './errors';
 import {

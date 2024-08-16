@@ -1,10 +1,10 @@
 {
-	"title": "Encoding for transaction types supported by lisk-codec",
-	"summary": "Examples of encoding transaction with lisk-codec",
+	"title": "Encoding for transaction types supported by klayr-codec",
+	"summary": "Examples of encoding transaction with klayr-codec",
 	"config": {
 		"network": "devnet"
 	},
-	"runner": "lisk_codec",
+	"runner": "klayr_codec",
 	"handler": "transaction_encodings",
 	"testCases": [
 		{

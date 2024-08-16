@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 /* eslint-disable no-loop-func */
-import { BlockHeader, StateStore } from '@liskhq/lisk-chain';
-import { utils, address } from '@liskhq/lisk-cryptography';
+import { BlockHeader, StateStore } from '@klayr/chain';
+import { utils, address } from '@klayr/cryptography';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
 import { BFTModule } from '../../../../src/engine/bft';
 import {
@@ -38,7 +38,7 @@ describe('BFT processing', () => {
 		scenario7ValidatorsPartialSwitch,
 		scenario11ValidatorsPartialSwitch,
 	];
-	const blockTime = 10;
+	const blockTime = 7;
 
 	for (const scenario of bftScenarios) {
 		// eslint-disable-next-line no-loop-func

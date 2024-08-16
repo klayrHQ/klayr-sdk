@@ -15,7 +15,7 @@
 const protobuf = require('protobufjs');
 
 const prepareProtobuffersNumbers = () =>
-	protobuf.loadSync('./generators/lisk_codec/proto_files/numbers.proto');
+	protobuf.loadSync('./generators/klayr_codec/proto_files/numbers.proto');
 
 const { Number32, SignedNumber32, Number64, SignedNumber64 } = prepareProtobuffersNumbers();
 

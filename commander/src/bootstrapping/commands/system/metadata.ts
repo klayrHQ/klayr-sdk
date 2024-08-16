@@ -17,7 +17,7 @@ import { BaseIPCClientCommand } from '../base_ipc_client';
 export abstract class MetadataCommand extends BaseIPCClientCommand {
 	static description = 'Get node metadata from a running application.';
 
-	static examples = ['system:metadata', 'system:metadata --data-path ./lisk'];
+	static examples = ['system:metadata', 'system:metadata --data-path ./klayr'];
 
 	static flags = {
 		...BaseIPCClientCommand.flags,

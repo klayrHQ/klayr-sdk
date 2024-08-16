@@ -1,4 +1,4 @@
-import { Modules } from 'lisk-sdk';
+import { Modules } from 'klayr-sdk';
 
 export interface ReactionStoreData {
 	reactions: {

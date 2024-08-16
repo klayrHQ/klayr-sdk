@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 
-import { Modules, StateMachine, codec } from 'lisk-sdk';
+import { Modules, StateMachine, codec } from 'klayr-sdk';
 import { CROSS_CHAIN_COMMAND_REACT } from '../constants';
 import { CCReactCommandParamsSchema, CCReactMessageParamsSchema } from '../schemas';
 import { CCReactMessageParams, CCReactCommandParams, InteroperabilityMethod } from '../types';

@@ -1,10 +1,10 @@
 {
-	"title": "Decoding for bytes types supported by lisk-codec",
-	"summary": "Examples of encoding bytes with lisk-codec",
+	"title": "Decoding for bytes types supported by klayr-codec",
+	"summary": "Examples of encoding bytes with klayr-codec",
 	"config": {
 		"network": "devnet"
 	},
-	"runner": "lisk_codec",
+	"runner": "klayr_codec",
 	"handler": "bytes_decodings",
 	"testCases": [
 		{

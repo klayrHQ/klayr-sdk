@@ -11,9 +11,9 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { objects as objectUtils } from '@liskhq/lisk-utils';
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
+import { objects as objectUtils } from '@klayr/utils';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
 import { ModuleMetadata } from '../../base_module';
 import { BaseInteroperabilityModule } from '../base_interoperability_module';
 import { MainchainInteroperabilityMethod } from './method';
@@ -227,7 +227,7 @@ export class MainchainInteroperabilityModule extends BaseInteroperabilityModule 
 		};
 	}
 
-	// @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#mainchain
+	// @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#mainchain
 	// eslint-disable-next-line @typescript-eslint/require-await
 	public async initGenesisState(ctx: GenesisBlockExecuteContext): Promise<void> {
 		const genesisBlockAssetBytes = ctx.assets.getAsset(MODULE_NAME_INTEROPERABILITY);
@@ -272,7 +272,7 @@ export class MainchainInteroperabilityModule extends BaseInteroperabilityModule 
 		await this.processGenesisState(ctx, genesisInteroperability);
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#mainchain
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#mainchain
 	private _verifyChainInfos(
 		ctx: GenesisBlockExecuteContext,
 		chainInfos: ChainInfo[],
@@ -351,7 +351,7 @@ export class MainchainInteroperabilityModule extends BaseInteroperabilityModule 
 		}
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#mainchain
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#mainchain
 	private _verifyTerminatedStateAccounts(
 		chainInfos: ChainInfo[],
 		terminatedStateAccounts: TerminatedStateAccountWithChainID[],
@@ -401,7 +401,7 @@ export class MainchainInteroperabilityModule extends BaseInteroperabilityModule 
 		}
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#mainchain
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#mainchain
 	private _verifyTerminatedOutboxAccounts(
 		_chainInfos: ChainInfo[],
 		terminatedStateAccounts: TerminatedStateAccountWithChainID[],
@@ -433,7 +433,7 @@ export class MainchainInteroperabilityModule extends BaseInteroperabilityModule 
 		}
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#genesis-state-processing
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#genesis-state-processing
 	public async processGenesisState(
 		ctx: GenesisBlockExecuteContext,
 		genesisInteroperability: GenesisInteroperability,

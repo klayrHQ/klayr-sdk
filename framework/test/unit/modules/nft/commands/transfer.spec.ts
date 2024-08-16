@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { utils, address } from '@liskhq/lisk-cryptography';
+import { Transaction } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { utils, address } from '@klayr/cryptography';
 import { NFTModule } from '../../../../../src/modules/nft/module';
 import { TransferCommand, TransferParams } from '../../../../../src/modules/nft/commands/transfer';
 import { createTransactionContext } from '../../../../../src/testing';

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
+import { Transaction } from '@klayr/chain';
 import { Logger } from '../../logger';
 import { MethodContext, EventQueue } from '../../state_machine';
 import {

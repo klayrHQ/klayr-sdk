@@ -34,7 +34,7 @@ import { channelSchema } from './stores/channel_data';
 import { terminatedStateSchema } from './stores/terminated_state';
 import { terminatedOutboxSchema } from './stores/terminated_outbox';
 
-// LIP: https://github.com/LiskHQ/lips/blob/main/proposals/lip-0049.md#cross-chain-message-schema
+// LIP: https://github.com/Klayrhq/lips/blob/main/proposals/lip-0049.md#cross-chain-message-schema
 export const ccmSchema = {
 	$id: '/modules/interoperability/ccm',
 	type: 'object',
@@ -285,7 +285,7 @@ export const crossChainUpdateTransactionParams = {
 	},
 };
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#parameters-1
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#parameters-1
 export const messageRecoveryParamsSchema = {
 	$id: '/modules/interoperability/mainchain/messageRecovery',
 	type: 'object',
@@ -355,7 +355,7 @@ export const messageRecoveryInitializationParamsSchema = {
 };
 
 // Cross chain commands schemas
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0049.md#parameters-2
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0049.md#parameters-2
 export const registrationCCMParamsSchema = {
 	$id: '/modules/interoperability/ccCommand/registration',
 	type: 'object',
@@ -513,7 +513,7 @@ export const stateRecoveryParamsSchema = {
 	},
 };
 
-// LIP: https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#parameters-3
+// LIP: https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#parameters-3
 export const stateRecoveryInitParamsSchema = {
 	$id: '/modules/interoperability/mainchain/stateRecoveryInitialization',
 	type: 'object',
@@ -545,7 +545,7 @@ export const stateRecoveryInitParamsSchema = {
 	},
 };
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#parameters-2
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#parameters-2
 export const terminateSidechainForLivenessParamsSchema = {
 	$id: '/modules/interoperability/mainchain/terminateSidechainForLiveness',
 	type: 'object',
@@ -643,7 +643,7 @@ export const getCCMSchemaResponseSchema = {
 	},
 };
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#genesis-assets-schema
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#genesis-assets-schema
 export const genesisInteroperabilitySchema = {
 	$id: '/interoperability/module/genesis',
 	type: 'object',

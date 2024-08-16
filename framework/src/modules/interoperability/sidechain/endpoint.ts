@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { validator } from '@liskhq/lisk-validator';
+import { validator } from '@klayr/validator';
 import { BaseInteroperabilityEndpoint } from '../base_interoperability_endpoint';
 import { ModuleEndpointContext } from '../../../types';
 import { isChainIDAvailableRequestSchema } from '../schemas';

@@ -15,7 +15,7 @@
 const protobuf = require('protobufjs');
 
 const prepareProtobuffersObjects = () =>
-	protobuf.loadSync('./generators/lisk_codec/proto_files/object.proto');
+	protobuf.loadSync('./generators/klayr_codec/proto_files/object.proto');
 
 const { Objects, ObjectWithOptionalProp } = prepareProtobuffersObjects();
 
@@ -25,7 +25,7 @@ const object = {
 	isValidator: true,
 	name: 'validator',
 	asset: {
-		data: 'Check out the Lisk SDK now in binary!',
+		data: 'Check out the Klayr SDK now in binary!',
 		fooBar: {
 			foo: 9,
 			bar: 9,

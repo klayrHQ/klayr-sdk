@@ -1,10 +1,10 @@
 {
-	"title": "Decoding for arrays types supported by lisk-codec",
-	"summary": "Examples of encoding arrays with lisk-codec",
+	"title": "Decoding for arrays types supported by klayr-codec",
+	"summary": "Examples of encoding arrays with klayr-codec",
 	"config": {
 		"network": "devnet"
 	},
-	"runner": "lisk_codec",
+	"runner": "klayr_codec",
 	"handler": "arrays_decodings",
 	"testCases": [
 		{
@@ -58,7 +58,7 @@
 		{
 			"description": "Decoding of strings array",
 			"input": {
-				"value": "0a046c69736b0a000a07676f676f676f67",
+				"value": "0a056b6c6179720a000a07676f676f676f67",
 				"schema": {
 					"type": "object",
 					"$id": "/arraySchemaString",
@@ -75,7 +75,7 @@
 			},
 			"output": {
 				"object": {
-					"list": ["lisk", "", "gogogog"]
+					"list": ["klayr", "", "gogogog"]
 				}
 			}
 		},

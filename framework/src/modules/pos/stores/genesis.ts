@@ -37,7 +37,7 @@ export const genesisDataStoreSchema = {
 			fieldNumber: 3,
 			items: {
 				dataType: 'bytes',
-				format: 'lisk32',
+				format: 'klayr32',
 			},
 		},
 	},

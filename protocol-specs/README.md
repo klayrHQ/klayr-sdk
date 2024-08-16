@@ -1,6 +1,6 @@
-# Test Generators for Lisk Protocol
+# Test Generators for Klayr Protocol
 
-This directory contains all the generators for JSON tests, consumed by Lisk Core client implementations.
+This directory contains all the generators for JSON tests, consumed by Klayr Core client implementations.
 
 ## How to run generators
 

@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { TokenMethod, TokenModule } from '../../../../src/modules/token';
 import {
 	CHAIN_ID_LENGTH,
@@ -146,9 +146,9 @@ describe('token module', () => {
 		});
 	});
 
-	describe('getTokenIDLSK', () => {
+	describe('getTokenIDKLY', () => {
 		it('should return mainchain token ID', () => {
-			expect(method.getTokenIDLSK()).toEqual(Buffer.from([0, 0, 0, 0, 0, 0, 0, 0]));
+			expect(method.getTokenIDKLY()).toEqual(Buffer.from([0, 0, 0, 0, 0, 0, 0, 0]));
 		});
 	});
 

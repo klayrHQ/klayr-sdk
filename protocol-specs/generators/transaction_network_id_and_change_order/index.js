@@ -14,13 +14,13 @@
 
 'use strict';
 
-const { ed, legacy } = require('@liskhq/lisk-cryptography');
-const { Codec } = require('@liskhq/lisk-codec');
+const { ed, legacy } = require('@klayr/cryptography');
+const { Codec } = require('@klayr/codec');
 const BaseGenerator = require('../base_generator');
 const { baseTransactionSchema } = require('../../utils/schema');
 
 const codec = new Codec();
-const TAG_TRANSACTION = Buffer.from('LSK_TX_', 'utf8');
+const TAG_TRANSACTION = Buffer.from('KLY_TX_', 'utf8');
 const accounts = [
 	{
 		passphrase: 'wear protect skill sentence lift enter wild sting lottery power floor neglect',

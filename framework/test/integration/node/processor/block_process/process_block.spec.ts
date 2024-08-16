@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Block, Chain, DataAccess, Transaction } from '@liskhq/lisk-chain';
-import { regularMerkleTree } from '@liskhq/lisk-tree';
-import { address } from '@liskhq/lisk-cryptography';
+import { Block, Chain, DataAccess, Transaction } from '@klayr/chain';
+import { regularMerkleTree } from '@klayr/tree';
+import { address } from '@klayr/cryptography';
 import { nodeUtils } from '../../../../utils';
 import * as testing from '../../../../../src/testing';
 import {
@@ -31,7 +31,7 @@ describe('Process block', () => {
 	let chainID: Buffer;
 	let dataAccess: DataAccess;
 	let chain: Chain;
-	const databasePath = '/tmp/lisk/protocol_violation/test';
+	const databasePath = '/tmp/klayr/protocol_violation/test';
 	const account = nodeUtils.createAccount();
 	const genesis = testing.fixtures.defaultFaucetAccount;
 
@@ -216,7 +216,7 @@ describe('Process block', () => {
 
 		beforeAll(async () => {
 			const targetAuthData = await processEnv.invoke<{ nonce: string }>('auth_getAuthAccount', {
-				address: address.getLisk32AddressFromAddress(account.address),
+				address: address.getKlayr32AddressFromAddress(account.address),
 			});
 			transaction = createValidatorRegisterTransaction({
 				nonce: BigInt(targetAuthData.nonce),
@@ -236,12 +236,12 @@ describe('Process block', () => {
 			it('should update the sender balance and the stake of the sender', async () => {
 				// Arrange
 				const senderAuthData = await processEnv.invoke<{ nonce: string }>('auth_getAuthAccount', {
-					address: address.getLisk32AddressFromAddress(account.address),
+					address: address.getKlayr32AddressFromAddress(account.address),
 				});
 				const senderBalance = await processEnv.invoke<{ availableBalance: string }>(
 					'token_getBalance',
 					{
-						address: address.getLisk32AddressFromAddress(account.address),
+						address: address.getKlayr32AddressFromAddress(account.address),
 						tokenID: defaultTokenID(processEnv.getChainID()).toString('hex'),
 					},
 				);
@@ -264,12 +264,12 @@ describe('Process block', () => {
 
 				// Assess
 				const balance = await processEnv.invoke<{ availableBalance: string }>('token_getBalance', {
-					address: address.getLisk32AddressFromAddress(account.address),
+					address: address.getKlayr32AddressFromAddress(account.address),
 					tokenID: defaultTokenID(processEnv.getChainID()).toString('hex'),
 				});
 				const stakes = await processEnv.invoke<{ stakes: Record<string, unknown>[] }>(
 					'pos_getStaker',
-					{ address: address.getLisk32AddressFromAddress(account.address) },
+					{ address: address.getKlayr32AddressFromAddress(account.address) },
 				);
 				expect(stakes.stakes).toHaveLength(1);
 				expect(balance.availableBalance).toEqual(
@@ -284,7 +284,7 @@ describe('Process block', () => {
 
 			beforeAll(async () => {
 				const senderAuthData = await processEnv.invoke<{ nonce: string }>('auth_getAuthAccount', {
-					address: address.getLisk32AddressFromAddress(account.address),
+					address: address.getKlayr32AddressFromAddress(account.address),
 				});
 				invalidTx = createValidatorRegisterTransaction({
 					nonce: BigInt(senderAuthData.nonce),
@@ -314,7 +314,7 @@ describe('Process block', () => {
 
 			it('should have the same account state as before', async () => {
 				const validator = await processEnv.invoke<{ name: string }>('pos_getValidator', {
-					address: address.getLisk32AddressFromAddress(account.address),
+					address: address.getKlayr32AddressFromAddress(account.address),
 				});
 				expect(validator.name).toBe('number1');
 			});

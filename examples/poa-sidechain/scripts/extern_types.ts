@@ -1,4 +1,4 @@
-import { GenesisConfig } from 'lisk-sdk';
+import { GenesisConfig } from 'klayr-sdk';
 export interface ValidatorJSON {
 	address: string;
 	bftWeight: string;

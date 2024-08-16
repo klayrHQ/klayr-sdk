@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import { encrypt } from '@liskhq/lisk-cryptography';
+import { encrypt } from '@klayr/cryptography';
 import { flagsWithParser } from '../../../utils/flags';
 import { BaseIPCClientCommand } from '../base_ipc_client';
 import { handleOutputFlag } from '../../../utils/output';

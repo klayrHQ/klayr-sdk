@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { SparseMerkleTree } from '@liskhq/lisk-db';
 import {
 	CommandExecuteContext,
@@ -42,7 +42,7 @@ export interface MessageRecoveryInitializationParams {
 	siblingHashes: Buffer[];
 }
 
-// LIP: https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#message-recovery-initialization-command
+// LIP: https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#message-recovery-initialization-command
 export class InitializeMessageRecoveryCommand extends BaseInteroperabilityCommand<MainchainInteroperabilityInternalMethod> {
 	public schema = messageRecoveryInitializationParamsSchema;
 

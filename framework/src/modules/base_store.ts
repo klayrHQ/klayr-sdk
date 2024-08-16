@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Schema, emptySchema } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { Schema, emptySchema } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { IterateOptions } from '@liskhq/lisk-db';
 import { ImmutableSubStore, SubStore } from '../state_machine/types';
 
@@ -24,7 +24,7 @@ export interface StoreGetter {
 	getStore: (moduleID: Buffer, storePrefix: Buffer) => SubStore;
 }
 
-// LIP: https://github.com/LiskHQ/lips/blob/main/proposals/lip-0040.md#module-store-prefix-1
+// LIP: https://github.com/Klayrhq/lips/blob/main/proposals/lip-0040.md#module-store-prefix-1
 export const computeStorePrefix = (name: string): Buffer => {
 	const prefix = utils.hash(Buffer.from(name, 'utf-8')).subarray(0, 4);
 	// eslint-disable-next-line no-bitwise

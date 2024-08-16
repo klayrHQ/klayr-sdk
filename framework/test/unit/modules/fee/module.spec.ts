@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
+import { Transaction } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
 import { when } from 'jest-when';
 import { FeeModule } from '../../../../src/modules/fee';
 import { CONTEXT_STORE_KEY_AVAILABLE_FEE } from '../../../../src/modules/fee/constants';

@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import * as utils from '@liskhq/lisk-utils';
+import * as utils from '@klayr/utils';
 import { Command } from '@oclif/core';
 import * as fs from 'fs-extra';
-import { Types } from 'lisk-framework';
+import { Types } from 'klayr-framework';
 import { flagsWithParser } from '../../../utils/flags';
 import { getConfigFilesPath, getDefaultPath } from '../../../utils/path';
 

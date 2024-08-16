@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { StateMachine, Modules } from 'lisk-sdk';
+import { StateMachine, Modules } from 'klayr-sdk';
 import { destroyNftParamsSchema } from '../schema';
 
 interface Params {

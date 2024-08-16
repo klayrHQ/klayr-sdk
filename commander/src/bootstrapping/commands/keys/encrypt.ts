@@ -13,8 +13,8 @@
  *
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { encrypt } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { encrypt } from '@klayr/cryptography';
 import { Command, Flags as flagParser } from '@oclif/core';
 import * as fs from 'fs-extra';
 import { flagsWithParser } from '../../../utils/flags';

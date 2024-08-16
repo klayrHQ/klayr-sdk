@@ -43,8 +43,8 @@ const generateForgerSelectionWithMoreThan2EligibleStandBy = () => {
 	const randomSeed1 = 'b9acc2f1fda3666bfb34107f1c6dccc4';
 	const sortedList = copyAndSort(validatorWeightsWithMoreThan2EligibleStandBy.list);
 	// Select active validator first
-	const result = sortedList.slice(0, 101);
-	const candidates = sortedList.slice(101);
+	const result = sortedList.slice(0, 51);
+	const candidates = sortedList.slice(51);
 
 	// Calculate for first standby
 	const randomSeed1Buffer = Buffer.from(randomSeed1, 'hex');
@@ -111,7 +111,7 @@ const generateForgerSelectionWithExactly1EligibleStandBy = () => {
 		output: {
 			selectedForgers: copyAndSort(validatorWeightsWithExactly1EligibleStandBy.list)
 				.map(dw => dw.address)
-				.slice(0, 103),
+				.slice(0, 53),
 		},
 	};
 };
@@ -128,7 +128,7 @@ const generateForgerSelectionWithExactly2EligibleStandBy = () => {
 		output: {
 			selectedForgers: copyAndSort(validatorWeightsWithExactly2EligibleStandBy.list)
 				.map(dw => dw.address)
-				.slice(0, 103),
+				.slice(0, 53),
 		},
 	};
 };
@@ -145,7 +145,7 @@ const generateForgerSelectionWithLessThan103Validators = () => {
 		output: {
 			selectedForgers: copyAndSort(validatorWeightsLessThan103.list)
 				.map(dw => dw.address)
-				.slice(0, 103),
+				.slice(0, 53),
 		},
 	};
 };
@@ -162,7 +162,7 @@ const generateForgerSelectionWithExactly0EligibleStandBy = () => {
 		output: {
 			selectedForgers: copyAndSort(validatorWeightsWith0EligibleStandBy.list)
 				.map(dw => dw.address)
-				.slice(0, 103),
+				.slice(0, 53),
 		},
 	};
 };

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { LiskValidationError } from '@liskhq/lisk-validator';
+import { KlayrvalidationError } from '@klayr/validator';
 import { EventEmitter2, ListenerFn } from 'eventemitter2';
 import { Dealer, Router, Subscriber } from 'zeromq';
 import { Logger } from '../logger';
@@ -251,7 +251,7 @@ export class Bus {
 		try {
 			JSONRPC.validateJSONRPCRequest(requestObj as never);
 		} catch (error) {
-			this._logger.error({ err: error as LiskValidationError }, 'Invalid invoke request.');
+			this._logger.error({ err: error as KlayrvalidationError }, 'Invalid invoke request.');
 			throw new JSONRPC.JSONRPCError(
 				'Invalid invoke request.',
 				JSONRPC.errorResponse(requestObj.id, JSONRPC.invalidRequest()),
@@ -342,7 +342,7 @@ export class Bus {
 		try {
 			JSONRPC.validateJSONRPCNotification(request as never);
 		} catch (error) {
-			this._logger.error({ err: error as LiskValidationError }, 'Invalid publish request.');
+			this._logger.error({ err: error as KlayrvalidationError }, 'Invalid publish request.');
 			throw new JSONRPC.JSONRPCError(
 				'Invalid publish request.',
 				JSONRPC.errorResponse(null, JSONRPC.invalidRequest()),

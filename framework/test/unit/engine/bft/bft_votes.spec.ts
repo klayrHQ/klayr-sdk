@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { StateStore } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
+import { StateStore } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
-import { objects } from '@liskhq/lisk-utils';
+import { objects } from '@klayr/utils';
 import { BFTParametersCache } from '../../../../src/engine/bft/bft_params';
 import {
 	getHeightNotPrevoted,
@@ -394,11 +394,11 @@ describe('BFT votes', () => {
 			const stateStore = new StateStore(new InMemoryDatabase());
 			const paramsStore = stateStore.getStore(MODULE_STORE_PREFIX_BFT, STORE_PREFIX_BFT_PARAMETERS);
 			await paramsStore.setWithSchema(
-				utils.intToBuffer(101, 4),
+				utils.intToBuffer(51, 4),
 				{
-					prevoteThreshold: BigInt(65),
-					precommitThreshold: BigInt(68),
-					certificateThreshold: BigInt(68),
+					prevoteThreshold: BigInt(33),
+					precommitThreshold: BigInt(35),
+					certificateThreshold: BigInt(35),
 					validators: [
 						{
 							address: accounts[0],
@@ -432,11 +432,11 @@ describe('BFT votes', () => {
 			const stateStore = new StateStore(new InMemoryDatabase());
 			const paramsStore = stateStore.getStore(MODULE_STORE_PREFIX_BFT, STORE_PREFIX_BFT_PARAMETERS);
 			await paramsStore.setWithSchema(
-				utils.intToBuffer(101, 4),
+				utils.intToBuffer(51, 4),
 				{
-					prevoteThreshold: BigInt(103),
-					precommitThreshold: BigInt(68),
-					certificateThreshold: BigInt(68),
+					prevoteThreshold: BigInt(53),
+					precommitThreshold: BigInt(35),
+					certificateThreshold: BigInt(35),
 					validators: [
 						{
 							address: accounts[0],
@@ -463,7 +463,7 @@ describe('BFT votes', () => {
 			);
 			paramsCache = new BFTParametersCache(paramsStore);
 			await expect(updateMaxHeightPrevoted(bftVotes, paramsCache)).toResolve();
-			expect(bftVotes.maxHeightPrevoted).toBe(149);
+			expect(bftVotes.maxHeightPrevoted).toBe(151);
 		});
 	});
 

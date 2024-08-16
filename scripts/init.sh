@@ -10,7 +10,7 @@ port=${3:-}
 browserPackageName=${packageName}
 
 ROOT_PACKAGE_NAME=$(jq --raw-output '.name' package.json)
-if [ "$ROOT_PACKAGE_NAME" != "lisk-sdk-mono-repo" ]; then
+if [ "$ROOT_PACKAGE_NAME" != "klayr-sdk-mono-repo" ]; then
 	echo "Please use the command in the project root directory."
 	exit 1
 fi

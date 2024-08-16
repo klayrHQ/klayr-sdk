@@ -4,7 +4,7 @@
 	"config": {
 		"network": "devnet"
 	},
-	"runner": "lisk_codec",
+	"runner": "klayr_codec",
 	"handler": "cart_sample_decodings",
 	"testCases": [
 		{

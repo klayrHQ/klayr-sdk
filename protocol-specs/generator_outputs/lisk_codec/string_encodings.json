@@ -1,17 +1,17 @@
 {
-	"title": "Encoding for string types supported by lisk-codec",
-	"summary": "Examples of encoding strings with lisk-codec",
+	"title": "Encoding for string types supported by klayr-codec",
+	"summary": "Examples of encoding strings with klayr-codec",
 	"config": {
 		"network": "devnet"
 	},
-	"runner": "lisk_codec",
+	"runner": "klayr_codec",
 	"handler": "string_encodings",
 	"testCases": [
 		{
 			"description": "Encoding of string",
 			"input": {
 				"object": {
-					"data": "Checkout Lisk SDK!"
+					"data": "Checkout Klayr SDK!"
 				},
 				"schema": {
 					"$id": "/stringSchema",
@@ -25,7 +25,7 @@
 				}
 			},
 			"output": {
-				"value": "0a12436865636b6f7574204c69736b2053444b21"
+				"value": "0a13436865636b6f7574204b6c6179722053444b21"
 			}
 		},
 		{

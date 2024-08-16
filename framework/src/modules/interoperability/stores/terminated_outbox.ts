@@ -26,7 +26,7 @@ export interface TerminatedOutboxAccountJSON {
 	partnerChainInboxSize: number;
 }
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#terminated-outbox-substore
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#terminated-outbox-substore
 export const terminatedOutboxSchema = {
 	$id: '/modules/interoperability/terminatedOutbox',
 	type: 'object',

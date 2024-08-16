@@ -25,81 +25,81 @@ describe('systemDirs', () => {
 		const appLabel = 'LABEL';
 
 		// Act
-		const dirsObj = systemDirs(`~/.lisk/${appLabel}`);
+		const dirsObj = systemDirs(`~/.klayr/${appLabel}`);
 
 		// Assert
 		expect(dirsObj).toEqual({
-			config: `/user/.lisk/${appLabel}/config`,
-			dataPath: `/user/.lisk/${appLabel}`,
-			data: `/user/.lisk/${appLabel}/data`,
-			tmp: `/user/.lisk/${appLabel}/tmp`,
-			logs: `/user/.lisk/${appLabel}/logs`,
-			sockets: `/user/.lisk/${appLabel}/tmp/sockets`,
-			pids: `/user/.lisk/${appLabel}/tmp/pids`,
-			plugins: `/user/.lisk/LABEL/plugins`,
+			config: `/user/.klayr/${appLabel}/config`,
+			dataPath: `/user/.klayr/${appLabel}`,
+			data: `/user/.klayr/${appLabel}/data`,
+			tmp: `/user/.klayr/${appLabel}/tmp`,
+			logs: `/user/.klayr/${appLabel}/logs`,
+			sockets: `/user/.klayr/${appLabel}/tmp/sockets`,
+			pids: `/user/.klayr/${appLabel}/tmp/pids`,
+			plugins: `/user/.klayr/LABEL/plugins`,
 		});
 	});
 
 	it('Should be able to resolve relative path correctly.', () => {
 		// Arrange
 		const appLabel = 'LABEL';
-		const rootPath = '/user/../.lisk';
+		const rootPath = '/user/../.klayr';
 
 		// Act
 		const dirsObj = systemDirs(`${rootPath}/${appLabel}`);
 
 		// Assert
 		expect(dirsObj).toEqual({
-			config: `/.lisk/${appLabel}/config`,
-			dataPath: `/.lisk/${appLabel}`,
-			data: `/.lisk/${appLabel}/data`,
-			tmp: `/.lisk/${appLabel}/tmp`,
-			logs: `/.lisk/${appLabel}/logs`,
-			sockets: `/.lisk/${appLabel}/tmp/sockets`,
-			pids: `/.lisk/${appLabel}/tmp/pids`,
-			plugins: `/.lisk/${appLabel}/plugins`,
+			config: `/.klayr/${appLabel}/config`,
+			dataPath: `/.klayr/${appLabel}`,
+			data: `/.klayr/${appLabel}/data`,
+			tmp: `/.klayr/${appLabel}/tmp`,
+			logs: `/.klayr/${appLabel}/logs`,
+			sockets: `/.klayr/${appLabel}/tmp/sockets`,
+			pids: `/.klayr/${appLabel}/tmp/pids`,
+			plugins: `/.klayr/${appLabel}/plugins`,
 		});
 	});
 
 	it('Should be able to resolve absolute path correctly.', () => {
 		// Arrange
 		const appLabel = 'LABEL';
-		const rootPath = '/customPath/.lisk';
+		const rootPath = '/customPath/.klayr';
 
 		// Act
 		const dirsObj = systemDirs(`${rootPath}/${appLabel}`);
 
 		// Assert
 		expect(dirsObj).toEqual({
-			config: `/customPath/.lisk/${appLabel}/config`,
-			dataPath: `/customPath/.lisk/${appLabel}`,
-			data: `/customPath/.lisk/${appLabel}/data`,
-			tmp: `/customPath/.lisk/${appLabel}/tmp`,
-			logs: `/customPath/.lisk/${appLabel}/logs`,
-			sockets: `/customPath/.lisk/${appLabel}/tmp/sockets`,
-			pids: `/customPath/.lisk/${appLabel}/tmp/pids`,
-			plugins: `/customPath/.lisk/${appLabel}/plugins`,
+			config: `/customPath/.klayr/${appLabel}/config`,
+			dataPath: `/customPath/.klayr/${appLabel}`,
+			data: `/customPath/.klayr/${appLabel}/data`,
+			tmp: `/customPath/.klayr/${appLabel}/tmp`,
+			logs: `/customPath/.klayr/${appLabel}/logs`,
+			sockets: `/customPath/.klayr/${appLabel}/tmp/sockets`,
+			pids: `/customPath/.klayr/${appLabel}/tmp/pids`,
+			plugins: `/customPath/.klayr/${appLabel}/plugins`,
 		});
 	});
 
 	it('Should be able to resolve home path correctly.', () => {
 		// Arrange
 		const appLabel = 'LABEL';
-		const rootPath = '~/.lisk';
+		const rootPath = '~/.klayr';
 
 		// Act
 		const dirsObj = systemDirs(`${rootPath}/${appLabel}`);
 
 		// Assert
 		expect(dirsObj).toEqual({
-			config: `/user/.lisk/${appLabel}/config`,
-			dataPath: `/user/.lisk/${appLabel}`,
-			data: `/user/.lisk/${appLabel}/data`,
-			tmp: `/user/.lisk/${appLabel}/tmp`,
-			logs: `/user/.lisk/${appLabel}/logs`,
-			sockets: `/user/.lisk/${appLabel}/tmp/sockets`,
-			pids: `/user/.lisk/${appLabel}/tmp/pids`,
-			plugins: `/user/.lisk/${appLabel}/plugins`,
+			config: `/user/.klayr/${appLabel}/config`,
+			dataPath: `/user/.klayr/${appLabel}`,
+			data: `/user/.klayr/${appLabel}/data`,
+			tmp: `/user/.klayr/${appLabel}/tmp`,
+			logs: `/user/.klayr/${appLabel}/logs`,
+			sockets: `/user/.klayr/${appLabel}/tmp/sockets`,
+			pids: `/user/.klayr/${appLabel}/tmp/pids`,
+			plugins: `/user/.klayr/${appLabel}/plugins`,
 		});
 	});
 });

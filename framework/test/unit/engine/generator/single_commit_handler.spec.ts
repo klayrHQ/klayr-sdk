@@ -12,12 +12,12 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 import { EventEmitter } from 'events';
-import { dataStructures } from '@liskhq/lisk-utils';
-import { Chain } from '@liskhq/lisk-chain';
-import { bls, utils, address as cryptoAddress, legacy } from '@liskhq/lisk-cryptography';
+import { dataStructures } from '@klayr/utils';
+import { Chain } from '@klayr/chain';
+import { bls, utils, address as cryptoAddress, legacy } from '@klayr/cryptography';
 import { InMemoryDatabase, Database } from '@liskhq/lisk-db';
 import { when } from 'jest-when';
-import { Mnemonic } from '@liskhq/lisk-passphrase';
+import { Mnemonic } from '@klayr/passphrase';
 import { Consensus, Keypair } from '../../../../src/engine/generator/types';
 import { fakeLogger } from '../../../utils/mocks';
 import { BFTModule } from '../../../../src/engine/bft';
@@ -40,7 +40,7 @@ describe('SingleCommitHandler', () => {
 		blockchainDB = new InMemoryDatabase() as never;
 		keypairs = new dataStructures.BufferMap<Keypair>();
 		for (const key of testing.fixtures.keysList.keys) {
-			keypairs.set(cryptoAddress.getAddressFromLisk32Address(key.address), {
+			keypairs.set(cryptoAddress.getAddressFromKlayr32Address(key.address), {
 				publicKey: Buffer.from(key.plain.generatorKey, 'hex'),
 				privateKey: Buffer.from(key.plain.generatorPrivateKey, 'hex'),
 				blsPublicKey: Buffer.from(key.plain.blsKey, 'hex'),

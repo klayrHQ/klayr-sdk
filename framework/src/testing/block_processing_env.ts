@@ -25,10 +25,10 @@ import {
 	Transaction,
 	StateStore,
 	standardEventDataSchema,
-} from '@liskhq/lisk-chain';
+} from '@klayr/chain';
 import { Database, StateDB } from '@liskhq/lisk-db';
-import { objects } from '@liskhq/lisk-utils';
-import { codec, Schema } from '@liskhq/lisk-codec';
+import { objects } from '@klayr/utils';
+import { codec, Schema } from '@klayr/codec';
 import { BaseModule } from '../modules';
 import { channelMock } from './mocks';
 import {
@@ -108,7 +108,7 @@ const getAppConfig = (
 			...defaultConfig,
 			system: {
 				...defaultConfig.system,
-				dataPath: path.join(os.tmpdir(), `lisk-framework-test-${Date.now().toString()}`),
+				dataPath: path.join(os.tmpdir(), `klayr-framework-test-${Date.now().toString()}`),
 			},
 			genesis: {
 				...defaultConfig.genesis,

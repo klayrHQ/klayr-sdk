@@ -14,8 +14,8 @@
  */
 
 import { Command, Flags as flagParser } from '@oclif/core';
-import * as cryptography from '@liskhq/lisk-cryptography';
-import * as validator from '@liskhq/lisk-validator';
+import * as cryptography from '@klayr/cryptography';
+import * as validator from '@klayr/validator';
 import { flagsWithParser } from '../../utils/flags';
 import { handleOutputFlag } from '../../utils/output';
 

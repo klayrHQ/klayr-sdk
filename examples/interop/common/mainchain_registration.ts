@@ -6,7 +6,7 @@ import {
 	registrationSignatureMessageSchema,
 	mainchainRegParams as mainchainRegParamsSchema,
 	MESSAGE_TAG_CHAIN_REG,
-} from 'lisk-sdk';
+} from 'klayr-sdk';
 
 /**
  * Registers the mainchain to a specific sidechain node.
@@ -17,7 +17,7 @@ import {
 import { keys as sidechainDevValidators } from '../default/dev-validators.json';
 
  * (async () => {
- *	await registerMainchain("lisk-core","my-lisk-app",sidechainDevValidators);
+ *	await registerMainchain("klayr-core","my-klayr-app",sidechainDevValidators);
  *})();
  * ```
  *
@@ -31,9 +31,9 @@ export const registerMainchain = async (mc: string, sc: string, sidechainDevVali
 	const { bls, address } = cryptography;
 
 	// Connect to the mainchain node
-	const mainchainClient = await apiClient.createIPCClient(`~/.lisk/${mc}`);
+	const mainchainClient = await apiClient.createIPCClient(`~/.klayr/${mc}`);
 	// Connect to the sidechain node
-	const sidechainClient = await apiClient.createIPCClient(`~/.lisk/${sc}`);
+	const sidechainClient = await apiClient.createIPCClient(`~/.klayr/${sc}`);
 
 	// Get node info from sidechain and mainchain
 	const mainchainNodeInfo = await mainchainClient.invoke('system_getNodeInfo');
@@ -124,7 +124,7 @@ export const registerMainchain = async (mc: string, sc: string, sidechainDevVali
 	// Get public key and nonce of the sender account
 	const relayerKeyInfo = sidechainDevValidators[0];
 	const { nonce } = await sidechainClient.invoke<{ nonce: string }>('auth_getAuthAccount', {
-		address: address.getLisk32AddressFromPublicKey(Buffer.from(relayerKeyInfo.publicKey, 'hex')),
+		address: address.getKlayr32AddressFromPublicKey(Buffer.from(relayerKeyInfo.publicKey, 'hex')),
 	});
 
 	// Add aggregated signature to the parameters of the mainchain registration
@@ -164,7 +164,7 @@ export const registerMainchain = async (mc: string, sc: string, sidechainDevVali
 		transactionId: string;
 	}>('chainConnector_authorize', {
 		enable: true,
-		password: 'lisk',
+		password: 'klayr',
 	});
 	console.log('Authorize Mainchain completed, result:', authorizeMainchainResult);
 

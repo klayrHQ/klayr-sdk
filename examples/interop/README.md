@@ -10,7 +10,7 @@ Genesis Configuration:
 blockTime: 5;
 bftBatchSize: 5;
 chainID: '04000000';
-name: 'lisk_mainchain';
+name: 'klayr_mainchain';
 ```
 
 - pos-sidechain-example-one
@@ -86,7 +86,7 @@ Interact with applications using `pm2`
 #### Check chain status
 
 - Run `./pos-sidechain-example-one/bin/run endpoint:invoke interoperability_getChainAccount '{"chainID": "04000000" }'` to check chain status of the mainchain account on the sidechain one. It should show lastCertificate with height 0 and status 0 if no CCU was sent yet.
-- Run `./pos-mainchain-fast/bin/run endpoint:invoke interoperability_getChainAccount '{"chainID": "04000001" }' --data-path ~/.lisk/mainchain-node-one` to check chain status of the sidechain one account on the mainchain, using mainchain node one. It should show lastCertificate with height 0 and status 0 if no CCU was sent yet.
+- Run `./pos-mainchain-fast/bin/run endpoint:invoke interoperability_getChainAccount '{"chainID": "04000001" }' --data-path ~/.klayr/mainchain-node-one` to check chain status of the sidechain one account on the mainchain, using mainchain node one. It should show lastCertificate with height 0 and status 0 if no CCU was sent yet.
 
 Now observe logs, initially it will log `No valid CCU can be generated for the height: ${newBlockHeader.height}` until first finalized height is reached.
 
@@ -97,30 +97,30 @@ When the finalized height is reached, check chain status as described above and 
 Authorize ChainConnector plugin on each of the 4 nodes:
 
 ```
-./pos-mainchain-fast/bin/run endpoint:invoke chainConnector_authorize '{"enable": true, "password": "lisk" }' --data-path ~/.lisk/mainchain-node-one
+./pos-mainchain-fast/bin/run endpoint:invoke chainConnector_authorize '{"enable": true, "password": "klayr" }' --data-path ~/.klayr/mainchain-node-one
 
-./pos-mainchain-fast/bin/run endpoint:invoke chainConnector_authorize '{"enable": true, "password": "lisk" }' --data-path ~/.lisk/mainchain-node-two
+./pos-mainchain-fast/bin/run endpoint:invoke chainConnector_authorize '{"enable": true, "password": "klayr" }' --data-path ~/.klayr/mainchain-node-two
 
-./pos-sidechain-example-one/bin/run endpoint:invoke chainConnector_authorize '{"enable": true, "password": "lisk" }'
+./pos-sidechain-example-one/bin/run endpoint:invoke chainConnector_authorize '{"enable": true, "password": "klayr" }'
 
-./pos-sidechain-example-two/bin/run endpoint:invoke chainConnector_authorize '{"enable": true, "password": "lisk" }'
+./pos-sidechain-example-two/bin/run endpoint:invoke chainConnector_authorize '{"enable": true, "password": "klayr" }'
 ```
 
 #### Cross Chain transfers
 
 ##### Transfer from mainchain to sidechain one
 
-- Run `ts-node pos-mainchain-fast/config/scripts/transfer_lsk_sidechain_one.ts` from `interop` folder.
+- Run `ts-node pos-mainchain-fast/config/scripts/transfer_kly_sidechain_one.ts` from `interop` folder.
 - Check balance for `lskxz85sur2yo22dmcxybe39uvh2fg7s2ezxq4ny9` using `token_getBalances` RPC on sidechain one.
 
 ##### Transfer from mainchain to sidechain two
 
-- Run `ts-node pos-mainchain-fast/config/scripts/transfer_lsk_sidechain_two.ts` from `interop` folder.
+- Run `ts-node pos-mainchain-fast/config/scripts/transfer_kly_sidechain_two.ts` from `interop` folder.
 - Check balance for `lskx5uqu2zzybdwrqswd8c6b5v5aj77yytn4k6mv6` using `token_getBalances` RPC on sidechain two.
 
 ##### Transfer sidechain one to mainchain
 
-- Run `ts-node pos-sidechain-example-one/config/scripts/transfer_lsk_mainchain.ts` from `interop` folder.
+- Run `ts-node pos-sidechain-example-one/config/scripts/transfer_kly_mainchain.ts` from `interop` folder.
 - Check balance for `lskzjzeam6szx4a65sxgavr98m9h4kctcx85nvy7h` using `token_getBalances` RPC on mainchain.
 
 ##### Transfer sidechain two to sidechain one
@@ -154,4 +154,4 @@ genesis-assets if you want to run an application for 103 validators. In order to
 
 ## Learn More
 
-[Here](https://github.com/LiskHQ/lisk-docs/blob/7a7c1606c688f8cd91b50d0ddc199907c6b4f759/docs/modules/ROOT/images/build-blockchain/interop-example.png) is a reference to the diagram explaining interop setup nicely.
+[Here](https://github.com/Klayrhq/klayr-docs/blob/7a7c1606c688f8cd91b50d0ddc199907c6b4f759/docs/modules/ROOT/images/build-blockchain/interop-example.png) is a reference to the diagram explaining interop setup nicely.

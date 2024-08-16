@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec, Schema } from '@liskhq/lisk-codec';
+import { codec, Schema } from '@klayr/codec';
 import { Dealer } from 'zeromq';
 import {
 	ABI,

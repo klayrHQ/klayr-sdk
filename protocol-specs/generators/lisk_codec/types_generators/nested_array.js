@@ -15,7 +15,7 @@
 const protobuf = require('protobufjs');
 
 const prepareProtobuffersObjects = () =>
-	protobuf.loadSync('./generators/lisk_codec/proto_files/nested_array.proto');
+	protobuf.loadSync('./generators/klayr_codec/proto_files/nested_array.proto');
 
 const { StateDiff, StateDiffString } = prepareProtobuffersObjects();
 

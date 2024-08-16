@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { Schema } from '@liskhq/lisk-codec';
+import { Schema } from '@klayr/codec';
 import { Logger } from './logger';
 import { ImmutableMethodContext, ImmutableSubStore, SubStore } from './state_machine/types';
 import { RPC_MODES } from './constants';

@@ -14,4 +14,4 @@ A set of test generators for Uniform ordering of validators list by LIP-0003
 
 ## Resources
 
-- [LIP-0003](https://github.com/LiskHQ/lips/blob/master/proposals/lip-0003.md)
+- [LIP-0003](https://github.com/Klayrhq/lips/blob/master/proposals/lip-0003.md)

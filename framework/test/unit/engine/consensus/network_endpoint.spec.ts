@@ -13,9 +13,9 @@
  */
 
 import { InMemoryDatabase, Database } from '@liskhq/lisk-db';
-import { Block, Chain } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { Block, Chain } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { SingleCommit } from '.../../../src/engine/consensus//certificate_generation/types';
 import {
 	computeUnsignedCertificateFromBlockHeader,
@@ -163,7 +163,7 @@ describe('p2p endpoint', () => {
 			await endpoint.handleRPCGetBlocksFromId(blockIds, defaultPeerId);
 			// Assert
 			expect(chain.dataAccess.getBlockHeaderByID).toHaveBeenCalledWith(id);
-			expect(chain.dataAccess.getBlocksByHeightBetween).toHaveBeenCalledWith(3, 105);
+			expect(chain.dataAccess.getBlocksByHeightBetween).toHaveBeenCalledWith(3, 55);
 		});
 	});
 

@@ -15,7 +15,7 @@
 const protobuf = require('protobufjs');
 
 const prepareProtobuffersBooleans = () =>
-	protobuf.loadSync('./generators/lisk_codec/proto_files/booleans.proto');
+	protobuf.loadSync('./generators/klayr_codec/proto_files/booleans.proto');
 const { Boolean } = prepareProtobuffersBooleans();
 
 const schema = {

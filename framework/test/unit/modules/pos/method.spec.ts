@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { math } from '@liskhq/lisk-utils';
-import { utils } from '@liskhq/lisk-cryptography';
+import { math } from '@klayr/utils';
+import { utils } from '@klayr/cryptography';
 import { PoSMethod } from '../../../../src/modules/pos/method';
 import { MethodContext } from '../../../../src/state_machine/method_context';
 import { EventQueue } from '../../../../src/state_machine';

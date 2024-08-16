@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockHeader } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { BlockHeader } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { BFTVotesBlockInfo, ValidatorsHashInput, validatorsHashInputSchema } from './schemas';
 import { BFTHeader } from './types';
 import { ActiveValidator } from '../consensus/types';

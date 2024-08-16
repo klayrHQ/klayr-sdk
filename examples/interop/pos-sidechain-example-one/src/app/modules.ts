@@ -1,4 +1,4 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Application } from 'lisk-sdk';
+import { Application } from 'klayr-sdk';
 
 export const registerModules = (_app: Application): void => {};

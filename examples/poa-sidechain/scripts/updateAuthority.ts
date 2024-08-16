@@ -1,14 +1,14 @@
 import { writeFileSync, readFileSync } from 'fs-extra';
-import { codec, cryptography, apiClient } from 'lisk-sdk';
+import { codec, cryptography, apiClient } from 'klayr-sdk';
 import { NodeInfo } from './extern_types';
 import { keys as validatorsKeys } from '../config/default/dev-validators.json';
-import { MESSAGE_TAG_POA } from 'lisk-framework/dist-node/modules/poa/constants';
+import { MESSAGE_TAG_POA } from 'klayr-framework/dist-node/modules/poa/constants';
 import { updateAuthorityWithoutSigSchema } from './schema';
 
 (async () => {
 	const { bls } = cryptography;
 
-	const client = await apiClient.createIPCClient('~/.lisk/poa-sidechain');
+	const client = await apiClient.createIPCClient('~/.klayr/poa-sidechain');
 	const nodeInfo = await client.invoke<NodeInfo>('system_getNodeInfo');
 	// Get active validators from mainchain
 
@@ -19,7 +19,7 @@ import { updateAuthorityWithoutSigSchema } from './schema';
 
 	const params = {
 		newValidators: paramsJSON.newValidators.map(validator => ({
-			address: cryptography.address.getAddressFromLisk32Address(validator.address),
+			address: cryptography.address.getAddressFromKlayr32Address(validator.address),
 			weight: validator.weight,
 		})),
 		threshold: paramsJSON.threshold,
@@ -90,7 +90,7 @@ import { updateAuthorityWithoutSigSchema } from './schema';
 			...paramsJSON,
 			newValidators: paramsJSON.newValidators.map(validator => ({
 				address: cryptography.address
-					.getAddressFromLisk32Address(validator.address)
+					.getAddressFromKlayr32Address(validator.address)
 					.toString('hex'),
 				weight: validator.weight,
 			})),

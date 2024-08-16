@@ -12,12 +12,12 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 import { when } from 'jest-when';
-import { codec } from '@liskhq/lisk-codec';
-import { Block, Chain, BlockHeader } from '@liskhq/lisk-chain';
-import { objects } from '@liskhq/lisk-utils';
+import { codec } from '@klayr/codec';
+import { Block, Chain, BlockHeader } from '@klayr/chain';
+import { objects } from '@klayr/utils';
 
 import { InMemoryDatabase } from '@liskhq/lisk-db';
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import {
 	BlockSynchronizationMechanism,
 	Errors,
@@ -40,7 +40,7 @@ import {
 describe('block_synchronization_mechanism', () => {
 	const genesisBlock = getGenesisBlock();
 	const finalizedHeight = genesisBlock.header.height + 1;
-	const numberOfValidators = 103;
+	const numberOfValidators = 53;
 
 	let chainModule: any;
 	let blockExecutor: {
@@ -1231,7 +1231,7 @@ describe('block_synchronization_mechanism', () => {
 
 		describe('computeBlockHeightsList', () => {
 			it('should return height list for round 0', () => {
-				expect(computeBlockHeightsList(0, 103, 10, 0)).not.toBeEmpty();
+				expect(computeBlockHeightsList(0, 53, 10, 0)).not.toBeEmpty();
 			});
 
 			it('should return height list for given round', () => {

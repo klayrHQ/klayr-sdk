@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { DB_KEY_ACCOUNTS_ADDRESS, concatDBKeys } from '@liskhq/lisk-chain';
-import { createIPCClient } from '@liskhq/lisk-api-client';
+import { DB_KEY_ACCOUNTS_ADDRESS, concatDBKeys } from '@klayr/chain';
+import { createIPCClient } from '@klayr/api-client';
 import {
 	closeApplication,
 	waitNBlocks,
@@ -142,7 +142,7 @@ describe('method client ipc mode', () => {
 			// Act
 			const validators = await client.invoke('pos_getAllValidators');
 			// Assert
-			expect(validators).toHaveLength(103);
+			expect(validators).toHaveLength(53);
 		});
 
 		it('should throw an error on invalid action', async () => {

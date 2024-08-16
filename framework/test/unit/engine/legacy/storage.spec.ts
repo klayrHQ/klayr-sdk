@@ -14,7 +14,7 @@
  */
 
 import { Batch, Database, InMemoryDatabase } from '@liskhq/lisk-db';
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { encodeBlock, encodeBlockHeader } from '../../../../src/engine/legacy/codec';
 import { Storage } from '../../../../src/engine/legacy/storage';
 import { blockFixtures } from './fixtures';

@@ -1,0 +1,28 @@
+/*
+ * Copyright © 2019 Lisk Foundation
+ *
+ * See the LICENSE file at the top-level directory of this distribution
+ * for licensing information.
+ *
+ * Unless otherwise agreed in a custom licensing agreement with the Lisk Foundation,
+ * no part of this software, including this file, may be copied, modified,
+ * propagated, or distributed except according to the terms contained in the
+ * LICENSE file.
+ *
+ * Removal or modification of this copyright notice is prohibited.
+ *
+ */
+export const BINARY_ADDRESS_LENGTH = 20;
+export const DEFAULT_KLAYR32_ADDRESS_PREFIX = 'kly';
+export const ED25519_CURVE = 'ed25519 seed';
+export const MAX_UINT32 = 4294967295;
+export const HARDENED_OFFSET = 0x80000000;
+export const HASH_LENGTH = 32;
+export const L = 8160; // 32 * 255
+export const EMPTY_SALT = Buffer.from(new Array(32).fill(0));
+export const EMPTY_BUFFER = Buffer.alloc(0);
+export const SHA256 = 'sha256';
+export const KLAYR32_CHARSET = 'zxvcpmbn3465o978uyrtkqew2adsjhfg';
+export const KLAYR32_ADDRESS_LENGTH = 41;
+export const MESSAGE_TAG_NON_PROTOCOL_MESSAGE = 'KLY_NPM_';
+export const ED25519_PUBLIC_KEY_LENGTH = 32;

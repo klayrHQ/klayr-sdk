@@ -1,4 +1,4 @@
-import { Types } from 'lisk-sdk';
+import { Types } from 'klayr-sdk';
 
 export interface ModuleConfig {
 	maxMessageLength: number;

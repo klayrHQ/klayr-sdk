@@ -21,7 +21,7 @@ export const validatorSchema = {
 		address: {
 			fieldNumber: 1,
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		bftWeight: {
 			fieldNumber: 2,

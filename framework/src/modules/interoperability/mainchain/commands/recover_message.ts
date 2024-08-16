@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { regularMerkleTree } from '@liskhq/lisk-tree';
-import { utils } from '@liskhq/lisk-cryptography';
-import { NotFoundError } from '@liskhq/lisk-chain';
+import { codec } from '@klayr/codec';
+import { regularMerkleTree } from '@klayr/tree';
+import { utils } from '@klayr/cryptography';
+import { NotFoundError } from '@klayr/chain';
 import {
 	CommandExecuteContext,
 	CommandVerifyContext,
@@ -45,11 +45,11 @@ import {
 } from '../../events/ccm_processed';
 import { InvalidRMTVerificationEvent } from '../../events/invalid_rmt_verification';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#message-recovery-command
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#message-recovery-command
 export class RecoverMessageCommand extends BaseInteroperabilityCommand<MainchainInteroperabilityInternalMethod> {
 	public schema = messageRecoveryParamsSchema;
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#verification-1
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#verification-1
 	public async verify(
 		context: CommandVerifyContext<MessageRecoveryParams>,
 	): Promise<VerificationResult> {
@@ -102,7 +102,7 @@ export class RecoverMessageCommand extends BaseInteroperabilityCommand<Mainchain
 		// as the idxs are sorted in ascending order. Note that one must unset the most significant
 		// bit of an encoded index in idxs in order to get the position in the tree. To do this
 		// we must ensure that there are at least two bits, i.e. the value must be larger than 1.
-		// See https://github.com/LiskHQ/lips/blob/main/proposals/lip-0031.md#proof-serialization.
+		// See https://github.com/Klayrhq/lips/blob/main/proposals/lip-0031.md#proof-serialization.
 		if (idxs[0] <= 1) {
 			return {
 				status: VerifyStatus.FAIL,
@@ -170,7 +170,7 @@ export class RecoverMessageCommand extends BaseInteroperabilityCommand<Mainchain
 		};
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#execution-1
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#execution-1
 	public async execute(context: CommandExecuteContext<MessageRecoveryParams>): Promise<void> {
 		const { params } = context;
 		const terminatedOutboxSubstore = this.stores.get(TerminatedOutboxStore);

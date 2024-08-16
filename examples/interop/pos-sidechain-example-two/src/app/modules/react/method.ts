@@ -1,3 +1,3 @@
-import { Modules } from 'lisk-sdk';
+import { Modules } from 'klayr-sdk';
 
 export class ReactMethod extends Modules.BaseMethod {}

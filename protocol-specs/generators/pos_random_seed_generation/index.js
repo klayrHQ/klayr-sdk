@@ -14,12 +14,12 @@
 
 'use strict';
 
-const { utils } = require('@liskhq/lisk-cryptography');
+const { utils } = require('@klayr/cryptography');
 
 const BaseGenerator = require('../base_generator');
 const { list: sampleValidatorList } = require('./forger_list.json');
 
-const activeValidators = 101;
+const activeValidators = 51;
 const standByValidators = 2;
 
 const numberToBuffer = data => {

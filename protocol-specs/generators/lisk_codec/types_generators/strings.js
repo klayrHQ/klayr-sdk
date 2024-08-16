@@ -15,7 +15,7 @@
 const protobuf = require('protobufjs');
 
 const prepareProtobuffersStrings = () =>
-	protobuf.loadSync('./generators/lisk_codec/proto_files/strings.proto');
+	protobuf.loadSync('./generators/klayr_codec/proto_files/strings.proto');
 
 const { String } = prepareProtobuffersStrings();
 
@@ -30,7 +30,7 @@ const schema = {
 	},
 };
 
-const normal = { data: 'Checkout Lisk SDK!' };
+const normal = { data: 'Checkout Klayr SDK!' };
 const emptyString = { data: '' };
 const symbols = { data: '€.ƒ.‰.Œ.£.©.®.µ.Æ.ü.ý.ø.Ç.¥.ß' };
 

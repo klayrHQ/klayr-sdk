@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { codec, emptySchema, Schema } from '@liskhq/lisk-codec';
+import { codec, emptySchema, Schema } from '@klayr/codec';
 import { EventQueue } from '../state_machine/event_queue';
 
 export interface EventQueuer {

@@ -441,7 +441,7 @@ Object {
     },
   },
   "transaction": Object {
-    "$id": "lisk/transaction",
+    "$id": "klayr/transaction",
     "properties": Object {
       "asset": Object {
         "dataType": "bytes",
@@ -495,7 +495,7 @@ Object {
       "moduleID": 2,
       "moduleName": "token",
       "schema": Object {
-        "$id": "lisk/transfer-asset",
+        "$id": "klayr/transfer-asset",
         "properties": Object {
           "amount": Object {
             "dataType": "uint64",
@@ -525,7 +525,7 @@ Object {
       "moduleID": 4,
       "moduleName": "keys",
       "schema": Object {
-        "$id": "lisk/keys/register",
+        "$id": "klayr/keys/register",
         "properties": Object {
           "mandatoryKeys": Object {
             "fieldNumber": 2,
@@ -570,7 +570,7 @@ Object {
       "moduleID": 5,
       "moduleName": "pos",
       "schema": Object {
-        "$id": "lisk/pos/register",
+        "$id": "klayr/pos/register",
         "properties": Object {
           "username": Object {
             "dataType": "string",
@@ -591,7 +591,7 @@ Object {
       "moduleID": 5,
       "moduleName": "pos",
       "schema": Object {
-        "$id": "lisk/pos/stake",
+        "$id": "klayr/pos/stake",
         "properties": Object {
           "stakes": Object {
             "fieldNumber": 1,
@@ -631,7 +631,7 @@ Object {
       "moduleID": 5,
       "moduleName": "pos",
       "schema": Object {
-        "$id": "lisk/pos/unlock",
+        "$id": "klayr/pos/unlock",
         "properties": Object {
           "unlockObjects": Object {
             "fieldNumber": 1,
@@ -676,7 +676,7 @@ Object {
       "moduleID": 5,
       "moduleName": "pos",
       "schema": Object {
-        "$id": "lisk/pos/pom",
+        "$id": "klayr/pos/pom",
         "properties": Object {
           "header1": Object {
             "$id": "block-header1",

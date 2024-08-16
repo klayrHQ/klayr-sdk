@@ -1,23 +1,23 @@
 {
-	"name": "lisk-commander",
+	"name": "klayr-commander",
 	"version": "6.1.0",
-	"description": "A command line interface for Lisk",
+	"description": "A command line interface for Klayr",
 	"author": "Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
 	"keywords": [
-		"lisk",
+		"klayr",
 		"blockchain",
 		"command-line",
 		"nodejs",
 		"javascript"
 	],
-	"homepage": "https://github.com/LiskHQ/lisk-sdk/tree/master/commander#readme",
+	"homepage": "https://github.com/Klayrhq/klayr-sdk/tree/master/commander#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/LiskHQ/lisk-sdk.git"
+		"url": "git+https://github.com/Klayrhq/klayr-sdk.git"
 	},
 	"bugs": {
-		"url": "https://github.com/LiskHQ/lisk-sdk/issues"
+		"url": "https://github.com/Klayrhq/klayr-sdk/issues"
 	},
 	"engines": {
 		"node": ">=18.12.0 <=18",
@@ -25,10 +25,10 @@
 	},
 	"main": "dist/index.js",
 	"bin": {
-		"lisk": "./bin/run"
+		"klayr": "./bin/run"
 	},
-	"lisk": {
-		"addressPrefix": "lsk"
+	"klayr": {
+		"addressPrefix": "kly"
 	},
 	"scripts": {
 		"start": "ts-node src/index.js",
@@ -42,12 +42,12 @@
 		"test": "jest",
 		"test:coverage": "jest --coverage=true --coverage-reporters=text",
 		"test:ci": "jest --coverage=true --coverage-reporters=json",
-		"postbuild": "copyfiles -u 1 -a 'src/bootstrapping/templates/lisk-template-ts/templates/**/*' dist/",
+		"postbuild": "copyfiles -u 1 -a 'src/bootstrapping/templates/klayr-template-ts/templates/**/*' dist/",
 		"prepack": "oclif manifest"
 	},
 	"oclif": {
 		"commands": "./dist/commands",
-		"bin": "lisk",
+		"bin": "klayr",
 		"plugins": [
 			"@oclif/plugin-help",
 			"@oclif/plugin-autocomplete",
@@ -62,13 +62,13 @@
 		"topicSeparator": " ",
 		"topics": {
 			"account": {
-				"description": "Commands relating to Lisk accounts."
+				"description": "Commands relating to Klayr accounts."
 			},
 			"console": {
-				"description": "Lisk interactive REPL session to run commands."
+				"description": "Klayr interactive REPL session to run commands."
 			},
 			"generate": {
-				"description": "Commands relating to Lisk generator."
+				"description": "Commands relating to Klayr generator."
 			},
 			"hash-onion": {
 				"description": "Create hash onions to be used by the forger."
@@ -77,7 +77,7 @@
 				"description": "Displays help."
 			},
 			"init": {
-				"description": "Commands relating to bootstrapping a blockchain application or plugin using Lisk SDK."
+				"description": "Commands relating to bootstrapping a blockchain application or plugin using Klayr SDK."
 			},
 			"message": {
 				"description": "Commands relating to user messages."
@@ -86,7 +86,7 @@
 				"description": "Create network identifier for a given genesis block id and community identifier."
 			},
 			"passphrase": {
-				"description": "Commands relating to Lisk passphrases."
+				"description": "Commands relating to Klayr passphrases."
 			},
 			"endpoint": {
 				"description": "Commands relating to endpoints."
@@ -101,16 +101,16 @@
 		"/docs"
 	],
 	"dependencies": {
-		"@liskhq/lisk-api-client": "^6.1.0",
-		"@liskhq/lisk-chain": "^0.6.0",
-		"@liskhq/lisk-client": "^6.1.0",
-		"@liskhq/lisk-codec": "^0.5.0",
-		"@liskhq/lisk-cryptography": "^4.1.0",
+		"@klayr/api-client": "^6.1.0",
+		"@klayr/chain": "^0.6.0",
+		"@klayr/client": "^6.1.0",
+		"@klayr/codec": "^0.5.0",
+		"@klayr/cryptography": "^4.1.0",
 		"@liskhq/lisk-db": "0.3.7",
-		"@liskhq/lisk-passphrase": "^4.1.0",
-		"@liskhq/lisk-transactions": "^6.1.0",
-		"@liskhq/lisk-utils": "^0.4.0",
-		"@liskhq/lisk-validator": "^0.9.0",
+		"@klayr/passphrase": "^4.1.0",
+		"@klayr/transactions": "^6.1.0",
+		"@klayr/utils": "^0.4.0",
+		"@klayr/validator": "^0.9.0",
 		"@oclif/core": "1.20.4",
 		"@oclif/plugin-autocomplete": "1.3.6",
 		"@oclif/plugin-help": "5.1.19",
@@ -121,7 +121,7 @@
 		"cli-table3": "0.6.0",
 		"fs-extra": "11.1.0",
 		"inquirer": "8.2.5",
-		"lisk-framework": "^0.12.0",
+		"klayr-framework": "^0.12.0",
 		"listr": "0.14.3",
 		"progress": "2.0.3",
 		"semver": "7.5.2",
@@ -153,7 +153,7 @@
 		"@typescript-eslint/parser": "5.44.0",
 		"copyfiles": "2.4.1",
 		"eslint": "8.28.0",
-		"eslint-config-lisk-base": "2.0.1",
+		"eslint-config-klayr-base": "2.0.1",
 		"eslint-plugin-import": "2.26.0",
 		"eslint-plugin-jest": "27.1.6",
 		"jest": "29.3.1",

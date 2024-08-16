@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2023 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -14,8 +14,8 @@
  *
  */
 
-import { Application } from 'lisk-framework';
-import { codec } from '@liskhq/lisk-codec';
+import { Application } from 'klayr-framework';
+import { codec } from '@klayr/codec';
 import { generateGenesisBlockDefaultPoSAssets } from '../../src/utils/genesis_creation';
 
 describe('genesis creation', () => {
@@ -25,7 +25,7 @@ describe('genesis creation', () => {
 			const { genesisAssets } = generateGenesisBlockDefaultPoSAssets({
 				chainID: chainID.toString('hex'),
 				keysList: [],
-				numberOfValidators: 101,
+				numberOfValidators: 51,
 				tokenDistribution: BigInt('100000000000000'),
 			});
 
