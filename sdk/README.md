@@ -158,18 +158,18 @@ The diagram below provides a high-level overview of the architecture:
 
 | Directory                | Description                                                                                                                                          |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Framework](./framework) | An application framework responsible for establishing and maintaining the interactions between the modules of a Klayr blockchain application.         |
+| [Framework](./framework) | An application framework responsible for establishing and maintaining the interactions between the modules of a Klayr blockchain application.        |
 | [Elements](./elements)   | A collection of libraries, each of them implementing some form of blockchain application functionality such as cryptography, transactions, p2p, etc. |
-| [Commander](./commander) | A command line tool to help developers to build a blockchain application using Klayr Framework.                                                       |
+| [Commander](./commander) | A command line tool to help developers to build a blockchain application using Klayr Framework.                                                      |
 
 ## Get Involved
 
 | Reason                          | How                                                                                             |
 | ------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Want to chat with our community | [Reach them on Discord](https://discord.gg/klayr)                                                |
-| Found a bug                     | [Open a new issue](https://github.com/Klayrhq/klayr/issues/new)                                   |
+| Want to chat with our community | [Reach them on Discord](https://discord.gg/klayr)                                               |
+| Found a bug                     | [Open a new issue](https://github.com/Klayrhq/klayr/issues/new)                                 |
 | Found a security issue          | [See our bounty program](https://blog.lisk.com/announcing-lisk-bug-bounty-program-5895bdd46ed4) |
-| Want to develop with us         | [Create a fork](https://github.com/Klayrhq/klayr/fork)                                            |
+| Want to develop with us         | [Create a fork](https://github.com/Klayrhq/klayr/fork)                                          |
 
 ## How to Contribute
 

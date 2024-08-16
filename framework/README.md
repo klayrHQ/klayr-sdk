@@ -49,12 +49,12 @@ If you want to test the changes in `klayr-sdk/elements` to reflect in `klayr-sdk
 
 ## Get Involved
 
-| Reason                          | How                                                                                             |
-| ------------------------------- |-------------------------------------------------------------------------------------------------|
-| Want to chat with our community | [Reach them on Discord](https://klayr.chat)                                                     |
-| Found a bug                     | [Open a new issue](https://github.com/Klayrhq/klayr/issues/new)                                 |
+| Reason                          | How                                                                                              |
+| ------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Want to chat with our community | [Reach them on Discord](https://klayr.chat)                                                      |
+| Found a bug                     | [Open a new issue](https://github.com/Klayrhq/klayr/issues/new)                                  |
 | Found a security issue          | [See our bounty program](https://blog.klayr.com/announcing-lisk-bug-bounty-program-5895bdd46ed4) |
-| Want to develop with us         | [Create a fork](https://github.com/Klayrhq/klayr/fork)                                          |
+| Want to develop with us         | [Create a fork](https://github.com/Klayrhq/klayr/fork)                                           |
 
 ## License
 

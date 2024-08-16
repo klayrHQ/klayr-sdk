@@ -331,7 +331,10 @@ describe('StakeCommand', () => {
 				transactionParamsDecoded = {
 					stakes: Array(MAX_NUMBER_SENT_STAKES + 1)
 						.fill(0)
-						.map(() => ({ validatorAddress: utils.getRandomBytes(20), amount: klayrtoBeddows(10) })),
+						.map(() => ({
+							validatorAddress: utils.getRandomBytes(20),
+							amount: klayrtoBeddows(10),
+						})),
 				};
 
 				transaction.params = codec.encode(stakeCommand.schema, transactionParamsDecoded);

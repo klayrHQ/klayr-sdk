@@ -12,12 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import {
-	blockHeaderSchema,
-	blockSchema,
-	blockAssetSchema,
-	transactionSchema,
-} from '@klayr/chain';
+import { blockHeaderSchema, blockSchema, blockAssetSchema, transactionSchema } from '@klayr/chain';
 import {
 	MIN_MODULE_NAME_LENGTH,
 	MAX_MODULE_NAME_LENGTH,

@@ -48,16 +48,16 @@ Or minified:
 
 ## Packages
 
-| Package                                                                              |                            Version                             | Description                                                               |
-| ------------------------------------------------------------------------------------ | :------------------------------------------------------------: | ------------------------------------------------------------------------- |
-| [@klayr/api-client](https://www.npmjs.com/package/@klayr/api-client)     |  ![npm](https://img.shields.io/npm/v/@klayr/api-client)  | An API client for the Klayr network                                        |
+| Package                                                                  |                         Version                          | Description                                                                 |
+| ------------------------------------------------------------------------ | :------------------------------------------------------: | --------------------------------------------------------------------------- |
+| [@klayr/api-client](https://www.npmjs.com/package/@klayr/api-client)     |  ![npm](https://img.shields.io/npm/v/@klayr/api-client)  | An API client for the Klayr network                                         |
 | [@klayr/codec](https://www.npmjs.com/package/@klayr/codec)               |    ![npm](https://img.shields.io/npm/v/@klayr/codec)     | Decoder and encoder using Klayr JSON schema according to the Klayr protocol |
-| [@klayr/cryptography](https://www.npmjs.com/package/@klayr/cryptography) | ![npm](https://img.shields.io/npm/v/@klayr/cryptography) | General cryptographic functions for use with Klayr-related software        |
-| [@klayr/passphrase](https://www.npmjs.com/package/@klayr/passphrase)     |  ![npm](https://img.shields.io/npm/v/@klayr/passphrase)  | Mnemonic passphrase helpers for use with Klayr-related software            |
-| [@klayr/transactions](https://www.npmjs.com/package/@klayr/transactions) | ![npm](https://img.shields.io/npm/v/@klayr/transactions) | Everything related to transactions according to the Klayr protocol         |
-| [@klayr/tree](https://www.npmjs.com/package/@klayr/tree)                 |     ![npm](https://img.shields.io/npm/v/@klayr/tree)     | Merkle tree implementations for use with Klayr-related software            |
-| [@klayr/utils](https://www.npmjs.com/package/@klayr/utils)               |    ![npm](https://img.shields.io/npm/v/@klayr/utils)     | Generic utility functions for use with Klayr-related software              |
-| [@klayr/validator](https://www.npmjs.com/package/@klayr/validator)       |  ![npm](https://img.shields.io/npm/v/@klayr/validator)   | Validation library according to the Klayr protocol                         |
+| [@klayr/cryptography](https://www.npmjs.com/package/@klayr/cryptography) | ![npm](https://img.shields.io/npm/v/@klayr/cryptography) | General cryptographic functions for use with Klayr-related software         |
+| [@klayr/passphrase](https://www.npmjs.com/package/@klayr/passphrase)     |  ![npm](https://img.shields.io/npm/v/@klayr/passphrase)  | Mnemonic passphrase helpers for use with Klayr-related software             |
+| [@klayr/transactions](https://www.npmjs.com/package/@klayr/transactions) | ![npm](https://img.shields.io/npm/v/@klayr/transactions) | Everything related to transactions according to the Klayr protocol          |
+| [@klayr/tree](https://www.npmjs.com/package/@klayr/tree)                 |     ![npm](https://img.shields.io/npm/v/@klayr/tree)     | Merkle tree implementations for use with Klayr-related software             |
+| [@klayr/utils](https://www.npmjs.com/package/@klayr/utils)               |    ![npm](https://img.shields.io/npm/v/@klayr/utils)     | Generic utility functions for use with Klayr-related software               |
+| [@klayr/validator](https://www.npmjs.com/package/@klayr/validator)       |  ![npm](https://img.shields.io/npm/v/@klayr/validator)   | Validation library according to the Klayr protocol                          |
 
 ## License
 

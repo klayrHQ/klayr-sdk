@@ -13,13 +13,7 @@
  */
 
 import { NotFoundError } from '@liskhq/lisk-db';
-import {
-	Block,
-	stateDiffSchema,
-	Transaction,
-	DB_KEY_DIFF_STATE,
-	concatDBKeys,
-} from '@klayr/chain';
+import { Block, stateDiffSchema, Transaction, DB_KEY_DIFF_STATE, concatDBKeys } from '@klayr/chain';
 import { codec } from '@klayr/codec';
 
 import { address, utils } from '@klayr/cryptography';

@@ -38,7 +38,10 @@ describe('db', () => {
 	let reportMisbehaviorPlugin: ReportMisbehaviorPlugin;
 
 	beforeAll(async () => {
-		const dbPath = path.join(os.homedir(), '~/.klayr/report-misbehavior-plugin/data/integration/db');
+		const dbPath = path.join(
+			os.homedir(),
+			'~/.klayr/report-misbehavior-plugin/data/integration/db',
+		);
 		await fs.ensureDir(dbPath);
 		db = new klayrdB.KVStore(dbPath);
 		await db.set(

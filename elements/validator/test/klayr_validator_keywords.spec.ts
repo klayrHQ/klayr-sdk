@@ -169,7 +169,9 @@ describe('validator keywords', () => {
 							},
 							{ myProp: Buffer.alloc(9) },
 						),
-					).toThrow("Klayr validator found 1 error[s]:\nProperty '.myProp' minLength not satisfied");
+					).toThrow(
+						"Klayr validator found 1 error[s]:\nProperty '.myProp' minLength not satisfied",
+					);
 				});
 
 				it('should be invalid if maxLength is not satisfied', () => {

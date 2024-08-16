@@ -59,7 +59,7 @@ $ npm test
 ## Get Involved
 
 | Reason                          | How                                                                               |
-| ------------------------------- |-----------------------------------------------------------------------------------|
+| ------------------------------- | --------------------------------------------------------------------------------- |
 | Want to chat with our community | [Reach them on Discord](https://klayr.chat)                                       |
 | Found a bug                     | [Open a new issue](https://github.com/klayrhq/klayr-sdk/issues/new)               |
 | Found a security issue          | [See our bounty program](https://klayr.xyz/documentation/bug-bounty-program.html) |

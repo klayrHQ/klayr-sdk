@@ -460,8 +460,12 @@ describe('PoS module', () => {
 				const snapshotStore = pos.stores.get(SnapshotStore);
 
 				await expect(snapshotStore.has(context, utils.intToBuffer(rounds, 4))).resolves.toBeFalse();
-				await expect(snapshotStore.has(context, utils.intToBuffer(rounds + 1, 4))).resolves.toBeTrue();
-				await expect(snapshotStore.has(context, utils.intToBuffer(rounds + 2, 4))).resolves.toBeTrue();
+				await expect(
+					snapshotStore.has(context, utils.intToBuffer(rounds + 1, 4)),
+				).resolves.toBeTrue();
+				await expect(
+					snapshotStore.has(context, utils.intToBuffer(rounds + 2, 4)),
+				).resolves.toBeTrue();
 			});
 		});
 	});

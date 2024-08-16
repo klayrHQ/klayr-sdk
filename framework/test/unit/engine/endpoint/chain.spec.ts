@@ -12,14 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import {
-	Block,
-	BlockAssets,
-	BlockHeader,
-	Event,
-	StateStore,
-	Transaction,
-} from '@klayr/chain';
+import { Block, BlockAssets, BlockHeader, Event, StateStore, Transaction } from '@klayr/chain';
 import { utils } from '@klayr/cryptography';
 import { Batch, Database, InMemoryDatabase, NotFoundError } from '@liskhq/lisk-db';
 import {

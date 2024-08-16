@@ -13,13 +13,7 @@
  *
  */
 
-import {
-	BlockAssets,
-	BlockHeader,
-	BlockHeaderAttrs,
-	StateStore,
-	Transaction,
-} from '@klayr/chain';
+import { BlockAssets, BlockHeader, BlockHeaderAttrs, StateStore, Transaction } from '@klayr/chain';
 import { utils } from '@klayr/cryptography';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
 import { codec } from '@klayr/codec';
