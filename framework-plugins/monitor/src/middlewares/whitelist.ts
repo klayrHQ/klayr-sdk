@@ -11,28 +11,22 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import * as ip from 'ip';
+import { isIPv4 } from 'net';
+import { Netmask } from 'netmask';
 import { Request, Response, NextFunction } from 'express';
 import { ErrorWithStatus } from './errors';
 
 const defualtOption = { whiteList: [] };
 
 const checkIpInList = (list: ReadonlyArray<string>, addr: string): boolean => {
-	let entry;
 	for (const value of list) {
-		entry = value;
-		if (ip.isV4Format(entry)) {
-			// IPv4 host entry
+		let entry = value;
+		if (isIPv4(entry)) {
 			entry += '/32';
 		}
-		try {
-			entry = ip.cidrSubnet(entry);
-			if (entry.contains(addr)) {
-				return true;
-			}
-		} catch (err) {
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-			console.error('CheckIpInList:', (err as Error).toString());
+		const block = new Netmask(entry);
+		if (block.contains(addr)) {
+			return true;
 		}
 	}
 	return false;

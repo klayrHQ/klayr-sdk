@@ -225,7 +225,7 @@ describe('Delete block', () => {
 				});
 				const block = await processEnv.createBlock([transaction1, transaction2, transaction3]);
 				await processEnv.process(block);
-				await processEnv.processUntilHeight(308);
+				await processEnv.processUntilHeight(158);
 				const validatorsBefore = await processEnv
 					.getConsensus()
 					['_bft'].method.getBFTParameters(

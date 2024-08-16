@@ -53,7 +53,7 @@
 		"@klayr/transactions": "^6.1.0",
 		"@klayr/utils": "^0.4.0",
 		"@klayr/validator": "^0.9.0",
-		"axios": "1.6.0",
+		"axios": "1.7.4",
 		"express": "4.18.2",
 		"klayr-sdk": "^6.1.0",
 		"react": "^17.0.1",
