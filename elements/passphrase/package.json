@@ -1,8 +1,8 @@
 {
 	"name": "@klayr/passphrase",
-	"version": "4.1.0",
+	"version": "4.1.1",
 	"description": "Mnemonic passphrase helpers for use with Klayr-related software",
-	"author": "Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
+	"author": "Klayr Labs <admin@klayr.xyz>, Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
 	"keywords": [
 		"klayr",

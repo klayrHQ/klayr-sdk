@@ -1,9 +1,9 @@
 {
 	"name": "klayr-sdk-test",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Functional tests for Klayr SDK",
 	"private": true,
-	"author": "Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
+	"author": "Klayr Labs <admin@klayr.xyz>, Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
 	"keywords": [
 		"klayr",
@@ -32,7 +32,7 @@
 	},
 	"dependencies": {
 		"debug": "4.3.4",
-		"klayr-sdk": "^6.1.0"
+		"klayr-sdk": "^6.1.2"
 	},
 	"devDependencies": {
 		"@types/jest": "29.2.3",

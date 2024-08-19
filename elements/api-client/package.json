@@ -1,8 +1,8 @@
 {
 	"name": "@klayr/api-client",
-	"version": "6.1.0",
+	"version": "6.1.1",
 	"description": "An API client for the Klayr network",
-	"author": "Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
+	"author": "Klayr Labs <admin@klayr.xyz>, Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
 	"keywords": [
 		"klayr",
@@ -35,16 +35,16 @@
 		"build:check": "node -e \"require('./dist-node')\""
 	},
 	"dependencies": {
-		"@klayr/codec": "^0.5.0",
-		"@klayr/cryptography": "^4.1.0",
-		"@klayr/transactions": "^6.1.0",
-		"@klayr/validator": "^0.9.0",
+		"@klayr/codec": "^0.5.1",
+		"@klayr/cryptography": "^4.1.1",
+		"@klayr/transactions": "^6.1.1",
+		"@klayr/validator": "^0.9.1",
 		"isomorphic-ws": "4.0.1",
 		"ws": "8.18.0",
 		"zeromq": "6.0.0-beta.6"
 	},
 	"devDependencies": {
-		"@klayr/chain": "^0.6.0",
+		"@klayr/chain": "^0.6.1",
 		"@types/jest": "29.2.3",
 		"@types/jest-when": "3.5.2",
 		"@types/node": "18.15.3",

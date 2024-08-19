@@ -1,8 +1,8 @@
 {
 	"name": "@klayr/validator",
-	"version": "0.9.0",
+	"version": "0.9.1",
 	"description": "Validation library according to the Klayr protocol",
-	"author": "Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
+	"author": "Klayr Labs <admin@klayr.xyz>, Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
 	"keywords": [
 		"klayr",
@@ -36,7 +36,7 @@
 		"build:check": "node -e \"require('./dist-node')\""
 	},
 	"dependencies": {
-		"@klayr/cryptography": "^4.1.0",
+		"@klayr/cryptography": "^4.1.1",
 		"ajv": "8.1.0",
 		"ajv-formats": "2.1.1",
 		"debug": "4.3.4",
