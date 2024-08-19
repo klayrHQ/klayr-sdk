@@ -2,7 +2,7 @@
 // eslint-disable-next-line
 /// <reference path="../../../external_types/yeoman-generator/lib/actions/install.d.ts" />
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -22,18 +22,18 @@ import * as Storage from 'yeoman-generator/lib/util/storage';
 import * as installActions from 'yeoman-generator/lib/actions/install';
 import { join, dirname } from 'path';
 import * as assert from 'assert';
-import { BaseGeneratorOptions, LiskTemplate } from '../../types';
+import { BaseGeneratorOptions, Klayrtemplate } from '../../types';
 
 Object.assign(YeomanGenerator.prototype, installActions);
 
-const DEFAULT_TEMPLATE_NAME = 'lisk-ts';
+const DEFAULT_TEMPLATE_NAME = 'klayr-ts';
 
 export default abstract class BaseGenerator extends YeomanGenerator {
-	protected readonly _liskTemplatePath: string;
-	protected readonly _liskTemplateName: string;
-	protected readonly _liskRC: Storage;
+	protected readonly _klayrTemplatePath: string;
+	protected readonly _klayrTemplateName: string;
+	protected readonly _klayrRC: Storage;
 	protected readonly _commanderVersion: string;
-	protected _liskTemplate!: LiskTemplate;
+	protected _klayrTemplate!: Klayrtemplate;
 	protected _registry?: string;
 
 	public constructor(args: string | string[], opts: BaseGeneratorOptions) {
@@ -44,34 +44,34 @@ export default abstract class BaseGenerator extends YeomanGenerator {
 		}
 		this._registry = opts.registry;
 
-		this._liskRC = this.createStorage('.liskrc.json');
-		this._liskTemplateName = opts.template ?? this._liskRC.getPath('template') ?? 'lisk-ts';
+		this._klayrRC = this.createStorage('.klayrrc.json');
+		this._klayrTemplateName = opts.template ?? this._klayrRC.getPath('template') ?? 'klayr-ts';
 		this._commanderVersion = opts.version;
 
-		if (this._liskTemplateName === DEFAULT_TEMPLATE_NAME) {
-			this._liskTemplatePath = join(dirname(__filename), '..', 'templates', 'lisk-template-ts');
+		if (this._klayrTemplateName === DEFAULT_TEMPLATE_NAME) {
+			this._klayrTemplatePath = join(dirname(__filename), '..', 'templates', 'klayr-template-ts');
 		} else {
-			this._liskTemplatePath = require.resolve(this._liskTemplateName);
+			this._klayrTemplatePath = require.resolve(this._klayrTemplateName);
 		}
 
-		this.log(`Using template "${this._liskTemplateName}"`);
-		this._liskRC.setPath('commander.version', this._commanderVersion);
-		this._liskRC.setPath('template', this._liskTemplateName);
+		this.log(`Using template "${this._klayrTemplateName}"`);
+		this._klayrRC.setPath('commander.version', this._commanderVersion);
+		this._klayrRC.setPath('template', this._klayrTemplateName);
 
-		this.sourceRoot(this._liskTemplatePath);
+		this.sourceRoot(this._klayrTemplatePath);
 	}
 
 	protected async _loadAndValidateTemplate(): Promise<void> {
-		this._liskTemplate = (await import(this._liskTemplatePath)) as LiskTemplate;
+		this._klayrTemplate = (await import(this._klayrTemplatePath)) as Klayrtemplate;
 
 		assert(
-			this._liskTemplate.generators,
-			`Template "${this._liskTemplateName}" does not have any generators`,
+			this._klayrTemplate.generators,
+			`Template "${this._klayrTemplateName}" does not have any generators`,
 		);
 
 		assert(
-			this._liskTemplate.generators.init,
-			`Template "${this._liskTemplateName}" does not have "init" generators`,
+			this._klayrTemplate.generators.init,
+			`Template "${this._klayrTemplateName}" does not have "init" generators`,
 		);
 	}
 }

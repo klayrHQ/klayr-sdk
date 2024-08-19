@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { AuthModule } from '../../../../src/modules/auth';
 import { AuthMethod } from '../../../../src/modules/auth/method';
 import { AuthAccountStore } from '../../../../src/modules/auth/stores/auth_account';

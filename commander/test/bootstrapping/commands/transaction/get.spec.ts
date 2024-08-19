@@ -14,8 +14,8 @@
  */
 
 import * as fs from 'fs-extra';
-import { transactionSchema } from 'lisk-framework';
-import * as apiClient from '@liskhq/lisk-api-client';
+import { transactionSchema } from 'klayr-framework';
+import * as apiClient from '@klayr/api-client';
 
 import { BaseIPCClientCommand } from '../../../../src/bootstrapping/commands/base_ipc_client';
 import * as appUtils from '../../../../src/utils/application';
@@ -40,7 +40,7 @@ describe('transaction:get command', () => {
 		amount: '1',
 		fee: '0.2',
 		nonce: 1,
-		recipientAddress: 'lskxpxg4y755b9nr6m7f4gcvtk2mp7yj7p364mzem',
+		recipientAddress: 'klyxpxg4y755b9nr6m7f4gcvtk2mp7yj7p364mzem',
 	});
 	const encodedTransaction = encodeTransactionFromJSON(
 		transferTransaction as any,

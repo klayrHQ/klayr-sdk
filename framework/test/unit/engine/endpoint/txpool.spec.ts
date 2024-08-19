@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils, address as cryptoAddress } from '@liskhq/lisk-cryptography';
-import { Chain, Transaction, Event, TransactionAttrs } from '@liskhq/lisk-chain';
-import { TransactionPool } from '@liskhq/lisk-transaction-pool';
-import { LiskValidationError } from '@liskhq/lisk-validator';
+import { utils, address as cryptoAddress } from '@klayr/cryptography';
+import { Chain, Transaction, Event, TransactionAttrs } from '@klayr/chain';
+import { TransactionPool } from '@klayr/transaction-pool';
+import { KlayrvalidationError } from '@klayr/validator';
 import { ABI, TransactionExecutionResult, TransactionVerifyResult } from '../../../../src/abi';
 import { Logger } from '../../../../src/logger';
 import { Broadcaster } from '../../../../src/engine/generator/broadcaster';
@@ -58,7 +58,7 @@ describe('txpool endpoint', () => {
 	let chain: Chain;
 
 	const senderPublicKey = utils.getRandomBytes(ED25519_PUBLIC_KEY_LENGTH);
-	const senderLisk32Address = cryptoAddress.getLisk32AddressFromPublicKey(senderPublicKey);
+	const senderKlayr32Address = cryptoAddress.getKlayr32AddressFromPublicKey(senderPublicKey);
 
 	const transactionAttributes: TransactionAttrs[] = [
 		{
@@ -139,7 +139,7 @@ describe('txpool endpoint', () => {
 						},
 						chainID,
 					}),
-				).rejects.toThrow(LiskValidationError);
+				).rejects.toThrow(KlayrvalidationError);
 			});
 
 			it('should reject with error when transaction bytes is invalid', async () => {
@@ -239,7 +239,7 @@ describe('txpool endpoint', () => {
 		it('should return only transactions sent from the provided address, when address is provided', async () => {
 			const transactions = await endpoint.getTransactionsFromPool({
 				logger,
-				params: { address: senderLisk32Address },
+				params: { address: senderKlayr32Address },
 				chainID,
 			});
 
@@ -250,7 +250,7 @@ describe('txpool endpoint', () => {
 		it('should return no transactions, when provided address does not correspond to any transaction in the pool', async () => {
 			const transactions = await endpoint.getTransactionsFromPool({
 				logger,
-				params: { address: 'lskw95gtvf3fpjm5y49hrc4fuhoy4n7dtp75adgx5' },
+				params: { address: 'klyw95gtvf3fpjm5y49hrc4fuhoy4n7dtp75adgx5' },
 				chainID,
 			});
 

@@ -1,4 +1,4 @@
-import { Modules, Types, cryptography } from 'lisk-sdk';
+import { Modules, Types, cryptography } from 'klayr-sdk';
 import { counterKey, CounterStore, CounterStoreData } from './stores/counter';
 import { MessageStore, MessageStoreData } from './stores/message';
 import { ReactionStore, ReactionStoreData } from './stores/reaction';
@@ -22,7 +22,7 @@ export class HelloEndpoint extends Modules.BaseEndpoint {
 
 		const reactions = await reactionSubStore.get(
 			ctx,
-			cryptography.address.getAddressFromLisk32Address(address),
+			cryptography.address.getAddressFromKlayr32Address(address),
 		);
 
 		return reactions;
@@ -38,7 +38,7 @@ export class HelloEndpoint extends Modules.BaseEndpoint {
 
 		const helloMessage = await messageSubStore.get(
 			ctx,
-			cryptography.address.getAddressFromLisk32Address(address),
+			cryptography.address.getAddressFromKlayr32Address(address),
 		);
 
 		return helloMessage;

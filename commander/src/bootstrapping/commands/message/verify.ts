@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2019 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -13,7 +13,7 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import { ed } from '@liskhq/lisk-cryptography';
+import { ed } from '@klayr/cryptography';
 import { Flags as flagParser } from '@oclif/core';
 
 import BaseCommand from '../../../base';

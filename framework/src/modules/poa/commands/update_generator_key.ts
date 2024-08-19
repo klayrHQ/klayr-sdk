@@ -24,7 +24,7 @@ import {
 import { UpdateGeneratorKeyParams, ValidatorsMethod } from '../types';
 import { ValidatorStore } from '../stores';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0047.md#update-generator-key-command
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0047.md#update-generator-key-command
 export class UpdateGeneratorKeyCommand extends BaseCommand {
 	public schema = updateGeneratorKeySchema;
 	private _validatorsMethod!: ValidatorsMethod;

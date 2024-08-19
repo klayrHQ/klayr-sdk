@@ -13,7 +13,7 @@
  */
 
 /* eslint-disable max-classes-per-file */
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { BaseMethod } from '../base_method';
 import { NFTStore, NFTAttributes } from './stores/nft';
 import { InteroperabilityMethod, ModuleConfig, NFTMethod, TokenMethod } from './types';
@@ -329,7 +329,7 @@ export class InternalMethod extends BaseMethod {
 		return this._config.ownChainID;
 	}
 
-	// template for custom module to be able to define their own logic as described in https://github.com/LiskHQ/lips/blob/main/proposals/lip-0052.md#attributes
+	// template for custom module to be able to define their own logic as described in https://github.com/Klayrhq/lips/blob/main/proposals/lip-0052.md#attributes
 	public getNewAttributes(
 		_nftID: Buffer,
 		storedAttributes: NFTAttributes[],

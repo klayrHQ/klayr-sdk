@@ -24,7 +24,7 @@ import { ResetCommand } from '../../../../src/bootstrapping/commands/blockchain/
 import { getConfig } from '../../../helpers/config';
 import { Awaited } from '../../../types';
 
-const defaultDataPath = join(homedir(), '.lisk', 'lisk-core');
+const defaultDataPath = join(homedir(), '.klayr', 'klayr-core');
 
 describe('blockchain:reset', () => {
 	const pid = 56869;

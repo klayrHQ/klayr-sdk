@@ -13,8 +13,8 @@
  */
 
 import * as assert from 'assert';
-import { Chain, Block } from '@liskhq/lisk-chain';
-import { jobHandlers } from '@liskhq/lisk-utils';
+import { Chain, Block } from '@klayr/chain';
+import { jobHandlers } from '@klayr/utils';
 import { BaseSynchronizer } from './base_synchronizer';
 import { Logger } from '../../../logger';
 import { BlockExecutor } from './type';

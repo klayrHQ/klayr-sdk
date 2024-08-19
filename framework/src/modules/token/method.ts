@@ -11,10 +11,10 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { address as cryptoAddress } from '@liskhq/lisk-cryptography';
-import { NotFoundError } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { dataStructures } from '@liskhq/lisk-utils';
+import { address as cryptoAddress } from '@klayr/cryptography';
+import { NotFoundError } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { dataStructures } from '@klayr/utils';
 import { ImmutableMethodContext, MethodContext } from '../../state_machine';
 import { BaseMethod } from '../base_method';
 import {
@@ -78,7 +78,7 @@ export class TokenMethod extends BaseMethod {
 		return chainID.equals(this._config.ownChainID);
 	}
 
-	public getTokenIDLSK(): Buffer {
+	public getTokenIDKLY(): Buffer {
 		const networkID = this._config.ownChainID.subarray(0, 1);
 		// 3 bytes for remaining chainID bytes
 		return Buffer.concat([networkID, Buffer.alloc(3 + LOCAL_ID_LENGTH, 0)]);
@@ -280,7 +280,7 @@ export class TokenMethod extends BaseMethod {
 					.get(BurnEvent)
 					.error(methodContext, eventData, TokenEventResult.FAIL_INSUFFICIENT_BALANCE);
 				throw new Error(
-					`Address ${cryptoAddress.getLisk32AddressFromAddress(
+					`Address ${cryptoAddress.getKlayr32AddressFromAddress(
 						address,
 					)} does not have sufficient balance for amount ${amount.toString()}`,
 				);
@@ -371,7 +371,7 @@ export class TokenMethod extends BaseMethod {
 					.get(TransferEvent)
 					.error(methodContext, eventData, TokenEventResult.FAIL_INSUFFICIENT_BALANCE);
 				throw new Error(
-					`Address ${cryptoAddress.getLisk32AddressFromAddress(
+					`Address ${cryptoAddress.getKlayr32AddressFromAddress(
 						senderAddress,
 					)} does not have sufficient balance for amount ${amount.toString()}`,
 				);
@@ -460,7 +460,7 @@ export class TokenMethod extends BaseMethod {
 					.get(TransferCrossChainEvent)
 					.error(methodContext, eventData, TokenEventResult.FAIL_INSUFFICIENT_BALANCE);
 				throw new Error(
-					`Sender ${cryptoAddress.getLisk32AddressFromAddress(
+					`Sender ${cryptoAddress.getKlayr32AddressFromAddress(
 						senderAddress,
 					)} does not have sufficient balance ${checkAmount} for token ${checkTokenID.toString(
 						'hex',
@@ -548,7 +548,7 @@ export class TokenMethod extends BaseMethod {
 					.get(LockEvent)
 					.error(methodContext, eventData, TokenEventResult.FAIL_INSUFFICIENT_BALANCE);
 				throw new Error(
-					`Address ${cryptoAddress.getLisk32AddressFromAddress(
+					`Address ${cryptoAddress.getKlayr32AddressFromAddress(
 						address,
 					)} does not have sufficient balance for amount ${amount.toString()}`,
 				);
@@ -614,7 +614,7 @@ export class TokenMethod extends BaseMethod {
 				.get(UnlockEvent)
 				.error(methodContext, eventData, TokenEventResult.INSUFFICIENT_LOCKED_AMOUNT);
 			throw new Error(
-				`Address ${cryptoAddress.getLisk32AddressFromAddress(
+				`Address ${cryptoAddress.getKlayr32AddressFromAddress(
 					address,
 				)} does not have locked balance for module ${module}`,
 			);
@@ -624,7 +624,7 @@ export class TokenMethod extends BaseMethod {
 				.get(UnlockEvent)
 				.error(methodContext, eventData, TokenEventResult.INSUFFICIENT_LOCKED_AMOUNT);
 			throw new Error(
-				`Address ${cryptoAddress.getLisk32AddressFromAddress(
+				`Address ${cryptoAddress.getKlayr32AddressFromAddress(
 					address,
 				)} does not have sufficient locked balance for amount ${amount.toString()} for module ${module}`,
 			);
@@ -658,7 +658,7 @@ export class TokenMethod extends BaseMethod {
 		);
 		if (account.availableBalance < fee) {
 			throw new Error(
-				`Address ${cryptoAddress.getLisk32AddressFromAddress(
+				`Address ${cryptoAddress.getKlayr32AddressFromAddress(
 					payFromAddress,
 				)} does not have sufficient balance ${account.availableBalance.toString()} to pay ${fee.toString()}`,
 			);
@@ -760,7 +760,7 @@ export class TokenMethod extends BaseMethod {
 			throw new Error('All tokens are supported.');
 		}
 
-		if (tokenID.equals(this.getTokenIDLSK()) || chainID.equals(this._config.ownChainID)) {
+		if (tokenID.equals(this.getTokenIDKLY()) || chainID.equals(this._config.ownChainID)) {
 			throw new Error('Cannot remove support for the specified token.');
 		}
 

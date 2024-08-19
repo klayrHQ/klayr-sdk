@@ -1,4 +1,4 @@
-import { apiClient, codec, cryptography, Schema, Transaction } from 'lisk-sdk';
+import { apiClient, codec, cryptography, Schema, Transaction } from 'klayr-sdk';
 import { keys } from '../default/dev-validators.json';
 type ModulesMetadata = [
 	{
@@ -15,11 +15,11 @@ type ModulesMetadata = [
 	const tokenID = Buffer.from('0400000000000000', 'hex');
 	const nftID = Buffer.from('04000000010101010000000000000000', 'hex');
 	const sidechainID = Buffer.from('04000001', 'hex'); // Update this to send to another sidechain
-	const recipientAddress = address.getAddressFromLisk32Address(
-		'lskxz85sur2yo22dmcxybe39uvh2fg7s2ezxq4ny9',
+	const recipientAddress = address.getAddressFromKlayr32Address(
+		'klyxz85sur2yo22dmcxybe39uvh2fg7s2ezxq4ny9',
 	);
 
-	const mainchainClient = await apiClient.createIPCClient(`~/.lisk/mainchain-node-one`);
+	const mainchainClient = await apiClient.createIPCClient(`~/.klayr/mainchain-node-one`);
 
 	const mainchainNodeInfo = await mainchainClient.invoke('system_getNodeInfo');
 
@@ -44,7 +44,7 @@ type ModulesMetadata = [
 
 	const relayerkeyInfo = keys[2];
 	const { nonce } = await mainchainClient.invoke<{ nonce: string }>('auth_getAuthAccount', {
-		address: address.getLisk32AddressFromPublicKey(Buffer.from(relayerkeyInfo.publicKey, 'hex')),
+		address: address.getKlayr32AddressFromPublicKey(Buffer.from(relayerkeyInfo.publicKey, 'hex')),
 	});
 
 	const tx = new Transaction({

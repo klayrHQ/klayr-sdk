@@ -12,11 +12,11 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { validator } from '@liskhq/lisk-validator';
-import { objects as objectUtils } from '@liskhq/lisk-utils';
-import { TransactionPool } from '@liskhq/lisk-transaction-pool';
-import { Chain, Transaction } from '@liskhq/lisk-chain';
+import { codec } from '@klayr/codec';
+import { validator } from '@klayr/validator';
+import { objects as objectUtils } from '@klayr/utils';
+import { TransactionPool } from '@klayr/transaction-pool';
+import { Chain, Transaction } from '@klayr/chain';
 import { EventEmitter } from 'events';
 import { Logger } from '../../logger';
 import { Network } from '../network';

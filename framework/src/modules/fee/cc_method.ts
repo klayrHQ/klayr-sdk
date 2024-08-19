@@ -21,7 +21,7 @@ import { getContextStoreBigInt } from '../../state_machine';
 import { RelayerFeeProcessedEvent } from './events/relayer_fee_processed';
 import { getEncodedCCMAndID } from '../interoperability/utils';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0048.md#cross-chain-update-processing
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0048.md#cross-chain-update-processing
 export class FeeInteroperableMethod extends BaseCCMethod {
 	private readonly _moduleName: string;
 

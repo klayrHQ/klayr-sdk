@@ -12,11 +12,11 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockHeader, blockHeaderSchema, Transaction } from '@liskhq/lisk-chain';
-import { objects } from '@liskhq/lisk-utils';
-import { address, utils, legacy } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { Status } from '@liskhq/lisk-transaction-pool/dist-node/types';
+import { BlockHeader, blockHeaderSchema, Transaction } from '@klayr/chain';
+import { objects } from '@klayr/utils';
+import { address, utils, legacy } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { Status } from '@klayr/transaction-pool/dist-node/types';
 import { StateMachine, Modules } from '../../../../../src';
 import * as testing from '../../../../../src/testing';
 import {
@@ -38,7 +38,7 @@ import { ValidatorAccount, ValidatorStore } from '../../../../../src/modules/pos
 import { createStoreGetter } from '../../../../../src/testing/utils';
 import { EligibleValidatorsStore } from '../../../../../src/modules/pos/stores/eligible_validators';
 import { StakerStore } from '../../../../../src/modules/pos/stores/staker';
-import { liskToBeddows } from '../../../../utils/assets';
+import { klayrtoBeddows } from '../../../../utils/assets';
 import { getModuleConfig, getValidatorWeight } from '../../../../../src/modules/pos/utils';
 
 describe('ReportMisbehaviorCommand', () => {
@@ -596,7 +596,7 @@ describe('ReportMisbehaviorCommand', () => {
 			);
 			stake = {
 				validatorAddress: validator1Address,
-				amount: liskToBeddows(200),
+				amount: klayrtoBeddows(200),
 				sharingCoefficients: [{ tokenID: Buffer.alloc(8), coefficient: Buffer.alloc(24) }],
 			};
 			stakerData.stakes.push(stake);

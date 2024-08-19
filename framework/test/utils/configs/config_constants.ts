@@ -13,7 +13,7 @@
  */
 
 export const constantsConfig = (overriddenConfigProperties = {}) => ({
-	blockTime: 10,
+	blockTime: 7,
 	validatorListRoundOffset: 2,
 	chainID: '10000000',
 	rewards: {
@@ -27,11 +27,11 @@ export const constantsConfig = (overriddenConfigProperties = {}) => ({
 		offset: 2160, // Start rewards at first block of the second round
 		distance: 3000000, // Distance between each milestone
 	},
-	bftThreshold: 68,
-	bftBatchSize: 103,
+	bftThreshold: 35,
+	bftBatchSize: 53,
 	minRemainingBalance: '5000000',
 	minFeePerByte: 1000,
-	activeValidators: 101,
+	activeValidators: 51,
 	standbyValidators: 2,
 	maxTransactionsSize: 15 * 1024,
 	modules: {},

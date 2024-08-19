@@ -13,10 +13,10 @@
  */
 import * as fs from 'fs';
 import { EventEmitter } from 'events';
-import { BlockAssets, Chain, Transaction } from '@liskhq/lisk-chain';
-import { utils, address as cryptoAddress } from '@liskhq/lisk-cryptography';
+import { BlockAssets, Chain, Transaction } from '@klayr/chain';
+import { utils, address as cryptoAddress } from '@klayr/cryptography';
 import { InMemoryDatabase, Database } from '@liskhq/lisk-db';
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { Generator } from '../../../../src/engine/generator';
 import { Consensus } from '../../../../src/engine/generator/types';
 import { Network } from '../../../../src/engine/network';
@@ -156,7 +156,7 @@ describe('generator', () => {
 				...defaultConfig,
 				generator: {
 					keys: {
-						fromFile: '~/.lisk/default/keys.json',
+						fromFile: '~/.klayr/default/keys.json',
 					},
 				},
 			},
@@ -169,7 +169,7 @@ describe('generator', () => {
 			beforeEach(async () => {
 				for (const d of testing.fixtures.keysList.keys) {
 					const generatorKeys = {
-						address: cryptoAddress.getAddressFromLisk32Address(d.address),
+						address: cryptoAddress.getAddressFromKlayr32Address(d.address),
 						type: 'plain',
 						data: {
 							generatorKey: Buffer.from(d.plain.generatorKey, 'hex'),
@@ -191,14 +191,14 @@ describe('generator', () => {
 				jest.spyOn(SingleCommitHandler.prototype, 'initAllSingleCommits');
 			});
 
-			it('should load all 101 validators', async () => {
+			it('should load all 51 validators', async () => {
 				await generator.init({
 					blockchainDB,
 					generatorDB,
 					logger,
 					genesisHeight: 0,
 				});
-				expect(generator['_keypairs'].values()).toHaveLength(103);
+				expect(generator['_keypairs'].values()).toHaveLength(53);
 			});
 
 			it('should handle finalized height change between maxRemovalHeight and max height precommitted', async () => {
@@ -242,7 +242,7 @@ describe('generator', () => {
 						logger,
 						genesisHeight: 0,
 					}),
-				).rejects.toThrow('Lisk validator found 1 error');
+				).rejects.toThrow('Klayr validator found 1 error');
 			});
 
 			it('should store all keys from the file defined', async () => {
@@ -425,7 +425,7 @@ describe('generator', () => {
 				.mockReturnValueOnce(lastBlockSlot - 1);
 			(bft.method.getSlotTime as jest.Mock).mockReturnValue(Math.floor(Date.now() / 1000));
 			(bft.method.getGeneratorAtTimestamp as jest.Mock).mockResolvedValue({
-				address: cryptoAddress.getAddressFromLisk32Address(
+				address: cryptoAddress.getAddressFromKlayr32Address(
 					testing.fixtures.keysList.keys[0].address,
 				),
 			});
@@ -442,7 +442,7 @@ describe('generator', () => {
 				.mockReturnValueOnce(lastBlockSlot - 1);
 			(bft.method.getSlotTime as jest.Mock).mockReturnValue(Math.floor(Date.now() / 1000) - 5);
 			(bft.method.getGeneratorAtTimestamp as jest.Mock).mockResolvedValue({
-				address: cryptoAddress.getAddressFromLisk32Address(
+				address: cryptoAddress.getAddressFromKlayr32Address(
 					testing.fixtures.keysList.keys[0].address,
 				),
 			});
@@ -460,7 +460,7 @@ describe('generator', () => {
 				.mockReturnValueOnce(lastBlockSlot);
 			(bft.method.getSlotTime as jest.Mock).mockReturnValue(Math.floor(Date.now() / 1000) + 5);
 			(bft.method.getGeneratorAtTimestamp as jest.Mock).mockResolvedValue({
-				address: cryptoAddress.getAddressFromLisk32Address(
+				address: cryptoAddress.getAddressFromKlayr32Address(
 					testing.fixtures.keysList.keys[0].address,
 				),
 			});

@@ -12,6 +12,6 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Modules } from 'lisk-sdk';
+import { Modules } from 'klayr-sdk';
 
 export class TestNftEndpoint extends Modules.BaseEndpoint {}

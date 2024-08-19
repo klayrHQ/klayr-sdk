@@ -29,7 +29,7 @@ export class ResetCommand extends Command {
 
 	static examples = [
 		'blockchain:reset',
-		'blockchain:reset --data-path ./lisk',
+		'blockchain:reset --data-path ./klayr',
 		'blockchain:reset --yes',
 	];
 

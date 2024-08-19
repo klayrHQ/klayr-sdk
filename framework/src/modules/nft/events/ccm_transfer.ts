@@ -37,12 +37,12 @@ export const ccmTransferEventSchema = {
 	properties: {
 		senderAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 1,
 		},
 		recipientAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 2,
 		},
 		nftID: {

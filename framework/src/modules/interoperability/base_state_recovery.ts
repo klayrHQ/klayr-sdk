@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { objects as objectUtils } from '@liskhq/lisk-utils';
+import { objects as objectUtils } from '@klayr/utils';
 import { SparseMerkleTree } from '@liskhq/lisk-db';
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { BaseInteroperabilityCommand } from './base_interoperability_command';
 import { RECOVERED_STORE_VALUE } from './constants';
 import { stateRecoveryParamsSchema } from './schemas';
@@ -31,7 +31,7 @@ import { BaseCCMethod } from './base_cc_method';
 import { BaseInteroperabilityInternalMethod } from './base_interoperability_internal_methods';
 import { InvalidSMTVerificationEvent } from './events/invalid_smt_verification';
 
-// LIP: https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#state-recovery-command
+// LIP: https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#state-recovery-command
 export class BaseStateRecoveryCommand<
 	T extends BaseInteroperabilityInternalMethod,
 > extends BaseInteroperabilityCommand<T> {

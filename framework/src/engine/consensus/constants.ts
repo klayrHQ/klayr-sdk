@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 
 export const CONSENSUS_EVENT_FORK_DETECTED = 'CONSENSUS_EVENT_FORK_DETECTED';
 export const CONSENSUS_EVENT_BLOCK_BROADCAST = 'CONSENSUS_EVENT_BLOCK_BROADCAST';

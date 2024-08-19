@@ -11,9 +11,9 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { codec } from '@liskhq/lisk-codec';
-import { Chain } from '@liskhq/lisk-chain';
-import { address } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { Chain } from '@klayr/chain';
+import { address } from '@klayr/cryptography';
 import * as testing from '../../../src/testing';
 import { createTransferTransaction, defaultTokenID } from '../../utils/mocks/transaction';
 import { Modules } from '../../../src';
@@ -23,7 +23,7 @@ import { Consensus } from '../../../src/engine/consensus';
 import { Network } from '../../../src/engine/network';
 
 describe('genesis block', () => {
-	const databasePath = '/tmp/lisk/genesis_block/test';
+	const databasePath = '/tmp/klayr/genesis_block/test';
 	const genesis = testing.fixtures.defaultFaucetAccount;
 
 	let processEnv: testing.BlockProcessingEnv;
@@ -68,7 +68,7 @@ describe('genesis block', () => {
 						'token_getBalance',
 						{
 							tokenID: defaultTokenID(processEnv.getChainID()).toString('hex'),
-							address: address.getLisk32AddressFromAddress(data.address),
+							address: address.getKlayr32AddressFromAddress(data.address),
 						},
 					);
 					expect(balance.availableBalance).toEqual(data.availableBalance.toString());
@@ -83,8 +83,8 @@ describe('genesis block', () => {
 					validators.list
 						.sort((a, b) =>
 							address
-								.getAddressFromLisk32Address(a.address)
-								.compare(address.getAddressFromLisk32Address(b.address)),
+								.getAddressFromKlayr32Address(a.address)
+								.compare(address.getAddressFromKlayr32Address(b.address)),
 						)
 						.map(v => v.address),
 				).toMatchSnapshot();
@@ -107,7 +107,7 @@ describe('genesis block', () => {
 			);
 			recipientAddress = decoded.userSubstore[decoded.userSubstore.length - 1].address;
 			const recipient = await processEnv.invoke<{ availableBalance: string }>('token_getBalance', {
-				address: address.getLisk32AddressFromAddress(recipientAddress),
+				address: address.getKlayr32AddressFromAddress(recipientAddress),
 				tokenID: defaultTokenID(processEnv.getChainID()).toString('hex'),
 			});
 			oldBalance = BigInt(recipient.availableBalance);
@@ -159,7 +159,7 @@ describe('genesis block', () => {
 				});
 
 				const balance = await processEnv.invoke<{ availableBalance: string }>('token_getBalance', {
-					address: address.getLisk32AddressFromAddress(recipientAddress),
+					address: address.getKlayr32AddressFromAddress(recipientAddress),
 					tokenID: defaultTokenID(processEnv.getChainID()).toString('hex'),
 				});
 

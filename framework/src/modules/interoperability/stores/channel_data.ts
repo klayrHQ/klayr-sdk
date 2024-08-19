@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { regularMerkleTree } from '@liskhq/lisk-tree';
+import { regularMerkleTree } from '@klayr/tree';
 import { BaseStore, StoreGetter } from '../../base_store';
 import { HASH_LENGTH, STORE_PREFIX } from '../constants';
 import { ChannelData } from '../types';
@@ -39,7 +39,7 @@ const inboxOutboxProps = {
 	},
 };
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#channel-data-substore
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#channel-data-substore
 export const channelSchema = {
 	$id: '/modules/interoperability/channel',
 	type: 'object',

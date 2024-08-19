@@ -13,9 +13,9 @@
  *
  */
 
-import { codec, Schema } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
-import { transactionSchema } from 'lisk-framework';
+import { codec, Schema } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
+import { transactionSchema } from 'klayr-framework';
 import {
 	posVoteParamsSchema,
 	registerMultisignatureParamsSchema,
@@ -52,7 +52,7 @@ export const mockJSONTransaction = {
 		tokenID: '0000000000000000',
 		amount: '100',
 		data: 'send token',
-		recipientAddress: 'lskqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
+		recipientAddress: 'klyqozpc4ftffaompmqwzd93dfj89g5uezqwhosg9',
 	},
 	command: 'transfer',
 	fee: '100000000',

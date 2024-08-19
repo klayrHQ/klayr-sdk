@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { math } from '@liskhq/lisk-utils';
+import { math } from '@klayr/utils';
 import { defaultConfig, TOKEN_ID_LENGTH } from '../../../../src/modules/pos/constants';
 import {
 	ModuleConfig,

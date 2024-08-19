@@ -1,6 +1,6 @@
 # Description of utilities in this folder
 
-This folder contains several helpers for helping in writting protocol-specs for the Lisk protocol.
+This folder contains several helpers for helping in writting protocol-specs for the Klayr protocol.
 
 ### Chain State Builder
 
@@ -20,7 +20,7 @@ Important: this is not a full implementation of the protocol so this methods are
 
 Examples:
 
-Transfer Lisk:
+Transfer Klayr:
 
 ```javascript
 chainStateBuilder.transfer('50').from('16313739661670634666L').to('10881167371402274308L').forge();

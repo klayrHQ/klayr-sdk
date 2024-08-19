@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { address as cryptoAddress, utils } from '@liskhq/lisk-cryptography';
-import { objects as objectUtils, dataStructures, objects } from '@liskhq/lisk-utils';
-import { isUInt64, validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
+import { address as cryptoAddress, utils } from '@klayr/cryptography';
+import { objects as objectUtils, dataStructures, objects } from '@klayr/utils';
+import { isUInt64, validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
 import { GenesisBlockExecuteContext, BlockAfterExecuteContext } from '../../state_machine';
 import { BaseModule, ModuleInitArgs, ModuleMetadata } from '../base_module';
 import { PoSMethod } from './method';
@@ -341,7 +341,7 @@ export class PoSModule extends BaseModule {
 				throw new Error(
 					`Invalid lastCommissionIncreaseHeight ${
 						posValidator.lastCommissionIncreaseHeight
-					} for ${cryptoAddress.getLisk32AddressFromAddress(posValidator.address)}.`,
+					} for ${cryptoAddress.getKlayr32AddressFromAddress(posValidator.address)}.`,
 				);
 			}
 			// sharingCoefficients must be sorted by tokenID

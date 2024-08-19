@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils as cryptoUtils } from '@liskhq/lisk-cryptography';
-import { regularMerkleTree } from '@liskhq/lisk-tree';
+import { utils as cryptoUtils } from '@klayr/cryptography';
+import { regularMerkleTree } from '@klayr/tree';
 import { StoreGetter } from '../../../../../src/modules/base_store';
 import {
 	HASH_LENGTH,

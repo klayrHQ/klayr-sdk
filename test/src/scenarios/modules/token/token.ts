@@ -13,7 +13,7 @@
  *
  */
 
-import { apiClient } from 'lisk-sdk';
+import { apiClient } from 'klayr-sdk';
 import { Fixtures } from '../../../types';
 import { logger, block, account } from '../../../utils';
 

@@ -32,7 +32,7 @@ export const DEFAULT_HOST = '127.0.0.1';
 export const DEFAULT_PORT_P2P = 7667;
 export const DEFAULT_PORT_RPC = 7887;
 
-export const MAX_BLOCK_CACHE = 515;
+export const MAX_BLOCK_CACHE = 265;
 
 export const DEFAULT_MAX_INBOUND_CONNECTIONS = 100;
 export const DEFAULT_MAX_OUTBOUND_CONNECTIONS = 20;
@@ -42,7 +42,7 @@ export const MAX_CCM_SIZE = 10240;
 export const MAX_NUM_VALIDATORS = 199;
 
 export const MAX_TRANSACTIONS_SIZE = 15 * 1024; // MAX_TRANSACTIONS_SIZE_BYTES in LIP-0063
-export const BFT_BATCH_SIZE = 103; // LSK_BFT_BATCH_SIZE in LIP-0063
+export const BFT_BATCH_SIZE = 53; // KLY_BFT_BATCH_SIZE in LIP-0063
 
 export const STATE_DB_NAME = 'state.db';
 export const MODULE_DB_NAME = 'module.db';

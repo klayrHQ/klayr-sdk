@@ -1,5 +1,5 @@
 // The complete Merkle tree with root equal to the last value of the outboxRoot property of the terminated outbox account
-// can be computed from the history of the Lisk mainchain
+// can be computed from the history of the Klayr mainchain
 
 import {
 	chain,
@@ -9,18 +9,18 @@ import {
 	Schema,
 	apiClient,
 	db,
-	db as liskDB,
-} from 'lisk-sdk';
-import { codec } from '@liskhq/lisk-codec';
-import { CcmSendSuccessEventData, CcmProcessedEventData } from 'lisk-framework';
-import { EVENT_NAME_CCM_PROCESSED } from 'lisk-framework/dist-node/modules/interoperability/constants';
+	db as klayrdB,
+} from 'klayr-sdk';
+import { codec } from '@klayr/codec';
+import { CcmSendSuccessEventData, CcmProcessedEventData } from 'klayr-framework';
+import { EVENT_NAME_CCM_PROCESSED } from 'klayr-framework/dist-node/modules/interoperability/constants';
 import { join } from 'path';
 import * as os from 'os';
 import { ensureDir } from 'fs-extra';
 import { ccmsInfoSchema } from './schema';
 
 export const checkDBError = (error: Error | unknown) => {
-	if (!(error instanceof liskDB.NotFoundError)) {
+	if (!(error instanceof klayrdB.NotFoundError)) {
 		throw error;
 	}
 };
@@ -103,10 +103,10 @@ class EventsModel {
 // Then we need to run `ts-node pos-mainchain-fast/config/scripts/sidechain_registration.ts` (note the change: const SIDECHAIN_ARRAY = ['one'])
 // & then ts-node pos-sidechain-example-one/config/scripts/mainchain_registration.ts (```one```)
 (async () => {
-	const mainchainClient = await apiClient.createIPCClient(`~/.lisk/mainchain-node-one`);
+	const mainchainClient = await apiClient.createIPCClient(`~/.klayr/mainchain-node-one`);
 	const mainchainNodeInfo = await mainchainClient.invoke('system_getNodeInfo');
 
-	const eventsDb = await getDBInstance('~/.lisk');
+	const eventsDb = await getDBInstance('~/.klayr');
 	const eventsModel = new EventsModel(eventsDb);
 
 	mainchainClient.subscribe('chain_newBlock', async (data?: Record<string, unknown>) => {

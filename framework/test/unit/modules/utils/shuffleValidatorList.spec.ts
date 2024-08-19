@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { address as cryptoAddress } from '@liskhq/lisk-cryptography';
+import { address as cryptoAddress } from '@klayr/cryptography';
 import * as validatorShufflingScenario from '../../../fixtures/pos_validator_shuffling/uniformly_shuffled_validator_list.json';
 import { shuffleValidatorList } from '../../../../src/modules/utils';
 
@@ -32,8 +32,8 @@ describe('shuffleValidatorList', () => {
 
 		expect(shuffledValidatorList).toHaveLength(addressList.length);
 		shuffledValidatorList.forEach(validator =>
-			expect(addressList.map(a => cryptoAddress.getLisk32AddressFromAddress(a.address))).toContain(
-				cryptoAddress.getLisk32AddressFromAddress(validator.address),
+			expect(addressList.map(a => cryptoAddress.getKlayr32AddressFromAddress(a.address))).toContain(
+				cryptoAddress.getKlayr32AddressFromAddress(validator.address),
 			),
 		);
 

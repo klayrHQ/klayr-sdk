@@ -13,11 +13,11 @@
  */
 /* eslint-disable max-classes-per-file */
 
-import * as cryptography from '@liskhq/lisk-cryptography';
-import { bls, utils } from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
-import { EMPTY_BUFFER } from '@liskhq/lisk-chain/dist-node/constants';
+import * as cryptography from '@klayr/cryptography';
+import { bls, utils } from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
+import { EMPTY_BUFFER } from '@klayr/chain/dist-node/constants';
 import { StateMachine, Transaction, Modules } from '../../../../../../src';
 import {
 	ActiveValidator,

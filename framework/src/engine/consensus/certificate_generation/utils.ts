@@ -12,15 +12,15 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { bls } from '@liskhq/lisk-cryptography';
-import { BlockHeader } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
+import { bls } from '@klayr/cryptography';
+import { BlockHeader } from '@klayr/chain';
+import { codec } from '@klayr/codec';
 import { Certificate, UnsignedCertificate } from './types';
 import { unsignedCertificateSchema } from './schema';
 import { MESSAGE_TAG_CERTIFICATE } from './constants';
 
 /**
- * @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0061.md#creation
+ * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0061.md#creation
  */
 export const computeUnsignedCertificateFromBlockHeader = (
 	blockHeader: BlockHeader,
@@ -43,7 +43,7 @@ export const computeUnsignedCertificateFromBlockHeader = (
 };
 
 /**
- * @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0061.md#signcertificate
+ * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0061.md#signcertificate
  */
 export const signCertificate = (
 	sk: Buffer,
@@ -58,7 +58,7 @@ export const signCertificate = (
 	);
 
 /**
- * @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0061.md#verifysinglecertificatesignature
+ * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0061.md#verifysinglecertificatesignature
  */
 export const verifySingleCertificateSignature = (
 	pk: Buffer,
@@ -75,7 +75,7 @@ export const verifySingleCertificateSignature = (
 	);
 
 /**
- * @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0061.md#verifyaggregatecertificatesignature
+ * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0061.md#verifyaggregatecertificatesignature
  */
 export const verifyAggregateCertificateSignature = (
 	validators: { blsKey: Buffer; bftWeight: bigint }[],

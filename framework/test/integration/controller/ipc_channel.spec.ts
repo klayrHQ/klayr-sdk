@@ -30,7 +30,7 @@ describe.skip('IPCChannel', () => {
 		error: jest.fn(),
 	};
 
-	const socketsDir = pathResolve(`${homedir()}/.lisk/integration/ipc_channel/sockets`);
+	const socketsDir = pathResolve(`${homedir()}/.klayr/integration/ipc_channel/sockets`);
 
 	const config: any = {
 		socketsPath: socketsDir,

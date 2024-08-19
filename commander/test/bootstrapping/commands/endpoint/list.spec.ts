@@ -1,4 +1,4 @@
-import * as apiClient from '@liskhq/lisk-api-client';
+import * as apiClient from '@klayr/api-client';
 import { getConfig } from '../../../helpers/config';
 import { BaseIPCClientCommand, ListCommand } from '../../../../src';
 import * as appUtils from '../../../../src/utils/application';
@@ -19,7 +19,7 @@ describe('endpoint:list command', () => {
 							$id: '/token/endpoint/getBalance',
 							type: 'object',
 							properties: {
-								address: { type: 'string', format: 'lisk32' },
+								address: { type: 'string', format: 'klayr32' },
 								tokenID: { type: 'string', format: 'hex', minLength: 16, maxLength: 16 },
 							},
 							required: ['address', 'tokenID'],
@@ -49,7 +49,7 @@ describe('endpoint:list command', () => {
 						request: {
 							$id: '/token/endpoint/getBalance',
 							type: 'object',
-							properties: { address: { type: 'string', format: 'lisk32' } },
+							properties: { address: { type: 'string', format: 'klayr32' } },
 							required: ['address'],
 						},
 						response: {

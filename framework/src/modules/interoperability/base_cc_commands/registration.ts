@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { CCMStatusCode, CROSS_CHAIN_COMMAND_REGISTRATION, EMPTY_BYTES } from '../constants';
 import { registrationCCMParamsSchema, crossChainUpdateTransactionParams } from '../schemas';
 import {
@@ -40,7 +40,7 @@ export abstract class BaseCCRegistrationCommand<
 
 	/**
 	 *
-	 * @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0049.md#verification
+	 * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0049.md#verification
 	 */
 	public async verify(ctx: ImmutableCrossChainMessageContext): Promise<void> {
 		const { ccm } = ctx;

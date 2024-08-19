@@ -28,7 +28,7 @@ describe.skip('IPCChannelWithoutBus', () => {
 		debug: jest.fn(),
 		error: jest.fn(),
 	};
-	const socketsDir = pathResolve(`${homedir()}/.lisk/integration/ipc_channel_without_bus/sockets`);
+	const socketsDir = pathResolve(`${homedir()}/.klayr/integration/ipc_channel_without_bus/sockets`);
 
 	const config: any = {
 		socketsPath: socketsDir,

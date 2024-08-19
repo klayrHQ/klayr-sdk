@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { bls } from '@liskhq/lisk-cryptography';
-import { validator as liskValidator } from '@liskhq/lisk-validator';
+import { bls } from '@klayr/cryptography';
+import { validator as klayrvalidator } from '@klayr/validator';
 import { BaseMethod } from '../base_method';
 import { MethodContext, ImmutableMethodContext } from '../../state_machine';
 import {
@@ -59,7 +59,7 @@ export class ValidatorsMethod extends BaseMethod {
 			generatorKey,
 			blsKey,
 		};
-		liskValidator.validate<ValidatorKeys>(validatorKeysSchema, validatorAccount);
+		klayrvalidator.validate<ValidatorKeys>(validatorKeysSchema, validatorAccount);
 
 		const validatorsSubStore = this.stores.get(ValidatorKeysStore);
 		const addressExists = await validatorsSubStore.has(methodContext, validatorAddress);
@@ -116,7 +116,7 @@ export class ValidatorsMethod extends BaseMethod {
 			generatorKey,
 			blsKey: INVALID_BLS_KEY,
 		};
-		liskValidator.validate<ValidatorKeys>(validatorKeysSchema, validatorAccount);
+		klayrvalidator.validate<ValidatorKeys>(validatorKeysSchema, validatorAccount);
 
 		const validatorsSubStore = this.stores.get(ValidatorKeysStore);
 

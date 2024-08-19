@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { bls, address as cryptoAddress, legacy, utils } from '@liskhq/lisk-cryptography';
-import { Mnemonic } from '@liskhq/lisk-passphrase';
+import { bls, address as cryptoAddress, legacy, utils } from '@klayr/cryptography';
+import { Mnemonic } from '@klayr/passphrase';
 
-export const validators = new Array(103).fill(0).map((_, i) => {
+export const validators = new Array(53).fill(0).map((_, i) => {
 	const passphrase = Mnemonic.generateMnemonic();
 	const keys = legacy.getPrivateAndPublicKeyFromPassphrase(passphrase);
 	const address = cryptoAddress.getAddressFromPublicKey(keys.publicKey);

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockHeader } from '@liskhq/lisk-chain';
+import { BlockHeader } from '@klayr/chain';
 import { BFTHeader } from '../types';
 
 export enum ForkStatus {
@@ -107,14 +107,14 @@ export const forkChoice = (
 	lastBlockHeader: BlockHeader,
 	slots: Slots,
 ): ForkStatus => {
-	// Current time since Lisk Epoch
+	// Current time since Klayr Epoch
 	const receivedBFTHeader = {
 		...blockHeader.toObject(),
 		receivedAt: Math.floor(Date.now() / 1000),
 	};
 
 	/* Cases are numbered following LIP-0014 Fork choice rule.
-	 See: https://github.com/LiskHQ/lips/blob/master/proposals/lip-0014.md#applying-blocks-according-to-fork-choice-rule
+	 See: https://github.com/Klayrhq/lips/blob/master/proposals/lip-0014.md#applying-blocks-according-to-fork-choice-rule
 		 Case 2 and 1 have flipped execution order for better readability. Behavior is still the same */
 
 	if (isValidBlock(lastBlockHeader, blockHeader)) {

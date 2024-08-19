@@ -13,10 +13,10 @@
  *
  */
 
-import { Transaction, BlockHeader, TAG_TRANSACTION } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { ed, address } from '@liskhq/lisk-cryptography';
-import { signMultiSignatureTransaction } from '@liskhq/lisk-transactions';
+import { Transaction, BlockHeader, TAG_TRANSACTION } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { ed, address } from '@klayr/cryptography';
+import { signMultiSignatureTransaction } from '@klayr/transactions';
 import { Modules } from '../../../src';
 import { MESSAGE_TAG_MULTISIG_REG } from '../../../src/modules/auth/constants';
 import {

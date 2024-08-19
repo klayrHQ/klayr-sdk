@@ -1,7 +1,7 @@
-import { NotFoundError, TAG_TRANSACTION, Transaction } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { ed, address as cryptoAddress, utils, legacy, address } from '@liskhq/lisk-cryptography';
-import { LiskValidationError } from '@liskhq/lisk-validator';
+import { NotFoundError, TAG_TRANSACTION, Transaction } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { ed, address as cryptoAddress, utils, legacy, address } from '@klayr/cryptography';
+import { KlayrvalidationError } from '@klayr/validator';
 import { when } from 'jest-when';
 import { AuthModule } from '../../../../src/modules/auth';
 import {
@@ -85,7 +85,7 @@ describe('AuthEndpoint', () => {
 		it('should get an auth account successfully', async () => {
 			const context = createTransientModuleEndpointContext({
 				params: {
-					address: address.getLisk32AddressFromAddress(existingAddress),
+					address: address.getKlayr32AddressFromAddress(existingAddress),
 				},
 			});
 
@@ -118,7 +118,7 @@ describe('AuthEndpoint', () => {
 		it('should get a zero-value for non-existent auth account', async () => {
 			const context = createTransientModuleEndpointContext({
 				params: {
-					address: address.getLisk32AddressFromAddress(nonExistingAddress),
+					address: address.getKlayr32AddressFromAddress(nonExistingAddress),
 				},
 			});
 
@@ -707,7 +707,7 @@ describe('AuthEndpoint', () => {
 
 			const context = createTransientModuleEndpointContext({ params: inputData });
 
-			expect(() => authEndpoint.sortMultisignatureGroup(context)).toThrow(LiskValidationError);
+			expect(() => authEndpoint.sortMultisignatureGroup(context)).toThrow(KlayrvalidationError);
 		});
 
 		it('should throw a validation error when provided invalid request', () => {
@@ -725,7 +725,7 @@ describe('AuthEndpoint', () => {
 
 			const context = createTransientModuleEndpointContext({ params: inputData });
 
-			expect(() => authEndpoint.sortMultisignatureGroup(context)).toThrow(LiskValidationError);
+			expect(() => authEndpoint.sortMultisignatureGroup(context)).toThrow(KlayrvalidationError);
 		});
 	});
 

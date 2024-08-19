@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2019 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -16,7 +16,7 @@
 import { Command, Flags as flagParser } from '@oclif/core';
 import { print, StringMap } from './utils/print';
 
-export const defaultConfigFolder = '.lisk';
+export const defaultConfigFolder = '.klayr';
 
 const jsonDescription =
 	'Prints output in JSON format. You can change the default behavior in your config.json file.';

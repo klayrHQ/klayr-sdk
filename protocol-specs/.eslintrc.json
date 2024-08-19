@@ -1,5 +1,5 @@
 {
-	"extends": ["lisk-base/base"],
+	"extends": ["klayr-base/base"],
 	"root": true,
 	"rules": {
 		"implicit-arrow-linebreak": "off",

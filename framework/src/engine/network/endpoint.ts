@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { codec } from '@liskhq/lisk-codec';
-import { P2P, p2pTypes } from '@liskhq/lisk-p2p';
+import { codec } from '@klayr/codec';
+import { P2P, p2pTypes } from '@klayr/p2p';
 import { customNodeInfoSchema } from './schema';
 
 interface InitArgs {

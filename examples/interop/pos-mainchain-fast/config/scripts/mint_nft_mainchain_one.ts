@@ -1,4 +1,4 @@
-import { apiClient, codec, cryptography, Transaction } from 'lisk-sdk';
+import { apiClient, codec, cryptography, Transaction } from 'klayr-sdk';
 import { keys } from '../default/dev-validators.json';
 import { LENGTH_COLLECTION_ID } from '../../../../pos-mainchain/src/app/modules/testNft/constants';
 import { mintNftParamsSchema } from '../../../../pos-mainchain/src/app/modules/testNft/schema';
@@ -7,13 +7,13 @@ import { mintNftParamsSchema } from '../../../../pos-mainchain/src/app/modules/t
 
 	const nodeAlias = 'one';
 
-	const mainchainClient = await apiClient.createIPCClient(`~/.lisk/mainchain-node-one`);
+	const mainchainClient = await apiClient.createIPCClient(`~/.klayr/mainchain-node-one`);
 
 	const mainchainNodeInfo = await mainchainClient.invoke('system_getNodeInfo');
 
 	const relayerkeyInfo = keys[2];
 	const mintNftParams = {
-		address: address.getAddressFromLisk32Address(relayerkeyInfo.address),
+		address: address.getAddressFromKlayr32Address(relayerkeyInfo.address),
 		collectionID: Buffer.alloc(LENGTH_COLLECTION_ID, 1),
 		attributesArray: [
 			{
@@ -24,7 +24,7 @@ import { mintNftParamsSchema } from '../../../../pos-mainchain/src/app/modules/t
 	};
 
 	const { nonce } = await mainchainClient.invoke<{ nonce: string }>('auth_getAuthAccount', {
-		address: address.getLisk32AddressFromPublicKey(Buffer.from(relayerkeyInfo.publicKey, 'hex')),
+		address: address.getKlayr32AddressFromPublicKey(Buffer.from(relayerkeyInfo.publicKey, 'hex')),
 	});
 
 	const tx = new Transaction({

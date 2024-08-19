@@ -20,10 +20,10 @@ import {
 	EVENT_KEY_LENGTH,
 	StateStore,
 	TransactionJSON,
-} from '@liskhq/lisk-chain';
+} from '@klayr/chain';
 import { Database, NotFoundError, Proof, SparseMerkleTree } from '@liskhq/lisk-db';
-import { isHexString, validator } from '@liskhq/lisk-validator';
-import { address } from '@liskhq/lisk-cryptography';
+import { isHexString, validator } from '@klayr/validator';
+import { address } from '@klayr/cryptography';
 import { JSONObject } from '../../types';
 import { RequestContext } from '../rpc/rpc_server';
 import {
@@ -240,7 +240,7 @@ export class ChainEndpoint {
 		const generatorsInfo = [];
 		for (let i = slotInRound; i < slotInRound + bftParams.validators.length; i += 1) {
 			generatorsInfo.push({
-				address: address.getLisk32AddressFromAddress(
+				address: address.getKlayr32AddressFromAddress(
 					bftParams.validators[i % bftParams.validators.length].address,
 				),
 				nextAllocatedTime,

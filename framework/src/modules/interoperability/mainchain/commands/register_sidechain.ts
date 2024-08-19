@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { MainchainInteroperabilityInternalMethod } from '../internal_method';
 import { BaseInteroperabilityCommand } from '../../base_interoperability_command';
 import {
@@ -27,7 +27,7 @@ import {
 } from '../../constants';
 import { registrationCCMParamsSchema, sidechainRegParams } from '../../schemas';
 import { FeeMethod, SidechainRegistrationParams } from '../../types';
-import { computeValidatorsHash, getEncodedCCMAndID, getTokenIDLSK, isValidName } from '../../utils';
+import { computeValidatorsHash, getEncodedCCMAndID, getTokenIDKLY, isValidName } from '../../utils';
 import {
 	CommandVerifyContext,
 	VerificationResult,
@@ -193,7 +193,7 @@ export class RegisterSidechainCommand extends BaseInteroperabilityCommand<Mainch
 		await chainSubstore.set(context, chainID, sidechainAccount);
 
 		// Add an entry in the channel substore
-		const mainchainTokenID = getTokenIDLSK(context.chainID);
+		const mainchainTokenID = getTokenIDKLY(context.chainID);
 		const channelSubstore = this.stores.get(ChannelDataStore);
 		await channelSubstore.set(context, chainID, {
 			inbox: { root: EMPTY_HASH, appendPath: [], size: 0 },

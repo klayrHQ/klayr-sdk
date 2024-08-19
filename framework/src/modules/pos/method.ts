@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { math } from '@liskhq/lisk-utils';
+import { math } from '@klayr/utils';
 import { ImmutableMethodContext, MethodContext } from '../../state_machine';
 import { BaseMethod } from '../base_method';
 import { EMPTY_KEY } from './constants';

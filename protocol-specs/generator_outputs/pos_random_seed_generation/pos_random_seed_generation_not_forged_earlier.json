@@ -10,7 +10,7 @@
 		{
 			"description": "Random seeds generation for the case when validator did not forged earlier",
 			"config": {
-				"blocksPerRound": 103
+				"blocksPerRound": 53
 			},
 			"input": {
 				"blocks": [

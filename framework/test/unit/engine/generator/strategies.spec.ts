@@ -13,9 +13,9 @@
  */
 
 import { when } from 'jest-when';
-import { utils, address } from '@liskhq/lisk-cryptography';
-import { dataStructures } from '@liskhq/lisk-utils';
-import { BlockAssets, BlockHeader } from '@liskhq/lisk-chain';
+import { utils, address } from '@klayr/cryptography';
+import { dataStructures } from '@klayr/utils';
+import { BlockAssets, BlockHeader } from '@klayr/chain';
 import { HighFeeGenerationStrategy } from '../../../../src/engine/generator/strategies';
 import {
 	allValidCase,

@@ -4,7 +4,7 @@ module.exports = {
 		project: './tsconfig.json',
 		tsconfigRootDir: __dirname,
 	},
-	extends: ['lisk-base/ts'],
+	extends: ['klayr-base/ts'],
 	rules: {
 		'@typescript-eslint/member-ordering': 'off',
 		'@typescript-eslint/no-unsafe-argument': 'off',

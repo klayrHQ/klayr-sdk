@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { codec } from '@liskhq/lisk-codec';
-import { validator } from '@liskhq/lisk-validator';
+import { codec } from '@klayr/codec';
+import { validator } from '@klayr/validator';
 import { ModuleInitArgs, ModuleMetadata } from '../../base_module';
 import { BaseInteroperabilityModule } from '../base_interoperability_module';
 import { SidechainInteroperabilityMethod } from './method';
@@ -203,7 +203,7 @@ export class SidechainInteroperabilityModule extends BaseInteroperabilityModule 
 		this._mainchainRegistrationCommand.addDependencies(this._validatorsMethod);
 	}
 
-	// @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#mainchain
+	// @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#mainchain
 	// eslint-disable-next-line @typescript-eslint/require-await
 	public async initGenesisState(ctx: GenesisBlockExecuteContext): Promise<void> {
 		const genesisBlockAssetBytes = ctx.assets.getAsset(MODULE_NAME_INTEROPERABILITY);

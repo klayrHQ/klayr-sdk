@@ -3,7 +3,7 @@
 		{
 			"module": "interoperability",
 			"data": {
-				"ownChainName": "lisk_mainchain",
+				"ownChainName": "klayr_mainchain",
 				"ownChainNonce": "123",
 				"chainInfos": [
 					{
@@ -354,619 +354,619 @@
 			"data": {
 				"userSubstore": [
 					{
-						"address": "lskzvhwee3nnhvy7geg3oz4xq96nyv6kgaccc3q5j",
+						"address": "klyzvhwee3nnhvy7geg3oz4xq96nyv6kgaccc3q5j",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskz52hcrkwuuc8v2zyewbuhva5eaqkvytapf2onp",
+						"address": "klyz52hcrkwuuc8v2zyewbuhva5eaqkvytapf2onp",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskzywsccmv23tfusps3xo5nq49oxyd3xkw36c7ou",
+						"address": "klyzywsccmv23tfusps3xo5nq49oxyd3xkw36c7ou",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskzjzeam6szx4a65sxgavr98m9h4kctcx85nvy7h",
+						"address": "klyzjzeam6szx4a65sxgavr98m9h4kctcx85nvy7h",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskx39wdmverzp3zw4q9mbehu3j64qp3qbcv3pwfe",
+						"address": "klyx39wdmverzp3zw4q9mbehu3j64qp3qbcv3pwfe",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskx4vowq56ysv4j7tvc3dmbq5234st66aqoset4o",
+						"address": "klyx4vowq56ysv4j7tvc3dmbq5234st66aqoset4o",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskxegmh4rf8xmeeov24xafmuexmcoufpcm5xt572",
+						"address": "klyxegmh4rf8xmeeov24xafmuexmcoufpcm5xt572",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskvm4wepmdrjshubuchy2f5cdqzx49xs5kzcnjmx",
+						"address": "klyvm4wepmdrjshubuchy2f5cdqzx49xs5kzcnjmx",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskvndxpnmx8nbyt3jh5bjcqebd5atrahcqb29554",
+						"address": "klyvndxpnmx8nbyt3jh5bjcqebd5atrahcqb29554",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskv8a48szvtjcr5s5x9y5o7dtpxo2zej58z6gb9j",
+						"address": "klyv8a48szvtjcr5s5x9y5o7dtpxo2zej58z6gb9j",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskvevcyjy6ej4habnqk7jqs9xefj7eymagg5k96c",
+						"address": "klyvevcyjy6ej4habnqk7jqs9xefj7eymagg5k96c",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskcrtfvn694m282jh2pbaa9soq4bnffot74b33bv",
+						"address": "klycrtfvn694m282jh2pbaa9soq4bnffot74b33bv",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskp4r2hvwj5hr5wvoxqutgtkzfygd36zw9hzgre4",
+						"address": "klyp4r2hvwj5hr5wvoxqutgtkzfygd36zw9hzgre4",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskprz8d6kw5jd93tpf4pcpsj3rah89w3y76egjc2",
+						"address": "klyprz8d6kw5jd93tpf4pcpsj3rah89w3y76egjc2",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskpd2dn7n5mbgpeax3shn8q3yjnecger5bwbswd6",
+						"address": "klypd2dn7n5mbgpeax3shn8q3yjnecger5bwbswd6",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskm8cs6unjkg4zbx8am4t3f3ezrft8vvmhx446er",
+						"address": "klym8cs6unjkg4zbx8am4t3f3ezrft8vvmhx446er",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskmd77w3hmuzhfv3by7as4efzt72ouw9oe7oqopa",
+						"address": "klymd77w3hmuzhfv3by7as4efzt72ouw9oe7oqopa",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskmj4q4rb6ngpsewxnzp7xn5bq5w2xc7qqehqdb9",
+						"address": "klymj4q4rb6ngpsewxnzp7xn5bq5w2xc7qqehqdb9",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskmgsxxq353zfwpxn44vj6obkzb7b678pun3krue",
+						"address": "klymgsxxq353zfwpxn44vj6obkzb7b678pun3krue",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskbv6dn4srjztbpkrfqwjs24z22n34fg97xhov5j",
+						"address": "klybv6dn4srjztbpkrfqwjs24z22n34fg97xhov5j",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskb53m7cgv45ajr8mmzva6et3323o9ugwjgdfauw",
+						"address": "klyb53m7cgv45ajr8mmzva6et3323o9ugwjgdfauw",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsknzb4uosnmo7sevks6jny4hhja8x8cza7czx33y",
+						"address": "klynzb4uosnmo7sevks6jny4hhja8x8cza7czx33y",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsknpcrmryyakd7yt5kfx7qrsabu9npvyjtf9wqco",
+						"address": "klynpcrmryyakd7yt5kfx7qrsabu9npvyjtf9wqco",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsknnzuabt5nzdrukwt6o2ge3tfcxwbqet4kka76n",
+						"address": "klynnzuabt5nzdrukwt6o2ge3tfcxwbqet4kka76n",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsknyoks654rxwgp5mynsqduvccpn8bvuzwqvbctg",
+						"address": "klynyoks654rxwgp5mynsqduvccpn8bvuzwqvbctg",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk3nmpwync4aktkunx3kxu787yv6jc2vbmr4khjo",
+						"address": "kly3nmpwync4aktkunx3kxu787yv6jc2vbmr4khjo",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk357c5e3gq5egctz5vveqko2rw8gdczuxsaomwy",
+						"address": "kly357c5e3gq5egctz5vveqko2rw8gdczuxsaomwy",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk3togavztfhhaetwghy2c9dcwj73fdx74r9mz3s",
+						"address": "kly3togavztfhhaetwghy2c9dcwj73fdx74r9mz3s",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk4em65mmx2432dhuaqcv64ghe5yhp7d2uozwcs8",
+						"address": "kly4em65mmx2432dhuaqcv64ghe5yhp7d2uozwcs8",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk4e9uo3gcamtjtfbtedo2bn75x3x8wv87ufoo4y",
+						"address": "kly4e9uo3gcamtjtfbtedo2bn75x3x8wv87ufoo4y",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk6x4n6jfdxo683yp9tekxh7ypux2822gw54rhyt",
+						"address": "kly6x4n6jfdxo683yp9tekxh7ypux2822gw54rhyt",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk69qd3pjqgz9smysrrvmmsjndox8tahrw97pz5h",
+						"address": "kly69qd3pjqgz9smysrrvmmsjndox8tahrw97pz5h",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk6tad5joxqb24hog9zq9q52h3yg5yb2gbwseod9",
+						"address": "kly6tad5joxqb24hog9zq9q52h3yg5yb2gbwseod9",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk6sgf39jr4voff65zqtefo5y8ga4kwvcquz64ug",
+						"address": "kly6sgf39jr4voff65zqtefo5y8ga4kwvcquz64ug",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk6h2gactgfmqcbfknwxnd59e7tdk6ru9j5oqj5h",
+						"address": "kly6h2gactgfmqcbfknwxnd59e7tdk6ru9j5oqj5h",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk5fyvdmxypajyxvw42pe4o3rb7dsoamay9jtkdr",
+						"address": "kly5fyvdmxypajyxvw42pe4o3rb7dsoamay9jtkdr",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk5ffzteqgu5y37a7qncyvms33oth7moct8wgbca",
+						"address": "kly5ffzteqgu5y37a7qncyvms33oth7moct8wgbca",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsko3ysum3etk9nfo7hzougmvrnfp7a2ewqj2n482",
+						"address": "klyo3ysum3etk9nfo7hzougmvrnfp7a2ewqj2n482",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsko8j9mrnxxze54dt9pdfs4voqmjdfscuy65esdz",
+						"address": "klyo8j9mrnxxze54dt9pdfs4voqmjdfscuy65esdz",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskoybcqa9otgsvamvb7h6usht2emevdw9cobnem4",
+						"address": "klyoybcqa9otgsvamvb7h6usht2emevdw9cobnem4",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk952ztknjoa3h58es4vgu5ovnoscv3amo7zg4zz",
+						"address": "kly952ztknjoa3h58es4vgu5ovnoscv3amo7zg4zz",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk9ugncv9sehbsxue8fbcnec5zo6arcrf9hmpkj6",
+						"address": "kly9ugncv9sehbsxue8fbcnec5zo6arcrf9hmpkj6",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk9r4udjy3exoneeddmv5rwfy3js4sfrem95s3kc",
+						"address": "kly9r4udjy3exoneeddmv5rwfy3js4sfrem95s3kc",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk7zn95gvqnfn8uocs5x7d4q3k5sk4ccvme6gpnw",
+						"address": "kly7zn95gvqnfn8uocs5x7d4q3k5sk4ccvme6gpnw",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk7mjmo5pf6t4qomcrtrgjwostrz4xorhpx7sy8f",
+						"address": "kly7mjmo5pf6t4qomcrtrgjwostrz4xorhpx7sy8f",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk7342zor495kzdbr6wws94a6xeuzyn2bfp4t4ff",
+						"address": "kly7342zor495kzdbr6wws94a6xeuzyn2bfp4t4ff",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk74wa3f3rsxk5768a9q57tzvjgpjdnps39x7m4o",
+						"address": "kly74wa3f3rsxk5768a9q57tzvjgpjdnps39x7m4o",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk76wc3ajf4oyae64w5sfrqvc7cez7u6wc8qnb54",
+						"address": "kly76wc3ajf4oyae64w5sfrqvc7cez7u6wc8qnb54",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk7ewwccf4xrzpdjb7zba2rp7kn2gsfefokogmaq",
+						"address": "kly7ewwccf4xrzpdjb7zba2rp7kn2gsfefokogmaq",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk7fqjmwookkxxs7j7rntcfqd5cavz7abrktkmx7",
+						"address": "kly7fqjmwookkxxs7j7rntcfqd5cavz7abrktkmx7",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk7gfpd6rhvx6b4rk6an8msfqjb8tmwpgq3mm2jh",
+						"address": "kly7gfpd6rhvx6b4rk6an8msfqjb8tmwpgq3mm2jh",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk83ec33f2b3wnh53wc8mnqoaohbsyuvnbjfzkmj",
+						"address": "kly83ec33f2b3wnh53wc8mnqoaohbsyuvnbjfzkmj",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk89bsw63j2j8u4zsoct2pxkvrau4gd88b6xyg9c",
+						"address": "kly89bsw63j2j8u4zsoct2pxkvrau4gd88b6xyg9c",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk8kdktcgn5pgsgpf9gmk3gz755yt3pvk5may72o",
+						"address": "kly8kdktcgn5pgsgpf9gmk3gz755yt3pvk5may72o",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskuzhvf6h4hbbptjwqfyn9m934hazqqbaz34vhad",
+						"address": "klyuzhvf6h4hbbptjwqfyn9m934hazqqbaz34vhad",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskumrc6ttbdsa4kqh4hxrfmn2gc2o5xqtv6rqnzb",
+						"address": "klyumrc6ttbdsa4kqh4hxrfmn2gc2o5xqtv6rqnzb",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskuotco4uxc75x6gkt7yzfnhwct6fcrjmd3qfvjs",
+						"address": "klyuotco4uxc75x6gkt7yzfnhwct6fcrjmd3qfvjs",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskuu5u8p3h73cbum3gd4znqjdcfv49ewtctwqbzh",
+						"address": "klyuu5u8p3h73cbum3gd4znqjdcfv49ewtctwqbzh",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskuju3mhhjw4rozrkdjg66d3grq2nfbwr749n5os",
+						"address": "klyuju3mhhjw4rozrkdjg66d3grq2nfbwr749n5os",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsky6bk3kkdmvot555e4nmvn8enc3nrk4ntrcrup2",
+						"address": "klyy6bk3kkdmvot555e4nmvn8enc3nrk4ntrcrup2",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsky7uq8uajz84bem99qh3x4hmvzhyfudau7pcp4n",
+						"address": "klyy7uq8uajz84bem99qh3x4hmvzhyfudau7pcp4n",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskyukf7yfk8hsgmxuaw2r43jf2afsej6jm75hoqf",
+						"address": "klyyukf7yfk8hsgmxuaw2r43jf2afsej6jm75hoqf",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskye3hrgbrccf6c4akzwne63n2gexfyg4b83obg8",
+						"address": "klyye3hrgbrccf6c4akzwne63n2gexfyg4b83obg8",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskrn3kz5ptaasj3fbf96zphuef6su8eopvd4jxns",
+						"address": "klyrn3kz5ptaasj3fbf96zphuef6su8eopvd4jxns",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskrrtvsqk8q526vbdsvxhjapuvho532v849pxrjb",
+						"address": "klyrrtvsqk8q526vbdsvxhjapuvho532v849pxrjb",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskrg4pzsd2zs8zwhyauf4xe53h378ygw2ttwqjuk",
+						"address": "klyrg4pzsd2zs8zwhyauf4xe53h378ygw2ttwqjuk",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsktpaaxzca8qze7ad8ha2haq8f9w43csgoctr2n2",
+						"address": "klytpaaxzca8qze7ad8ha2haq8f9w43csgoctr2n2",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskk82xzbxdrpqsxwmrsccxhe5owyod7nb99cnfo8",
+						"address": "klyk82xzbxdrpqsxwmrsccxhe5owyod7nb99cnfo8",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskkemtjp6syvamwymgcwmdak4dne55aphebpo2aw",
+						"address": "klykemtjp6syvamwymgcwmdak4dne55aphebpo2aw",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskkagwzcwq8eys5bf6c7wxwksp884fwcj64oddk2",
+						"address": "klykagwzcwq8eys5bf6c7wxwksp884fwcj64oddk2",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskq4wwjhhubgkq6uzz3k9ugn67ff595h5nr5hqcf",
+						"address": "klyq4wwjhhubgkq6uzz3k9ugn67ff595h5nr5hqcf",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskq5cq2z5a29y3ys4zhc9x4tunwckukphkkkjvwu",
+						"address": "klyq5cq2z5a29y3ys4zhc9x4tunwckukphkkkjvwu",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskqu8yawsoxavhozyud65nwywtby3jbhn4nsz9qs",
+						"address": "klyqu8yawsoxavhozyud65nwywtby3jbhn4nsz9qs",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskqthy4rq7xhqmrkmyruv43cqe2yob6wm2mbyh79",
+						"address": "klyqthy4rq7xhqmrkmyruv43cqe2yob6wm2mbyh79",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskqggmecfy94e93pr9ddppwfoowpuu2sbuj2df5t",
+						"address": "klyqggmecfy94e93pr9ddppwfoowpuu2sbuj2df5t",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskeeqqtk9pv5ywwdbjpd54zvodjx86s99vhej5pu",
+						"address": "klyeeqqtk9pv5ywwdbjpd54zvodjx86s99vhej5pu",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskejddae5jn63zj5qeyvjusgopo69vmv3f7atyxo",
+						"address": "klyejddae5jn63zj5qeyvjusgopo69vmv3f7atyxo",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskwba2y9pbwkjz57c3w7g8mja6m68gu5wo24x86e",
+						"address": "klywba2y9pbwkjz57c3w7g8mja6m68gu5wo24x86e",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskw2zcb7vsdd5o9uunde4crzfwsmzdvev2szwx6r",
+						"address": "klyw2zcb7vsdd5o9uunde4crzfwsmzdvev2szwx6r",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk2m69ndffkvury73ott7m5jsjopg9gcoo74bu8f",
+						"address": "kly2m69ndffkvury73ott7m5jsjopg9gcoo74bu8f",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk2tehxdzyu32ru96v3sdpnkq2noptnhh8oefs5y",
+						"address": "kly2tehxdzyu32ru96v3sdpnkq2noptnhh8oefs5y",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsk2jshr5ce5zvm9qkfhqogzoq8wksnzpofb6ustt",
+						"address": "kly2jshr5ce5zvm9qkfhqogzoq8wksnzpofb6ustt",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskabphx6ykjb4uxremthhtg43jhyy7y9jab73n7e",
+						"address": "klyabphx6ykjb4uxremthhtg43jhyy7y9jab73n7e",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskdvd8jy5376mr3ce58rb4qzkota8yypnjwgddhs",
+						"address": "klydvd8jy5376mr3ce58rb4qzkota8yypnjwgddhs",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskd3yhum8ha5z56454veh5omhwqaob269jbjs7zn",
+						"address": "klyd3yhum8ha5z56454veh5omhwqaob269jbjs7zn",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskddywybeua3pu3tmon8q965smmke2g9nbhso4tb",
+						"address": "klyddywybeua3pu3tmon8q965smmke2g9nbhso4tb",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsksb6o3qsz3fs658vug8vubgy74awvafc3tfxjnq",
+						"address": "klysb6o3qsz3fs658vug8vubgy74awvafc3tfxjnq",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsksk6onutdm9m3f43ohgx5rc753zd7zeeszg7n5t",
+						"address": "klysk6onutdm9m3f43ohgx5rc753zd7zeeszg7n5t",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsksk8tvnu4rc2jb9fmcoh6u7fqq3f2hgerwgdter",
+						"address": "klysk8tvnu4rc2jb9fmcoh6u7fqq3f2hgerwgdter",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsksguwpudfmxdv87ou82enenyh65as9xw2wajwcz",
+						"address": "klysguwpudfmxdv87ou82enenyh65as9xw2wajwcz",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lsksghzj7ok39s52jz64r29z7kr5y4k5yaaejdd4w",
+						"address": "klysghzj7ok39s52jz64r29z7kr5y4k5yaaejdd4w",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskjbgbe74kw7axdb8vmsb4g29hauorneq989zmqr",
+						"address": "klyjbgbe74kw7axdb8vmsb4g29hauorneq989zmqr",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskj4ba82kybckzcowow3e9h5tchkwqogxoy2rpm7",
+						"address": "klyj4ba82kybckzcowow3e9h5tchkwqogxoy2rpm7",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskjuhbht5w4z8eosefjq53hbbh2na33t82gqeadp",
+						"address": "klyjuhbht5w4z8eosefjq53hbbh2na33t82gqeadp",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskjqqgmno9oy7zher79h6rwxeoandjqpbnkgjnsu",
+						"address": "klyjqqgmno9oy7zher79h6rwxeoandjqpbnkgjnsu",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskjabht6he5szgbtmgvsa9dcrfvfes3v4vsy5d9o",
+						"address": "klyjabht6he5szgbtmgvsa9dcrfvfes3v4vsy5d9o",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskjhu652q2e32ad6me3rt44ncgxq9j7fadzpd2co",
+						"address": "klyjhu652q2e32ad6me3rt44ncgxq9j7fadzpd2co",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskfz8v7xkzvr9946mz4tu3cdrhq9v4ay3ny2zq43",
+						"address": "klyfz8v7xkzvr9946mz4tu3cdrhq9v4ay3ny2zq43",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskfuu6956tadxq82pkhtwfynuyqvu6qx5yqmbote",
+						"address": "klyfuu6956tadxq82pkhtwfynuyqvu6qx5yqmbote",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskfe8voezm9djoo6zxxtmvfygjjr2yrf7r2v2vd8",
+						"address": "klyfe8voezm9djoo6zxxtmvfygjjr2yrf7r2v2vd8",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskgmb7u3aoumjfzvyx2ba2dh2evg8nbujgnddgz9",
+						"address": "klygmb7u3aoumjfzvyx2ba2dh2evg8nbujgnddgz9",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskg5gxbzsaubba34mc3nn3bg3quk5c9k9tuhkojw",
+						"address": "klyg5gxbzsaubba34mc3nn3bg3quk5c9k9tuhkojw",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
 					},
 					{
-						"address": "lskg9tefkbkorpyehoh78gxux82u39xwm9cugwp7c",
+						"address": "klyg9tefkbkorpyehoh78gxux82u39xwm9cugwp7c",
 						"tokenID": "0400000000000000",
 						"availableBalance": "100000000000000",
 						"lockedBalances": []
@@ -1014,7 +1014,7 @@
 							"properties": {
 								"address": {
 									"dataType": "bytes",
-									"format": "lisk32",
+									"format": "klayr32",
 									"fieldNumber": 1
 								},
 								"tokenID": {
@@ -1218,7 +1218,7 @@
 			"data": {
 				"validators": [
 					{
-						"address": "lskzvhwee3nnhvy7geg3oz4xq96nyv6kgaccc3q5j",
+						"address": "klyzvhwee3nnhvy7geg3oz4xq96nyv6kgaccc3q5j",
 						"name": "genesis_0",
 						"blsKey": "b44ec20a61d3ab50d22231fb01413e92522fb81dda08bc25fb708db53c3efdd402441356bf7070ebdd220de5ca9c899b",
 						"proofOfPossession": "963bcb9862d34e04b319f0d729dd1a7ed3984805fd2c5b81dd60159ed6dcefefbbb92c345ddaf4eb728554b78dd265251114dc49390fab967a19044fb3a821ef65e5737c32b1bab21015b58f3357a230b1d4b240e5b262e1dce0f7b64b0256f7",
@@ -1232,7 +1232,7 @@
 						"sharingCoefficients": []
 					},
 					{
-						"address": "lskz52hcrkwuuc8v2zyewbuhva5eaqkvytapf2onp",
+						"address": "klyz52hcrkwuuc8v2zyewbuhva5eaqkvytapf2onp",
 						"name": "genesis_1",
 						"blsKey": "9822f9d07f0e572d4e4e106a3c26dd6f2b1d36d8457899332beda0afc699c73b1f85744b3711968dc2329761248d5988",
 						"proofOfPossession": "ac0c771adadfea3c51a7060334c530ac24266af661e0cead1652d255ebfefb2ac06c892d28468ba512d5d5d6d529a1b5135a810c2d675b06715f97744c0fe84c93333d019dcc75d5527292208013d5b3bc1e755527b1a0a0bc4437ee5f2821f2",
@@ -1246,7 +1246,7 @@
 						"sharingCoefficients": []
 					},
 					{
-						"address": "lskzywsccmv23tfusps3xo5nq49oxyd3xkw36c7ou",
+						"address": "klyzywsccmv23tfusps3xo5nq49oxyd3xkw36c7ou",
 						"name": "genesis_2",
 						"blsKey": "a7ad753832f2a838a8ef36afdf9dc9a67fc40b95162080d5fec74043e213b7a9c6dcf4166cd4ff1144c0e2612250a7e4",
 						"proofOfPossession": "88f868a69215b17697332501d017f89374412c708fee8b43a0c9eb21cea708dc26bb3ae640f0d46217b5aa01bee6d2160f13d572d73db8867596b2d291d5431d2f97f0bcb2bf4ab60eab9d7bc597ef281855f3c97f38c74a8dd5b851cf51f90a",
@@ -1260,7 +1260,7 @@
 						"sharingCoefficients": []
 					},
 					{
-						"address": "lskzjzeam6szx4a65sxgavr98m9h4kctcx85nvy7h",
+						"address": "klyzjzeam6szx4a65sxgavr98m9h4kctcx85nvy7h",
 						"name": "genesis_3",
 						"blsKey": "a9b4ad01ab23df809530e6bc942a0e750ee8a63609bf6c5addc575b2f3245d03b3abd3bea38543c2ad1412be056bc0c6",
 						"proofOfPossession": "b9ea3e2dab3f73598ef18831e1f0f9ddb20a629c0e806b08625e58e1339e390890b6066daf60f760069c9eb00a2dcae41967259ce8c0b5fec5cd57617a34d675543e479058db96f74e9b07f9a007557329f80ba8b443cec87324a290b007bd7d",
@@ -1274,7 +1274,7 @@
 						"sharingCoefficients": []
 					},
 					{
-						"address": "lskx39wdmverzp3zw4q9mbehu3j64qp3qbcv3pwfe",
+						"address": "klyx39wdmverzp3zw4q9mbehu3j64qp3qbcv3pwfe",
 						"name": "genesis_4",
 						"blsKey": "b78583bc8fdbfd6b8e6e3894573820731cbacaf4451948d4989c27197aac45167c596d205ae9d68607112237c49e0a61",
 						"proofOfPossession": "a698830205b9a168c7ba4f1c0d4b772d20acff48ef15d0bf088b167ed2c07c6e355731597012b35c998210899d05288e0eb780293ba9061cb56c975c091791e47f2ede469cf9f38e3f81f3ea63a25db090f7f110f9e413bd4b753a6723a63eaf",
@@ -1288,7 +1288,7 @@
 						"sharingCoefficients": []
 					},
 					{
-						"address": "lsk7mjmo5pf6t4qomcrtrgjwostrz4xorhpx7sy8f",
+						"address": "kly7mjmo5pf6t4qomcrtrgjwostrz4xorhpx7sy8f",
 						"name": "genesis_5",
 						"blsKey": "8bb87e87498227d900a3a731435636aa356296d9e02c304db8773b4ce60670625f506f968623534c715a47f3d9aac2e7",
 						"proofOfPossession": "8ea018708f4fa12fa5f6c84b591fd25c364037c2d4c857de53767b4f8c2399004aa50f9814aaa7f33b141c9218497a2a11523258e4954947e61454ad741f2e0318583a47be58ad515467258a662ffc34a54e5fa98fa4aaf6c3ebc27903b06a72",
@@ -1302,7 +1302,7 @@
 						"sharingCoefficients": []
 					},
 					{
-						"address": "lskm8cs6unjkg4zbx8am4t3f3ezrft8vvmhx446er",
+						"address": "klym8cs6unjkg4zbx8am4t3f3ezrft8vvmhx446er",
 						"name": "genesis_6",
 						"blsKey": "b7ce367e1a1517797c8c41d3304f794e5a2030e0859458532acbbbe804275f198571fff4d642c2004c3aa6a1e140f5f8",
 						"proofOfPossession": "a07a0591f0ed8fbddc724f758dbe7057dae6eb06f6f6e0719484a50988813827aff72c455f0b57c989f8559a94d46fb018cb0259335b7356bd8428a65f6befbf54b195e4180dea6f08b1045f9091d4c33163904e7771fedc482a911eecfeeba8",
@@ -1316,7 +1316,7 @@
 						"sharingCoefficients": []
 					},
 					{
-						"address": "lsknyoks654rxwgp5mynsqduvccpn8bvuzwqvbctg",
+						"address": "klynyoks654rxwgp5mynsqduvccpn8bvuzwqvbctg",
 						"name": "genesis_7",
 						"blsKey": "a28f8ca6a399f0da2b89f4bb7de1998037625412741b8bf77222809ac418f4a3f95e16d3ac24e63da2eb3aa9a9fa55f0",
 						"proofOfPossession": "a8c2aeed9a519796d2778da89e90b68aeec8164a641ebc75c4316f30c667eb2078c7ae8b3530629a3b42e221e7e107a007234df13d220d04ba37575d5b5266f19eae039ff5748bc97b684c64dabe65512ec96af4f49686cf7eb308334ed562e6",
@@ -1330,7 +1330,7 @@
 						"sharingCoefficients": []
 					},
 					{
-						"address": "lskqggmecfy94e93pr9ddppwfoowpuu2sbuj2df5t",
+						"address": "klyqggmecfy94e93pr9ddppwfoowpuu2sbuj2df5t",
 						"name": "genesis_8",
 						"blsKey": "8374e9a8a2eed64c9d94b228e166feeb935f26f59ee26a52bea6b60b24bb66379802e985a62f46586bbfab447a41ca44",
 						"proofOfPossession": "b16df4e6a9c18a00bea75d4648b99eb9aa191765492f8b4ca3c469e9797270da802295df16313ed02c932af827ea603d090c74b5684973b448e9b23353da90bfb23b52e377cdcddfc04ebee6cba08acda23e69094b3b04ee5eb6f1b8a29e4fd1",
@@ -1344,7 +1344,7 @@
 						"sharingCoefficients": []
 					},
 					{
-						"address": "lsk3togavztfhhaetwghy2c9dcwj73fdx74r9mz3s",
+						"address": "kly3togavztfhhaetwghy2c9dcwj73fdx74r9mz3s",
 						"name": "genesis_9",
 						"blsKey": "a73ee9e0272402b7447340e12cabdc14cc462fa9c998928bf247da10ebf0b740d8855faa804a81dfc0e50b1fbc6aa4d9",
 						"proofOfPossession": "928ac8ca947b294efb6109f33761114a618794ff82ae6cf9a1cd28baa9472aa02cc2f40e593471645dd3a8548cab146907c81e4e925a95c46a3e1dcad344a9764eefb3a811a255579ed401e1d3c1d7c39d663b4469dc2681a2d743a9c046ec9b",
@@ -1358,7 +1358,7 @@
 						"sharingCoefficients": []
 					},
 					{
-						"address": "lsk3nmpwync4aktkunx3kxu787yv6jc2vbmr4khjo",
+						"address": "kly3nmpwync4aktkunx3kxu787yv6jc2vbmr4khjo",
 						"name": "genesis_10",
 						"blsKey": "aabe16f83f1d312dace8ff03d94ee535af9841a62541684b13332fbcef15505b57b83f04bf375820903bd386496ad737",
 						"proofOfPossession": "8ef78f4b4dcbe55c3e9cf9d0820db6f02c7f390483cfa77d00e1001920a5efba17e8194c15250a6dca67f3c5f852494500ed47c59663d625fc4f296482cf5ca03ffcb09aece1db1ef87e21d41066cbbfa12191e1ddc4d41f30013bb1352f4715",
@@ -1376,11 +1376,11 @@
 				"genesisData": {
 					"initRounds": 3,
 					"initValidators": [
-						"lskzvhwee3nnhvy7geg3oz4xq96nyv6kgaccc3q5j",
-						"lskz52hcrkwuuc8v2zyewbuhva5eaqkvytapf2onp",
-						"lskzywsccmv23tfusps3xo5nq49oxyd3xkw36c7ou",
-						"lskzjzeam6szx4a65sxgavr98m9h4kctcx85nvy7h",
-						"lskx39wdmverzp3zw4q9mbehu3j64qp3qbcv3pwfe"
+						"klyzvhwee3nnhvy7geg3oz4xq96nyv6kgaccc3q5j",
+						"klyz52hcrkwuuc8v2zyewbuhva5eaqkvytapf2onp",
+						"klyzywsccmv23tfusps3xo5nq49oxyd3xkw36c7ou",
+						"klyzjzeam6szx4a65sxgavr98m9h4kctcx85nvy7h",
+						"klyx39wdmverzp3zw4q9mbehu3j64qp3qbcv3pwfe"
 					]
 				}
 			},
@@ -1411,7 +1411,7 @@
 							"properties": {
 								"address": {
 									"dataType": "bytes",
-									"format": "lisk32",
+									"format": "klayr32",
 									"fieldNumber": 1
 								},
 								"name": {
@@ -1499,7 +1499,7 @@
 							"properties": {
 								"address": {
 									"dataType": "bytes",
-									"format": "lisk32",
+									"format": "klayr32",
 									"fieldNumber": 1
 								},
 								"stakes": {
@@ -1511,7 +1511,7 @@
 										"properties": {
 											"validatorAddress": {
 												"dataType": "bytes",
-												"format": "lisk32",
+												"format": "klayr32",
 												"fieldNumber": 1
 											},
 											"amount": {
@@ -1552,7 +1552,7 @@
 											"validatorAddress": {
 												"dataType": "bytes",
 												"fieldNumber": 1,
-												"format": "lisk32"
+												"format": "klayr32"
 											},
 											"amount": {
 												"dataType": "uint64",
@@ -1582,7 +1582,7 @@
 								"fieldNumber": 2,
 								"items": {
 									"dataType": "bytes",
-									"format": "lisk32"
+									"format": "klayr32"
 								}
 							}
 						}

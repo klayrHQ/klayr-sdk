@@ -12,11 +12,11 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { Database, NotFoundError } from '@liskhq/lisk-db';
 import { EventEmitter } from 'events';
-import * as liskP2P from '@liskhq/lisk-p2p';
+import * as klayrp2P from '@klayr/p2p';
 
 import { EVENT_NETWORK_READY as ENGINE_EVENT_NETWORK_READY } from '../events';
 import { lookupPeersIPs } from './utils';
@@ -44,7 +44,7 @@ const {
 		EVENT_MESSAGE_RECEIVED,
 		EVENT_BAN_PEER,
 	},
-} = liskP2P;
+} = klayrp2P;
 
 const DB_KEY_NETWORK_NODE_SECRET = Buffer.from('network:nodeSecret', 'utf8');
 const DB_KEY_NETWORK_TRIED_PEERS_LIST = Buffer.from('network:triedPeersList', 'utf8');
@@ -63,11 +63,11 @@ interface NetworkConstructor {
 	readonly options: NetworkConfig;
 }
 
-interface P2PRequestPacket extends liskP2P.p2pTypes.P2PRequestPacket {
+interface P2PRequestPacket extends klayrp2P.p2pTypes.P2PRequestPacket {
 	readonly peerId: string;
 }
 
-interface P2PMessagePacket extends liskP2P.p2pTypes.P2PMessagePacket {
+interface P2PMessagePacket extends klayrp2P.p2pTypes.P2PMessagePacket {
 	readonly peerId: string;
 }
 
@@ -107,7 +107,7 @@ export class Network {
 	private _nodeDB!: Database;
 	private _chainID!: Buffer;
 	private _secret: number | undefined;
-	private _p2p!: liskP2P.P2P;
+	private _p2p!: klayrp2P.P2P;
 	private _endpoints: P2PRPCEndpoints;
 	private _eventHandlers: P2PEventHandlers;
 	private _saveIntervalID?: NodeJS.Timer;
@@ -126,7 +126,7 @@ export class Network {
 		this._logger = args.logger;
 		this._nodeDB = args.nodeDB;
 		this._chainID = args.chainID;
-		let previousPeers: ReadonlyArray<liskP2P.p2pTypes.ProtocolPeerInfo> = [];
+		let previousPeers: ReadonlyArray<klayrp2P.p2pTypes.ProtocolPeerInfo> = [];
 		try {
 			// Load peers from the database that were tried or connected the last time node was running
 			const previousPeersBuffer = await this._nodeDB.get(DB_KEY_NETWORK_TRIED_PEERS_LIST);
@@ -196,7 +196,7 @@ export class Network {
 			  }))
 			: [];
 
-		const p2pConfig: liskP2P.p2pTypes.P2PConfig = {
+		const p2pConfig: klayrp2P.p2pTypes.P2PConfig = {
 			port: this._options.port,
 			nodeInfo: initialNodeInfo,
 			hostIp: this._options.host,
@@ -226,7 +226,7 @@ export class Network {
 
 		this._p2p.on(
 			EVENT_CLOSE_OUTBOUND,
-			({ peerInfo, code, reason }: liskP2P.p2pTypes.P2PClosePacket) => {
+			({ peerInfo, code, reason }: klayrp2P.p2pTypes.P2PClosePacket) => {
 				this._logger.debug(
 					{
 						...peerInfo,
@@ -240,7 +240,7 @@ export class Network {
 
 		this._p2p.on(
 			EVENT_CLOSE_INBOUND,
-			({ peerInfo, code, reason }: liskP2P.p2pTypes.P2PClosePacket) => {
+			({ peerInfo, code, reason }: klayrp2P.p2pTypes.P2PClosePacket) => {
 				this._logger.debug(
 					{
 						...peerInfo,
@@ -457,15 +457,15 @@ export class Network {
 	}
 
 	public async request(
-		requestPacket: liskP2P.p2pTypes.P2PRequestPacket,
-	): Promise<liskP2P.p2pTypes.P2PResponsePacket> {
+		requestPacket: klayrp2P.p2pTypes.P2PRequestPacket,
+	): Promise<klayrp2P.p2pTypes.P2PResponsePacket> {
 		return this._p2p.request({
 			procedure: requestPacket.procedure,
 			data: requestPacket.data,
 		});
 	}
 
-	public send(sendPacket: liskP2P.p2pTypes.P2PMessagePacket): void {
+	public send(sendPacket: klayrp2P.p2pTypes.P2PMessagePacket): void {
 		return this._p2p.send({
 			event: sendPacket.event,
 			data: sendPacket.data,
@@ -474,7 +474,7 @@ export class Network {
 
 	public async requestFromPeer(
 		requestPacket: P2PRequestPacket,
-	): Promise<liskP2P.p2pTypes.P2PResponsePacket> {
+	): Promise<klayrp2P.p2pTypes.P2PResponsePacket> {
 		return this._p2p.requestFromPeer(
 			{
 				procedure: requestPacket.procedure,
@@ -494,14 +494,14 @@ export class Network {
 		);
 	}
 
-	public broadcast(broadcastPacket: liskP2P.p2pTypes.P2PMessagePacket): void {
+	public broadcast(broadcastPacket: klayrp2P.p2pTypes.P2PMessagePacket): void {
 		return this._p2p.broadcast({
 			event: broadcastPacket.event,
 			data: broadcastPacket.data,
 		});
 	}
 
-	public getConnectedPeers(): ReadonlyArray<liskP2P.p2pTypes.PeerInfo> {
+	public getConnectedPeers(): ReadonlyArray<klayrp2P.p2pTypes.PeerInfo> {
 		const peers = this._p2p.getConnectedPeers();
 		return peers.map(peer => {
 			const parsedPeer = {
@@ -515,11 +515,11 @@ export class Network {
 		});
 	}
 
-	public getNetworkStats(): liskP2P.p2pTypes.NetworkStats {
+	public getNetworkStats(): klayrp2P.p2pTypes.NetworkStats {
 		return this._p2p.getNetworkStats();
 	}
 
-	public getDisconnectedPeers(): ReadonlyArray<liskP2P.p2pTypes.PeerInfo> {
+	public getDisconnectedPeers(): ReadonlyArray<klayrp2P.p2pTypes.PeerInfo> {
 		const peers = this._p2p.getDisconnectedPeers();
 		return peers.map(peer => {
 			const parsedPeer = {
@@ -533,7 +533,7 @@ export class Network {
 		});
 	}
 
-	public applyPenaltyOnPeer(penaltyPacket: liskP2P.p2pTypes.P2PPenalty): void {
+	public applyPenaltyOnPeer(penaltyPacket: klayrp2P.p2pTypes.P2PPenalty): void {
 		return this._p2p.applyPenalty({
 			peerId: penaltyPacket.peerId,
 			penalty: penaltyPacket.penalty,

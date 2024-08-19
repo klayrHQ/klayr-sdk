@@ -15,7 +15,7 @@
 'use strict';
 
 const fs = require('fs');
-const { getKeys, hash } = require('@liskhq/lisk-cryptography');
+const { getKeys, hash } = require('@klayr/cryptography');
 const BigNum = require('@liskhq/bignum');
 
 const loadCSVFile = filePath =>

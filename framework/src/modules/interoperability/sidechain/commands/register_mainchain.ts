@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { bls } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { bls } from '@klayr/cryptography';
 import {
 	EMPTY_HASH,
 	MODULE_NAME_INTEROPERABILITY,
@@ -41,7 +41,7 @@ import {
 	computeValidatorsHash,
 	getEncodedCCMAndID,
 	getMainchainID,
-	getTokenIDLSK,
+	getTokenIDKLY,
 	isValidName,
 	sortValidatorsByBLSKey,
 } from '../../utils';
@@ -197,7 +197,7 @@ export class RegisterMainchainCommand extends BaseInteroperabilityCommand<Sidech
 			throw new Error('Invalid signature property.');
 		}
 
-		const mainchainTokenID = getTokenIDLSK(context.chainID);
+		const mainchainTokenID = getTokenIDKLY(context.chainID);
 		const chainSubstore = this.stores.get(ChainAccountStore);
 		const mainchainAccount = {
 			name: CHAIN_NAME_MAINCHAIN,

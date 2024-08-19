@@ -13,7 +13,7 @@
  */
 
 import { Database } from '@liskhq/lisk-db';
-import { isHexString } from '@liskhq/lisk-validator';
+import { isHexString } from '@klayr/validator';
 import { RequestContext } from '../rpc/rpc_server';
 import {
 	LegacyBlockJSON,

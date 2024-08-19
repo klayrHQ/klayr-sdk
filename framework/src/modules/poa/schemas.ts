@@ -49,7 +49,7 @@ const validator = {
 	},
 };
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0047.md#register-authority-command
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0047.md#register-authority-command
 export const registerAuthoritySchema = {
 	$id: '/poa/command/registerAuthority',
 	type: 'object',
@@ -148,7 +148,7 @@ export const validatorSignatureMessageSchema = {
 	},
 };
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0047.md#genesis-poa-store-schema
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0047.md#genesis-poa-store-schema
 export const genesisPoAStoreSchema = {
 	$id: '/poa/genesis/genesisPoAStoreSchema',
 	type: 'object',
@@ -236,7 +236,7 @@ const validatorJSONSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		name: {
 			type: 'string',
@@ -255,7 +255,7 @@ export const getValidatorRequestSchema = {
 	properties: {
 		address: {
 			dataType: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };

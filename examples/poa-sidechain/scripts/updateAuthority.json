@@ -1,23 +1,23 @@
 {
 	"newValidators": [
 		{
-			"address": "lskzbqjmwmd32sx8ya56saa4gk7tkco953btm24t8",
+			"address": "klyzbqjmwmd32sx8ya56saa4gk7tkco953btm24t8",
 			"weight": 20
 		},
 		{
-			"address": "lskzot8pzdcvjhpjwrhq3dkkbf499ok7mhwkrvsq3",
+			"address": "klyzot8pzdcvjhpjwrhq3dkkbf499ok7mhwkrvsq3",
 			"weight": 20
 		},
 		{
-			"address": "lskz89nmk8tuwt93yzqm6wu2jxjdaftr9d5detn8v",
+			"address": "klyz89nmk8tuwt93yzqm6wu2jxjdaftr9d5detn8v",
 			"weight": 20
 		},
 		{
-			"address": "lskx2hume2sg9grrnj94cpqkjummtz2mpcgc8dhoe",
+			"address": "klyx2hume2sg9grrnj94cpqkjummtz2mpcgc8dhoe",
 			"weight": 20
 		},
 		{
-			"address": "lskxa4895zkxjspdvu3e5eujash7okvnkkpr8xsr5",
+			"address": "klyxa4895zkxjspdvu3e5eujash7okvnkkpr8xsr5",
 			"weight": 15
 		}
 	],

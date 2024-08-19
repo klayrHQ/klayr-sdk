@@ -311,7 +311,7 @@ export const applicationConfigSchema = {
 	additionalProperties: false,
 	default: {
 		system: {
-			dataPath: '~/.lisk/beta-sdk-app',
+			dataPath: '~/.klayr/beta-sdk-app',
 			version: '0.1.0',
 			keepEventsForHeights: 300,
 			logLevel: 'info',
@@ -347,7 +347,7 @@ export const applicationConfigSchema = {
 			block: {
 				fromFile: './config/genesis_block.blob',
 			},
-			blockTime: 10,
+			blockTime: 7,
 			bftBatchSize: BFT_BATCH_SIZE,
 			maxTransactionsSize: MAX_TRANSACTIONS_SIZE,
 			minimumCertifyHeight: 1,

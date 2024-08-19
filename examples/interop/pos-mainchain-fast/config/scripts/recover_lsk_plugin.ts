@@ -10,7 +10,7 @@ import {
 	ChainAccountJSON,
 	ChainStatus,
 	stateRecoveryParamsSchema,
-} from 'lisk-sdk';
+} from 'klayr-sdk';
 import { keys } from '../default/dev-validators.json';
 import { ensureDir } from 'fs-extra';
 import { join } from 'path';
@@ -131,7 +131,7 @@ interface StateRecoveryParams {
 // Utils
 const getDBInstance = async (
 	dataPath: string,
-	dbName = 'lisk-framework-chain-connector-plugin.db',
+	dbName = 'klayr-framework-chain-connector-plugin.db',
 ): Promise<KVStore> => {
 	const dirPath = join(dataPath.replace('~', os.homedir()), 'plugins/data', dbName);
 	await ensureDir(dirPath);
@@ -220,20 +220,20 @@ type ProveResponseJSON = JSONObject<ProveResponse>;
 	let recoveryDB: RecoveryDB;
 
 	try {
-		recoveryDB = new RecoveryDB(await getDBInstance('~/.lisk/auxiliary/recoveryLSK'));
+		recoveryDB = new RecoveryDB(await getDBInstance('~/.klayr/auxiliary/recoverykly'));
 		console.log('Recovery DB is initialized successfully.');
 	} catch (error) {
 		console.log('Error occurred while initializing DB', error);
 
 		process.exit();
 	}
-	const senderLSKAddress = 'lskxz85sur2yo22dmcxybe39uvh2fg7s2ezxq4ny9';
+	const senderklyAddress = 'klyxz85sur2yo22dmcxybe39uvh2fg7s2ezxq4ny9';
 	const sidechainBinaryAddress = address.getAddressFromPublicKey(
 		Buffer.from('2136cd87c5b60224291b0c374f315d325fd58ce10ca4d5989d1e2d371dc428ef', 'hex'),
 	);
 
-	const mainchainClient = await apiClient.createIPCClient(`~/.lisk/mainchain-node-one`);
-	const sidechainClient = await apiClient.createIPCClient(`~/.lisk/pos-sidechain-example-one`);
+	const mainchainClient = await apiClient.createIPCClient(`~/.klayr/mainchain-node-one`);
+	const sidechainClient = await apiClient.createIPCClient(`~/.klayr/pos-sidechain-example-one`);
 	const mainchainNodeInfo = await mainchainClient.invoke('system_getNodeInfo');
 	const sidechainNodeInfo = await sidechainClient.invoke('system_getNodeInfo');
 
@@ -274,8 +274,8 @@ type ProveResponseJSON = JSONObject<ProveResponse>;
 		console.log(
 			`\nReceived new block on sidechain ${sidechainNodeInfo.chainID} with height ${newBlockHeader.height}\n`,
 		);
-		const LSK_TOKEN_ID = Buffer.from('0400000000000000', 'hex');
-		const storeKey = Buffer.concat([sidechainBinaryAddress, LSK_TOKEN_ID]);
+		const KLY_TOKEN_ID = Buffer.from('0400000000000000', 'hex');
+		const storeKey = Buffer.concat([sidechainBinaryAddress, KLY_TOKEN_ID]);
 		const keyToBeRecovered = Buffer.concat([
 			Buffer.from('3c469e9d0000', 'hex'),
 			utils.hash(storeKey),
@@ -298,7 +298,7 @@ type ProveResponseJSON = JSONObject<ProveResponse>;
 			siblingHashes: proof.siblingHashes,
 		};
 
-		const userBalance = await getBalances(sidechainClient, senderLSKAddress, LSK_TOKEN_ID);
+		const userBalance = await getBalances(sidechainClient, senderklyAddress, KLY_TOKEN_ID);
 		console.log('User balance---->', userBalance);
 		const storeValue = codec.encode(userStoreSchema, userBalance);
 		console.log('StoreValue ------>', storeValue);
@@ -331,7 +331,7 @@ type ProveResponseJSON = JSONObject<ProveResponse>;
 			// Create recovery transaction
 			const relayerkeyInfo = keys[4];
 			const { nonce } = await mainchainClient.invoke<{ nonce: string }>('auth_getAuthAccount', {
-				address: address.getLisk32AddressFromPublicKey(
+				address: address.getKlayr32AddressFromPublicKey(
 					Buffer.from(relayerkeyInfo.publicKey, 'hex'),
 				),
 			});
@@ -344,10 +344,10 @@ type ProveResponseJSON = JSONObject<ProveResponse>;
 					`No siblingHash exists at a given height: ${lastCertificateOfSidechain.lastCertificate.height}`,
 				);
 			}
-			const LSK_TOKEN_ID = Buffer.from('0400000000000000', 'hex');
+			const KLY_TOKEN_ID = Buffer.from('0400000000000000', 'hex');
 			const keyToBeRecovered = Buffer.concat([
 				Buffer.from('3c469e9d0000', 'hex'),
-				utils.hash(Buffer.concat([sidechainBinaryAddress, LSK_TOKEN_ID])),
+				utils.hash(Buffer.concat([sidechainBinaryAddress, KLY_TOKEN_ID])),
 			]);
 			console.log(
 				'siblingHashesAfterLastCertificate------',

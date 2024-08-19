@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
-import { address as cryptoAddress } from '@liskhq/lisk-cryptography';
+import { validator } from '@klayr/validator';
+import { address as cryptoAddress } from '@klayr/cryptography';
 import { NotFoundError } from '@liskhq/lisk-db';
 import { BaseEndpoint } from '../base_endpoint';
 import { ValidatorStore } from './stores/validator';
@@ -36,13 +36,13 @@ export class PoAEndpoint extends BaseEndpoint {
 		validator.validate(getValidatorRequestSchema, context.params);
 		const address = context.params.address as string;
 
-		cryptoAddress.validateLisk32Address(address);
+		cryptoAddress.validateKlayr32Address(address);
 
 		let validatorName: { name: string };
 		try {
 			validatorName = await validatorSubStore.get(
 				context,
-				cryptoAddress.getAddressFromLisk32Address(address),
+				cryptoAddress.getAddressFromKlayr32Address(address),
 			);
 		} catch (error) {
 			if (!(error instanceof NotFoundError)) {
@@ -55,7 +55,7 @@ export class PoAEndpoint extends BaseEndpoint {
 		const snapshotStore = this.stores.get(SnapshotStore);
 		const currentRoundSnapshot = await snapshotStore.get(context, KEY_SNAPSHOT_0);
 		const validatorInfo = currentRoundSnapshot.validators.find(
-			v => cryptoAddress.getLisk32AddressFromAddress(v.address) === address,
+			v => cryptoAddress.getKlayr32AddressFromAddress(v.address) === address,
 		);
 		if (!validatorInfo) {
 			throw new Error(`Validator not found in snapshot for address ${address}`);
@@ -84,10 +84,10 @@ export class PoAEndpoint extends BaseEndpoint {
 
 		const validatorsData: Validator[] = [];
 		for (const data of validatorStoreData) {
-			const address = cryptoAddress.getLisk32AddressFromAddress(data.key);
+			const address = cryptoAddress.getKlayr32AddressFromAddress(data.key);
 			const { value } = data;
 			const activeValidator = currentRoundSnapshot.validators.find(
-				v => cryptoAddress.getLisk32AddressFromAddress(v.address) === address,
+				v => cryptoAddress.getKlayr32AddressFromAddress(v.address) === address,
 			);
 
 			const v: Validator = {

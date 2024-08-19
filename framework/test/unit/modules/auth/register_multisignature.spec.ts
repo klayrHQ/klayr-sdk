@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
+import { Transaction } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
 import * as testing from '../../../../src/testing';
 import { RegisterMultisignatureCommand } from '../../../../src/modules/auth/commands/register_multisignature';
 import { registerMultisignatureParamsSchema } from '../../../../src/modules/auth/schemas';

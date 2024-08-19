@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { BaseCCCommand } from '../../interoperability/base_cc_command';
 import { CrossChainMessageContext } from '../../interoperability/types';
 import { TokenMethod } from '../method';
@@ -45,11 +45,11 @@ export class CrossChainTransferCommand extends BaseCCCommand {
 	}
 
 	/**
-	 * The `init()` hook of a command is called by the Lisk Framework when the node starts.
+	 * The `init()` hook of a command is called by the Klayr Framework when the node starts.
 	 *
 	 * In this context, you have the opportunity to validate and cache the module config or perform initializations that are intended to occur only once.
 	 *
-	 * @see [Command initialization](https://lisk.com/documentation/beta/understand-blockchain/sdk/modules-commands.html#command-initialization)
+	 * @see [Command initialization](https://klayr.xyz/documentation/beta/understand-blockchain/sdk/modules-commands.html#command-initialization)
 	 *
 	 * @param args Contains the module methods and internal module methods.
 	 */

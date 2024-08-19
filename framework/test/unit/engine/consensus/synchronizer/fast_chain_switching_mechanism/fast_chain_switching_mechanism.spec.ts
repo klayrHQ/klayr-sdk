@@ -13,9 +13,9 @@
  */
 
 import { when } from 'jest-when';
-import { codec } from '@liskhq/lisk-codec';
-import { Block, Chain } from '@liskhq/lisk-chain';
-import { utils, address } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { Block, Chain } from '@klayr/chain';
+import { utils, address } from '@klayr/cryptography';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
 import {
 	FastChainSwitchingMechanism,
@@ -34,7 +34,7 @@ import {
 describe('fast_chain_switching_mechanism', () => {
 	const genesisBlock = getGenesisBlock();
 	const finalizedHeight = genesisBlock.header.height + 1;
-	const numberOfValidators = 103;
+	const numberOfValidators = 53;
 
 	let finalizedBlock: Block;
 	let lastBlock: Block;

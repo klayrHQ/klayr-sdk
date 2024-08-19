@@ -14,8 +14,8 @@
  */
 
 import * as repl from 'repl';
-import * as apiClient from '@liskhq/lisk-api-client';
-import * as lisk from '@liskhq/lisk-client';
+import * as apiClient from '@klayr/api-client';
+import * as klayr from '@klayr/client';
 import { ConsoleCommand } from '../../../src/bootstrapping/commands/console';
 import { getConfig } from '../../helpers/config';
 import { Awaited } from '../../types';
@@ -47,9 +47,9 @@ describe('hash-onion command', () => {
 			expect(apiClient.createIPCClient).toHaveBeenCalledTimes(0);
 		});
 
-		it('should create lisk property on repl server context, set to expoerts from @liskhq/lisk-client', async () => {
+		it('should create klayr property on repl server context, set to expoerts from @klayr/client', async () => {
 			await ConsoleCommand.run([], config);
-			expect(context['lisk']).toEqual(lisk);
+			expect(context['klayr']).toEqual(klayr);
 		});
 	});
 
@@ -61,10 +61,10 @@ describe('hash-onion command', () => {
 		});
 	});
 
-	describe('console --api-ipc=~/.lisk/lisk-core', () => {
+	describe('console --api-ipc=~/.klayr/klayr-core', () => {
 		it('should create repl server with ipc client', async () => {
-			await ConsoleCommand.run(['--api-ipc=~/.lisk/lisk-core'], config);
-			expect(apiClient.createIPCClient).toHaveBeenCalledWith('~/.lisk/lisk-core');
+			await ConsoleCommand.run(['--api-ipc=~/.klayr/klayr-core'], config);
+			expect(apiClient.createIPCClient).toHaveBeenCalledWith('~/.klayr/klayr-core');
 			expect(apiClient.createWSClient).toHaveBeenCalledTimes(0);
 		});
 	});

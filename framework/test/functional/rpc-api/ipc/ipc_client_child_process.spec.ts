@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { createIPCClient } from '@liskhq/lisk-api-client';
+import { createIPCClient } from '@klayr/api-client';
 import { Application } from '../../../../src';
 import { closeApplication, createApplicationWithHelloPlugin } from '../../utils/application';
 

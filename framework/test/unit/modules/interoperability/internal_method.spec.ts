@@ -12,12 +12,12 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import * as cryptography from '@liskhq/lisk-cryptography';
-import { bls, utils as cryptoUtils } from '@liskhq/lisk-cryptography';
-import { regularMerkleTree } from '@liskhq/lisk-tree';
-import { codec } from '@liskhq/lisk-codec';
+import * as cryptography from '@klayr/cryptography';
+import { bls, utils as cryptoUtils } from '@klayr/cryptography';
+import { regularMerkleTree } from '@klayr/tree';
+import { codec } from '@klayr/codec';
 import { SparseMerkleTree } from '@liskhq/lisk-db';
-import { validator } from '@liskhq/lisk-validator';
+import { validator } from '@klayr/validator';
 import {
 	BLS_PUBLIC_KEY_LENGTH,
 	BLS_SIGNATURE_LENGTH,
@@ -1900,7 +1900,7 @@ describe('Base interoperability internal method', () => {
 			).resolves.toBeUndefined();
 
 			// outboxKey = STORE_PREFIX_INTEROPERABILITY + SUBSTORE_PREFIX_OUTBOX_ROOT + sha256(OWN_CHAIN_ID)
-			// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0053.md#verifypartnerchainoutboxroot
+			// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#verifypartnerchainoutboxroot
 			const outboxKey = Buffer.concat([
 				Buffer.from('83ed0d25', 'hex'),
 				Buffer.from('0000', 'hex'),

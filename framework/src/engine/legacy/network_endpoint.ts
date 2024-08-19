@@ -13,8 +13,8 @@
  */
 
 import { Database, NotFoundError } from '@liskhq/lisk-db';
-import { codec } from '@liskhq/lisk-codec';
-import { validator } from '@liskhq/lisk-validator';
+import { codec } from '@klayr/codec';
+import { validator } from '@klayr/validator';
 import { Logger } from '../../logger';
 import { Network } from '../network';
 import { BaseNetworkEndpoint } from '../network/base_network_endpoint';

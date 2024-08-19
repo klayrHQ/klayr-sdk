@@ -1,4 +1,4 @@
-import { Application, Types, Modules } from 'lisk-sdk';
+import { Application, Types, Modules } from 'klayr-sdk';
 import { TestNftModule } from './modules/testNft/module';
 import { registerModules } from './modules';
 import { registerPlugins } from './plugins';

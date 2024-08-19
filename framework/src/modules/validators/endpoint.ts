@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { address as cryptoAddress, bls } from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
+import { address as cryptoAddress, bls } from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
 import { NotFoundError } from '@liskhq/lisk-db';
 import { ModuleEndpointContext } from '../../types';
 import { BaseEndpoint } from '../base_endpoint';
@@ -53,7 +53,7 @@ export class ValidatorsEndpoint extends BaseEndpoint {
 		try {
 			validatorKeys = await validatorsKeysStore.get(
 				ctx,
-				cryptoAddress.getAddressFromLisk32Address(ctx.params.address),
+				cryptoAddress.getAddressFromKlayr32Address(ctx.params.address),
 			);
 		} catch (error) {
 			if (!(error instanceof NotFoundError)) {

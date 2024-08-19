@@ -82,7 +82,7 @@ export const blockHeaderSchemaV2 = {
 	],
 };
 
-// https://github.com/LiskHQ/lisk-sdk/blob/release/5.3.0/elements/lisk-chain/src/transaction.ts
+// https://github.com/Klayrhq/klayr-sdk/blob/release/5.3.0/elements/chain/src/transaction.ts
 export const transactionSchemaV2 = {
 	$id: '/block/v2/transaction',
 	type: 'object',

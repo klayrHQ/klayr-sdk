@@ -1,4 +1,4 @@
-import { NUM_BYTES_ADDRESS } from 'lisk-framework/dist-node/modules/poa/constants';
+import { NUM_BYTES_ADDRESS } from 'klayr-framework/dist-node/modules/poa/constants';
 
 const validator = {
 	type: 'object',

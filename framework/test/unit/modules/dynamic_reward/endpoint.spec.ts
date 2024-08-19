@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { utils, address as cryptoAddress } from '@liskhq/lisk-cryptography';
+import { utils, address as cryptoAddress } from '@klayr/cryptography';
 import { DynamicRewardModule } from '../../../../src/modules/dynamic_reward';
 import { DynamicRewardEndpoint } from '../../../../src/modules/dynamic_reward/endpoint';
 import { PrefixedStateReadWriter } from '../../../../src/state_machine/prefixed_state_read_writer';
@@ -62,8 +62,8 @@ describe('DynamicRewardModuleEndpoint', () => {
 				}),
 			} as any,
 			{
-				getRoundLength: jest.fn().mockReturnValue(103),
-				getNumberOfActiveValidators: jest.fn().mockReturnValue(101),
+				getRoundLength: jest.fn().mockReturnValue(53),
+				getNumberOfActiveValidators: jest.fn().mockReturnValue(51),
 			} as any,
 		);
 		stateStore = new PrefixedStateReadWriter(new InMemoryPrefixedStateDB());
@@ -88,7 +88,7 @@ describe('DynamicRewardModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						validatorAddress: cryptoAddress.getLisk32AddressFromAddress(address3),
+						validatorAddress: cryptoAddress.getKlayr32AddressFromAddress(address3),
 					},
 				}),
 			);
@@ -106,7 +106,7 @@ describe('DynamicRewardModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						validatorAddress: cryptoAddress.getLisk32AddressFromAddress(address2),
+						validatorAddress: cryptoAddress.getKlayr32AddressFromAddress(address2),
 					},
 					context: {
 						header: createFakeBlockHeader({ height: 10000 }),
@@ -116,9 +116,9 @@ describe('DynamicRewardModuleEndpoint', () => {
 
 			expect(response).toEqual({
 				blockReward: '500000000',
-				dailyReward: '59916758400',
-				monthlyReward: '1797502752000',
-				yearlyReward: '21869616816000',
+				dailyReward: '116441971200',
+				monthlyReward: '3493259136000',
+				yearlyReward: '42501319488000',
 			});
 		});
 
@@ -127,7 +127,7 @@ describe('DynamicRewardModuleEndpoint', () => {
 				createTransientModuleEndpointContext({
 					stateStore,
 					params: {
-						validatorAddress: cryptoAddress.getLisk32AddressFromAddress(address),
+						validatorAddress: cryptoAddress.getKlayr32AddressFromAddress(address),
 					},
 					context: {
 						header: createFakeBlockHeader({ height: 10000 }),
@@ -138,9 +138,9 @@ describe('DynamicRewardModuleEndpoint', () => {
 			// total reward for active validators is 9LSK (5LSK - 0.5LSK) * 2, which will be distributed by weight
 			expect(response).toEqual({
 				blockReward: '464000000', // 9 * (230/500) + 0.5
-				dailyReward: '55602720000',
-				monthlyReward: '1668081600000',
-				yearlyReward: '20294992800000',
+				dailyReward: '108058147200',
+				monthlyReward: '3241744416000',
+				yearlyReward: '39441223728000',
 			});
 		});
 	});

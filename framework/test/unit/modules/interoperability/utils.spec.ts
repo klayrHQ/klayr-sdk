@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import * as cryptography from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
+import { utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import * as cryptography from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
 import { Modules, StateMachine } from '../../../../src';
 import {
 	CCMStatusCode,
@@ -43,8 +43,8 @@ import { certificateSchema } from '../../../../src/engine/consensus/certificate_
 import { Certificate } from '../../../../src/engine/consensus/certificate_generation/types';
 import { ChainStatus } from '../../../../src/modules/interoperability/stores/chain_account';
 
-jest.mock('@liskhq/lisk-cryptography', () => ({
-	...jest.requireActual('@liskhq/lisk-cryptography'),
+jest.mock('@klayr/cryptography', () => ({
+	...jest.requireActual('@klayr/cryptography'),
 }));
 
 describe('Utils', () => {
@@ -348,10 +348,10 @@ describe('Utils', () => {
 							bftWeight: BigInt(20),
 						},
 					],
-					blsKeysUpdate: new Array(100).fill(0).map((_, i) => Buffer.from([i + 3])),
-					bftWeightsUpdate: [BigInt(0), ...new Array(100).fill(0).map((_, i) => BigInt(i + 10))],
-					bftWeightsUpdateBitmap: bytesToBuffer('0'.repeat(27) + '1'.repeat(101)),
-					newValidators: new Array(100).fill(0).map((_, i) => ({
+					blsKeysUpdate: new Array(50).fill(0).map((_, i) => Buffer.from([i + 3])),
+					bftWeightsUpdate: [BigInt(0), ...new Array(50).fill(0).map((_, i) => BigInt(i + 10))],
+					bftWeightsUpdateBitmap: bytesToBuffer('0'.repeat(27) + '1'.repeat(51)),
+					newValidators: new Array(50).fill(0).map((_, i) => ({
 						blsKey: Buffer.from([i + 3]),
 						bftWeight: BigInt(i + 10),
 					})),

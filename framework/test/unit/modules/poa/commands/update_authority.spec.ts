@@ -1,7 +1,7 @@
-import { bls, utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { TransactionAttrs } from '@liskhq/lisk-chain';
-import { MAX_UINT64, validator } from '@liskhq/lisk-validator';
+import { bls, utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { TransactionAttrs } from '@klayr/chain';
+import { MAX_UINT64, validator } from '@klayr/validator';
 import { StateMachine, Modules, Transaction } from '../../../../../src';
 import { UpdateAuthorityCommand } from '../../../../../src/modules/poa/commands/update_authority';
 import { UpdateAuthorityParams, ValidatorsMethod } from '../../../../../src/modules/poa/types';

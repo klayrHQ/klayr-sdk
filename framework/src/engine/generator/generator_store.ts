@@ -13,7 +13,7 @@
  */
 
 import { Batch, IterateOptions, NotFoundError as DBNotFoundError } from '@liskhq/lisk-db';
-import { dataStructures } from '@liskhq/lisk-utils';
+import { dataStructures } from '@klayr/utils';
 import { NotFoundError } from './errors';
 import { GeneratorDB } from './types';
 

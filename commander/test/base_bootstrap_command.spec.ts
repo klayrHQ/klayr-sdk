@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -38,12 +38,12 @@ describe('base_bootstrap_command command', () => {
 		jest.spyOn(process.stderr, 'write').mockImplementation(val => stderr.push(val as string) > -1);
 	});
 
-	describe('_isLiskAppDir', () => {
-		it('should to check .liskrc.json file', async () => {
+	describe('_isKlayrappDir', () => {
+		it('should to check .klayrrc.json file', async () => {
 			jest.spyOn(fs, 'existsSync').mockReturnValue(true);
-			new MyCommand([], config as unknown as Config)['_isLiskAppDir']('/my/dir');
+			new MyCommand([], config as unknown as Config)['_isKlayrappDir']('/my/dir');
 
-			expect(fs.existsSync).toHaveBeenCalledWith('/my/dir/.liskrc.json');
+			expect(fs.existsSync).toHaveBeenCalledWith('/my/dir/.klayrrc.json');
 		});
 	});
 });

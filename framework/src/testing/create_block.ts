@@ -13,9 +13,9 @@
  *
  */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
-import { Block, BlockHeader, Transaction, BlockHeaderAttrs, BlockAssets } from '@liskhq/lisk-chain';
-import { address, utils, legacy, ed } from '@liskhq/lisk-cryptography';
-import { MerkleTree } from '@liskhq/lisk-tree';
+import { Block, BlockHeader, Transaction, BlockHeaderAttrs, BlockAssets } from '@klayr/chain';
+import { address, utils, legacy, ed } from '@klayr/cryptography';
+import { MerkleTree } from '@klayr/tree';
 
 interface CreateBlock {
 	privateKey: Buffer;

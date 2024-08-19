@@ -1,4 +1,4 @@
-import { Modules, StateMachine } from 'lisk-sdk';
+import { Modules, StateMachine } from 'klayr-sdk';
 import { MessageStore, MessageStoreData } from './stores/message';
 
 export class HelloMethod extends Modules.BaseMethod {

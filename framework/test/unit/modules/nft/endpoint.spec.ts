@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
-import { address, utils } from '@liskhq/lisk-cryptography';
+import { validator } from '@klayr/validator';
+import { address, utils } from '@klayr/cryptography';
 import { NFTEndpoint } from '../../../../src/modules/nft/endpoint';
 import { NFTMethod } from '../../../../src/modules/nft/method';
 import { NFTModule } from '../../../../src/modules/nft/module';
@@ -67,7 +67,7 @@ describe('NFTEndpoint', () => {
 	let methodContext: MethodContext;
 
 	const owner = utils.getRandomBytes(LENGTH_ADDRESS);
-	const ownerAddress = address.getLisk32AddressFromAddress(owner);
+	const ownerAddress = address.getKlayr32AddressFromAddress(owner);
 	const escrowChainID = utils.getRandomBytes(LENGTH_CHAIN_ID);
 
 	const nfts: NFTofOwner[] = [
@@ -122,7 +122,7 @@ describe('NFTEndpoint', () => {
 			});
 
 			await expect(endpoint.getNFTs(context)).rejects.toThrow(
-				`'.address' must match format "lisk32"`,
+				`'.address' must match format "klayr32"`,
 			);
 		});
 
@@ -130,7 +130,7 @@ describe('NFTEndpoint', () => {
 			const context = createTransientModuleEndpointContext({
 				stateStore,
 				params: {
-					address: address.getLisk32AddressFromAddress(utils.getRandomBytes(LENGTH_ADDRESS)),
+					address: address.getKlayr32AddressFromAddress(utils.getRandomBytes(LENGTH_ADDRESS)),
 				},
 			});
 
@@ -202,7 +202,7 @@ describe('NFTEndpoint', () => {
 			});
 
 			await expect(endpoint.hasNFT(context)).rejects.toThrow(
-				`'.address' must match format "lisk32"`,
+				`'.address' must match format "klayr32"`,
 			);
 		});
 

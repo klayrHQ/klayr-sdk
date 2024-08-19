@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -45,33 +45,33 @@ describe('generate:plugin command', () => {
 	});
 
 	describe('generate:plugin should check app directory', () => {
-		it('should throw error if cwd is not a lisk app directory', async () => {
-			jest.spyOn<any, any>(BaseBootstrapCommand.prototype, '_isLiskAppDir').mockReturnValue(false);
+		it('should throw error if cwd is not a klayr app directory', async () => {
+			jest.spyOn<any, any>(BaseBootstrapCommand.prototype, '_isKlayrappDir').mockReturnValue(false);
 			jest.spyOn(process, 'cwd').mockReturnValue('/my/dir');
 
 			await expect(PluginCommand.run(['httpPlugin'], config)).rejects.toThrow(
-				'You can run this command only in lisk app directory. Run "lisk init --help" command for more details.',
+				'You can run this command only in klayr app directory. Run "klayr init --help" command for more details.',
 			);
-			expect(BaseBootstrapCommand.prototype['_isLiskAppDir']).toHaveBeenCalledWith('/my/dir');
+			expect(BaseBootstrapCommand.prototype['_isKlayrappDir']).toHaveBeenCalledWith('/my/dir');
 		});
 
-		it('should not throw error if cwd is a lisk app directory', async () => {
-			jest.spyOn<any, any>(BaseBootstrapCommand.prototype, '_isLiskAppDir').mockReturnValue(true);
+		it('should not throw error if cwd is a klayr app directory', async () => {
+			jest.spyOn<any, any>(BaseBootstrapCommand.prototype, '_isKlayrappDir').mockReturnValue(true);
 			jest
 				.spyOn<any, any>(BaseBootstrapCommand.prototype, '_runBootstrapCommand')
 				.mockResolvedValue(null as never);
 			jest.spyOn(process, 'cwd').mockReturnValue('/my/dir');
 
 			await expect(PluginCommand.run(['httpPlugin'], config)).resolves.toBeNull();
-			expect(BaseBootstrapCommand.prototype['_isLiskAppDir']).toHaveBeenCalledWith('/my/dir');
+			expect(BaseBootstrapCommand.prototype['_isKlayrappDir']).toHaveBeenCalledWith('/my/dir');
 			expect(BaseBootstrapCommand.prototype['_runBootstrapCommand']).toHaveBeenCalledWith(
-				'lisk:generate:plugin',
+				'klayr:generate:plugin',
 				{ name: 'httpPlugin' },
 			);
 		});
 
-		it('should not throw error if cwd is not lisk app directory and --standalone was provided', async () => {
-			jest.spyOn<any, any>(BaseBootstrapCommand.prototype, '_isLiskAppDir');
+		it('should not throw error if cwd is not klayr app directory and --standalone was provided', async () => {
+			jest.spyOn<any, any>(BaseBootstrapCommand.prototype, '_isKlayrappDir');
 			jest
 				.spyOn<any, any>(BaseBootstrapCommand.prototype, '_runBootstrapCommand')
 				.mockResolvedValue(null as never);
@@ -79,9 +79,9 @@ describe('generate:plugin command', () => {
 			await expect(
 				PluginCommand.run(['httpPlugin', '--standalone', '--output', '/my/dir'], config),
 			).resolves.toBeNull();
-			expect(BaseBootstrapCommand.prototype['_isLiskAppDir']).not.toHaveBeenCalled();
+			expect(BaseBootstrapCommand.prototype['_isKlayrappDir']).not.toHaveBeenCalled();
 			expect(BaseBootstrapCommand.prototype['_runBootstrapCommand']).toHaveBeenCalledWith(
-				'lisk:init:plugin',
+				'klayr:init:plugin',
 				{
 					name: 'httpPlugin',
 					projectPath: '/my/dir',

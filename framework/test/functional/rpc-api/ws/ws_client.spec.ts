@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { DB_KEY_ACCOUNTS_ADDRESS, concatDBKeys } from '@liskhq/lisk-chain';
-import { createWSClient } from '@liskhq/lisk-method-client';
+import { DB_KEY_ACCOUNTS_ADDRESS, concatDBKeys } from '@klayr/chain';
+import { createWSClient } from '@klayrhq/klayr-method-client';
 import {
 	closeApplication,
 	waitNBlocks,
@@ -113,7 +113,7 @@ describe('method client ws mode', () => {
 			// Act
 			const validators = await client.invoke('pos:getAllValidators');
 			// Assert
-			expect(validators).toHaveLength(103);
+			expect(validators).toHaveLength(53);
 		});
 
 		it('should throw an error on invalid action', async () => {

@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -13,7 +13,7 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import { Application } from 'lisk-framework';
+import { Application } from 'klayr-framework';
 
 export const getApplication = (): Application => {
 	const { app } = Application.defaultApplication({ genesis: { chainID: '00000000' } });

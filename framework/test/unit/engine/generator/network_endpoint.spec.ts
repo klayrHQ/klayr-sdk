@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Chain, Transaction } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { TransactionPool } from '@liskhq/lisk-transaction-pool';
+import { Chain, Transaction } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { TransactionPool } from '@klayr/transaction-pool';
 import { when } from 'jest-when';
 import { Logger } from '../../../../src/logger';
 import { Broadcaster } from '../../../../src/engine/generator/broadcaster';

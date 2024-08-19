@@ -20,13 +20,13 @@ import {
 } from './constants';
 
 export const mintNftParamsSchema = {
-	$id: '/lisk/nftTransferParams',
+	$id: '/klayr/nftTransferParams',
 	type: 'object',
 	required: ['address', 'collectionID', 'attributesArray'],
 	properties: {
 		address: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 1,
 		},
 		collectionID: {
@@ -60,13 +60,13 @@ export const mintNftParamsSchema = {
 };
 
 export const destroyNftParamsSchema = {
-	$id: '/lisk/nftDestroyParams',
+	$id: '/klayr/nftDestroyParams',
 	type: 'object',
 	required: ['address', 'nftID'],
 	properties: {
 		address: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 1,
 		},
 		nftID: {

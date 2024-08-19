@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { utils, address as addressUtils } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { utils, address as addressUtils } from '@klayr/cryptography';
 import { ValidatorsMethod, ValidatorsModule } from '../../../../src/modules/validators';
 import {
 	MODULE_NAME_VALIDATORS,
@@ -57,7 +57,7 @@ describe('ValidatorsModuleMethod', () => {
 	let validatorsSubStore: ValidatorKeysStore;
 	let blsKeysSubStore: BLSKeyStore;
 	let validatorsParamsSubStore: ValidatorsParamsStore;
-	const blockTime = 10;
+	const blockTime = 7;
 	const genesisConfig: any = { blockTime };
 	const moduleConfig: any = {};
 	const address = utils.getRandomBytes(ADDRESS_LENGTH);
@@ -681,7 +681,7 @@ describe('ValidatorsModuleMethod', () => {
 		});
 
 		it('should be able to return generators with at least one generator assigned more than one slot if input timestamps are valid and difference between input timestamps is greater than or equal to one round plus two blocks', async () => {
-			const validatorsPerRound = 101;
+			const validatorsPerRound = 51;
 			const timePerRound = validatorsPerRound * blockTime;
 
 			const result = await validatorsModule.method.getGeneratorsBetweenTimestamps(
@@ -700,7 +700,7 @@ describe('ValidatorsModuleMethod', () => {
 		});
 
 		it('should be able to return with all generators assigned at least 2 slots and at least one generator assigned more than 2 slots if input timestamps are valid and difference between timestamps is larger or equal to length of two rounds plus two block slots', async () => {
-			const validatorsPerRound = 101;
+			const validatorsPerRound = 51;
 			const timePerRound = validatorsPerRound * blockTime;
 
 			const result = await validatorsModule.method.getGeneratorsBetweenTimestamps(
@@ -781,15 +781,15 @@ describe('ValidatorsModuleMethod', () => {
 				validator.address.toString('binary'),
 			);
 			const expectedGenerators = [
-				generatorAddressesInStore[100],
+				generatorAddressesInStore[50],
 				generatorAddressesInStore[0],
 				generatorAddressesInStore[1],
 			];
 
 			const result = await validatorsModule.method.getGeneratorsBetweenTimestamps(
 				methodContext,
-				99 * blockTime,
-				103 * blockTime,
+				49 * blockTime,
+				53 * blockTime,
 			);
 
 			const actualGenerators = Object.keys(result);
@@ -1025,8 +1025,8 @@ describe('ValidatorsModuleMethod', () => {
 						'a84b3fc0a53fcb07c6057442cf11b37ef0a3d3216fc8e245f9cbf43c13193515f0de3ab9ef4f6b0e04ecdb4df212d96a',
 						'hex',
 					),
-					address: addressUtils.getAddressFromLisk32Address(
-						'lsk8kpswabbcjrnfp89demrfvryx9sgjsma87pusk',
+					address: addressUtils.getAddressFromKlayr32Address(
+						'kly8kpswabbcjrnfp89demrfvryx9sgjsma87pusk',
 					),
 					bftWeight: BigInt(54),
 				},
@@ -1039,8 +1039,8 @@ describe('ValidatorsModuleMethod', () => {
 						'8d4151757d14b1a30f7088f0bb1505bfd94a471872d565de563dbce32f696cb77afcc026170c343d0329ad554df564f6',
 						'hex',
 					),
-					address: addressUtils.getAddressFromLisk32Address(
-						'lskkjm548jqdrgzqrozpkew9z82kqfvtpmvavj7d6',
+					address: addressUtils.getAddressFromKlayr32Address(
+						'klykjm548jqdrgzqrozpkew9z82kqfvtpmvavj7d6',
 					),
 					bftWeight: BigInt(33),
 				},
@@ -1097,8 +1097,8 @@ describe('ValidatorsModuleMethod', () => {
 						'a84b3fc0a53fcb07c6057442cf11b37ef0a3d3216fc8e245f9cbf43c13193515f0de3ab9ef4f6b0e04ecdb4df212d96a',
 						'hex',
 					),
-					address: addressUtils.getAddressFromLisk32Address(
-						'lsk8kpswabbcjrnfp89demrfvryx9sgjsma87pusk',
+					address: addressUtils.getAddressFromKlayr32Address(
+						'kly8kpswabbcjrnfp89demrfvryx9sgjsma87pusk',
 					),
 					bftWeight: BigInt(54),
 				},
@@ -1111,8 +1111,8 @@ describe('ValidatorsModuleMethod', () => {
 						'8d4151757d14b1a30f7088f0bb1505bfd94a471872d565de563dbce32f696cb77afcc026170c343d0329ad554df564f6',
 						'hex',
 					),
-					address: addressUtils.getAddressFromLisk32Address(
-						'lskkjm548jqdrgzqrozpkew9z82kqfvtpmvavj7d6',
+					address: addressUtils.getAddressFromKlayr32Address(
+						'klykjm548jqdrgzqrozpkew9z82kqfvtpmvavj7d6',
 					),
 					bftWeight: BigInt(33),
 				},

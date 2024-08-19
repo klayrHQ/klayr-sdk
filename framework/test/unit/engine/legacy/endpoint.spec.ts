@@ -14,8 +14,8 @@
  */
 
 import { InMemoryDatabase } from '@liskhq/lisk-db';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { LegacyEndpoint } from '../../../../src/engine/legacy/endpoint';
 import { blockFixtures } from './fixtures';
 import {

@@ -17,4 +17,4 @@ A set of test generators for updated multisignatures transactions by LIP-0017
 
 ## Resources
 
-- [LIP-0017](https://github.com/LiskHQ/lips/blob/master/proposals/lip-0017.md)
+- [LIP-0017](https://github.com/Klayrhq/lips/blob/master/proposals/lip-0017.md)

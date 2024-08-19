@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction } from '@liskhq/lisk-chain';
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { Transaction } from '@klayr/chain';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import * as testing from '../../../../../src/testing';
 import { RegisterValidatorCommand } from '../../../../../src/modules/pos/commands/register_validator';
 import { validatorRegistrationCommandParamsSchema } from '../../../../../src/modules/pos/schemas';
@@ -37,7 +37,7 @@ import {
 	VALIDATOR_REGISTRATION_FEE,
 } from '../../../../../src/modules/pos/constants';
 import { ValidatorRegisteredEvent } from '../../../../../src/modules/pos/events/validator_registered';
-import { liskToBeddows } from '../../../../utils/assets';
+import { klayrtoBeddows } from '../../../../utils/assets';
 
 describe('Validator registration command', () => {
 	const pos = new Modules.PoS.PoSModule();
@@ -77,7 +77,7 @@ describe('Validator registration command', () => {
 		command: 'registerValidator',
 		senderPublicKey: publicKey,
 		nonce: BigInt(0),
-		fee: liskToBeddows(20),
+		fee: klayrtoBeddows(20),
 		params: encodedTransactionParams,
 		signatures: [publicKey],
 	});
@@ -138,7 +138,7 @@ describe('Validator registration command', () => {
 					name: '1'.repeat(MAX_LENGTH_NAME + 1),
 				}),
 			).toThrow(
-				`Lisk validator found 1 error[s]:\nProperty '.name' must NOT have more than ${MAX_LENGTH_NAME} characters`,
+				`Klayr validator found 1 error[s]:\nProperty '.name' must NOT have more than ${MAX_LENGTH_NAME} characters`,
 			);
 		});
 
@@ -149,7 +149,7 @@ describe('Validator registration command', () => {
 					name: '',
 				}),
 			).toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.name' must NOT have fewer than 1 characters",
+				"Klayr validator found 1 error[s]:\nProperty '.name' must NOT have fewer than 1 characters",
 			);
 		});
 
@@ -206,7 +206,7 @@ describe('Validator registration command', () => {
 				command: 'registerValidator',
 				senderPublicKey: publicKey,
 				nonce: BigInt(0),
-				fee: liskToBeddows(1),
+				fee: klayrtoBeddows(1),
 				params: invalidParams,
 				signatures: [publicKey],
 			});

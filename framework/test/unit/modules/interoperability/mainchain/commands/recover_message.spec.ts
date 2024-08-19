@@ -13,11 +13,11 @@
  */
 /* eslint-disable max-classes-per-file */
 
-import { codec } from '@liskhq/lisk-codec';
-import { Transaction } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
-import { MerkleTree, regularMerkleTree } from '@liskhq/lisk-tree';
-import { Proof } from '@liskhq/lisk-tree/dist-node/merkle_tree/types';
+import { codec } from '@klayr/codec';
+import { Transaction } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
+import { MerkleTree, regularMerkleTree } from '@klayr/tree';
+import { Proof } from '@klayr/tree/dist-node/merkle_tree/types';
 import { Modules, StateMachine } from '../../../../../../src';
 import { BaseCCCommand } from '../../../../../../src/modules/interoperability/base_cc_command';
 import { BaseCCMethod } from '../../../../../../src/modules/interoperability/base_cc_method';

@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
-import { address as cryptoAddress } from '@liskhq/lisk-cryptography';
-import { Schema } from '@liskhq/lisk-codec';
+import { validator } from '@klayr/validator';
+import { address as cryptoAddress } from '@klayr/cryptography';
+import { Schema } from '@klayr/codec';
 import { ModuleEndpointContext } from '../../types';
 import { VerifyStatus } from '../../state_machine';
 import { BaseEndpoint } from '../base_endpoint';
@@ -39,9 +39,9 @@ export class AuthEndpoint extends BaseEndpoint {
 		if (typeof address !== 'string') {
 			throw new Error('Invalid address format.');
 		}
-		cryptoAddress.validateLisk32Address(address);
+		cryptoAddress.validateKlayr32Address(address);
 
-		const accountAddress = cryptoAddress.getAddressFromLisk32Address(address);
+		const accountAddress = cryptoAddress.getAddressFromKlayr32Address(address);
 		const authAccountStore = this.stores.get(AuthAccountStore);
 		const authAccount = await authAccountStore.getOrDefault(context, accountAddress);
 
@@ -56,7 +56,7 @@ export class AuthEndpoint extends BaseEndpoint {
 	/**
 	 * Validates signatures of the provided transaction, including transactions from multisignature accounts.
 	 *
-	 * https://github.com/LiskHQ/lips/blob/main/proposals/lip-0041.md#isvalidsignature
+	 * https://github.com/Klayrhq/lips/blob/main/proposals/lip-0041.md#isvalidsignature
 	 */
 	public async isValidSignature(context: ModuleEndpointContext): Promise<VerifyEndpointResultJSON> {
 		const {

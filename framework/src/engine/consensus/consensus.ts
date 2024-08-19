@@ -20,11 +20,11 @@ import {
 	BlockHeader,
 	MAX_EVENTS_PER_BLOCK,
 	EVENT_KEY_LENGTH,
-} from '@liskhq/lisk-chain';
-import { jobHandlers, objects } from '@liskhq/lisk-utils';
+} from '@klayr/chain';
+import { jobHandlers, objects } from '@klayr/utils';
 import { Database, Batch, SparseMerkleTree } from '@liskhq/lisk-db';
-import { codec } from '@liskhq/lisk-codec';
-import { address, utils } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { address, utils } from '@klayr/cryptography';
 import { Logger } from '../../logger';
 import {
 	BlockSynchronizationMechanism,
@@ -426,7 +426,7 @@ export class Consensus {
 					{
 						id: block.header.id,
 						height: block.header.height,
-						generator: address.getLisk32AddressFromAddress(block.header.generatorAddress),
+						generator: address.getKlayr32AddressFromAddress(block.header.generatorAddress),
 						maxHeightPrevoted: block.header.maxHeightPrevoted,
 						maxHeightGenerated: block.header.maxHeightGenerated,
 					},
@@ -451,7 +451,7 @@ export class Consensus {
 				this._logger.warn(
 					{
 						id: block.header.id,
-						generatorAddress: address.getLisk32AddressFromAddress(block.header.generatorAddress),
+						generatorAddress: address.getKlayr32AddressFromAddress(block.header.generatorAddress),
 					},
 					'Discarding block due to double forging',
 				);
@@ -459,7 +459,7 @@ export class Consensus {
 					{
 						id: block.header.id,
 						height: block.header.height,
-						generator: address.getLisk32AddressFromAddress(block.header.generatorAddress),
+						generator: address.getKlayr32AddressFromAddress(block.header.generatorAddress),
 						maxHeightPrevoted: block.header.maxHeightPrevoted,
 						maxHeightGenerated: block.header.maxHeightGenerated,
 					},
@@ -482,7 +482,7 @@ export class Consensus {
 					{
 						id: block.header.id,
 						height: block.header.height,
-						generator: address.getLisk32AddressFromAddress(block.header.generatorAddress),
+						generator: address.getKlayr32AddressFromAddress(block.header.generatorAddress),
 						maxHeightPrevoted: block.header.maxHeightPrevoted,
 						maxHeightGenerated: block.header.maxHeightGenerated,
 					},
@@ -507,7 +507,7 @@ export class Consensus {
 					{
 						id: block.header.id,
 						height: block.header.height,
-						generator: address.getLisk32AddressFromAddress(block.header.generatorAddress),
+						generator: address.getKlayr32AddressFromAddress(block.header.generatorAddress),
 						maxHeightPrevoted: block.header.maxHeightPrevoted,
 						maxHeightGenerated: block.header.maxHeightGenerated,
 					},
@@ -598,7 +598,7 @@ export class Consensus {
 				{
 					id: block.header.id,
 					height: block.header.height,
-					generator: address.getLisk32AddressFromAddress(block.header.generatorAddress),
+					generator: address.getKlayr32AddressFromAddress(block.header.generatorAddress),
 					numberOfTransactions: block.transactions.length,
 					numberOfAssets: block.assets.getAll().length,
 				},
@@ -646,7 +646,7 @@ export class Consensus {
 			{
 				id: block.header.id,
 				height: block.header.height,
-				generator: address.getLisk32AddressFromAddress(block.header.generatorAddress),
+				generator: address.getKlayr32AddressFromAddress(block.header.generatorAddress),
 				numberOfTransactions: block.transactions.length,
 				numberOfAssets: block.assets.getAll().length,
 				numberOfEvents: events.length,

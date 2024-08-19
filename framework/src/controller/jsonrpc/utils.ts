@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { validator } from '@liskhq/lisk-validator';
+import { validator } from '@klayr/validator';
 import {
 	JSONRPCErrorObject,
 	ID,

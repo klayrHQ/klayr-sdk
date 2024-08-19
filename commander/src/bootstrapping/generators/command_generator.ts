@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -23,7 +23,7 @@ interface CommandGeneratorOptions extends BaseGeneratorOptions {
 }
 
 export default class CommandGenerator extends BaseGenerator {
-	protected _liskAssetArgs: {
+	protected _klayrassetArgs: {
 		moduleName: string;
 		commandName: string;
 	};
@@ -31,7 +31,7 @@ export default class CommandGenerator extends BaseGenerator {
 	public constructor(args: string | string[], opts: CommandGeneratorOptions) {
 		super(args, opts);
 
-		this._liskAssetArgs = {
+		this._klayrassetArgs = {
 			moduleName: opts.moduleName,
 			commandName: opts.commandName,
 		};
@@ -45,10 +45,10 @@ export default class CommandGenerator extends BaseGenerator {
 		this.log('Generating asset skeleton.');
 		this.composeWith(
 			{
-				Generator: this._liskTemplate.generators.command,
-				path: this._liskTemplatePath,
+				Generator: this._klayrTemplate.generators.command,
+				path: this._klayrTemplatePath,
 			},
-			this._liskAssetArgs,
+			this._klayrassetArgs,
 		);
 	}
 

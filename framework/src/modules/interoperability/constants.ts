@@ -12,18 +12,18 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 
 export const MODULE_NAME_INTEROPERABILITY = 'interoperability';
 
 // General constants
-export const CHAIN_NAME_MAINCHAIN = 'lisk_mainchain';
+export const CHAIN_NAME_MAINCHAIN = 'klayr_mainchain';
 export const MAX_RESERVED_ERROR_STATUS = 63;
 export const BLS_PUBLIC_KEY_LENGTH = 48;
 export const BLS_SIGNATURE_LENGTH = 96;
 export const SMT_KEY_LENGTH = 38;
-export const NUMBER_ACTIVE_VALIDATORS_MAINCHAIN = 101;
-export const MESSAGE_TAG_CHAIN_REG = 'LSK_CRM_';
+export const NUMBER_ACTIVE_VALIDATORS_MAINCHAIN = 51;
+export const MESSAGE_TAG_CHAIN_REG = 'KLY_CRM_';
 export const LIVENESS_LIMIT = 2419200; // 28 * 24 * 3600
 export const MAX_CCM_SIZE = 10240;
 export const EMPTY_FEE_ADDRESS = Buffer.alloc(0);
@@ -35,7 +35,7 @@ export const MAX_LENGTH_AGGREGATION_BITS = Math.ceil(MAX_NUM_VALIDATORS / 8);
 export const MAX_LENGTH_NAME = 40;
 export const MAX_UINT32 = 4294967295;
 export const MAX_UINT64 = BigInt('18446744073709551615'); // BigInt((2 ** 64) - 1) - 1
-export const MESSAGE_TAG_CERTIFICATE = 'LSK_CE_';
+export const MESSAGE_TAG_CERTIFICATE = 'KLY_CE_';
 export const MIN_CHAIN_NAME_LENGTH = 1;
 export const MAX_CHAIN_NAME_LENGTH = 32;
 export const HASH_LENGTH = 32;
@@ -102,7 +102,7 @@ export const EVENT_NAME_INVALID_OUTBOX_ROOT_VERIFICATION = 'invalidOutboxRootVer
 export const CONTEXT_STORE_KEY_CCM_PROCESSING = 'CONTEXT_STORE_KEY_CCM_PROCESSING';
 export const EVENT_TOPIC_CCM_EXECUTION = Buffer.from([5]);
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#empty-cross-chain-message
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#empty-cross-chain-message
 export const EmptyCCM = {
 	module: '',
 	crossChainCommand: '',

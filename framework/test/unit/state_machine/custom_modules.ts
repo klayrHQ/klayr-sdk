@@ -17,7 +17,7 @@ import { TransactionVerifyResult, StateMachine, Modules } from '../../../src';
 
 export class CustomCommand0 extends Modules.BaseCommand {
 	public schema = {
-		$id: '/lisk/customCommand0',
+		$id: '/klayr/customCommand0',
 		type: 'object',
 		properties: {
 			data: {
@@ -77,7 +77,7 @@ export class CustomModule1 extends Modules.BaseModule {
 
 export class CustomCommand2 extends Modules.BaseCommand {
 	public schema = {
-		$id: '/lisk/customCommand2',
+		$id: '/klayr/customCommand2',
 		type: 'object',
 		properties: {
 			data: {
@@ -139,7 +139,7 @@ export class CustomModule2 extends Modules.BaseModule {
 
 export class CustomCommand3 extends Modules.BaseCommand {
 	public schema = {
-		$id: '/lisk/customCommand3',
+		$id: '/klayr/customCommand3',
 		type: 'object',
 		properties: {
 			data: {

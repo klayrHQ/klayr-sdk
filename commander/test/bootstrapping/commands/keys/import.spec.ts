@@ -13,9 +13,9 @@
  *
  */
 
-import { ed, bls, encrypt, utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import * as apiClient from '@liskhq/lisk-api-client';
+import { ed, bls, encrypt, utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import * as apiClient from '@klayr/api-client';
 import * as fs from 'fs-extra';
 
 import * as appUtils from '../../../../src/utils/application';

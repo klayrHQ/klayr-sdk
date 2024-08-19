@@ -68,7 +68,7 @@ export const getHelloRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };
@@ -76,7 +76,7 @@ export const getHelloRequestSchema = {
 // Schema for the parameters of the crossChainReact CCM
 export const CCReactMessageParamsSchema = {
 	// The unique identifier of the schema.
-	$id: '/lisk/hello/ccReactMessageParams',
+	$id: '/klayr/hello/ccReactMessageParams',
 	type: 'object',
 	// The required parameters for the CCM.
 	required: ['reactionType', 'helloMessageID', 'data'],

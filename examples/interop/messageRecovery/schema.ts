@@ -1,4 +1,4 @@
-import { ccmSchema } from 'lisk-sdk';
+import { ccmSchema } from 'klayr-sdk';
 
 export const ccmsInfoSchema = {
 	$id: 'msgRecoveryPlugin/ccmsFromEvents',

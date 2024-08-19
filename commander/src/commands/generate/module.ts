@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -46,14 +46,14 @@ export default class ModuleCommand extends BaseBootstrapCommand {
 			this.error('Invalid module name');
 		}
 
-		if (!this._isLiskAppDir(process.cwd())) {
+		if (!this._isKlayrappDir(process.cwd())) {
 			this.error(
-				'You can run this command only in lisk app directory. Run "lisk init --help" command for more details.',
+				'You can run this command only in klayr app directory. Run "klayr init --help" command for more details.',
 			);
 		}
 
 		this.log(`Creating module skeleton with module name "${moduleName as string}"`);
-		return this._runBootstrapCommand('lisk:generate:module', {
+		return this._runBootstrapCommand('klayr:generate:module', {
 			moduleName: moduleName as string,
 		});
 	}

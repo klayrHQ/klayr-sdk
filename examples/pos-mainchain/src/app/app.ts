@@ -1,4 +1,4 @@
-import { Application, Types, Modules } from 'lisk-sdk';
+import { Application, Types, Modules } from 'klayr-sdk';
 import { TestNftModule } from './modules/testNft/module';
 
 export const getApplication = (config: Types.PartialApplicationConfig): Application => {

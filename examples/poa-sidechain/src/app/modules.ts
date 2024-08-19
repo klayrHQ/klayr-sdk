@@ -1,4 +1,4 @@
-import { Application, Modules, Types } from 'lisk-sdk';
+import { Application, Modules, Types } from 'klayr-sdk';
 
 export const registerModules = (config: Types.PartialApplicationConfig): Application => {
 	const application = new Application(config);
@@ -20,7 +20,7 @@ export const registerModules = (config: Types.PartialApplicationConfig): Applica
 	interoperabilityModule.registerInteroperableModule(tokenModule);
 	interoperabilityModule.registerInteroperableModule(feeModule);
 
-	// Register modules in the sequence defined in LIP0063 https://github.com/LiskHQ/lips/blob/main/proposals/lip-0063.md#modules
+	// Register modules in the sequence defined in LIP0063 https://github.com/Klayrhq/lips/blob/main/proposals/lip-0063.md#modules
 	application.registerModule(authModule);
 	application.registerModule(validatorModule);
 	application.registerModule(tokenModule);

@@ -12,11 +12,11 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import * as liskApiClient from '@liskhq/lisk-api-client';
-import * as cryptography from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { TransactionJSON } from '@liskhq/lisk-chain';
-import { Modules, Types } from 'lisk-framework';
+import * as klayrapiClient from '@klayr/api-client';
+import * as cryptography from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { TransactionJSON } from '@klayr/chain';
+import { Modules, Types } from 'klayr-framework';
 
 import { Schema } from '../types';
 import { getDefaultPath } from './path';
@@ -62,7 +62,7 @@ export const encodeTransaction = (
 	schema: Types.RegisteredSchema,
 	metadata: Modules.ModuleMetadataJSON[],
 	transaction: Record<string, unknown>,
-	apiClient?: liskApiClient.APIClient,
+	apiClient?: klayrapiClient.APIClient,
 ): Buffer => {
 	if (apiClient) {
 		return apiClient.transaction.encode(transaction);
@@ -81,7 +81,7 @@ export const encodeTransactionJSON = (
 	schema: Types.RegisteredSchema,
 	metadata: Modules.ModuleMetadataJSON[],
 	transaction: Record<string, unknown>,
-	apiClient?: liskApiClient.APIClient,
+	apiClient?: klayrapiClient.APIClient,
 ): Buffer => {
 	if (apiClient) {
 		return apiClient.transaction.encode(apiClient.transaction.fromJSON(transaction as never));
@@ -103,7 +103,7 @@ export const transactionToJSON = (
 	schema: Types.RegisteredSchema,
 	metadata: Modules.ModuleMetadataJSON[],
 	transaction: Record<string, unknown>,
-	apiClient?: liskApiClient.APIClient,
+	apiClient?: klayrapiClient.APIClient,
 ): Record<string, unknown> => {
 	if (apiClient) {
 		return apiClient.transaction.toJSON(transaction);
@@ -126,12 +126,12 @@ export const transactionToJSON = (
 export const getApiClient = async (
 	appDataPath: string | undefined,
 	name: string,
-): Promise<liskApiClient.APIClient> => {
+): Promise<klayrapiClient.APIClient> => {
 	const dataPath = appDataPath ?? getDefaultPath(name);
 
 	if (!isApplicationRunning(dataPath)) {
 		throw new Error(`Application at data path ${dataPath} is not running.`);
 	}
-	const client = await liskApiClient.createIPCClient(dataPath);
+	const client = await klayrapiClient.createIPCClient(dataPath);
 	return client;
 };

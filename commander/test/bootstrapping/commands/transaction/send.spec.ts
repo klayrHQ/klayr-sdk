@@ -14,8 +14,8 @@
  */
 import * as fs from 'fs-extra';
 import { join } from 'path';
-import { transactionSchema } from 'lisk-framework';
-import * as apiClient from '@liskhq/lisk-api-client';
+import { transactionSchema } from 'klayr-framework';
+import * as apiClient from '@klayr/api-client';
 import { when } from 'jest-when';
 
 import * as appUtils from '../../../../src/utils/application';
@@ -40,7 +40,7 @@ describe('transaction:send command', () => {
 		amount: '1',
 		fee: '0.2',
 		nonce: 1,
-		recipientAddress: 'lskxpxg4y755b9nr6m7f4gcvtk2mp7yj7p364mzem',
+		recipientAddress: 'klyxpxg4y755b9nr6m7f4gcvtk2mp7yj7p364mzem',
 	});
 	const encodedTransaction = encodeTransactionFromJSON(
 		transferTransaction as any,
@@ -119,7 +119,7 @@ describe('transaction:send command', () => {
 				})
 				.mockRejectedValue(
 					new Error(
-						'Error: Lisk validator found 1 error[s]:\nIncompatible transaction nonce for account: d04699e57c4a3846c988f3c15306796f8eae5c1c, Tx Nonce: 0, Account Nonce: 1',
+						'Error: Klayr validator found 1 error[s]:\nIncompatible transaction nonce for account: d04699e57c4a3846c988f3c15306796f8eae5c1c, Tx Nonce: 0, Account Nonce: 1',
 					),
 				);
 
@@ -129,7 +129,7 @@ describe('transaction:send command', () => {
 					config,
 				),
 			).rejects.toThrow(
-				'Error: Lisk validator found 1 error[s]:\nIncompatible transaction nonce for account: d04699e57c4a3846c988f3c15306796f8eae5c1c, Tx Nonce: 0, Account Nonce: 1',
+				'Error: Klayr validator found 1 error[s]:\nIncompatible transaction nonce for account: d04699e57c4a3846c988f3c15306796f8eae5c1c, Tx Nonce: 0, Account Nonce: 1',
 			);
 		});
 	});

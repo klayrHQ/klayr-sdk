@@ -86,7 +86,7 @@ export const stakeCommandParamsSchema = {
 					validatorAddress: {
 						dataType: 'bytes',
 						fieldNumber: 1,
-						format: 'lisk32',
+						format: 'klayr32',
 					},
 					amount: {
 						dataType: 'sint64',
@@ -290,7 +290,7 @@ export const genesisStoreSchema = {
 				properties: {
 					address: {
 						dataType: 'bytes',
-						format: 'lisk32',
+						format: 'klayr32',
 						fieldNumber: 1,
 					},
 					name: {
@@ -376,7 +376,7 @@ export const genesisStoreSchema = {
 				properties: {
 					address: {
 						dataType: 'bytes',
-						format: 'lisk32',
+						format: 'klayr32',
 						fieldNumber: 1,
 					},
 					stakes: {
@@ -388,7 +388,7 @@ export const genesisStoreSchema = {
 							properties: {
 								validatorAddress: {
 									dataType: 'bytes',
-									format: 'lisk32',
+									format: 'klayr32',
 									fieldNumber: 1,
 								},
 								amount: {
@@ -429,7 +429,7 @@ export const genesisStoreSchema = {
 								validatorAddress: {
 									dataType: 'bytes',
 									fieldNumber: 1,
-									format: 'lisk32',
+									format: 'klayr32',
 								},
 								amount: {
 									dataType: 'uint64',
@@ -457,7 +457,7 @@ export const genesisStoreSchema = {
 				initValidators: {
 					type: 'array',
 					fieldNumber: 2,
-					items: { dataType: 'bytes', format: 'lisk32' },
+					items: { dataType: 'bytes', format: 'klayr32' },
 				},
 			},
 		},
@@ -480,7 +480,7 @@ const validatorJSONSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		name: {
 			type: 'string',
@@ -535,7 +535,7 @@ export const getValidatorRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };
@@ -574,7 +574,7 @@ export const getStakerResponseSchema = {
 				properties: {
 					validatorAddress: {
 						type: 'string',
-						format: 'lisk32',
+						format: 'klayr32',
 					},
 					amount: {
 						type: 'string',
@@ -592,7 +592,7 @@ export const getStakerResponseSchema = {
 				properties: {
 					validatorAddress: {
 						type: 'string',
-						format: 'lisk32',
+						format: 'klayr32',
 					},
 					amount: {
 						type: 'string',
@@ -662,7 +662,7 @@ export const getLockedRewardRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		tokenID: {
 			type: 'string',
@@ -690,7 +690,7 @@ export const getClaimableRewardsRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };
@@ -725,7 +725,7 @@ export const getLockedStakedAmountRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };
@@ -749,7 +749,7 @@ export const getPendingUnlocksRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };
@@ -773,7 +773,7 @@ export const getPendingUnlocksResponseSchema = {
 				properties: {
 					validatorAddress: {
 						type: 'string',
-						format: 'lisk32',
+						format: 'klayr32',
 					},
 					amount: {
 						type: 'string',
@@ -814,7 +814,7 @@ export const getExpectedSharedRewardsRequestSchema = {
 	properties: {
 		validatorAddress: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		validatorReward: {
 			type: 'string',

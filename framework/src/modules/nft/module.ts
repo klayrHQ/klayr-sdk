@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { dataStructures } from '@liskhq/lisk-utils';
-import { codec } from '@liskhq/lisk-codec';
-import { validator } from '@liskhq/lisk-validator';
+import { dataStructures } from '@klayr/utils';
+import { codec } from '@klayr/codec';
+import { validator } from '@klayr/validator';
 import { GenesisBlockExecuteContext } from '../../state_machine';
 import { ModuleInitArgs, ModuleMetadata } from '../base_module';
 import { BaseInteroperableModule } from '../interoperability';
@@ -70,7 +70,7 @@ import {
 
 /**
  * ## Description
- * The `NFTModule` is used for creating, destroying NFTs (non-fungible tokens), and transferring them in the Lisk ecosystem.
+ * The `NFTModule` is used for creating, destroying NFTs (non-fungible tokens), and transferring them in the Klayr ecosystem.
  *
  * ## Not a stand-alone module
  * The NFT module is not intended to be used as a stand-alone module.
@@ -79,7 +79,7 @@ import {
  * This allows to define the specific details about how NFTs are created, and who is allowed to mint them.
  *
  * ## NFT Identifier
- * To identify NFTs in the Lisk ecosystem, we introduce the `nftID`, a unique NFT identifier in the ecosystem.
+ * To identify NFTs in the Klayr ecosystem, we introduce the `nftID`, a unique NFT identifier in the ecosystem.
  * It is a 16 bytes long concatenation of the 4 bytes long `chainID`, the chain ID of the chain creating the NFT, the 4 bytes long `collectionID`, chosen when the NFT is created, and an 8 bytes long serialization of an index integer, automatically assigned at the NFT creation.
  *
  * This allows chains to define multiple sets of NFTs, each identified by their respective collection. Each collection can then easily have its own attributes schema and custom logic.
@@ -92,7 +92,7 @@ import {
  * Note that the attributes properties are not limited in size by default, which can potentially cause the CCM {@link Modules.Interoperability.validateFormat} failure during the cross-chain NFT transfer.
  *
  * When an NFT is sent to another chain, the `attributes` properties of the NFT can be modified according to specifications set on the receiving chain.
- * When the NFT is received back on its native chain, the returned modified attributes are disregarded and the original attributes are restored, as currently defined by {@link https://github.com/LiskHQ/lips/blob/main/proposals/lip-0052.md#getnewattributes | getNewAttributes} function.
+ * When the NFT is received back on its native chain, the returned modified attributes are disregarded and the original attributes are restored, as currently defined by {@link https://github.com/Klayrhq/lips/blob/main/proposals/lip-0052.md#getnewattributes | getNewAttributes} function.
  * If needed, custom modules can implement a more fine-grained approach towards the attributes that are modified cross-chain.
  *
  * ## NFT cross-chain transfers
@@ -101,7 +101,7 @@ import {
  * When an NFT is returned, the native chain can then check that the NFT is indeed coming from the chain it was sent to and was not maliciously created and transferred from another chain.
  * This implies that NFTs can only be transferred to and from their native chain.
  *
- * @see [LIP 0052 - Introduce NFT module](https://github.com/LiskHQ/lips/blob/main/proposals/lip-0052.md)
+ * @see [LIP 0052 - Introduce NFT module](https://github.com/Klayrhq/lips/blob/main/proposals/lip-0052.md)
  */
 export class NFTModule extends BaseInteroperableModule {
 	public method = new NFTMethod(this.stores, this.events);

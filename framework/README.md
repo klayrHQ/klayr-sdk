@@ -1,12 +1,12 @@
 ![Logo](../docs/assets/banner_framework.png)
 
-# Lisk Framework
+# Klayr Framework
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-## What is Lisk Framework
+## What is Klayr Framework
 
-Lisk Framework is an application framework to create a blockchain application compatible with the Lisk protocol.
+Klayr Framework is an application framework to create a blockchain application compatible with the Klayr protocol.
 It provides an application where off-chain and on-chain logic can be extended with user defined plugins and modules.
 
 ### Architecture Overview
@@ -22,7 +22,7 @@ The application is an entry point and manages the controller and the node. The n
 ## Installation
 
 ```sh
-$ npm install --save lisk-framework
+$ npm install --save klayr-framework
 ```
 
 ## Tests
@@ -45,17 +45,16 @@ To test the changes in framework you can run example application under `examples
 
 `./bin/run start`
 
-If you want to test the changes in `lisk-sdk/elements` to reflect in `lisk-sdk/framework`, please make sure you run `npm run build` at `lisk-sdk` after making any changes in elements library and run the example app above.
+If you want to test the changes in `klayr-sdk/elements` to reflect in `klayr-sdk/framework`, please make sure you run `npm run build` at `klayr-sdk` after making any changes in elements library and run the example app above.
 
 ## Get Involved
 
-| Reason                          | How                                                                                             |
-| ------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Want to chat with our community | [Reach them on Discord](https://discord.gg/lisk)                                                |
-| Found a bug                     | [Open a new issue](https://github.com/LiskHQ/lisk/issues/new)                                   |
-| Found a security issue          | [See our bounty program](https://blog.lisk.com/announcing-lisk-bug-bounty-program-5895bdd46ed4) |
-| Want to share your research     | [Propose your research](https://research.lisk.com)                                              |
-| Want to develop with us         | [Create a fork](https://github.com/LiskHQ/lisk/fork)                                            |
+| Reason                          | How                                                                                              |
+| ------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Want to chat with our community | [Reach them on Discord](https://klayr.chat)                                                      |
+| Found a bug                     | [Open a new issue](https://github.com/Klayrhq/klayr/issues/new)                                  |
+| Found a security issue          | [See our bounty program](https://blog.klayr.com/announcing-lisk-bug-bounty-program-5895bdd46ed4) |
+| Want to develop with us         | [Create a fork](https://github.com/Klayrhq/klayr/fork)                                           |
 
 ## License
 

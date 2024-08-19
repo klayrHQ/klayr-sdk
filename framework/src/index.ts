@@ -24,7 +24,7 @@ export {
 	BlockHeaderJSON,
 	BlockAssetJSON,
 	standardEventDataSchema,
-} from '@liskhq/lisk-chain';
+} from '@klayr/chain';
 export { Application } from './application';
 export { systemDirs } from './system_dirs';
 export * as Plugins from './plugins';

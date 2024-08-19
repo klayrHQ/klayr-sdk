@@ -35,7 +35,7 @@ export const relayerFeeProcessedSchema = {
 		},
 		relayerAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 2,
 		},
 		burntAmount: {

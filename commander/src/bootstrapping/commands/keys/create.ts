@@ -13,8 +13,8 @@
  *
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { bls, address as addressUtil, ed, encrypt, legacy } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { bls, address as addressUtil, ed, encrypt, legacy } from '@klayr/cryptography';
 import { Command, Flags as flagParser } from '@oclif/core';
 import { flagsWithParser } from '../../../utils/flags';
 import { getPassphraseFromPrompt, getPasswordFromPrompt } from '../../../utils/reader';
@@ -192,7 +192,7 @@ export class CreateCommand extends Command {
 		}
 
 		return {
-			address: addressUtil.getLisk32AddressFromAddress(input.address),
+			address: addressUtil.getKlayr32AddressFromAddress(input.address),
 			keyPath: input.keyPath,
 			publicKey: input.accountPublicKey.toString('hex'),
 			privateKey: input.accountPrivateKey.toString('hex'),

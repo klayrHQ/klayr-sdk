@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockAssets } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
+import { BlockAssets } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
 import { when } from 'jest-when';
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import { GenesisConfig } from '../../../../src/types';
 import { PoSModule } from '../../../../src/modules/pos';
 import * as forgerSelectionLessTHan103Scenario from '../../../fixtures/pos_generator_selection/pos_generator_selection_less_than_103.json';
@@ -106,28 +106,28 @@ describe('PoS module', () => {
 					genesisConfig: { ...genesisConfig, blockTime: 3 } as any,
 					moduleConfig: { ...defaultConfig, failSafeInactiveWindow: 140_000 },
 				}),
-			).rejects.toThrow('Lisk validator found 1 error[s]:');
+			).rejects.toThrow('Klayr validator found 1 error[s]:');
 
 			await expect(
 				pos.init({
 					genesisConfig: { ...genesisConfig, blockTime: 5 } as any,
 					moduleConfig: { ...defaultConfig, failSafeInactiveWindow: 6_400_000 },
 				}),
-			).rejects.toThrow('Lisk validator found 1 error[s]:');
+			).rejects.toThrow('Klayr validator found 1 error[s]:');
 
 			await expect(
 				pos.init({
 					genesisConfig: { ...genesisConfig, blockTime: 7 } as any,
 					moduleConfig: { ...defaultConfig, punishmentWindowSelfStaking: 60_000 },
 				}),
-			).rejects.toThrow('Lisk validator found 1 error[s]:');
+			).rejects.toThrow('Klayr validator found 1 error[s]:');
 
 			await expect(
 				pos.init({
 					genesisConfig: { ...genesisConfig, blockTime: 8 } as any,
 					moduleConfig: { ...defaultConfig, punishmentWindowSelfStaking: 4_000_000 },
 				}),
-			).rejects.toThrow('Lisk validator found 1 error[s]:');
+			).rejects.toThrow('Klayr validator found 1 error[s]:');
 		});
 	});
 
@@ -271,8 +271,8 @@ describe('PoS module', () => {
 				expect(pos['_validatorsMethod'].setValidatorsParams).toHaveBeenCalledWith(
 					expect.any(Object),
 					expect.any(Object),
-					BigInt(68),
-					BigInt(68),
+					BigInt(35),
+					BigInt(35),
 					validAsset.genesisData.initValidators.map(d => ({
 						bftWeight: BigInt(1),
 						address: d,
@@ -355,7 +355,7 @@ describe('PoS module', () => {
 				}
 				context = createBlockContext({
 					stateStore,
-					header: createFakeBlockHeader({ height: 1030 }),
+					header: createFakeBlockHeader({ height: 530 }),
 				}).getBlockAfterExecuteContext();
 			});
 
@@ -372,7 +372,8 @@ describe('PoS module', () => {
 		describe('when there are validators who are PoMed', () => {
 			const fixtures = forgerSelectionMoreThan2StandByScenario.testCases.input.validatorWeights;
 
-			const height = 1030000;
+			const rounds = 20000;
+			const height = 53 * rounds;
 
 			let context: BlockAfterExecuteContext;
 			let stateStore: PrefixedStateReadWriter;
@@ -398,7 +399,7 @@ describe('PoS module', () => {
 						BigInt(fixtures[0].validatorWeight),
 					),
 					{
-						lastReportMisbehaviorHeight: 1000,
+						lastReportMisbehaviorHeight: 500,
 					},
 				);
 				await eligibleValidatorStore.set(
@@ -434,13 +435,13 @@ describe('PoS module', () => {
 					);
 				}
 				const snapshotStore = pos.stores.get(SnapshotStore);
-				await snapshotStore.set(context, utils.intToBuffer(10000, 4), {
+				await snapshotStore.set(context, utils.intToBuffer(rounds, 4), {
 					validatorWeightSnapshot: [],
 				});
-				await snapshotStore.set(context, utils.intToBuffer(10001, 4), {
+				await snapshotStore.set(context, utils.intToBuffer(rounds + 1, 4), {
 					validatorWeightSnapshot: [],
 				});
-				await snapshotStore.set(context, utils.intToBuffer(10002, 4), {
+				await snapshotStore.set(context, utils.intToBuffer(rounds + 2, 4), {
 					validatorWeightSnapshot: [],
 				});
 
@@ -449,7 +450,7 @@ describe('PoS module', () => {
 
 			it('should create a snapshot which includes all validators who are not currently punished', async () => {
 				const snapshotStore = pos.stores.get(SnapshotStore);
-				const snapshot = await snapshotStore.get(context, utils.intToBuffer(10001 + 2, 4));
+				const snapshot = await snapshotStore.get(context, utils.intToBuffer(rounds + 3, 4));
 
 				// Remove punished validators
 				expect(snapshot.validatorWeightSnapshot).toHaveLength(fixtures.length - 1);
@@ -458,9 +459,13 @@ describe('PoS module', () => {
 			it('should remove the snapshot older than 3 rounds', async () => {
 				const snapshotStore = pos.stores.get(SnapshotStore);
 
-				await expect(snapshotStore.has(context, utils.intToBuffer(10000, 4))).resolves.toBeFalse();
-				await expect(snapshotStore.has(context, utils.intToBuffer(10001, 4))).resolves.toBeTrue();
-				await expect(snapshotStore.has(context, utils.intToBuffer(10002, 4))).resolves.toBeTrue();
+				await expect(snapshotStore.has(context, utils.intToBuffer(rounds, 4))).resolves.toBeFalse();
+				await expect(
+					snapshotStore.has(context, utils.intToBuffer(rounds + 1, 4)),
+				).resolves.toBeTrue();
+				await expect(
+					snapshotStore.has(context, utils.intToBuffer(rounds + 2, 4)),
+				).resolves.toBeTrue();
 			});
 		});
 	});
@@ -737,7 +742,6 @@ describe('PoS module', () => {
 							undefined,
 					)
 					.sort((a, b) => a.address.compare(b.address));
-
 				expect(standbyCandidates).toHaveLength(2);
 				expect(standbyCandidates.map(v => v.address)).toEqual(standbyValidatorsInFixture);
 				expect(standbyCandidates.every(v => v.bftWeight === BigInt(0))).toBeTrue();
@@ -768,7 +772,7 @@ describe('PoS module', () => {
 
 			pos.addDependencies(randomMethod, validatorsMethod, tokenMethod, feeMethod);
 
-			validatorData = Array(103)
+			validatorData = Array(53)
 				.fill({})
 				.map((_, index) => ({
 					name: `validator${index}`,
@@ -784,7 +788,7 @@ describe('PoS module', () => {
 						{ tokenID: Buffer.alloc(TOKEN_ID_LENGTH), coefficient: Buffer.alloc(24) },
 					],
 				}));
-			validatorAddresses = Array.from({ length: 103 }, _ => utils.getRandomBytes(20));
+			validatorAddresses = Array.from({ length: 53 }, _ => utils.getRandomBytes(20));
 
 			previousTimestampStore = pos.stores.get(PreviousTimestampStore);
 			validatorStore = pos.stores.get(ValidatorStore);
@@ -795,7 +799,7 @@ describe('PoS module', () => {
 				initValidators: [],
 			});
 
-			for (let i = 0; i < 103; i += 1) {
+			for (let i = 0; i < 53; i += 1) {
 				await validatorStore.set(
 					createStoreGetter(stateStore),
 					validatorAddresses[i],
@@ -826,7 +830,7 @@ describe('PoS module', () => {
 
 				const missedBlocks: Record<string, number> = {};
 				// Make every validator miss its block-slot except gte and end slots
-				for (let i = 0; i < 102; i += 1) {
+				for (let i = 0; i < 52; i += 1) {
 					missedBlocks[validatorAddresses[i].toString('binary')] = 1;
 				}
 
@@ -1161,7 +1165,7 @@ describe('PoS module', () => {
 		let context: BlockAfterExecuteContext;
 
 		const scenario = forgerSelectionMoreThan2StandByScenario;
-		const initValidators = new Array(101).fill(0).map(() => utils.getRandomBytes(20));
+		const initValidators = new Array(51).fill(0).map(() => utils.getRandomBytes(20));
 
 		beforeEach(async () => {
 			await pos.init({ genesisConfig, moduleConfig: defaultConfig });
@@ -1517,7 +1521,7 @@ describe('PoS module', () => {
 
 		describe('when its the last block of round after bootstrap period', () => {
 			beforeEach(async () => {
-				height = 103 * (bootstrapRounds + 1);
+				height = 53 * (bootstrapRounds + 1);
 				currentTimestamp = height * 10;
 				previousTimestamp = (height - 1) * 10;
 
@@ -1549,7 +1553,7 @@ describe('PoS module', () => {
 
 		describe('when its not the last block of round after bootstrap period', () => {
 			beforeEach(async () => {
-				height = 103 * (bootstrapRounds + 1) - 3;
+				height = 53 * (bootstrapRounds + 1) - 3;
 				currentTimestamp = height * 10;
 				previousTimestamp = (height - 1) * 10;
 
@@ -1579,7 +1583,7 @@ describe('PoS module', () => {
 
 		describe('when its the last block of bootstrap period', () => {
 			beforeEach(async () => {
-				height = 103 * bootstrapRounds;
+				height = 53 * bootstrapRounds;
 				currentTimestamp = height * 10;
 				previousTimestamp = (height - 1) * 10;
 
@@ -1611,7 +1615,7 @@ describe('PoS module', () => {
 
 		describe('when its a block before bootstrap period last block', () => {
 			beforeEach(async () => {
-				height = 103 * (bootstrapRounds - 1);
+				height = 53 * (bootstrapRounds - 1);
 				currentTimestamp = height * 10;
 				previousTimestamp = (height - 1) * 10;
 
@@ -1642,9 +1646,9 @@ describe('PoS module', () => {
 
 		describe('when hook exits successfully', () => {
 			beforeEach(async () => {
-				height = 103;
-				currentTimestamp = 1030;
-				previousTimestamp = 1020;
+				height = 53;
+				currentTimestamp = 530;
+				previousTimestamp = 520;
 
 				context = createBlockContext({
 					stateStore,

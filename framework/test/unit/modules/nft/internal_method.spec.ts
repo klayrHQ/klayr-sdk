@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
+import { utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
 import { NFTModule } from '../../../../src/modules/nft/module';
 import { InternalMethod } from '../../../../src/modules/nft/internal_method';
 import { EventQueue, createMethodContext } from '../../../../src/state_machine';

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
+import { codec } from '@klayr/codec';
 import {
 	CommandExecuteContext,
 	CommandVerifyContext,
@@ -50,7 +50,7 @@ import {
 import { MainchainInteroperabilityInternalMethod } from '../internal_method';
 import { panic } from '../../../../utils/panic';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0053.md#commands
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#commands
 export class SubmitMainchainCrossChainUpdateCommand extends BaseCrossChainUpdateCommand<MainchainInteroperabilityInternalMethod> {
 	public async verify(
 		context: CommandVerifyContext<CrossChainUpdateTransactionParams>,
@@ -176,7 +176,7 @@ export class SubmitMainchainCrossChainUpdateCommand extends BaseCrossChainUpdate
 		return true;
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0049.md#forward
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0049.md#forward
 	private async _forward(context: CrossChainMessageContext): Promise<void> {
 		const { ccm } = context;
 		const { ccmID, encodedCCM } = getEncodedCCMAndID(ccm);
@@ -199,7 +199,7 @@ export class SubmitMainchainCrossChainUpdateCommand extends BaseCrossChainUpdate
 		if (!receivingChainAccount || receivingChainAccount.status === ChainStatus.REGISTERED) {
 			ccmFailed = true;
 		} else {
-			// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0043.md#sidechain-registration-process
+			// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0043.md#sidechain-registration-process
 			// Liveness condition is only applicable to ACTIVE status chains
 			const live = await this.internalMethod.isLive(
 				context,

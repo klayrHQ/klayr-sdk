@@ -13,7 +13,7 @@
  *
  */
 
-import { encrypt } from '@liskhq/lisk-cryptography';
+import { encrypt } from '@klayr/cryptography';
 import { Flags as flagParser } from '@oclif/core';
 import * as fs from 'fs-extra';
 import { BaseIPCClientCommand } from '../base_ipc_client';

@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import * as cryptography from '@liskhq/lisk-cryptography';
+import * as cryptography from '@klayr/cryptography';
 import { MethodContext } from '../../state_machine';
 import { BaseMethod } from '../base_method';
 import { InitializeEscrowAccountEvent } from './events/initialize_escrow_account';
@@ -76,7 +76,7 @@ export class InternalMethod extends BaseMethod {
 		const senderAccount = await userStore.get(methodContext, senderAccountKey);
 		if (senderAccount.availableBalance < amount) {
 			throw new InsufficientBalanceError(
-				cryptography.address.getLisk32AddressFromAddress(senderAddress),
+				cryptography.address.getKlayr32AddressFromAddress(senderAddress),
 				senderAccount.availableBalance.toString(),
 				amount.toString(),
 			);

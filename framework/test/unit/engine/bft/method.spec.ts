@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { StateStore } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { StateStore } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { InMemoryDatabase } from '@liskhq/lisk-db';
 import { BFTMethod } from '../../../../src/engine/bft/method';
 import {
@@ -43,7 +43,7 @@ describe('BFT Method', () => {
 	beforeEach(() => {
 		bftMethod = new BFTMethod();
 		validatorsMethod = { getValidatorKeys: jest.fn() };
-		bftMethod.init(103, 10);
+		bftMethod.init(51, 7);
 	});
 
 	describe('areHeadersContradicting', () => {
@@ -849,7 +849,7 @@ describe('BFT Method', () => {
 			validatorsInvalidBLSKeys[13].blsKey = Buffer.alloc(48, 0);
 
 			await expect(
-				bftMethod.setBFTParameters(stateStore, BigInt(68), BigInt(68), validatorsInvalidBLSKeys),
+				bftMethod.setBFTParameters(stateStore, BigInt(35), BigInt(35), validatorsInvalidBLSKeys),
 			).not.toReject();
 		});
 
@@ -1054,7 +1054,7 @@ describe('BFT Method', () => {
 	});
 
 	describe('getGeneratorAtTimestamp', () => {
-		const validators = new Array(103).fill(0).map(() => ({
+		const validators = new Array(53).fill(0).map(() => ({
 			address: utils.getRandomBytes(20),
 			bftWeight: BigInt(1),
 			generatorKey: utils.getRandomBytes(32),
@@ -1080,10 +1080,10 @@ describe('BFT Method', () => {
 		});
 
 		it('should return a validator in round robin', async () => {
-			for (let i = 0; i < 103; i += 1) {
+			for (let i = 0; i < 53; i += 1) {
 				// timestamp is computed to cover all possible modulo of 103
 				await expect(
-					bftMethod.getGeneratorAtTimestamp(stateStore, 20, (103 * 1000000 + i) * 10),
+					bftMethod.getGeneratorAtTimestamp(stateStore, 20, (53 * 1000000 + i) * 7),
 				).resolves.toEqual(validators[i]);
 			}
 		});
@@ -1093,15 +1093,19 @@ describe('BFT Method', () => {
 		it.each([
 			{
 				input: 1683057470,
-				expected: 168305747,
+				expected: 240436781,
+			},
+			{
+				input: 1683057473,
+				expected: 240436781,
 			},
 			{
 				input: 1683057475,
-				expected: 168305747,
+				expected: 240436782,
 			},
 			{
 				input: 1683057479,
-				expected: 168305747,
+				expected: 240436782,
 			},
 		])('should return expected value', ({ input, expected }) => {
 			expect(bftMethod.getSlotNumber(input)).toBe(expected);

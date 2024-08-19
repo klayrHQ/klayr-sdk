@@ -12,12 +12,12 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { address as cryptoAddress, encrypt } from '@liskhq/lisk-cryptography';
+import { address as cryptoAddress, encrypt } from '@klayr/cryptography';
 import { Batch, Database } from '@liskhq/lisk-db';
-import { dataStructures } from '@liskhq/lisk-utils';
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
-import { Chain } from '@liskhq/lisk-chain';
+import { dataStructures } from '@klayr/utils';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
+import { Chain } from '@klayr/chain';
 import { GeneratorStore } from './generator_store';
 import {
 	generatorKeysExist,
@@ -105,7 +105,7 @@ export class Endpoint {
 				...info,
 				generatorKey: keys?.publicKey.toString('hex') ?? '',
 				blsKey: keys?.blsPublicKey.toString('hex') ?? '',
-				address: cryptoAddress.getLisk32AddressFromAddress(info.address),
+				address: cryptoAddress.getKlayr32AddressFromAddress(info.address),
 				enabled: this._keypairs.has(info.address),
 			});
 		}
@@ -115,7 +115,7 @@ export class Endpoint {
 	public async setStatus(ctx: RequestContext): Promise<void> {
 		validator.validate<SetStatusRequest>(setStatusRequestSchema, ctx.params);
 		const req = ctx.params;
-		const address = cryptoAddress.getAddressFromLisk32Address(req.address);
+		const address = cryptoAddress.getAddressFromKlayr32Address(req.address);
 		const generatorStore = new GeneratorStore(this._generatorDB);
 		const keysExist = await generatorKeysExist(generatorStore, address);
 		if (!keysExist) {
@@ -131,7 +131,7 @@ export class Endpoint {
 		validator.validate<UpdateStatusRequest>(updateStatusRequestSchema, ctx.params);
 
 		const req = ctx.params;
-		const address = cryptoAddress.getAddressFromLisk32Address(req.address);
+		const address = cryptoAddress.getAddressFromKlayr32Address(req.address);
 		const generatorStore = new GeneratorStore(this._generatorDB);
 		let generatorKeys: GeneratorKeys;
 		try {
@@ -157,7 +157,7 @@ export class Endpoint {
 		// Before disabling, above ensure decrypt is successful
 		if (!req.enable) {
 			// Disable validator by removing keypairs corresponding to address
-			this._keypairs.delete(cryptoAddress.getAddressFromLisk32Address(ctx.params.address));
+			this._keypairs.delete(cryptoAddress.getAddressFromKlayr32Address(ctx.params.address));
 			ctx.logger.info(`Forging disabled on account: ${req.address}`);
 			return {
 				address: req.address,
@@ -174,7 +174,7 @@ export class Endpoint {
 		try {
 			lastGeneratedInfo = await getLastGeneratedInfo(
 				generatorStore,
-				cryptoAddress.getAddressFromLisk32Address(req.address),
+				cryptoAddress.getAddressFromKlayr32Address(req.address),
 			);
 		} catch (error) {
 			ctx.logger.debug(`Last generated information does not exist for address: ${req.address}`);
@@ -198,7 +198,7 @@ export class Endpoint {
 		if (!lastGeneratedInfo) {
 			await setLastGeneratedInfo(
 				generatorStore,
-				cryptoAddress.getAddressFromLisk32Address(req.address),
+				cryptoAddress.getAddressFromKlayr32Address(req.address),
 				req,
 			);
 		}
@@ -214,7 +214,7 @@ export class Endpoint {
 	}
 
 	// Estimate safe status based on the algorithm below
-	// https://github.com/LiskHQ/lips/blob/1e053b12aa126c590d32f617feba4317dc00afeb/proposals/lip-0014.md?plain=1#L727
+	// https://github.com/Klayrhq/lips/blob/1e053b12aa126c590d32f617feba4317dc00afeb/proposals/lip-0014.md?plain=1#L727
 	public async estimateSafeStatus(ctx: RequestContext): Promise<EstimateSafeStatusResponse> {
 		validator.validate<EstimateSafeStatusRequest>(estimateSafeStatusRequestSchema, ctx.params);
 
@@ -261,7 +261,7 @@ export class Endpoint {
 		validator.validate<SetKeysRequest>(setKeysRequestSchema, ctx.params);
 
 		let generatorKeys: GeneratorKeys;
-		const address = cryptoAddress.getAddressFromLisk32Address(ctx.params.address);
+		const address = cryptoAddress.getAddressFromKlayr32Address(ctx.params.address);
 		if (ctx.params.type === 'plain') {
 			generatorKeys = {
 				address,
@@ -283,7 +283,7 @@ export class Endpoint {
 		const batch = new Batch();
 		await setGeneratorKey(
 			generatorStore,
-			cryptoAddress.getAddressFromLisk32Address(ctx.params.address),
+			cryptoAddress.getAddressFromKlayr32Address(ctx.params.address),
 			generatorKeys,
 		);
 		generatorStore.finalize(batch);
@@ -300,13 +300,13 @@ export class Endpoint {
 		for (const key of keys) {
 			if (key.type === 'plain') {
 				jsonKeys.push({
-					address: cryptoAddress.getLisk32AddressFromAddress(key.address),
+					address: cryptoAddress.getKlayr32AddressFromAddress(key.address),
 					type: key.type,
 					data: codec.toJSON<JSONObject<PlainGeneratorKeyData>>(plainGeneratorKeysSchema, key.data),
 				});
 			} else {
 				jsonKeys.push({
-					address: cryptoAddress.getLisk32AddressFromAddress(key.address),
+					address: cryptoAddress.getKlayr32AddressFromAddress(key.address),
 					type: key.type,
 					data: key.data,
 				});
@@ -322,7 +322,7 @@ export class Endpoint {
 		const generatorStore = new GeneratorStore(this._generatorDB);
 		const keysExist = await generatorKeysExist(
 			generatorStore,
-			cryptoAddress.getAddressFromLisk32Address(ctx.params.address),
+			cryptoAddress.getAddressFromKlayr32Address(ctx.params.address),
 		);
 
 		return {

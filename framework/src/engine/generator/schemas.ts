@@ -16,7 +16,7 @@ import { EventJSON, JSONObject } from '../../types';
 import { GeneratorKeys } from './types';
 
 export const transactionIdsSchema = {
-	$id: '/lisk/transactionIds',
+	$id: '/klayr/transactionIds',
 	title: 'Broadcast Transactions',
 	type: 'object',
 	required: ['transactionIds'],
@@ -41,14 +41,14 @@ export interface SetStatusRequest {
 }
 
 export const setStatusRequestSchema = {
-	$id: '/lisk/setStatusRequest',
+	$id: '/klayr/setStatusRequest',
 	title: 'Set block generation status',
 	type: 'object',
 	required: ['address', 'height', 'maxHeightGenerated', 'maxHeightPrevoted'],
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		height: {
 			type: 'integer',
@@ -92,14 +92,14 @@ export interface GetStatusResponse {
 }
 
 export const updateStatusRequestSchema = {
-	$id: '/lisk/updateStatusRequest',
+	$id: '/klayr/updateStatusRequest',
 	title: 'Update block generation status',
 	type: 'object',
 	required: ['address', 'password', 'enable', 'height', 'maxHeightGenerated', 'maxHeightPrevoted'],
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		password: {
 			type: 'string',
@@ -149,7 +149,7 @@ export interface PostTransactionResponse {
 }
 
 export const postTransactionRequestSchema = {
-	$id: '/lisk/postTransaction',
+	$id: '/klayr/postTransaction',
 	title: 'Transactions',
 	type: 'object',
 	required: ['transaction'],
@@ -162,7 +162,7 @@ export const postTransactionRequestSchema = {
 };
 
 export const getTransactionRequestSchema = {
-	$id: '/lisk/getTransactionRequest',
+	$id: '/klayr/getTransactionRequest',
 	title: 'Broadcast Transactions',
 	type: 'object',
 	required: ['transactionIds'],
@@ -184,7 +184,7 @@ export interface GetTransactionRequest {
 }
 
 export const getTransactionsResponseSchema = {
-	$id: '/lisk/getTransactionsResponse',
+	$id: '/klayr/getTransactionsResponse',
 	title: 'Transactions',
 	type: 'object',
 	required: ['transactions'],
@@ -204,7 +204,7 @@ export interface GetTransactionResponse {
 }
 
 export const postTransactionsAnnouncementSchema = {
-	$id: '/lisk/postTransactionsAnnouncementSchema',
+	$id: '/klayr/postTransactionsAnnouncementSchema',
 	title: 'Post Transactions Announcement',
 	type: 'object',
 	required: ['transactionIds'],
@@ -265,7 +265,7 @@ export interface DryRunTransactionResponse {
 }
 
 export const dryRunTransactionRequestSchema = {
-	$id: '/lisk/dryRunTransaction',
+	$id: '/klayr/dryRunTransaction',
 	title: 'Transactions',
 	type: 'object',
 	required: ['transaction'],
@@ -483,7 +483,7 @@ export const setKeysRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 	oneOf: [
@@ -520,7 +520,7 @@ export const hasKeysRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };
@@ -531,7 +531,7 @@ export const getTransactionsFromPoolRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };
@@ -550,7 +550,7 @@ export const keysFileSchema = {
 				properties: {
 					address: {
 						type: 'string',
-						format: 'lisk32',
+						format: 'klayr32',
 					},
 					plain: plainKeysObjectSchema,
 					encrypted: {

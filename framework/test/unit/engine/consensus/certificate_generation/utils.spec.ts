@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockHeader } from '@liskhq/lisk-chain';
-import { bls, utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
+import { BlockHeader } from '@klayr/chain';
+import { bls, utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
 import {
 	Certificate,
 	UnsignedCertificate,
@@ -165,7 +165,7 @@ describe('utils', () => {
 		let aggregationBits: Buffer;
 
 		beforeEach(() => {
-			privateKeys = Array.from({ length: 103 }, _ =>
+			privateKeys = Array.from({ length: 53 }, _ =>
 				bls.generatePrivateKey(utils.getRandomBytes(BLS_PUBLIC_KEY_LENGTH)),
 			);
 			validators = privateKeys.map(
@@ -189,7 +189,7 @@ describe('utils', () => {
 				bls.signData(MESSAGE_TAG_CERTIFICATE, chainID, encodedCertificate, privateKey),
 			);
 
-			pubKeySignaturePairs = Array.from({ length: 103 }, (_, i) => ({
+			pubKeySignaturePairs = Array.from({ length: 53 }, (_, i) => ({
 				publicKey: validators[i].blsKey,
 				signature: signatures[i],
 			}));
@@ -231,7 +231,7 @@ describe('utils', () => {
 		});
 
 		it('should return false for one unmatching publicKey in keysList', () => {
-			validators[102].blsKey = utils.getRandomBytes(BLS_PUBLIC_KEY_LENGTH);
+			validators[52].blsKey = utils.getRandomBytes(BLS_PUBLIC_KEY_LENGTH);
 
 			const isVerifiedSignature = verifyAggregateCertificateSignature(
 				validators,

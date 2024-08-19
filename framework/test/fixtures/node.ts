@@ -16,7 +16,7 @@ export const cacheConfig = 'aCacheConfig';
 
 export const nodeOptions = {
 	system: {
-		dataPath: '~/.lisk/default',
+		dataPath: '~/.klayr/default',
 		keepEventsForHeights: 300,
 	},
 	rpc: {
@@ -30,10 +30,10 @@ export const nodeOptions = {
 		seedPeers: [{ ip: '127.0.0.1', port: 5000 }],
 	},
 	genesis: {
-		blockTime: 10, // 10 seconds
+		blockTime: 7, // 7 seconds
 		chainID: '10000000',
 		maxTransactionsSize: 15 * 1024, // 15kb
-		bftBatchSize: 103,
+		bftBatchSize: 53,
 	},
 	transactionPool: {
 		maxTransactions: 4096,

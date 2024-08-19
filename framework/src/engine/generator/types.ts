@@ -13,8 +13,8 @@
  */
 
 import { EventEmitter } from 'events';
-import { Block, Transaction, BlockHeader, StateStore } from '@liskhq/lisk-chain';
-import { encrypt } from '@liskhq/lisk-cryptography';
+import { Block, Transaction, BlockHeader, StateStore } from '@klayr/chain';
+import { encrypt } from '@klayr/cryptography';
 import { IterateOptions } from '@liskhq/lisk-db';
 import { AggregateCommit } from '../consensus/types';
 import { ValidatorInfo } from '../consensus/certificate_generation/types';

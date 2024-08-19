@@ -25,7 +25,7 @@ export const nameStoreSchema = {
 		validatorAddress: {
 			dataType: 'bytes',
 			fieldNumber: 1,
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 };

@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Chain } from '@liskhq/lisk-chain';
-import { validator } from '@liskhq/lisk-validator';
+import { Chain } from '@klayr/chain';
+import { validator } from '@klayr/validator';
 import { ABI, ProveResponseJSON } from '../../abi';
 import { RequestContext } from '../rpc/rpc_server';
 

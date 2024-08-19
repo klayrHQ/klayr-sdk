@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import * as cryptography from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
+import * as cryptography from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
 import { BaseEndpoint } from '../base_endpoint';
 import { JSONObject, ModuleEndpointContext } from '../../types';
 import {
@@ -43,7 +43,7 @@ export class NFTEndpoint extends BaseEndpoint {
 	 *
 	 * @example
 	 *  ```sh
-	 *  lisk-core endpoint:invoke nft_getNFTs '{ "address": "lsk24cd35u4jdq8szo3pnsqe5dsxwrnazyqqqg5eu" }' --pretty
+	 *  klayr-core endpoint:invoke nft_getNFTs '{ "address": "lsk24cd35u4jdq8szo3pnsqe5dsxwrnazyqqqg5eu" }' --pretty
 	 *  ```
 	 *
 	 * @param context
@@ -57,7 +57,7 @@ export class NFTEndpoint extends BaseEndpoint {
 
 		const nftStore = this.stores.get(NFTStore);
 
-		const owner = cryptography.address.getAddressFromLisk32Address(context.params.address);
+		const owner = cryptography.address.getAddressFromKlayr32Address(context.params.address);
 
 		const allNFTs = await nftStore.iterate(context.getImmutableMethodContext(), {
 			gte: Buffer.alloc(LENGTH_NFT_ID, 0),
@@ -94,7 +94,7 @@ export class NFTEndpoint extends BaseEndpoint {
 	 *
 	 * @example
 	 *  ```sh
-	 *  lisk-core endpoint:invoke nft_hasNFT '{ "address": "lsk24cd35u4jdq8szo3pnsqe5dsxwrnazyqqqg5eu", "id":"04000000000000010000000000000001" }' --pretty
+	 *  klayr-core endpoint:invoke nft_hasNFT '{ "address": "lsk24cd35u4jdq8szo3pnsqe5dsxwrnazyqqqg5eu", "id":"04000000000000010000000000000001" }' --pretty
 	 *  ```
 	 *
 	 * @param context
@@ -106,7 +106,7 @@ export class NFTEndpoint extends BaseEndpoint {
 		validator.validate<{ address: string; id: string }>(hasNFTRequestSchema, params);
 
 		const nftID = Buffer.from(params.id, 'hex');
-		const owner = cryptography.address.getAddressFromLisk32Address(params.address);
+		const owner = cryptography.address.getAddressFromKlayr32Address(params.address);
 
 		const nftStore = this.stores.get(NFTStore);
 		const nftExists = await nftStore.has(context.getImmutableMethodContext(), nftID);
@@ -125,7 +125,7 @@ export class NFTEndpoint extends BaseEndpoint {
 	 *
 	 * @example
 	 *  ```sh
-	 *  lisk-core endpoint:invoke nft_getNFT '{ "id":"04000000000000010000000000000001" }' --pretty
+	 *  klayr-core endpoint:invoke nft_getNFT '{ "id":"04000000000000010000000000000001" }' --pretty
 	 *  ```
 	 *
 	 * @param context
@@ -183,7 +183,7 @@ export class NFTEndpoint extends BaseEndpoint {
 	 *
 	 * @example
 	 *  ```sh
-	 *  lisk-core endpoint:invoke nft_getSupportedCollectionIDs --pretty
+	 *  klayr-core endpoint:invoke nft_getSupportedCollectionIDs --pretty
 	 *  ```
 	 *
 	 * @param context
@@ -223,7 +223,7 @@ export class NFTEndpoint extends BaseEndpoint {
 	 *
 	 * @example
 	 *  ```sh
-	 *  lisk-core endpoint:invoke nft_isCollectionIDSupported '{ "chainID":"04000001","collectionID":"00000001" }' --pretty
+	 *  klayr-core endpoint:invoke nft_isCollectionIDSupported '{ "chainID":"04000001","collectionID":"00000001" }' --pretty
 	 *  ```
 	 *
 	 * @param context
@@ -272,7 +272,7 @@ export class NFTEndpoint extends BaseEndpoint {
 	 *
 	 * @example
 	 *  ```sh
-	 *  lisk-core endpoint:invoke nft_getEscrowedNFTIDs '{ "chainID":"04000001" }' --pretty
+	 *  klayr-core endpoint:invoke nft_getEscrowedNFTIDs '{ "chainID":"04000001" }' --pretty
 	 *  ```
 	 *
 	 * @param context
@@ -307,7 +307,7 @@ export class NFTEndpoint extends BaseEndpoint {
 	 *
 	 * @example
 	 *  ```sh
-	 *  lisk-core endpoint:invoke nft_isNFTSupported '{ "nftID":"04000000000000010000000000000001" }' --pretty
+	 *  klayr-core endpoint:invoke nft_isNFTSupported '{ "nftID":"04000000000000010000000000000001" }' --pretty
 	 *  ```
 	 *
 	 * @param context
@@ -341,7 +341,7 @@ export class NFTEndpoint extends BaseEndpoint {
 	 *
 	 * @example
 	 *  ```sh
-	 *  lisk-core endpoint:invoke nft_getSupportedNFTs --pretty
+	 *  klayr-core endpoint:invoke nft_getSupportedNFTs --pretty
 	 *  ```
 	 *
 	 * @param context

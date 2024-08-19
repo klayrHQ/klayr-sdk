@@ -1,4 +1,4 @@
-import { MAX_UINT64 } from '@liskhq/lisk-validator';
+import { MAX_UINT64 } from '@klayr/validator';
 import {
 	activeValidator,
 	activeValidators,
@@ -96,7 +96,7 @@ describe('initGenesisState Common Tests', () => {
 	});
 
 	describe('_verifyChannelData', () => {
-		it(`should throw error if channelData.messageFeeTokenID is not equal to Token.getTokenIDLSK()`, async () => {
+		it(`should throw error if channelData.messageFeeTokenID is not equal to Token.getTokenIDKLY()`, async () => {
 			const context = createInitGenesisStateContext(
 				{
 					...genesisInteroperability,
@@ -118,7 +118,7 @@ describe('initGenesisState Common Tests', () => {
 				},
 			);
 			await expect(interopMod.initGenesisState(context)).rejects.toThrow(
-				`channelData.messageFeeTokenID is not equal to Token.getTokenIDLSK().`,
+				`channelData.messageFeeTokenID is not equal to Token.getTokenIDKLY().`,
 			);
 		});
 
@@ -162,7 +162,7 @@ describe('initGenesisState Common Tests', () => {
 				params,
 			);
 			await expect(interopMod.initGenesisState(context)).rejects.toThrow(
-				'Lisk validator found 1 error[s]:\nmust NOT have fewer than 1 items',
+				'Klayr validator found 1 error[s]:\nmust NOT have fewer than 1 items',
 			);
 		});
 
@@ -193,7 +193,7 @@ describe('initGenesisState Common Tests', () => {
 			);
 
 			await expect(interopMod.initGenesisState(context)).rejects.toThrow(
-				`Lisk validator found ${max} error[s]:
+				`Klayr validator found ${max} error[s]:
 must NOT have more than ${MAX_NUM_VALIDATORS} items`,
 			);
 		});

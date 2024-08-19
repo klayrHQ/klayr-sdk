@@ -23,7 +23,7 @@ import { ChainAccountStore, ChainStatus } from '../../stores/chain_account';
 import { TerminateSidechainForLivenessParams } from '../../types';
 import { MainchainInteroperabilityInternalMethod } from '../internal_method';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#liveness-termination-command-1
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#liveness-termination-command-1
 export class TerminateSidechainForLivenessCommand extends BaseInteroperabilityCommand<MainchainInteroperabilityInternalMethod> {
 	public schema = terminateSidechainForLivenessParamsSchema;
 

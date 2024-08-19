@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
 import { CommandExecuteContext, CommandVerifyContext } from '../../state_machine';
 import { BaseInteroperabilityCommand } from './base_interoperability_command';
 import { BaseInteroperabilityInternalMethod } from './base_interoperability_internal_methods';
@@ -55,7 +55,7 @@ export abstract class BaseCrossChainUpdateCommand<
 		this._interopsMethod = interopsMethod;
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0053.md#verifycommon
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#verifycommon
 	protected async verifyCommon(
 		context: CommandVerifyContext<CrossChainUpdateTransactionParams>,
 		isMainchain: boolean,
@@ -123,7 +123,7 @@ export abstract class BaseCrossChainUpdateCommand<
 		}
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0053.md#beforecrosschainmessagesexecution
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#beforecrosschainmessagesexecution
 	protected async beforeCrossChainMessagesExecution(
 		context: CommandExecuteContext<CrossChainUpdateTransactionParams>,
 		isMainchain: boolean,
@@ -196,7 +196,7 @@ export abstract class BaseCrossChainUpdateCommand<
 		return [ccms, true];
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0053.md#verifyroutingrules
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#verifyroutingrules
 	protected verifyRoutingRules(
 		ccm: CCMsg,
 		ccuParams: CrossChainUpdateTransactionParams,
@@ -221,7 +221,7 @@ export abstract class BaseCrossChainUpdateCommand<
 		}
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0053.md#aftercrosschainmessagesexecution
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#aftercrosschainmessagesexecution
 	protected async afterCrossChainMessagesExecution(
 		context: CommandExecuteContext<CrossChainUpdateTransactionParams>,
 	) {
@@ -339,7 +339,7 @@ export abstract class BaseCrossChainUpdateCommand<
 		return true;
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0049.md#apply
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0049.md#apply
 	protected async apply(context: CrossChainMessageContext): Promise<void> {
 		const { ccm, logger } = context;
 		const { ccmID, encodedCCM } = getEncodedCCMAndID(ccm);
@@ -506,7 +506,7 @@ export abstract class BaseCrossChainUpdateCommand<
 		await this._afterCrossChainCommandExecute(context, baseEventSnapshotID, baseStateSnapshotID);
 	}
 
-	// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#bounce
+	// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#bounce
 	protected async bounce(
 		context: CrossChainMessageContext,
 		ccmSize: number,

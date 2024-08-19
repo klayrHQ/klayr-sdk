@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
-import { objects } from '@liskhq/lisk-utils';
+import { validator } from '@klayr/validator';
+import { objects } from '@klayr/utils';
 import { applicationConfigSchema } from '../../../src/schema';
 
 describe('schema/application_config_schema.js', () => {

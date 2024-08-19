@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { BlockAssets, BlockHeader, StateStore } from '@liskhq/lisk-chain';
+import { BlockAssets, BlockHeader, StateStore } from '@klayr/chain';
 import { Logger } from '../logger';
 import { createMethodContext } from './method_context';
 import { EventQueue } from './event_queue';

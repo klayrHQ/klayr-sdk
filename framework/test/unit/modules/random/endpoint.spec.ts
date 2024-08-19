@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import * as cryptography from '@liskhq/lisk-cryptography';
+import * as cryptography from '@klayr/cryptography';
 import { Types, Modules } from '../../../../src';
 import { RandomEndpoint } from '../../../../src/modules/random/endpoint';
 import { HashOnionStore } from '../../../../src/modules/random/stores/hash_onion';
@@ -33,7 +33,7 @@ describe('RandomModuleEndpoint', () => {
 
 	const validatorsData = [
 		{
-			generatorAddress: cryptography.address.getAddressFromLisk32Address(
+			generatorAddress: cryptography.address.getAddressFromKlayr32Address(
 				genesisValidators.validators[0].address,
 			),
 			seedReveal: Buffer.from(genesisValidators.validators[0].hashOnion.hashes[0], 'hex'),
@@ -41,7 +41,7 @@ describe('RandomModuleEndpoint', () => {
 			valid: true,
 		},
 		{
-			generatorAddress: cryptography.address.getAddressFromLisk32Address(
+			generatorAddress: cryptography.address.getAddressFromKlayr32Address(
 				genesisValidators.validators[1].address,
 			),
 			seedReveal: Buffer.from(genesisValidators.validators[1].hashOnion.hashes[1], 'hex'),
@@ -49,7 +49,7 @@ describe('RandomModuleEndpoint', () => {
 			valid: true,
 		},
 		{
-			generatorAddress: cryptography.address.getAddressFromLisk32Address(
+			generatorAddress: cryptography.address.getAddressFromKlayr32Address(
 				genesisValidators.validators[2].address,
 			),
 			seedReveal: Buffer.from(genesisValidators.validators[2].hashOnion.hashes[1], 'hex'),
@@ -100,7 +100,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.isSeedRevealValid(context)).rejects.toThrow(
-				'Lisk validator found 1 error[s]:\nProperty \'.seedReveal\' must match format "hex"',
+				'Klayr validator found 1 error[s]:\nProperty \'.seedReveal\' must match format "hex"',
 			);
 		});
 
@@ -118,7 +118,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.isSeedRevealValid(context)).rejects.toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.generatorAddress' should be of type 'string'",
+				"Klayr validator found 1 error[s]:\nProperty '.generatorAddress' should be of type 'string'",
 			);
 		});
 
@@ -130,7 +130,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.isSeedRevealValid(context)).rejects.toThrow(
-				'Lisk validator found 2 error[s]:\nProperty \'.generatorAddress\' must match format "lisk32"\nProperty \'.seedReveal\' must match format "hex"',
+				'Klayr validator found 2 error[s]:\nProperty \'.generatorAddress\' must match format "klayr32"\nProperty \'.seedReveal\' must match format "hex"',
 			);
 		});
 
@@ -209,7 +209,7 @@ describe('RandomModuleEndpoint', () => {
 			const hashOnionStore = randomEndpoint['offchainStores'].get(HashOnionStore);
 			const storedSeed = await hashOnionStore.get(
 				context,
-				cryptography.address.getAddressFromLisk32Address(address),
+				cryptography.address.getAddressFromKlayr32Address(address),
 			);
 
 			expect(storedSeed).toEqual({
@@ -221,7 +221,7 @@ describe('RandomModuleEndpoint', () => {
 			const usedHashOnionStore = randomEndpoint['offchainStores'].get(UsedHashOnionsStore);
 			const usedHashOnions = await usedHashOnionStore.get(
 				context,
-				cryptography.address.getAddressFromLisk32Address(address),
+				cryptography.address.getAddressFromKlayr32Address(address),
 			);
 
 			expect(usedHashOnions.usedHashOnions[0].count).toBe(0);
@@ -248,7 +248,7 @@ describe('RandomModuleEndpoint', () => {
 			const hashOnionStore = randomEndpoint['offchainStores'].get(HashOnionStore);
 			const storedSeed = await hashOnionStore.get(
 				context,
-				cryptography.address.getAddressFromLisk32Address(address),
+				cryptography.address.getAddressFromKlayr32Address(address),
 			);
 
 			expect(storedSeed).toEqual({
@@ -260,7 +260,7 @@ describe('RandomModuleEndpoint', () => {
 			const usedHashOnionStore = randomEndpoint['offchainStores'].get(UsedHashOnionsStore);
 			const usedHashOnions = await usedHashOnionStore.get(
 				context,
-				cryptography.address.getAddressFromLisk32Address(address),
+				cryptography.address.getAddressFromKlayr32Address(address),
 			);
 
 			expect(usedHashOnions.usedHashOnions[0].count).toBe(0);
@@ -277,7 +277,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.setHashOnion(context)).rejects.toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.address' should be of type 'string'",
+				"Klayr validator found 1 error[s]:\nProperty '.address' should be of type 'string'",
 			);
 		});
 
@@ -291,7 +291,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.setHashOnion(context)).rejects.toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.seed' should be of type 'string'",
+				"Klayr validator found 1 error[s]:\nProperty '.seed' should be of type 'string'",
 			);
 		});
 
@@ -397,7 +397,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.setHashOnion(context)).rejects.toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.hashes.0' must NOT have more than 32 characters",
+				"Klayr validator found 1 error[s]:\nProperty '.hashes.0' must NOT have more than 32 characters",
 			);
 		});
 
@@ -423,7 +423,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.setHashOnion(context)).rejects.toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.count' should be of type 'integer'",
+				"Klayr validator found 1 error[s]:\nProperty '.count' should be of type 'integer'",
 			);
 		});
 
@@ -437,7 +437,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.setHashOnion(context)).rejects.toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.distance' should be of type 'integer'",
+				"Klayr validator found 1 error[s]:\nProperty '.distance' should be of type 'integer'",
 			);
 		});
 
@@ -451,7 +451,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.setHashOnion(context)).rejects.toThrow(
-				'Lisk validator found 1 error[s]:\nmust be >= 1',
+				'Klayr validator found 1 error[s]:\nmust be >= 1',
 			);
 		});
 
@@ -465,7 +465,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.setHashOnion(context)).rejects.toThrow(
-				'Lisk validator found 1 error[s]:\nmust be >= 1',
+				'Klayr validator found 1 error[s]:\nmust be >= 1',
 			);
 		});
 	});
@@ -514,7 +514,7 @@ describe('RandomModuleEndpoint', () => {
 		it('should return hasSeed false with 0 remaining hashes if hashOnion does not exist', async () => {
 			const hasHashOnion = await randomEndpoint.hasHashOnion({
 				...context,
-				params: { address: 'lsk7tyskeefnd6p6bfksd7ytp5jyaw8f2r9foa6ch' },
+				params: { address: 'kly7tyskeefnd6p6bfksd7ytp5jyaw8f2r9foa6ch' },
 			});
 
 			// Assert
@@ -532,7 +532,7 @@ describe('RandomModuleEndpoint', () => {
 			const usedHashOnionStore = randomEndpoint['offchainStores'].get(UsedHashOnionsStore);
 			await usedHashOnionStore.set(
 				context,
-				cryptography.address.getAddressFromLisk32Address(address),
+				cryptography.address.getAddressFromKlayr32Address(address),
 				{
 					usedHashOnions: [{ count: usedCount, height: 2121 }],
 				},
@@ -571,7 +571,7 @@ describe('RandomModuleEndpoint', () => {
 			const usedHashOnionStore = randomEndpoint['offchainStores'].get(UsedHashOnionsStore);
 			await usedHashOnionStore.set(
 				context,
-				cryptography.address.getAddressFromLisk32Address(address),
+				cryptography.address.getAddressFromKlayr32Address(address),
 				{
 					usedHashOnions: [{ count, height: 8888 }],
 				},
@@ -607,7 +607,7 @@ describe('RandomModuleEndpoint', () => {
 			const usedHashOnionStore = randomEndpoint['offchainStores'].get(UsedHashOnionsStore);
 			await usedHashOnionStore.set(
 				context,
-				cryptography.address.getAddressFromLisk32Address(address),
+				cryptography.address.getAddressFromKlayr32Address(address),
 				defaultUsedHashOnion,
 			);
 		});
@@ -617,7 +617,7 @@ describe('RandomModuleEndpoint', () => {
 			await expect(
 				randomEndpoint.getHashOnionUsage({
 					...context,
-					params: { address: 'lsk7tyskeefnd6p6bfksd7ytp5jyaw8f2r9foa6ch' },
+					params: { address: 'kly7tyskeefnd6p6bfksd7ytp5jyaw8f2r9foa6ch' },
 				}),
 			).rejects.toThrow('does not exist');
 		});
@@ -660,7 +660,7 @@ describe('RandomModuleEndpoint', () => {
 			const usedHashOnionStore = randomEndpoint['offchainStores'].get(UsedHashOnionsStore);
 			const usedOnionData = await usedHashOnionStore.get(
 				context,
-				cryptography.address.getAddressFromLisk32Address(address),
+				cryptography.address.getAddressFromKlayr32Address(address),
 			);
 
 			// Assert
@@ -683,7 +683,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.setHashOnionUsage(context)).rejects.toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.address' should be of type 'string'",
+				"Klayr validator found 1 error[s]:\nProperty '.address' should be of type 'string'",
 			);
 		});
 
@@ -698,7 +698,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.setHashOnionUsage(context)).rejects.toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.usedHashOnions.0.count' should be of type 'integer'",
+				"Klayr validator found 1 error[s]:\nProperty '.usedHashOnions.0.count' should be of type 'integer'",
 			);
 		});
 
@@ -713,7 +713,7 @@ describe('RandomModuleEndpoint', () => {
 
 			// Act & Assert
 			await expect(randomEndpoint.setHashOnionUsage(context)).rejects.toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.usedHashOnions.0.height' should be of type 'integer'",
+				"Klayr validator found 1 error[s]:\nProperty '.usedHashOnions.0.height' should be of type 'integer'",
 			);
 		});
 	});

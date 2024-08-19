@@ -11,8 +11,8 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
 import { BaseMethod } from '../base_method';
 import { FeeMethod, ModuleConfig, NFT } from './types';
 import { NFTAttributes, NFTStore, NFTStoreData, nftStoreSchema } from './stores/nft';
@@ -587,7 +587,7 @@ export class NFTMethod extends BaseMethod {
 	}
 
 	/**
-	 * This function is used to transfer ownership of NFTs across chains in the Lisk ecosystem.
+	 * This function is used to transfer ownership of NFTs across chains in the Klayr ecosystem.
 	 *
 	 * @example
 	 *  ```ts
@@ -654,7 +654,7 @@ export class NFTMethod extends BaseMethod {
 	}
 
 	/**
-	 * This function updates the supported NFTs substore to support all NFTs of the Lisk ecosystem.
+	 * This function updates the supported NFTs substore to support all NFTs of the Klayr ecosystem.
 	 *
 	 * @example
 	 *  ```ts

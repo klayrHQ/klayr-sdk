@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils, ed } from '@liskhq/lisk-cryptography';
-import { Transaction, TAG_TRANSACTION } from '@liskhq/lisk-chain';
+import { utils, ed } from '@klayr/cryptography';
+import { Transaction, TAG_TRANSACTION } from '@klayr/chain';
 import { verifySignature } from '../../../../src/modules/auth/utils';
 
 describe('utils', () => {
@@ -21,7 +21,7 @@ describe('utils', () => {
 		const chainID = Buffer.from('04000000', 'hex');
 
 		it('should verify a valid transaction signature', async () => {
-			const privateKey = await ed.getPrivateKeyFromPhraseAndPath('hello lisk', "m/44'/134'/0'");
+			const privateKey = await ed.getPrivateKeyFromPhraseAndPath('hello klayr', "m/44'/134'/0'");
 			const publicKey = ed.getPublicKeyFromPrivateKey(privateKey);
 
 			const transaction = new Transaction({

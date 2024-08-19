@@ -25,7 +25,7 @@ import { CrossChainUpdateTransactionParams } from '../../types';
 import { getIDFromCCMBytes } from '../../utils';
 import { SidechainInteroperabilityInternalMethod } from '../internal_method';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0053.md#sidechaincrosschainupdate
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#sidechaincrosschainupdate
 export class SubmitSidechainCrossChainUpdateCommand extends BaseCrossChainUpdateCommand<SidechainInteroperabilityInternalMethod> {
 	public async verify(
 		context: CommandVerifyContext<CrossChainUpdateTransactionParams>,

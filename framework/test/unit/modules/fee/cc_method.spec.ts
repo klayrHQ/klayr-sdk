@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { Modules } from '../../../../src';
 import { FeeInteroperableMethod } from '../../../../src/modules/fee/cc_method';
 import { CONTEXT_STORE_KEY_AVAILABLE_CCM_FEE } from '../../../../src/modules/fee/constants';

@@ -1,4 +1,4 @@
-import { apiClient } from 'lisk-sdk';
+import { apiClient } from 'klayr-sdk';
 // Replace this with the path to a file storing the public and private key of a mainchain account who will send the sidechain registration transaction.
 // (Can be any account with enough tokens).
 import { keys } from '../default/dev-validators.json';
@@ -6,15 +6,15 @@ import { keys } from '../default/dev-validators.json';
 (async () => {
 	// Replace this with alias of the sidechain node(s)
 	const SIDECHAIN_ARRAY = ['pos-sidechain-example-one', 'pos-sidechain-example-two'];
-	// Replace this with the alias of the mainchain node(s), e.g. lisk-core
+	// Replace this with the alias of the mainchain node(s), e.g. klayr-core
 	// Note: Number of mainchain nodes should be equal to sidechain nodes, for this script to work properly.
 	const MAINCHAIN_ARRAY = ['mainchain-node-one', 'mainchain-node-two'];
 	let i = 0;
 	for (const nodeAlias of SIDECHAIN_ARRAY) {
 		// Connect to the sidechain node
-		const sidechainClient = await apiClient.createIPCClient(`~/.lisk/${nodeAlias}`);
+		const sidechainClient = await apiClient.createIPCClient(`~/.klayr/${nodeAlias}`);
 		// Connect to the mainchain node
-		const mainchainClient = await apiClient.createIPCClient(`~/.lisk/${MAINCHAIN_ARRAY[i]}`);
+		const mainchainClient = await apiClient.createIPCClient(`~/.klayr/${MAINCHAIN_ARRAY[i]}`);
 
 		// Get node info data from sidechain and mainchain
 		const sidechainNodeInfo = await sidechainClient.invoke('system_getNodeInfo');
@@ -71,7 +71,7 @@ import { keys } from '../default/dev-validators.json';
 			transactionId: string;
 		}>('chainConnector_authorize', {
 			enable: true,
-			password: 'lisk',
+			password: 'klayr',
 		});
 		console.log('Authorize Sidechain completed, result:', authorizeSideChainResult);
 	}

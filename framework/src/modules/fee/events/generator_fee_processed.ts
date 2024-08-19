@@ -28,12 +28,12 @@ export const generatorFeeProcessedSchema = {
 	properties: {
 		senderAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 1,
 		},
 		generatorAddress: {
 			dataType: 'bytes',
-			format: 'lisk32',
+			format: 'klayr32',
 			fieldNumber: 2,
 		},
 		burntAmount: {

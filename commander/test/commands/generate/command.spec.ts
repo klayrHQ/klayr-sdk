@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -43,27 +43,27 @@ describe('generate:command command', () => {
 	});
 
 	describe('generate:command should check app directory', () => {
-		it('should throw error if cwd is not a lisk app directory', async () => {
-			jest.spyOn<any, any>(BaseBootstrapCommand.prototype, '_isLiskAppDir').mockReturnValue(false);
+		it('should throw error if cwd is not a klayr app directory', async () => {
+			jest.spyOn<any, any>(BaseBootstrapCommand.prototype, '_isKlayrappDir').mockReturnValue(false);
 			jest.spyOn(process, 'cwd').mockReturnValue('/my/dir');
 
 			await expect(CommandCommand.run(['nft', 'register'], config)).rejects.toThrow(
-				'You can run this command only in lisk app directory. Run "lisk init --help" command for more details.',
+				'You can run this command only in klayr app directory. Run "klayr init --help" command for more details.',
 			);
-			expect(BaseBootstrapCommand.prototype['_isLiskAppDir']).toHaveBeenCalledWith('/my/dir');
+			expect(BaseBootstrapCommand.prototype['_isKlayrappDir']).toHaveBeenCalledWith('/my/dir');
 		});
 
-		it('should not throw error if cwd is a lisk app directory', async () => {
-			jest.spyOn<any, any>(BaseBootstrapCommand.prototype, '_isLiskAppDir').mockReturnValue(true);
+		it('should not throw error if cwd is a klayr app directory', async () => {
+			jest.spyOn<any, any>(BaseBootstrapCommand.prototype, '_isKlayrappDir').mockReturnValue(true);
 			jest.spyOn(process, 'cwd').mockReturnValue('/my/dir');
 			jest
 				.spyOn<any, any>(BaseBootstrapCommand.prototype, '_runBootstrapCommand')
 				.mockResolvedValue(null as never);
 
 			await expect(CommandCommand.run(['nft', 'register'], config)).resolves.toBeNull();
-			expect(BaseBootstrapCommand.prototype['_isLiskAppDir']).toHaveBeenCalledWith('/my/dir');
+			expect(BaseBootstrapCommand.prototype['_isKlayrappDir']).toHaveBeenCalledWith('/my/dir');
 			expect(BaseBootstrapCommand.prototype['_runBootstrapCommand']).toHaveBeenCalledWith(
-				'lisk:generate:command',
+				'klayr:generate:command',
 				{
 					moduleName: 'nft',
 					commandName: 'register',

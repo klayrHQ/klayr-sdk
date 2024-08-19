@@ -13,12 +13,12 @@
  */
 
 import { InMemoryDatabase } from '@liskhq/lisk-db';
-import { P2P } from '@liskhq/lisk-p2p';
-import { utils } from '@liskhq/lisk-cryptography';
+import { P2P } from '@klayr/p2p';
+import { utils } from '@klayr/cryptography';
 import { Network } from '../../../../src/engine/network';
 import { fakeLogger } from '../../../utils/mocks';
 
-jest.mock('@liskhq/lisk-p2p');
+jest.mock('@klayr/p2p');
 jest.mock('@liskhq/lisk-db');
 
 describe('network', () => {

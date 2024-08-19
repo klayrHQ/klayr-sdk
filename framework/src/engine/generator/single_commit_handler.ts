@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Chain, StateStore } from '@liskhq/lisk-chain';
-import { dataStructures } from '@liskhq/lisk-utils';
-import { address as addressUtil } from '@liskhq/lisk-cryptography';
+import { Chain, StateStore } from '@klayr/chain';
+import { dataStructures } from '@klayr/utils';
+import { address as addressUtil } from '@klayr/cryptography';
 import { Database } from '@liskhq/lisk-db';
 import { BFTModule } from '../bft';
 import { Consensus, Keypair } from './types';
@@ -51,7 +51,7 @@ export class SingleCommitHandler {
 
 	// On node start, it re generates certificate from maxRemovalHeight to maxHeightPrecommitted.
 	// in the _handleFinalizedHeightChanged, it loops between maxRemovalHeight + 1 and  maxHeightPrecommitted.
-	// @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0061.md#initial-single-commit-creation
+	// @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0061.md#initial-single-commit-creation
 	public async initAllSingleCommits() {
 		for (const [address] of this._keypairs.entries()) {
 			await this.initSingleCommits(address);
@@ -91,7 +91,7 @@ export class SingleCommitHandler {
 		const pairs = this._keypairs.get(address);
 		if (!pairs) {
 			this._logger.warn(
-				{ address: addressUtil.getLisk32AddressFromAddress(address) },
+				{ address: addressUtil.getKlayr32AddressFromAddress(address) },
 				'Validator does not have registered BLS key on this node',
 			);
 			return [];
@@ -141,7 +141,7 @@ export class SingleCommitHandler {
 		}
 		if (!registeredValidator.blsKey.equals(blsPK)) {
 			this._logger.warn(
-				{ address: addressUtil.getLisk32AddressFromAddress(generatorAddress) },
+				{ address: addressUtil.getKlayr32AddressFromAddress(generatorAddress) },
 				'Validator does not have registered BLS key',
 			);
 			return;
@@ -157,7 +157,7 @@ export class SingleCommitHandler {
 		this._logger.debug(
 			{
 				height,
-				generator: addressUtil.getLisk32AddressFromAddress(generatorAddress),
+				generator: addressUtil.getKlayr32AddressFromAddress(generatorAddress),
 			},
 			'Certified single commit',
 		);

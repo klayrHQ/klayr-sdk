@@ -11,7 +11,7 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { NotFoundError } from '@liskhq/lisk-db';
 import { BaseStore, ImmutableStoreGetter } from '../../base_store';
 import {
@@ -89,7 +89,7 @@ export const chainDataJSONSchema = {
 	},
 };
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#chain-data-substore
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#chain-data-substore
 export const chainDataSchema = {
 	$id: '/modules/interoperability/chainData',
 	type: 'object',

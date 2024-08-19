@@ -23,7 +23,7 @@ import { getConfig } from '../../../helpers/config';
 import { Awaited } from '../../../types';
 
 describe('blockchain:import', () => {
-	const defaultDataPath = path.join(homedir(), '.lisk', 'lisk-core');
+	const defaultDataPath = path.join(homedir(), '.klayr', 'klayr-core');
 	const defaultBlockchainDBPath = getBlockchainDBPath(defaultDataPath);
 	const defaultStateDBPath = getStateDBPath(defaultDataPath);
 	const defaultOutputPath = path.join(defaultDataPath, 'data');

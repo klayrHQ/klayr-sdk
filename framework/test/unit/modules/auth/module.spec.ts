@@ -11,9 +11,9 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-import { codec } from '@liskhq/lisk-codec';
-import { utils, address as cryptoAddress } from '@liskhq/lisk-cryptography';
-import { Transaction, BlockAssets, EMPTY_BUFFER } from '@liskhq/lisk-chain';
+import { codec } from '@klayr/codec';
+import { utils, address as cryptoAddress } from '@klayr/cryptography';
+import { Transaction, BlockAssets, EMPTY_BUFFER } from '@klayr/chain';
 import { when } from 'jest-when';
 import { AuthModule } from '../../../../src/modules/auth';
 import * as testing from '../../../../src/testing';

@@ -14,7 +14,7 @@
  */
 
 import * as inquirer from 'inquirer';
-import * as apiClient from '@liskhq/lisk-api-client';
+import * as apiClient from '@klayr/api-client';
 import { when } from 'jest-when';
 import * as appUtils from '../../../src/utils/application';
 import { EnableCommand } from '../../../src/bootstrapping/commands/generator/enable';

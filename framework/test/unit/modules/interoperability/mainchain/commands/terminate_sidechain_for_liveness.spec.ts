@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { Transaction } from '@liskhq/lisk-chain';
-import { utils } from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
+import { codec } from '@klayr/codec';
+import { Transaction } from '@klayr/chain';
+import { utils } from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
 import { StateMachine, Modules } from '../../../../../../src';
 import { BaseCCCommand } from '../../../../../../src/modules/interoperability/base_cc_command';
 import { BaseCCMethod } from '../../../../../../src/modules/interoperability/base_cc_method';

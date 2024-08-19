@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 
-import { Modules, StateMachine } from 'lisk-sdk';
+import { Modules, StateMachine } from 'klayr-sdk';
 import { createHelloSchema } from '../schemas';
 import { MessageStore } from '../stores/message';
 import { counterKey, CounterStore, CounterStoreData } from '../stores/counter';

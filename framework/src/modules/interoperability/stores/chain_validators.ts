@@ -20,7 +20,7 @@ export interface ChainValidators {
 	certificateThreshold: bigint;
 }
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#chain-validators-substore
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#chain-validators-substore
 export const chainValidatorsSchema = {
 	$id: '/modules/interoperability/chainValidators',
 	type: 'object',

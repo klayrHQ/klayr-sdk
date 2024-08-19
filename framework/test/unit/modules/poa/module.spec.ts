@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
-import { BlockAssets } from '@liskhq/lisk-chain';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
+import { BlockAssets } from '@klayr/chain';
 import { PrefixedStateReadWriter } from '../../../../src/state_machine/prefixed_state_read_writer';
 import {
 	InMemoryPrefixedStateDB,
@@ -184,7 +184,7 @@ describe('PoA module', () => {
 		beforeEach(async () => {
 			poaModule = new PoAModule();
 			poaModule.addDependencies(validatorMethod, feeMethod, randomMethod);
-			height = 103 * (bootstrapRounds + 1);
+			height = 53 * (bootstrapRounds + 1);
 			stateStore = new PrefixedStateReadWriter(new InMemoryPrefixedStateDB());
 			currentTimestamp = Math.floor(Date.now() / 1000);
 

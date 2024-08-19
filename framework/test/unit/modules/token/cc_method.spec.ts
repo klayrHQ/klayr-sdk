@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { address, utils } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { address, utils } from '@klayr/cryptography';
 import { TokenModule } from '../../../../src/modules/token';
 import {
 	CCM_STATUS_OK,

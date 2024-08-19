@@ -13,10 +13,10 @@
  */
 
 import { InMemoryDatabase, NotFoundError } from '@liskhq/lisk-db';
-import { BlockHeader, StateStore } from '@liskhq/lisk-chain';
-import { codec } from '@liskhq/lisk-codec';
-import { bls, utils } from '@liskhq/lisk-cryptography';
-import * as crypto from '@liskhq/lisk-cryptography';
+import { BlockHeader, StateStore } from '@klayr/chain';
+import { codec } from '@klayr/codec';
+import { bls, utils } from '@klayr/cryptography';
+import * as crypto from '@klayr/cryptography';
 import { when } from 'jest-when';
 import { BFTParameterNotFoundError } from '../../../../../src/engine/bft/errors';
 import { CommitPool } from '../../../../../src/engine/consensus/certificate_generation/commit_pool';
@@ -43,9 +43,9 @@ import {
 import { AggregateCommit } from '../../../../../src/engine/consensus/types';
 import { COMMIT_SORT } from '../../../../../src/engine/consensus/certificate_generation/commit_list';
 
-jest.mock('@liskhq/lisk-cryptography', () => ({
+jest.mock('@klayr/cryptography', () => ({
 	__esModule: true,
-	...jest.requireActual('@liskhq/lisk-cryptography'),
+	...jest.requireActual('@klayr/cryptography'),
 }));
 
 describe('CommitPool', () => {
@@ -73,7 +73,7 @@ describe('CommitPool', () => {
 			existBFTParameters: jest.fn(),
 		};
 
-		blockTime = 10;
+		blockTime = 7;
 		minCertifyHeight = 0;
 
 		getBlockHeaderByHeight = jest.fn();
@@ -110,7 +110,7 @@ describe('CommitPool', () => {
 		const height = 1020;
 		const maxHeightCertified = 950;
 		const maxHeightPrecommitted = 1000;
-		const numActiveValidators = 103;
+		const numActiveValidators = 53;
 		const staleGossipedCommit = {
 			blockID,
 			certificateSignature: utils.getRandomBytes(96),
@@ -584,7 +584,7 @@ describe('CommitPool', () => {
 
 			chain.finalizedHeight = commit.height - 1;
 
-			weights = Array(103).fill(1);
+			weights = Array(53).fill(1);
 			validators = weights.map(weight => ({
 				address: utils.getRandomBytes(20),
 				bftWeight: BigInt(weight),
@@ -924,12 +924,12 @@ describe('CommitPool', () => {
 
 			stateStore = new StateStore(new InMemoryDatabase());
 
-			privateKeys = Array.from({ length: 103 }, _ =>
+			privateKeys = Array.from({ length: 53 }, _ =>
 				bls.generatePrivateKey(utils.getRandomBytes(32)),
 			);
 			publicKeys = privateKeys.map(privateKey => bls.getPublicKeyFromPrivateKey(privateKey));
 
-			weights = Array(103).fill(1);
+			weights = Array(53).fill(1);
 			threshold = 33;
 
 			unsignedCertificate = {
@@ -946,7 +946,7 @@ describe('CommitPool', () => {
 				bls.signData(MESSAGE_TAG_CERTIFICATE, chainID, encodedCertificate, privateKey),
 			);
 
-			pubKeySignaturePairs = Array.from({ length: 103 }, (_, i) => ({
+			pubKeySignaturePairs = Array.from({ length: 53 }, (_, i) => ({
 				publicKey: publicKeys[i],
 				signature: signatures[i],
 			}));

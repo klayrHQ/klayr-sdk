@@ -11,10 +11,10 @@
  *
  * Removal or modification of this copyright notice is prohibited.
  */
-// TODO: Fix the test when functional test is fixed https://github.com/LiskHQ/lisk-sdk/issues/7209
+// TODO: Fix the test when functional test is fixed https://github.com/Klayrhq/klayr-sdk/issues/7209
 
-// import { codec } from '@liskhq/lisk-codec';
-// import { P2P } from '@liskhq/lisk-p2p';
+// import { codec } from '@klayr/codec';
+// import { P2P } from '@klayr/p2p';
 
 // import { Application } from '../../../../src';
 // import {

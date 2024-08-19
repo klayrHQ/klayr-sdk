@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { validator } from '@liskhq/lisk-validator';
-import { codec } from '@liskhq/lisk-codec';
-import { utils } from '@liskhq/lisk-cryptography';
+import { validator } from '@klayr/validator';
+import { codec } from '@klayr/codec';
+import { utils } from '@klayr/cryptography';
 import { SparseMerkleTree } from '@liskhq/lisk-db';
 import {
 	CommandExecuteContext,
@@ -33,11 +33,11 @@ import { getMainchainID } from '../../utils';
 import { SidechainInteroperabilityInternalMethod } from '../internal_method';
 import { InvalidSMTVerificationEvent } from '../../events/invalid_smt_verification';
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#state-recovery-initialization-command
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#state-recovery-initialization-command
 export class InitializeStateRecoveryCommand extends BaseInteroperabilityCommand<SidechainInteroperabilityInternalMethod> {
 	public schema = stateRecoveryInitParamsSchema;
 
-	// LIP: https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#verification-3
+	// LIP: https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#verification-3
 	public async verify(
 		context: CommandVerifyContext<StateRecoveryInitParams>,
 	): Promise<VerificationResult> {
@@ -89,7 +89,7 @@ export class InitializeStateRecoveryCommand extends BaseInteroperabilityCommand<
 		};
 	}
 
-	// LIP: https://github.com/LiskHQ/lips/blob/main/proposals/lip-0054.md#execution-3
+	// LIP: https://github.com/Klayrhq/lips/blob/main/proposals/lip-0054.md#execution-3
 	public async execute(context: CommandExecuteContext<StateRecoveryInitParams>): Promise<void> {
 		const {
 			params: { chainID, siblingHashes, bitmap, sidechainAccount: sidechainAccountBuffer },

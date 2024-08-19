@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2019 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -35,15 +35,15 @@ const passwordDescription = `Specifies a source for your secret password. Comman
 `;
 
 const dataPathDescription =
-	'Directory path to specify where node data is stored. Environment variable "LISK_DATA_PATH" can also be used.';
+	'Directory path to specify where node data is stored. Environment variable "KLAYR_DATA_PATH" can also be used.';
 
 const offlineDescription = 'Specify whether to connect to a local node or not.';
 
 const networkDescription =
-	'Default network config to use. Environment variable "LISK_NETWORK" can also be used.';
+	'Default network config to use. Environment variable "KLAYR_NETWORK" can also be used.';
 
 const configDescription =
-	'File path to a custom config. Environment variable "LISK_CONFIG_FILE" can also be used.';
+	'File path to a custom config. Environment variable "KLAYR_CONFIG_FILE" can also be used.';
 
 const prettyDescription = 'Prints JSON in pretty format rather than condensed.';
 
@@ -142,16 +142,16 @@ export const flags: FlagMap = {
 export const flagsWithParser = {
 	dataPath: flagParser.string({
 		...flags.dataPath,
-		env: 'LISK_DATA_PATH',
+		env: 'KLAYR_DATA_PATH',
 	}),
 	network: flagParser.string({
 		...flags.network,
-		env: 'LISK_NETWORK',
+		env: 'KLAYR_NETWORK',
 		default: DEFAULT_NETWORK,
 	}),
 	config: flagParser.string({
 		...flags.config,
-		env: 'LISK_CONFIG_FILE',
+		env: 'KLAYR_CONFIG_FILE',
 	}),
 	pretty: flagParser.boolean(flags.pretty),
 	passphrase: flagParser.string(flags.passphrase),

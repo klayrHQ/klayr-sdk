@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { objects } from '@liskhq/lisk-utils';
-import { validator } from '@liskhq/lisk-validator';
-import { address } from '@liskhq/lisk-cryptography';
+import { objects } from '@klayr/utils';
+import { validator } from '@klayr/validator';
+import { address } from '@klayr/cryptography';
 import { ModuleInitArgs, ModuleMetadata } from '../base_module';
 import { CONTEXT_STORE_KEY_AVAILABLE_FEE, defaultConfig } from './constants';
 import { InteroperabilityMethod, ModuleConfigJSON, TokenMethod } from './types';
@@ -91,7 +91,7 @@ export class FeeModule extends BaseInteroperableModule {
 			...config,
 			feeTokenID: Buffer.from(config.feeTokenID, 'hex'),
 			feePoolAddress: config.feePoolAddress
-				? address.getAddressFromLisk32Address(config.feePoolAddress)
+				? address.getAddressFromKlayr32Address(config.feePoolAddress)
 				: undefined,
 		};
 		this.method.init(moduleConfig);

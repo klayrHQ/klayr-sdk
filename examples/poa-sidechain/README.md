@@ -1,6 +1,6 @@
 # PoA Example
 
-This project was bootstrapped with [Lisk SDK](https://github.com/LiskHQ/lisk-sdk)
+This project was bootstrapped with [Klayr SDK](https://github.com/Klayrhq/klayr-sdk)
 
 ### Start a node
 
@@ -11,27 +11,27 @@ This project was bootstrapped with [Lisk SDK](https://github.com/LiskHQ/lisk-sdk
 ### Add a new module
 
 ```
-lisk generate:module ModuleName ModuleID
+klayr generate:module ModuleName ModuleID
 // Example
-lisk generate:module token 1
+klayr generate:module token 1
 ```
 
 ### Add a new asset
 
 ```
-lisk generate:asset ModuleName AssetName AssetID
+klayr generate:asset ModuleName AssetName AssetID
 // Example
-lisk generate:asset token transfer 1
+klayr generate:asset token transfer 1
 ```
 
 ### Add a new plugin
 
 ```
-lisk generate:plugin PluginName
+klayr generate:plugin PluginName
 // Example
-lisk generate:plugin httpAPI
+klayr generate:plugin httpAPI
 ```
 
 ## Learn More
 
-You can learn more in the [documentation](https://lisk.com/documentation/lisk-sdk/).
+You can learn more in the [documentation](https://klayr.xyz/documentation/klayr-sdk/).

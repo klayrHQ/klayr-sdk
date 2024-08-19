@@ -1,6 +1,6 @@
 export const defaultConfig = {
 	system: {
-		dataPath: '~/.lisk/beta-sdk-app',
+		dataPath: '~/.klayr/beta-sdk-app',
 		keepEventsForHeights: 300,
 		logLevel: 'info',
 	},
@@ -26,8 +26,8 @@ export const defaultConfig = {
 		block: {
 			fromFile: './config/genesis_block.blob',
 		},
-		blockTime: 10,
-		bftBatchSize: 103,
+		blockTime: 7,
+		bftBatchSize: 53,
 		// eslint-disable-next-line @typescript-eslint/no-magic-numbers
 		maxTransactionsSize: 15 * 1024, // Kilo Bytes
 	},

@@ -1,6 +1,6 @@
-import { utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { BlockAssets } from '@liskhq/lisk-chain';
+import { utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { BlockAssets } from '@klayr/chain';
 import { Modules, StateMachine } from '../../../../src';
 import {
 	HASH_LENGTH,

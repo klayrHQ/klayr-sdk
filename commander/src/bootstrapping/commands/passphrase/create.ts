@@ -13,7 +13,7 @@
  *
  */
 
-import { Mnemonic } from '@liskhq/lisk-passphrase';
+import { Mnemonic } from '@klayr/passphrase';
 import { Command, Flags as flagParser } from '@oclif/core';
 import { handleOutputFlag } from '../../../utils/output';
 

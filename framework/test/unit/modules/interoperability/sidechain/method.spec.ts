@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { Modules } from '../../../../../src';
 import { createTransientMethodContext } from '../../../../../src/testing';
 import { EventQueue, MethodContext } from '../../../../../src/state_machine';

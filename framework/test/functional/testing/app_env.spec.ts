@@ -20,13 +20,13 @@ import { BaseMethod, BaseCommand, BaseEndpoint, BaseModule, TokenModule } from '
 import { ModuleMetadata } from '../../../src/modules/base_module';
 
 const appLabel = 'beta-sdk-app';
-const dataPath = join(homedir(), '.lisk', appLabel);
+const dataPath = join(homedir(), '.klayr', appLabel);
 
 class SampleCommand extends BaseCommand {
 	public name = 'asset';
 	public id = 0;
 	public schema = {
-		$id: '/lisk/sample',
+		$id: '/klayr/sample',
 		type: 'object',
 		properties: {},
 	};

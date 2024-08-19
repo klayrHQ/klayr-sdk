@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { when } from 'jest-when';
 import { Modules } from '../../../../../src';
 import { StoreGetter } from '../../../../../src/modules/base_store';

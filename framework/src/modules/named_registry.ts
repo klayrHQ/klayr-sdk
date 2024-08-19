@@ -1,4 +1,4 @@
-import { Schema } from '@liskhq/lisk-codec';
+import { Schema } from '@klayr/codec';
 
 /*
  * Copyright © 2022 Lisk Foundation

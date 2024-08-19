@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
-import { validator } from '@liskhq/lisk-validator';
+import { utils } from '@klayr/cryptography';
+import { validator } from '@klayr/validator';
 import { Types, Modules } from '../../../../src';
 import { BaseInteroperabilityEndpoint } from '../../../../src/modules/interoperability/base_interoperability_endpoint';
 import {
@@ -229,7 +229,7 @@ describe('Test interoperability endpoint', () => {
 					params: { chainID: 'zy000001' },
 				}),
 			).rejects.toThrow(
-				'Lisk validator found 1 error[s]:\nProperty \'.chainID\' must match format "hex"',
+				'Klayr validator found 1 error[s]:\nProperty \'.chainID\' must match format "hex"',
 			);
 		});
 
@@ -240,7 +240,7 @@ describe('Test interoperability endpoint', () => {
 					params: { chainID: '0400000001' },
 				}),
 			).rejects.toThrow(
-				"Lisk validator found 1 error[s]:\nProperty '.chainID' must NOT have more than 8 characters",
+				"Klayr validator found 1 error[s]:\nProperty '.chainID' must NOT have more than 8 characters",
 			);
 		});
 

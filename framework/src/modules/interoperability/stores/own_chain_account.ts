@@ -21,7 +21,7 @@ export interface OwnChainAccount {
 	nonce: bigint;
 }
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#own-chain-data
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#own-chain-data
 export const ownChainAccountSchema = {
 	$id: '/modules/interoperability/ownChainAccount',
 	type: 'object',

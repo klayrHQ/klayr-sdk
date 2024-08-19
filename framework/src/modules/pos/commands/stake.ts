@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { dataStructures } from '@liskhq/lisk-utils';
+import { dataStructures } from '@klayr/utils';
 import { ValidationError } from '../../../errors';
 import {
 	CommandVerifyContext,

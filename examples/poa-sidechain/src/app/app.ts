@@ -1,4 +1,4 @@
-import { Application, Types } from 'lisk-sdk';
+import { Application, Types } from 'klayr-sdk';
 import { registerModules } from './modules';
 import { registerPlugins } from './plugins';
 

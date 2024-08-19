@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -13,9 +13,9 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-import { Schema } from '@liskhq/lisk-codec';
-import { address } from '@liskhq/lisk-cryptography';
-import { Modules } from 'lisk-framework';
+import { Schema } from '@klayr/codec';
+import { address } from '@klayr/cryptography';
+import { Modules } from 'klayr-framework';
 
 export const genesisAssetsSchema = {
 	$id: '/genesis/asset/0',
@@ -79,8 +79,8 @@ export const generateGenesisBlockDefaultPoSAssets = (input: GenesisBlockDefaultA
 	const tokenID = `${input.chainID}${localID}`;
 	input.keysList.sort((a, b) =>
 		address
-			.getAddressFromLisk32Address(a.address)
-			.compare(address.getAddressFromLisk32Address(b.address)),
+			.getAddressFromKlayr32Address(a.address)
+			.compare(address.getAddressFromKlayr32Address(b.address)),
 	);
 	const genesisAssets = [
 		{

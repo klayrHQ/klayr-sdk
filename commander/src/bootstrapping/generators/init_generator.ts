@@ -1,5 +1,5 @@
 /*
- * LiskHQ/lisk-commander
+ * LiskHQ/klayr-commander
  * Copyright © 2021 Lisk Foundation
  *
  * See the LICENSE file at the top-level directory of this distribution
@@ -27,15 +27,15 @@ export default class InitGenerator extends BaseGenerator {
 	}
 
 	public configuring(): void {
-		this.log('Updating .liskrc.json file');
-		this._liskRC.setPath('template', this._liskTemplateName);
+		this.log('Updating .klayrrc.json file');
+		this._klayrRC.setPath('template', this._klayrTemplateName);
 	}
 
 	public writing(): void {
 		this.log('Creating project structure');
 		this.composeWith({
-			Generator: this._liskTemplate.generators.init,
-			path: this._liskTemplatePath,
+			Generator: this._klayrTemplate.generators.init,
+			path: this._klayrTemplatePath,
 		});
 	}
 

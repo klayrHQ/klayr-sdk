@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { StoreGetter } from '../../../../../src/modules/base_store';
 import { TOKEN_ID_LENGTH, defaultConfig } from '../../../../../src/modules/pos/constants';
 import { EligibleValidatorsStore } from '../../../../../src/modules/pos/stores/eligible_validators';

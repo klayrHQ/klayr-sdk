@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
+import { utils } from '@klayr/cryptography';
 import { bitwiseXOR, isSeedValidInput } from '../../../../src/modules/random/utils';
 import { bitwiseXORFixtures } from './bitwise_xor_fixtures';
 import { ValidatorSeedReveal } from '../../../../src/modules/random/stores/validator_reveals';
@@ -52,7 +52,7 @@ describe('Random module utils', () => {
 
 		beforeEach(() => {
 			let height = 100;
-			validatorSeedReveals = Array(103)
+			validatorSeedReveals = Array(53)
 				.fill(0)
 				.map(() => {
 					height += 1;
@@ -66,23 +66,23 @@ describe('Random module utils', () => {
 		});
 
 		it('should return true when a matching seed is provided corresponding to the highest seed from the generator', () => {
-			validatorSeedReveals[88].generatorAddress = generatorAddress;
-			validatorSeedReveals[88].seedReveal = previousSeed;
+			validatorSeedReveals[52].generatorAddress = generatorAddress;
+			validatorSeedReveals[52].seedReveal = previousSeed;
 
 			expect(isSeedValidInput(generatorAddress, seed, validatorSeedReveals)).toBe(true);
 		});
 
 		it('should return false when a matching seed is provided, but not corresponding to the highest seed from the generator', () => {
-			validatorSeedReveals[88].generatorAddress = generatorAddress;
-			validatorSeedReveals[88].seedReveal = previousSeed;
+			validatorSeedReveals[44].generatorAddress = generatorAddress;
+			validatorSeedReveals[44].seedReveal = previousSeed;
 
-			validatorSeedReveals[99].generatorAddress = generatorAddress;
+			validatorSeedReveals[52].generatorAddress = generatorAddress;
 
 			expect(isSeedValidInput(generatorAddress, seed, validatorSeedReveals)).toBe(false);
 		});
 
 		it('should return false when previous seed exists, but the provided seed does not match', () => {
-			validatorSeedReveals[88].generatorAddress = generatorAddress;
+			validatorSeedReveals[51].generatorAddress = generatorAddress;
 
 			expect(isSeedValidInput(generatorAddress, seed, validatorSeedReveals)).toBe(false);
 		});

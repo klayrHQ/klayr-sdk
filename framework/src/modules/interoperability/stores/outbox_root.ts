@@ -18,7 +18,7 @@ export interface OutboxRoot {
 	root: Buffer;
 }
 
-// https://github.com/LiskHQ/lips/blob/main/proposals/lip-0045.md#outbox-root-substore
+// https://github.com/Klayrhq/lips/blob/main/proposals/lip-0045.md#outbox-root-substore
 export const outboxRootSchema = {
 	$id: '/modules/interoperability/outbox',
 	type: 'object',

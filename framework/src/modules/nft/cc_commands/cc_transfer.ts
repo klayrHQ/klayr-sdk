@@ -12,8 +12,8 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { validator } from '@liskhq/lisk-validator';
+import { codec } from '@klayr/codec';
+import { validator } from '@klayr/validator';
 import { CCTransferMessageParams, crossChainNFTTransferMessageParamsSchema } from '../schemas';
 import { NFTAttributes, NFTStore } from '../stores/nft';
 import { NFTMethod } from '../method';

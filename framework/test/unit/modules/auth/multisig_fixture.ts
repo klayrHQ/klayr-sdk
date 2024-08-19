@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { ed, address } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { Transaction } from '@liskhq/lisk-chain';
+import { ed, address } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { Transaction } from '@klayr/chain';
 import {
 	registerMultisignatureParamsSchema,
 	multisigRegMsgSchema,

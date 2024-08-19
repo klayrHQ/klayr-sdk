@@ -19,7 +19,7 @@ import {
 	eventSchema,
 	standardEventDataSchema,
 	transactionSchema,
-} from '@liskhq/lisk-chain';
+} from '@klayr/chain';
 import { ABI } from '../../abi';
 import { EngineConfig } from '../../types';
 import { Consensus } from '../consensus';

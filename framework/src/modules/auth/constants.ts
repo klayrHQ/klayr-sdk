@@ -16,8 +16,8 @@ export const COMMAND_NAME_REGISTER_MULTISIGNATURE_GROUP = 'registerMultisignatur
 export const MAX_NUMBER_OF_SIGNATURES = 64;
 
 // Events
-export const MESSAGE_TAG_MULTISIG_REG = 'LSK_RMSG_';
-export const MESSAGE_TAG_TRANSACTION = Buffer.from('LSK_TX_', 'utf8');
+export const MESSAGE_TAG_MULTISIG_REG = 'KLY_RMSG_';
+export const MESSAGE_TAG_TRANSACTION = Buffer.from('KLY_TX_', 'utf8');
 // Constants
 export const ADDRESS_LENGTH = 20;
 export const ED25519_PUBLIC_KEY_LENGTH = 32;

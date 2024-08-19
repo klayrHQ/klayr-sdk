@@ -230,7 +230,7 @@ export const addressRequestSchema = {
 	properties: {
 		address: {
 			type: 'string',
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 	},
 	required: ['address'],

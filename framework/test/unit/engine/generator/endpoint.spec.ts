@@ -12,12 +12,12 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { codec } from '@liskhq/lisk-codec';
-import { utils, ed, bls, encrypt, address } from '@liskhq/lisk-cryptography';
+import { codec } from '@klayr/codec';
+import { utils, ed, bls, encrypt, address } from '@klayr/cryptography';
 import { InMemoryDatabase, Database } from '@liskhq/lisk-db';
-import { dataStructures } from '@liskhq/lisk-utils';
-import { LiskValidationError } from '@liskhq/lisk-validator';
-import { Chain } from '@liskhq/lisk-chain';
+import { dataStructures } from '@klayr/utils';
+import { KlayrvalidationError } from '@klayr/validator';
+import { Chain } from '@klayr/chain';
 import { when } from 'jest-when';
 import { ABI, TransactionVerifyResult } from '../../../../src/abi';
 import { Logger } from '../../../../src/logger';
@@ -144,7 +144,7 @@ describe('generator endpoint', () => {
 					},
 					chainID,
 				}),
-			).rejects.toThrow(LiskValidationError);
+			).rejects.toThrow(KlayrvalidationError);
 		});
 
 		it('should reject with error when address is not in config', async () => {
@@ -152,7 +152,7 @@ describe('generator endpoint', () => {
 				endpoint.updateStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(utils.getRandomBytes(20)),
+						address: address.getKlayr32AddressFromAddress(utils.getRandomBytes(20)),
 						enable: true,
 						password: defaultPassword,
 						...bftProps,
@@ -167,7 +167,7 @@ describe('generator endpoint', () => {
 				endpoint.updateStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						enable: true,
 						password: 'wrong password',
 						...bftProps,
@@ -183,7 +183,7 @@ describe('generator endpoint', () => {
 				endpoint.updateStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						enable: true,
 						password: defaultPassword,
 						...bftProps,
@@ -204,7 +204,7 @@ describe('generator endpoint', () => {
 				endpoint.updateStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						enable: false,
 						password: defaultPassword,
 						...bftProps,
@@ -212,7 +212,7 @@ describe('generator endpoint', () => {
 					chainID,
 				}),
 			).resolves.toEqual({
-				address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+				address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 				enabled: false,
 			});
 			expect(endpoint['_keypairs'].has(defaultEncryptedKeys.address)).toBeFalse();
@@ -223,7 +223,7 @@ describe('generator endpoint', () => {
 				endpoint.updateStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						enable: true,
 						password: defaultPassword,
 						...bftProps,
@@ -231,7 +231,7 @@ describe('generator endpoint', () => {
 					chainID,
 				}),
 			).resolves.toEqual({
-				address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+				address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 				enabled: true,
 			});
 			expect(endpoint['_keypairs'].has(defaultEncryptedKeys.address)).toBeTrue();
@@ -242,7 +242,7 @@ describe('generator endpoint', () => {
 				endpoint.updateStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						enable: true,
 						password: defaultPassword,
 						...bftProps,
@@ -250,7 +250,7 @@ describe('generator endpoint', () => {
 					chainID,
 				}),
 			).resolves.toEqual({
-				address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+				address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 				enabled: true,
 			});
 			expect(endpoint['_singleCommitHandler'].initSingleCommits).toHaveBeenCalledWith(
@@ -264,7 +264,7 @@ describe('generator endpoint', () => {
 				endpoint.updateStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						enable: true,
 						password: defaultPassword,
 						height: 0,
@@ -274,7 +274,7 @@ describe('generator endpoint', () => {
 					chainID,
 				}),
 			).resolves.toEqual({
-				address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+				address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 				enabled: true,
 			});
 		});
@@ -286,7 +286,7 @@ describe('generator endpoint', () => {
 				endpoint.updateStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						enable: true,
 						password: defaultPassword,
 						height: 100,
@@ -313,7 +313,7 @@ describe('generator endpoint', () => {
 				endpoint.updateStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						enable: true,
 						password: defaultPassword,
 						height: 0,
@@ -339,7 +339,7 @@ describe('generator endpoint', () => {
 				endpoint.updateStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						enable: true,
 						password: defaultPassword,
 						height: 100,
@@ -369,14 +369,14 @@ describe('generator endpoint', () => {
 				endpoint.setStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						height: -1,
 						maxHeightPrevoted: 40,
 						maxHeightGenerated: 3,
 					},
 					chainID,
 				}),
-			).rejects.toThrow('Lisk validator found 1 error');
+			).rejects.toThrow('Klayr validator found 1 error');
 		});
 
 		it('should resolve and store the given input when input is valid', async () => {
@@ -384,7 +384,7 @@ describe('generator endpoint', () => {
 				endpoint.setStatus({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						height: 33,
 						maxHeightPrevoted: 40,
 						maxHeightGenerated: 3,
@@ -451,7 +451,7 @@ describe('generator endpoint', () => {
 					params: {},
 					chainID,
 				}),
-			).rejects.toThrow('Lisk validator found');
+			).rejects.toThrow('Klayr validator found');
 		});
 
 		it('should fail if the timeShutdown is not finalized', async () => {
@@ -530,7 +530,7 @@ describe('generator endpoint', () => {
 				endpoint.setKeys({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						type: 'plain',
 						data: {
 							version: '1',
@@ -550,7 +550,7 @@ describe('generator endpoint', () => {
 					},
 					chainID,
 				}),
-			).rejects.toThrow('Lisk validator found');
+			).rejects.toThrow('Klayr validator found');
 		});
 
 		it('should resolve and save input value', async () => {
@@ -576,7 +576,7 @@ describe('generator endpoint', () => {
 				endpoint.setKeys({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						type: 'encrypted',
 						data: val,
 					},
@@ -599,7 +599,7 @@ describe('generator endpoint', () => {
 				endpoint.setKeys({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 						type: 'encrypted',
 						data: defaultEncryptedKeys.data,
 					},
@@ -615,7 +615,7 @@ describe('generator endpoint', () => {
 			await endpoint.setKeys({
 				logger,
 				params: {
-					address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+					address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 					type: 'encrypted',
 					data: {
 						version: '1',
@@ -641,7 +641,7 @@ describe('generator endpoint', () => {
 			await endpoint.setKeys({
 				logger,
 				params: {
-					address: address.getLisk32AddressFromAddress(utils.getRandomBytes(20)),
+					address: address.getKlayr32AddressFromAddress(utils.getRandomBytes(20)),
 					type: 'plain',
 					data: {
 						generatorKey: defaultKeys.generatorKey.toString('hex'),
@@ -669,7 +669,7 @@ describe('generator endpoint', () => {
 			await endpoint.setKeys({
 				logger,
 				params: {
-					address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+					address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 					type: 'encrypted',
 					data: {
 						version: '1',
@@ -701,7 +701,7 @@ describe('generator endpoint', () => {
 					params: {},
 					chainID,
 				}),
-			).rejects.toThrow('Lisk validator found 1 error');
+			).rejects.toThrow('Klayr validator found 1 error');
 		});
 
 		it('should resolve true if key exist', async () => {
@@ -709,7 +709,7 @@ describe('generator endpoint', () => {
 				endpoint.hasKeys({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(defaultEncryptedKeys.address),
+						address: address.getKlayr32AddressFromAddress(defaultEncryptedKeys.address),
 					},
 					chainID,
 				}),
@@ -721,7 +721,7 @@ describe('generator endpoint', () => {
 				endpoint.hasKeys({
 					logger,
 					params: {
-						address: address.getLisk32AddressFromAddress(utils.getRandomBytes(20)),
+						address: address.getKlayr32AddressFromAddress(utils.getRandomBytes(20)),
 					},
 					chainID,
 				}),

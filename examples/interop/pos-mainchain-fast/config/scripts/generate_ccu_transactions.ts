@@ -16,7 +16,7 @@ import {
 	unsignedCertificateSchema,
 	certificateSchema,
 	ccuParamsSchema,
-} from 'lisk-sdk';
+} from 'klayr-sdk';
 import * as fs from 'fs-extra';
 const { ed, bls, address, utils } = cryptography;
 import { keys } from '../default/dev-validators.json';
@@ -107,13 +107,13 @@ const createAndSendTransaction = async (
 	params: Buffer,
 	message: string,
 ) => {
-	const mainchainClient = await apiClient.createIPCClient(`~/.lisk/mainchain-node-one`);
+	const mainchainClient = await apiClient.createIPCClient(`~/.klayr/mainchain-node-one`);
 	const mainchainNodeInfo = await mainchainClient.invoke('system_getNodeInfo');
 
 	// Get public key and nonce of the sender account
 	const relayerKeyInfo = keys[2];
 	const { nonce } = await mainchainClient.invoke<{ nonce: string }>('auth_getAuthAccount', {
-		address: address.getLisk32AddressFromPublicKey(Buffer.from(relayerKeyInfo.publicKey, 'hex')),
+		address: address.getKlayr32AddressFromPublicKey(Buffer.from(relayerKeyInfo.publicKey, 'hex')),
 	});
 	// Create registerSidechain transaction
 	const tx = new Transaction({

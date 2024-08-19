@@ -12,10 +12,10 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Chain, Transaction, Event, TransactionJSON } from '@liskhq/lisk-chain';
-import { TransactionPool } from '@liskhq/lisk-transaction-pool';
-import { validator } from '@liskhq/lisk-validator';
-import { address as cryptoAddress } from '@liskhq/lisk-cryptography';
+import { Chain, Transaction, Event, TransactionJSON } from '@klayr/chain';
+import { TransactionPool } from '@klayr/transaction-pool';
+import { validator } from '@klayr/validator';
+import { address as cryptoAddress } from '@klayr/cryptography';
 import { Broadcaster } from '../generator/broadcaster';
 import { InvalidTransactionError } from '../generator/errors';
 import {
@@ -109,7 +109,7 @@ export class TxpoolEndpoint {
 		if (address) {
 			transactions = transactions.filter(
 				transaction =>
-					cryptoAddress.getLisk32AddressFromPublicKey(transaction.senderPublicKey) === address,
+					cryptoAddress.getKlayr32AddressFromPublicKey(transaction.senderPublicKey) === address,
 			);
 		}
 

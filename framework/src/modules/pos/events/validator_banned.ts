@@ -27,7 +27,7 @@ export const validatorBannedDataSchema = {
 		address: {
 			dataType: 'bytes',
 			fieldNumber: 1,
-			format: 'lisk32',
+			format: 'klayr32',
 		},
 		height: {
 			dataType: 'uint32',

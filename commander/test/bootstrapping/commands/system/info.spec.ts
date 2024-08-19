@@ -13,7 +13,7 @@
  *
  */
 import * as fs from 'fs-extra';
-import * as apiClient from '@liskhq/lisk-api-client';
+import * as apiClient from '@klayr/api-client';
 
 import { getConfig } from '../../../helpers/config';
 import { BaseIPCClientCommand } from '../../../../src/bootstrapping/commands/base_ipc_client';
@@ -32,15 +32,15 @@ describe('system:node-info command', () => {
 		syncing: false,
 		unconfirmedTransactions: 0,
 		genesisConfig: {
-			blockTime: 10,
+			blockTime: 7,
 			maxTransactionsSize: 15360,
 			rewards: {
 				milestones: ['500000000', '400000000', '300000000', '200000000', '100000000'],
 				offset: 2160,
 				distance: 3000000,
 			},
-			communityIdentifier: 'Lisk',
-			activeValidators: 101,
+			communityIdentifier: 'Klayr',
+			activeValidators: 51,
 			standbyValidators: 2,
 			totalAmount: '10000000000000000',
 			validatorListRoundOffset: 2,

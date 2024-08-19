@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 
-import { validator, StateMachine, Modules, utils } from 'lisk-sdk';
+import { validator, StateMachine, Modules, utils } from 'klayr-sdk';
 import { CreateHelloCommand } from './commands/create_hello_command';
 import { ReactCCCommand } from './cc_commands/react_cc_command';
 import { HelloEndpoint } from './endpoint';

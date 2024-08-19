@@ -12,9 +12,9 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { utils } from '@liskhq/lisk-cryptography';
-import { codec } from '@liskhq/lisk-codec';
-import { BlockAssets } from '@liskhq/lisk-chain';
+import { utils } from '@klayr/cryptography';
+import { codec } from '@klayr/codec';
+import { BlockAssets } from '@klayr/chain';
 import { NFTModule } from '../../../../src/modules/nft/module';
 import { createGenesisBlockContext } from '../../../../src/testing';
 import {
