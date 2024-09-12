@@ -32,7 +32,7 @@
 	},
 	"dependencies": {
 		"debug": "4.3.4",
-		"klayr-sdk": "^6.1.2"
+		"klayr-sdk": "^6.1.2-alpha.1"
 	},
 	"devDependencies": {
 		"@types/jest": "29.2.3",
