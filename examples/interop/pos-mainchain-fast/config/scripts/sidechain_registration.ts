@@ -71,7 +71,7 @@ import { keys } from '../default/dev-validators.json';
 			transactionId: string;
 		}>('chainConnector_authorize', {
 			enable: true,
-			password: 'klayr',
+			password: 'lisk',
 		});
 		console.log('Authorize Sidechain completed, result:', authorizeSideChainResult);
 	}

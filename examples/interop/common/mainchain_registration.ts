@@ -1,12 +1,4 @@
-import {
-	codec,
-	cryptography,
-	apiClient,
-	Transaction,
-	registrationSignatureMessageSchema,
-	mainchainRegParams as mainchainRegParamsSchema,
-	MESSAGE_TAG_CHAIN_REG,
-} from 'klayr-sdk';
+import { codec, cryptography, apiClient, Transaction, Modules } from 'klayr-sdk';
 
 /**
  * Registers the mainchain to a specific sidechain node.
@@ -69,7 +61,7 @@ export const registerMainchain = async (mc: string, sc: string, sidechainDevVali
 	};
 
 	// Encode parameters
-	const message = codec.encode(registrationSignatureMessageSchema, params);
+	const message = codec.encode(Modules.Interoperability.registrationSignatureMessageSchema, params);
 
 	// Get active validators from sidechain
 	const { validators: sidechainActiveValidators } = await sidechainClient.invoke(
@@ -104,7 +96,7 @@ export const registerMainchain = async (mc: string, sc: string, sidechainDevVali
 	// Sign parameters with each active sidechain validator
 	for (const validator of activeValidatorsBLSKeys) {
 		const signature = bls.signData(
-			MESSAGE_TAG_CHAIN_REG,
+			Modules.Interoperability.MESSAGE_TAG_CHAIN_REG,
 			params.ownChainID,
 			message,
 			validator.blsPrivateKey,
@@ -139,7 +131,7 @@ export const registerMainchain = async (mc: string, sc: string, sidechainDevVali
 		module: 'interoperability',
 		command: 'registerMainchain',
 		fee: BigInt(2000000000),
-		params: codec.encodeJSON(mainchainRegParamsSchema, mainchainRegParams),
+		params: codec.encodeJSON(Modules.Interoperability.mainchainRegParams, mainchainRegParams),
 		nonce: BigInt(nonce),
 		senderPublicKey: Buffer.from(relayerKeyInfo.publicKey, 'hex'),
 		signatures: [],
@@ -164,7 +156,7 @@ export const registerMainchain = async (mc: string, sc: string, sidechainDevVali
 		transactionId: string;
 	}>('chainConnector_authorize', {
 		enable: true,
-		password: 'klayr',
+		password: 'lisk',
 	});
 	console.log('Authorize Mainchain completed, result:', authorizeMainchainResult);
 

@@ -1,14 +1,4 @@
-import {
-	cryptography,
-	codec,
-	CCMsg,
-	ccmSchema,
-	apiClient,
-	Transaction,
-	db,
-	MODULE_NAME_INTEROPERABILITY,
-	messageRecoveryParamsSchema,
-} from 'klayr-sdk';
+import { cryptography, codec, apiClient, Transaction, db, Modules } from 'klayr-sdk';
 
 // to transfer some LSK, we can use this script - examples/interop/pos-mainchain-fast/config/scripts/transfer_kly_sidechain_one.ts
 
@@ -42,7 +32,7 @@ export const relayerKeyInfo = {
 };
 
 interface CCMsInfo {
-	ccms: CCMsg[];
+	ccms: Modules.Interoperability.CCMsg[];
 }
 
 export interface Proof {
@@ -133,8 +123,8 @@ export interface Proof {
 			await this._db.close();
 		}
 
-		public async getCCMs(): Promise<CCMsg[]> {
-			let ccms: CCMsg[] = [];
+		public async getCCMs(): Promise<Modules.Interoperability.CCMsg[]> {
+			let ccms: Modules.Interoperability.CCMsg[] = [];
 			try {
 				const encodedInfo = await this._db.get(DB_KEY_EVENTS);
 				ccms = codec.decode<CCMsInfo>(ccmsInfoSchema, encodedInfo).ccms;
@@ -153,7 +143,8 @@ export interface Proof {
 		return new db.Database(dirPath);
 	};
 
-	const toBytes = (ccm: CCMsg) => codec.encode(ccmSchema, ccm);
+	const toBytes = (ccm: Modules.Interoperability.CCMsg) =>
+		codec.encode(Modules.Interoperability.ccmSchema, ccm);
 
 	const LEAF_PREFIX = Buffer.from('00', 'hex');
 	const eventsModel = new EventsModel(await getDBInstance('~/.klayr'));
@@ -204,11 +195,14 @@ export interface Proof {
 	// In case of recovery, it will simply swap sending/receiving chains & run each CCM in input crossChainMessages[] again
 	// LIP 54: ```def applyRecovery(trs: Transaction, ccm: CCM) -> None:```
 	const tx = new Transaction({
-		module: MODULE_NAME_INTEROPERABILITY,
+		module: Modules.Interoperability.MODULE_NAME_INTEROPERABILITY,
 		// COMMAND_RECOVER_MESSAGE	string	"recoverMessage"	Name of message recovery command. (LIP 45)
 		command: 'recoverMessage',
 		fee: BigInt(5450000000),
-		params: codec.encodeJSON(messageRecoveryParamsSchema, messageRecoveryParams),
+		params: codec.encodeJSON(
+			Modules.Interoperability.messageRecoveryParamsSchema,
+			messageRecoveryParams,
+		),
 		nonce: BigInt(
 			(
 				await mainchainClient.invoke<{ nonce: string }>('auth_getAuthAccount', {

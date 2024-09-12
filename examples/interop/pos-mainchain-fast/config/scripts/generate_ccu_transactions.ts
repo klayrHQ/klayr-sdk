@@ -8,28 +8,12 @@ import {
 	apiClient,
 	Transaction,
 	codec,
-	sidechainRegParams,
-	ActiveValidator,
-	validatorsHashInputSchema,
-	UnsignedCertificate,
-	MESSAGE_TAG_CERTIFICATE,
-	unsignedCertificateSchema,
-	certificateSchema,
-	ccuParamsSchema,
+	Engine,
 } from 'klayr-sdk';
 import * as fs from 'fs-extra';
 const { ed, bls, address, utils } = cryptography;
 import { keys } from '../default/dev-validators.json';
-
-export interface Certifcate {
-	readonly blockID: Buffer;
-	readonly height: number;
-	readonly timestamp: number;
-	readonly stateRoot: Buffer;
-	readonly validatorsHash: Buffer;
-	aggregationBits: Buffer;
-	signature: Buffer;
-}
+import { Modules } from 'klayr-framework';
 
 interface ActiveValidatorsUpdate {
 	blsKeysUpdate: Buffer[];
@@ -64,14 +48,17 @@ interface ValidatorAccount {
 }
 
 export const computeValidatorsHash = (
-	activeValidators: ActiveValidator[],
+	activeValidators: Modules.Interoperability.ActiveValidator[],
 	certificateThreshold: bigint,
 ) => {
 	const input = {
 		activeValidators,
 		certificateThreshold,
 	};
-	const encodedValidatorsHashInput = codec.encode(validatorsHashInputSchema, input);
+	const encodedValidatorsHashInput = codec.encode(
+		Modules.Interoperability.validatorsHashInputSchema,
+		input,
+	);
 	return utils.hash(encodedValidatorsHashInput);
 };
 
@@ -159,7 +146,7 @@ export const registerSidechain = async (
 		'interoperability',
 		'registerSidechain',
 		BigInt(2000000000),
-		codec.encodeJSON(sidechainRegParams, params),
+		codec.encodeJSON(Modules.Interoperability.sidechainRegParams, params),
 		`Sent register sidechain transaction with chainID: ${chainID}`,
 	);
 };
@@ -179,7 +166,7 @@ export const computeAndSendCCUTransaction = async (
 	const validatorsHash = computeValidatorsHash(validatorBLSKeyAndWeight, certificateThreshold);
 
 	const block = testing.createFakeBlockHeader({ validatorsHash, timestamp });
-	const unsignedCertificate: UnsignedCertificate = {
+	const unsignedCertificate: Engine.UnsignedCertificate = {
 		blockID: block.id,
 		height: block.height,
 		stateRoot: block.stateRoot as Buffer,
@@ -193,9 +180,9 @@ export const computeAndSendCCUTransaction = async (
 	)) {
 		signatures.push({
 			signature: bls.signData(
-				MESSAGE_TAG_CERTIFICATE,
+				Modules.Interoperability.MESSAGE_TAG_CERTIFICATE,
 				Buffer.from(chainID, 'hex'),
-				codec.encode(unsignedCertificateSchema, unsignedCertificate),
+				codec.encode(Engine.unsignedCertificateSchema, unsignedCertificate),
 				blsPrivateKey,
 			),
 			publicKey: blsPublicKey,
@@ -207,13 +194,13 @@ export const computeAndSendCCUTransaction = async (
 		signatures,
 	);
 
-	const certificate = codec.encode(certificateSchema, {
+	const certificate = codec.encode(Engine.certificateSchema, {
 		...unsignedCertificate,
 		aggregationBits,
 		signature,
 	});
 
-	const params = codec.encode(ccuParamsSchema, {
+	const params = codec.encode(Modules.Interoperability.ccuParamsSchema, {
 		activeValidatorsUpdate: {
 			bftWeightsUpdate: [],
 			bftWeightsUpdateBitmap: Buffer.alloc(0),
@@ -247,7 +234,7 @@ export const computeAndSendCCUTransaction = async (
  * 4. Keep InboxUpdate and ActiveValidatorsUpdate blank for this scenario to keep things simple
  */
 (async () => {
-	const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+	const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 	// send register sidechainParams
 	const chainID = '04000051';
 	const chainName = 'sidechain_51';
