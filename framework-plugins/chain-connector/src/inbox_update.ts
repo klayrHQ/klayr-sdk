@@ -13,10 +13,10 @@
  */
 
 import { Modules, codec, tree } from 'klayr-sdk';
-import { CCMsFromEvents, LastSentCCMWithHeight } from './types';
+import { CCMWithHeight, LastSentCCM } from './types';
 
 /**
- * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#messagewitnesshashes
+ * @see https://github.com/LiskHQ/lips/blob/main/proposals/lip-0053.md#messagewitnesshashes
  *
  * Calculates messageWitnessHashes if there are any pending ccms as well as it filters out ccms
  * based on last sent ccm nonce.
@@ -36,38 +36,33 @@ export const calculateMessageWitnesses = (
 	inboxSizeOnReceivingChain: number,
 	outboxSizeOnSendingChain: number,
 	lastSentCCM: {
-		height: number;
 		nonce: bigint;
+		height: number;
 	},
-	ccmsToBeIncluded: CCMsFromEvents[],
+	ccmsToBeIncluded: CCMWithHeight[],
 	maxCCUSize: number,
 ): {
 	crossChainMessages: Buffer[];
 	messageWitnessHashes: Buffer[];
-	lastCCMToBeSent: LastSentCCMWithHeight | undefined;
+	lastCCMToBeSent: LastSentCCM | undefined;
 } => {
 	const allSerializedCCMs = [];
 	const includedSerializedCCMs = [];
 	let lastCCMWithHeight;
 	let totalSize = 0;
 	// Make an array of ccms with nonce greater than last sent ccm nonce
-	for (const ccmsFromEvents of ccmsToBeIncluded) {
-		const { ccms, height } = ccmsFromEvents;
-		for (const ccm of ccms) {
-			if (height !== 0 && lastSentCCM.height === height) {
-				if (ccm.nonce === lastSentCCM.nonce) {
-					continue;
-				}
+	for (const ccm of ccmsToBeIncluded) {
+		if (ccm.height !== 0 && lastSentCCM.height === ccm.height && ccm.nonce === lastSentCCM.nonce) {
+			continue;
+		}
+		if (inboxSizeOnReceivingChain < outboxSizeOnSendingChain) {
+			const ccmBytes = codec.encode(Modules.Interoperability.ccmSchema, ccm);
+			totalSize += ccmBytes.length;
+			if (totalSize < maxCCUSize) {
+				includedSerializedCCMs.push(ccmBytes);
+				lastCCMWithHeight = { ...ccm, height: ccm.height };
 			}
-			if (inboxSizeOnReceivingChain < outboxSizeOnSendingChain) {
-				const ccmBytes = codec.encode(Modules.Interoperability.ccmSchema, ccm);
-				totalSize += ccmBytes.length;
-				if (totalSize < maxCCUSize) {
-					includedSerializedCCMs.push(ccmBytes);
-					lastCCMWithHeight = { ...ccm, height: ccmsFromEvents.height };
-				}
-				allSerializedCCMs.push(ccmBytes);
-			}
+			allSerializedCCMs.push(ccmBytes);
 		}
 	}
 
@@ -85,7 +80,10 @@ export const calculateMessageWitnesses = (
 		return {
 			crossChainMessages: includedSerializedCCMs,
 			messageWitnessHashes: [],
-			lastCCMToBeSent: lastCCMWithHeight,
+			lastCCMToBeSent: {
+				...(lastCCMWithHeight as LastSentCCM),
+				outboxSize: outboxSizeOnSendingChain,
+			},
 		};
 	}
 
@@ -99,6 +97,9 @@ export const calculateMessageWitnesses = (
 	return {
 		crossChainMessages: includedSerializedCCMs,
 		messageWitnessHashes,
-		lastCCMToBeSent: lastCCMWithHeight,
+		lastCCMToBeSent: {
+			...(lastCCMWithHeight as LastSentCCM),
+			outboxSize: outboxSizeOnSendingChain,
+		},
 	};
 };

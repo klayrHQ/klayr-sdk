@@ -2,19 +2,11 @@ import {
 	apiClient,
 	chain,
 	cryptography,
-	MODULE_NAME_INTEROPERABILITY,
-	messageRecoveryInitializationParamsSchema,
-	ChainStatus,
 	codec,
 	Transaction,
-	ChannelDataJSON,
-	ChannelData,
-	ChainAccountJSON,
-	Inbox,
-	Outbox,
 	db,
 	ProveResponse,
-	OutboxRootWitness,
+	Modules,
 } from 'klayr-sdk';
 import { join } from 'path';
 import { ensureDir } from 'fs-extra';
@@ -51,17 +43,19 @@ interface MessageRecoveryInitializationParams {
 	siblingHashes: Buffer[];
 }
 
-const channelDataJSONToObj = (channelData: ChannelDataJSON): ChannelData => {
+const channelDataJSONToObj = (
+	channelData: Modules.Interoperability.ChannelDataJSON,
+): Modules.Interoperability.ChannelData => {
 	const { inbox, messageFeeTokenID, outbox, partnerChainOutboxRoot, minReturnFeePerByte } =
 		channelData;
 
-	const inboxJSON: Inbox = {
+	const inboxJSON: Modules.Interoperability.Inbox = {
 		appendPath: inbox.appendPath.map(ap => Buffer.from(ap, 'hex')),
 		root: Buffer.from(inbox.root, 'hex'),
 		size: inbox.size,
 	};
 
-	const outboxJSON: Outbox = {
+	const outboxJSON: Modules.Interoperability.Outbox = {
 		appendPath: outbox.appendPath.map(ap => Buffer.from(ap, 'hex')),
 		root: Buffer.from(outbox.root, 'hex'),
 		size: outbox.size,
@@ -216,7 +210,7 @@ type JSONObject<T> = Replaced<T, bigint | Buffer, string>;
 interface InclusionProofWithHeightAndStateRoot {
 	height: number;
 	stateRoot: Buffer;
-	inclusionProof: OutboxRootWitness & { key: Buffer; value: Buffer };
+	inclusionProof: Modules.Interoperability.OutboxRootWitness & { key: Buffer; value: Buffer };
 }
 
 type KVStore = db.Database;
@@ -413,14 +407,15 @@ const relayerKeyInfo = {
 	});
 
 	mainchainClient.subscribe('chain_newBlock', async (_data?: Record<string, unknown>) => {
-		const sidechainAccount = await mainchainClient.invoke<ChainAccountJSON>(
-			'interoperability_getChainAccount',
-			{ chainID: sidechainNodeInfo.chainID },
-		);
+		const sidechainAccount =
+			await mainchainClient.invoke<Modules.Interoperability.ChainAccountJSON>(
+				'interoperability_getChainAccount',
+				{ chainID: sidechainNodeInfo.chainID },
+			);
 		let lastCertifiedHeight = sidechainAccount.lastCertificate.height;
 		console.log(`sidechainAccount.lastCertificate.height: ${lastCertifiedHeight}`);
 
-		if (sidechainAccount.status === ChainStatus.TERMINATED) {
+		if (sidechainAccount.status === Modules.Interoperability.ChainStatus.TERMINATED) {
 			// Create recovery transaction
 			const inclusionProofAtLastCertifiedHeight = await inclusionProofModel.getByHeight(
 				lastCertifiedHeight,
@@ -466,9 +461,12 @@ const relayerKeyInfo = {
 					channel: codec.encode(
 						channelSchema,
 						channelDataJSONToObj(
-							await sidechainClient.invoke<ChannelDataJSON>('interoperability_getChannel', {
-								chainID: mainchainNodeInfo.chainID,
-							}),
+							await sidechainClient.invoke<Modules.Interoperability.ChannelDataJSON>(
+								'interoperability_getChannel',
+								{
+									chainID: mainchainNodeInfo.chainID,
+								},
+							),
 						),
 					),
 					// bitmap: The bitmap of the inclusion proof of the channel in the sidechain state tree.
@@ -477,11 +475,11 @@ const relayerKeyInfo = {
 				};
 
 				const tx = new Transaction({
-					module: MODULE_NAME_INTEROPERABILITY,
+					module: Modules.Interoperability.MODULE_NAME_INTEROPERABILITY,
 					command: 'initializeMessageRecovery',
 					fee: BigInt(5450000000),
 					params: codec.encodeJSON(
-						messageRecoveryInitializationParamsSchema,
+						Modules.Interoperability.messageRecoveryInitializationParamsSchema,
 						messageRecoveryInitializationParams,
 					),
 					nonce: BigInt(

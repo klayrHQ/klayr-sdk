@@ -1,4 +1,4 @@
-import { ccmSchema } from 'klayr-sdk';
+import { Modules } from 'klayr-sdk';
 
 export const ccmsInfoSchema = {
 	$id: 'msgRecoveryPlugin/ccmsFromEvents',
@@ -8,7 +8,7 @@ export const ccmsInfoSchema = {
 			type: 'array',
 			fieldNumber: 1,
 			items: {
-				...ccmSchema,
+				...Modules.Interoperability.ccmSchema,
 			},
 		},
 	},

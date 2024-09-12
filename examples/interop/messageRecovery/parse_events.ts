@@ -1,18 +1,8 @@
 // The complete Merkle tree with root equal to the last value of the outboxRoot property of the terminated outbox account
 // can be computed from the history of the Klayr mainchain
 
-import {
-	chain,
-	CCMsg,
-	JSONObject,
-	MODULE_NAME_INTEROPERABILITY,
-	Schema,
-	apiClient,
-	db,
-	db as klayrdB,
-} from 'klayr-sdk';
+import { chain, Schema, apiClient, db, db as klayrdB, Modules, Types } from 'klayr-sdk';
 import { codec } from '@klayr/codec';
-import { CcmSendSuccessEventData, CcmProcessedEventData } from 'klayr-framework';
 import { EVENT_NAME_CCM_PROCESSED } from 'klayr-framework/dist-node/modules/interoperability/constants';
 import { join } from 'path';
 import * as os from 'os';
@@ -42,10 +32,12 @@ const getInteropAndTokenModulesMetadata = async (mainchainClient: apiClient.APIC
 		'system_getMetadata',
 	);
 	const interoperabilityMetadata = modulesMetadata.find(
-		metadata => metadata.name === MODULE_NAME_INTEROPERABILITY,
+		metadata => metadata.name === Modules.Interoperability.MODULE_NAME_INTEROPERABILITY,
 	);
 	if (!interoperabilityMetadata) {
-		throw new Error(`No metadata found for ${MODULE_NAME_INTEROPERABILITY} module.`);
+		throw new Error(
+			`No metadata found for ${Modules.Interoperability.MODULE_NAME_INTEROPERABILITY} module.`,
+		);
 	}
 
 	const tokenMetadata = modulesMetadata.find(metadata => metadata.name === 'token');
@@ -68,7 +60,7 @@ const getDBInstance = async (dataPath: string, dbName = 'events.db'): Promise<KV
 };
 
 interface CCMsInfo {
-	ccms: CCMsg[];
+	ccms: Modules.Interoperability.CCMsg[];
 }
 
 class EventsModel {
@@ -82,8 +74,8 @@ class EventsModel {
 		await this._db.close();
 	}
 
-	public async getCCMs(): Promise<CCMsg[]> {
-		let ccms: CCMsg[] = [];
+	public async getCCMs(): Promise<Modules.Interoperability.CCMsg[]> {
+		let ccms: Modules.Interoperability.CCMsg[] = [];
 		try {
 			const encodedInfo = await this._db.get(DB_KEY_EVENTS);
 			ccms = codec.decode<CCMsInfo>(ccmsInfoSchema, encodedInfo).ccms;
@@ -93,7 +85,7 @@ class EventsModel {
 		return ccms;
 	}
 
-	public async setCCMs(ccms: CCMsg[]) {
+	public async setCCMs(ccms: Modules.Interoperability.CCMsg[]) {
 		const encodedInfo = codec.encode(ccmsInfoSchema, { ccms });
 		await this._db.set(DB_KEY_EVENTS, encodedInfo);
 	}
@@ -121,17 +113,19 @@ class EventsModel {
 		console.log('allCCMs => ', allCCMs);
 
 		// Check for events if any and store them
-		const blockEvents = await mainchainClient.invoke<JSONObject<chain.EventAttr[]>>(
+		const blockEvents = await mainchainClient.invoke<Types.JSONObject<chain.EventAttr[]>>(
 			'chain_getEvents',
 			{ height: newBlockHeader.height },
 		);
 
-		const ccmsFromEvents: CCMsg[] = [];
+		const ccmsFromEvents: Modules.Interoperability.CCMsg[] = [];
 		const interopMetadata = (await getInteropAndTokenModulesMetadata(mainchainClient))[0];
 
 		const getEventsByName = (name: string) => {
 			return blockEvents.filter(
-				eventAttr => eventAttr.module === MODULE_NAME_INTEROPERABILITY && eventAttr.name === name,
+				eventAttr =>
+					eventAttr.module === Modules.Interoperability.MODULE_NAME_INTEROPERABILITY &&
+					eventAttr.name === name,
 			);
 		};
 
@@ -148,10 +142,11 @@ class EventsModel {
 			if (eventsByName) {
 				const data = getEventData('ccmSendSuccess');
 				for (const ccmSentSuccessEvent of eventsByName) {
-					const ccmSendSuccessEventData = codec.decode<CcmSendSuccessEventData>(
-						data,
-						Buffer.from(ccmSentSuccessEvent.data, 'hex'),
-					);
+					const ccmSendSuccessEventData =
+						codec.decode<Modules.Interoperability.CcmSendSuccessEventData>(
+							data,
+							Buffer.from(ccmSentSuccessEvent.data, 'hex'),
+						);
 					console.log('ccmSendSuccessEventData => ', ccmSendSuccessEventData);
 
 					// Do we need to filter based on `ccm.sendingChainID = mainchain ?
@@ -169,10 +164,11 @@ class EventsModel {
 			if (eventsByName) {
 				const data = getEventData(EVENT_NAME_CCM_PROCESSED);
 				for (const ccmProcessedEvent of eventsByName) {
-					const ccmProcessedEventData = codec.decode<CcmProcessedEventData>(
-						data,
-						Buffer.from(ccmProcessedEvent.data, 'hex'),
-					);
+					const ccmProcessedEventData =
+						codec.decode<Modules.Interoperability.CcmProcessedEventData>(
+							data,
+							Buffer.from(ccmProcessedEvent.data, 'hex'),
+						);
 					console.log('ccmProcessedEventData => ', ccmProcessedEventData);
 
 					// Do we need to filter based on `ccm.sendingChainID = mainchain ?

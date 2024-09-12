@@ -16,24 +16,19 @@ import { Engine, Modules, ProveResponse } from 'klayr-sdk';
 
 import {
 	BFTParametersJSON,
+	BFTParametersWithoutGeneratorKey,
+	CCMWithHeight,
+	CCMWithHeightJSON,
 	CCMsFromEvents,
 	CCMsFromEventsJSON,
 	ProveResponseJSON,
-	ValidatorsData,
+	ValidatorsDataWithHeight,
 } from './types';
 
 import { CHAIN_ID_LENGTH } from './constants';
 
-interface BFTParametersWithoutGeneratorKey extends Omit<Engine.BFTParameters, 'validators'> {
-	validators: {
-		address: Buffer;
-		bftWeight: bigint;
-		blsKey: Buffer;
-	}[];
-}
-
 export const getMainchainID = (chainID: Buffer): Buffer => {
-	const networkID = chainID.subarray(0, 1);
+	const networkID = chainID.slice(0, 1);
 	// 3 bytes for remaining chainID bytes
 	return Buffer.concat([networkID, Buffer.alloc(CHAIN_ID_LENGTH - 1, 0)]);
 };
@@ -67,7 +62,20 @@ export const ccmsFromEventsToJSON = (ccmsFromEvents: CCMsFromEvents): CCMsFromEv
 	outboxSize: ccmsFromEvents.outboxSize,
 });
 
-export const validatorsHashPreimagetoJSON = (validatorsHashPreimage: ValidatorsData[]) => {
+export const ccmsWithHeightToJSON = (ccmsWithHeight: CCMWithHeight[]): CCMWithHeightJSON[] =>
+	ccmsWithHeight.map(ccm => ({
+		...ccm,
+		fee: ccm.fee.toString(),
+		nonce: ccm.nonce.toString(),
+		params: ccm.params.toString('hex'),
+		receivingChainID: ccm.receivingChainID.toString('hex'),
+		sendingChainID: ccm.sendingChainID.toString('hex'),
+		height: ccm.height,
+	}));
+
+export const validatorsHashPreimagetoJSON = (
+	validatorsHashPreimage: ValidatorsDataWithHeight[],
+) => {
 	const validatorsHashPreimageJSON = [];
 	for (const validatorData of validatorsHashPreimage) {
 		const validatorsJSON = validatorData.validators.map(v => ({
@@ -79,6 +87,7 @@ export const validatorsHashPreimagetoJSON = (validatorsHashPreimage: ValidatorsD
 			certificateThreshold: validatorData.certificateThreshold.toString(),
 			validators: validatorsJSON,
 			validatorsHash: validatorData.validatorsHash.toString('hex'),
+			height: validatorData.height,
 		});
 	}
 	return validatorsHashPreimageJSON;

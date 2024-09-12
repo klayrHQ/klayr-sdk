@@ -12,43 +12,34 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Engine, chain, Modules } from 'klayr-sdk';
-import { BlockHeader, ValidatorsData } from './types';
+import { chain, Engine, Modules } from 'klayr-sdk';
+import { BlockHeader } from './types';
+import { ChainConnectorDB } from './db';
 
 /**
  * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0061.md#getcertificatefromaggregatecommit
  */
-export const getCertificateFromAggregateCommit = (
+export const getCertificateFromAggregateCommitByBlockHeader = (
 	aggregateCommit: Engine.AggregateCommit,
-	blockHeaders: BlockHeader[],
-): Engine.Certificate => {
-	const blockHeader = blockHeaders.find(header => header.height === aggregateCommit.height);
-
-	if (!blockHeader) {
-		throw new Error(
-			`No block header found for the given aggregate height ${aggregateCommit.height} when calling getCertificateFromAggregateCommit.`,
-		);
-	}
-
-	return {
-		...Engine.computeUnsignedCertificateFromBlockHeader(new chain.BlockHeader(blockHeader)),
-		aggregationBits: aggregateCommit.aggregationBits,
-		signature: aggregateCommit.certificateSignature,
-	};
-};
+	blockHeader: BlockHeader,
+): Engine.Certificate => ({
+	...Engine.computeUnsignedCertificateFromBlockHeader(new chain.BlockHeader(blockHeader)),
+	aggregationBits: aggregateCommit.aggregationBits,
+	signature: aggregateCommit.certificateSignature,
+});
 
 /**
  * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0061.md#execution-8
  */
-export const checkChainOfTrust = (
+export const checkChainOfTrust = async (
 	lastValidatorsHash: Buffer,
 	blsKeyToBFTWeight: Record<string, bigint>,
 	lastCertificateThreshold: bigint,
 	aggregateCommit: Engine.AggregateCommit,
-	blockHeaders: BlockHeader[],
-	validatorsHashPreimage: ValidatorsData[],
-): boolean => {
-	const blockHeader = blockHeaders.find(header => header.height === aggregateCommit.height - 1);
+	db: ChainConnectorDB,
+): Promise<boolean> => {
+	const blockHeader = await db.getBlockHeaderByHeight(aggregateCommit.height - 1);
+
 	if (!blockHeader) {
 		throw new Error(
 			`No block header found for the given the previous height ${
@@ -63,9 +54,7 @@ export const checkChainOfTrust = (
 	}
 
 	let aggregateBFTWeight = BigInt(0);
-	const validatorData = validatorsHashPreimage.find(data =>
-		data.validatorsHash.equals(blockHeader.validatorsHash),
-	);
+	const validatorData = await db.getValidatorsDataByHash(blockHeader.validatorsHash);
 	if (!validatorData) {
 		throw new Error(
 			`No validators data found for the given validatorsHash ${blockHeader.validatorsHash.toString(
@@ -92,25 +81,23 @@ export const checkChainOfTrust = (
 /**
  * @see https://github.com/Klayrhq/lips/blob/main/proposals/lip-0061.md#execution-8
  */
-export const getNextCertificateFromAggregateCommits = (
-	blockHeaders: BlockHeader[],
-	aggregateCommits: Engine.AggregateCommit[],
-	validatorsHashPreimage: ValidatorsData[],
+export const getNextCertificateFromAggregateCommits = async (
+	db: ChainConnectorDB,
 	bftHeights: Engine.BFTHeights,
 	lastCertificate: Modules.Interoperability.LastCertificate,
-): Engine.Certificate | undefined => {
-	const blockHeaderAtLastCertifiedHeight = blockHeaders.find(
-		header => header.height === lastCertificate.height,
-	);
+): Promise<Engine.Certificate | undefined> => {
+	const blockHeaderAtLastCertifiedHeight = await db.getBlockHeaderByHeight(lastCertificate.height);
+
 	if (!blockHeaderAtLastCertifiedHeight) {
 		throw new Error(
 			`No block header found for the last certified height ${lastCertificate.height}.`,
 		);
 	}
 
-	const validatorDataAtLastCertifiedHeight = validatorsHashPreimage.find(data =>
-		data.validatorsHash.equals(blockHeaderAtLastCertifiedHeight?.validatorsHash),
+	const validatorDataAtLastCertifiedHeight = await db.getValidatorsDataByHash(
+		blockHeaderAtLastCertifiedHeight?.validatorsHash,
 	);
+
 	if (!validatorDataAtLastCertifiedHeight) {
 		throw new Error(
 			`No validatorsHash preimage data present for the given validatorsHash ${blockHeaderAtLastCertifiedHeight?.validatorsHash.toString(
@@ -129,22 +116,32 @@ export const getNextCertificateFromAggregateCommits = (
 
 	while (height > lastCertificate.height) {
 		// eslint-disable-next-line no-loop-func
-		const aggregateCommitAtHeight = aggregateCommits.find(a => a.height === height);
+		const aggregateCommitAtHeight = await db.getAggregateCommitByHeight(height);
 
 		if (aggregateCommitAtHeight !== undefined) {
 			// Verify whether the chain of trust is maintained, i.e., the certificate corresponding to
 			// aggregateCommits[h] would be accepted by blockchain B.
-			const valid = checkChainOfTrust(
+			const valid = await checkChainOfTrust(
 				blockHeaderAtLastCertifiedHeight.validatorsHash,
 				blsKeyToBFTWeight,
 				validatorDataAtLastCertifiedHeight.certificateThreshold,
 				aggregateCommitAtHeight,
-				blockHeaders,
-				validatorsHashPreimage,
+				db,
 			);
 
 			if (valid) {
-				return getCertificateFromAggregateCommit(aggregateCommitAtHeight, blockHeaders);
+				const blockHeaderAtAggregateCommitHeight = await db.getBlockHeaderByHeight(
+					aggregateCommitAtHeight.height,
+				);
+				if (!blockHeaderAtAggregateCommitHeight) {
+					throw new Error(
+						`Block header not found for the given aggregate commit for height: ${aggregateCommitAtHeight.height}`,
+					);
+				}
+				return getCertificateFromAggregateCommitByBlockHeader(
+					aggregateCommitAtHeight,
+					blockHeaderAtAggregateCommitHeight,
+				);
 			}
 		}
 

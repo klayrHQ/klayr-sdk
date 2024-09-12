@@ -1,8 +1,8 @@
-import { BasePlugin } from 'klayr-sdk';
+import { Plugins } from 'klayr-sdk';
 
  /* eslint-disable class-methods-use-this */
  /* eslint-disable  @typescript-eslint/no-empty-function */
- export class <%= className %> extends BasePlugin {
+ export class <%= className %> extends Plugins.BasePlugin {
 
 	public name: '<%= name %>';
 

@@ -2,13 +2,15 @@ export const defaultConfig = {
 	system: {
 		dataPath: '~/.klayr/beta-sdk-app',
 		keepEventsForHeights: 300,
-		logLevel: 'info',
+		keepInclusionProofsForHeights: 300,
+		inclusionProofKeys: [],
+		logLevel: 'debug',
 	},
 	rpc: {
 		modes: ['ipc'],
 		port: 7887,
 		host: '127.0.0.1',
-		allowedMethods: [],
+		allowedMethods: ["*"],
 	},
 	network: {
 		version: '1.0',

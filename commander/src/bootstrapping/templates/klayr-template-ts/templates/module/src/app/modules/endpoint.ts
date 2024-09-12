@@ -1,3 +1,3 @@
-import { BaseEndpoint } from 'klayr-sdk';
+import { Modules } from 'klayr-sdk';
 
-export class <%= moduleClass %>Endpoint extends BaseEndpoint {}
+export class <%= moduleClass %>Endpoint extends Modules.BaseEndpoint {}

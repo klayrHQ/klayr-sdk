@@ -24,6 +24,7 @@ $ npm install --save @klayr/chain-connector-plugin
 	maxCCUSize: number,
 	registrationHeight: number,
 	ccuSaveLimit: number
+	noFeeHeight: number
 }
 ```
 
@@ -41,6 +42,7 @@ $ npm install --save @klayr/chain-connector-plugin
 | `maxCCUSize`            | **Y**     | Maximum size of CCU to be allowed                                              |
 | `registrationHeight`    | **Y**     | Height at the time of registration on the receiving chain                      |
 | `ccuSaveLimit`          | **Y**     | Number of CCUs to save                                                         |
+| `noFeeHeight`           | **N**     | Height until no fee is paid on receiving chain                                 |
 
 ## Usage
 
@@ -56,10 +58,11 @@ Start your Klayr SDK with `--enable-chain-connector-plugin` flag, i.e.
 
 [LIP-53 # CCU Properties](https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#cross-chain-update-transaction-properties): Explaination of CCU Properties from LIP-53.
 
-[Interoperability Example](https://github.com/Klayrhq/klayr-sdk/tree/release/6.1.0/examples/interop): Example of Interoperability with 2 sidechains and 1 mainchain, Chain Connector Plugin enabled.
+[Interoperability Example](https://github.com/Klayrhq/klayr-sdk/tree/release/6.1.3/examples/interop): Example of Interoperability with 2 sidechains and 1 mainchain, Chain Connector Plugin enabled.
 
 ## License
 
+Copyright 2024 Klayr Labs
 Copyright 2016-2023 Lisk Foundation
 
 Licensed under the Apache License, Version 2.0 (the "License");

@@ -156,6 +156,7 @@ export class Engine {
 		this._chain = new Chain({
 			maxTransactionsSize: this._config.genesis.maxTransactionsSize,
 			keepEventsForHeights: this._config.system.keepEventsForHeights,
+			keepInclusionProofsForHeights: this._config.system.keepInclusionProofsForHeights,
 		});
 
 		this._bftModule = new BFTModule();
@@ -164,6 +165,7 @@ export class Engine {
 			network: this._network,
 			chain: this._chain,
 			genesisConfig: this._config.genesis,
+			systemConfig: this._config.system,
 			bft: this._bftModule,
 		});
 		this._generator = new Generator({
