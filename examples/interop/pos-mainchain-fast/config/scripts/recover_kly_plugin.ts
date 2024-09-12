@@ -6,15 +6,12 @@ import {
 	chain,
 	db,
 	ProveResponse,
-	OutboxRootWitness,
-	ChainAccountJSON,
-	ChainStatus,
-	stateRecoveryParamsSchema,
 } from 'klayr-sdk';
 import { keys } from '../default/dev-validators.json';
 import { ensureDir } from 'fs-extra';
 import { join } from 'path';
 import * as os from 'os';
+import { Modules } from 'klayr-framework';
 
 // Schemas
 export const inclusionProofsSchema = {
@@ -111,7 +108,7 @@ export type JSONObject<T> = Replaced<T, bigint | Buffer, string>;
 interface InclusionProof {
 	height: number;
 	stateRoot: Buffer;
-	inclusionProof: OutboxRootWitness & { key: Buffer; value: Buffer };
+	inclusionProof: Modules.Interoperability.OutboxRootWitness & { key: Buffer; value: Buffer };
 	storeValue: Buffer;
 	storeKey: Buffer;
 }
@@ -237,7 +234,7 @@ type ProveResponseJSON = JSONObject<ProveResponse>;
 	const mainchainNodeInfo = await mainchainClient.invoke('system_getNodeInfo');
 	const sidechainNodeInfo = await sidechainClient.invoke('system_getNodeInfo');
 
-	const getProofForMonitoringKey = async (client: apiClient.APIClient, monitoredKey) => {
+	const getProofForMonitoringKey = async (client: apiClient.APIClient, monitoredKey: Buffer) => {
 		const proof = await client.invoke<ProveResponseJSON>('state_prove', {
 			queryKeys: [monitoredKey.toString('hex')],
 		});
@@ -314,12 +311,12 @@ type ProveResponseJSON = JSONObject<ProveResponse>;
 	});
 
 	mainchainClient.subscribe('chain_newBlock', async (_data?: Record<string, unknown>) => {
-		const lastCertificateOfSidechain = await mainchainClient.invoke<ChainAccountJSON>(
+		const lastCertificateOfSidechain = await mainchainClient.invoke<Modules.Interoperability.ChainAccountJSON>(
 			'interoperability_getChainAccount',
 			{ chainID: sidechainNodeInfo.chainID },
 		);
 
-		if (lastCertificateOfSidechain.status !== ChainStatus.TERMINATED) {
+		if (lastCertificateOfSidechain.status !== Modules.Interoperability.ChainStatus.TERMINATED) {
 			// Delete all the inclusion proofs until lastCertificate height
 			await recoveryDB.deleteInclusionProofsUntilHeight(
 				lastCertificateOfSidechain.lastCertificate.height - 1,
@@ -416,7 +413,7 @@ type ProveResponseJSON = JSONObject<ProveResponse>;
 				module: 'interoperability',
 				command: 'recoverState',
 				fee: BigInt(1000000000),
-				params: codec.encodeJSON(stateRecoveryParamsSchema, stateRecoveryParams),
+				params: codec.encodeJSON(Modules.Interoperability.stateRecoveryParamsSchema, stateRecoveryParams),
 				nonce: BigInt(nonce),
 				senderPublicKey: Buffer.from(relayerkeyInfo.publicKey, 'hex'),
 				signatures: [],

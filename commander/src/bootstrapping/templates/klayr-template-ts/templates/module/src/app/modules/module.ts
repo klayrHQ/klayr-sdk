@@ -1,24 +1,13 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable @typescript-eslint/member-ordering */
-
 import {
-    BaseModule,
-	ModuleMetadata,
-	// ModuleInitArgs,
-	// InsertAssetContext,
-	// BlockVerifyContext,
-	// TransactionVerifyContext,
-	// VerificationResult,
-	// TransactionExecuteContext,
-	// GenesisBlockExecuteContext,
-	// BlockExecuteContext,
-	// BlockAfterExecuteContext,
-	// VerifyStatus,
+	Modules,
+	StateMachine,
 } from 'klayr-sdk';
 import { <%= moduleClass %>Endpoint } from './endpoint';
 import { <%= moduleClass %>Method } from './method';
 
-export class <%= moduleClass %>Module extends BaseModule {
+export class <%= moduleClass %>Module extends Modules.BaseModule {
     public endpoint = new <%= moduleClass %>Endpoint(this.stores, this.offchainStores);
     public method = new <%= moduleClass %>Method(this.stores, this.events);
     public commands = [];
@@ -28,7 +17,7 @@ export class <%= moduleClass %>Module extends BaseModule {
 	// 	// registeration of stores and events
 	// }
 
-	public metadata(): ModuleMetadata {
+	public metadata(): Modules.ModuleMetadata {
 		return {
 			...this.baseMetadata(),
 			endpoints: [],
@@ -37,43 +26,43 @@ export class <%= moduleClass %>Module extends BaseModule {
 	}
 
     // Lifecycle hooks
-    // public async init(_args: ModuleInitArgs): Promise<void> {
+    // public async init(_args: Modules.ModuleInitArgs): Promise<void> {
 	// 	// initialize this module when starting a node
 	// }
 
-	// public async insertAssets(_context: InsertAssetContext) {
+	// public async insertAssets(_context: StateMachine.InsertAssetContext) {
 	// 	// initialize block generation, add asset
 	// }
 
-	// public async verifyAssets(_context: BlockVerifyContext): Promise<void> {
+	// public async verifyAssets(_context: StateMachine.BlockVerifyContext): Promise<void> {
 	// 	// verify block
 	// }
 
     // Lifecycle hooks
-	// public async verifyTransaction(_context: TransactionVerifyContext): Promise<VerificationResult> {
+	// public async verifyTransaction(_context: StateMachine.TransactionVerifyContext): Promise<StateMachine.VerificationResult> {
 		// verify transaction will be called multiple times in the transaction pool
-		// return { status: VerifyStatus.OK };
+		// return { status: StateMachine.VerifyStatus.OK };
 	// }
 
-	// public async beforeCommandExecute(_context: TransactionExecuteContext): Promise<void> {
+	// public async beforeCommandExecute(_context: StateMachine.TransactionExecuteContext): Promise<void> {
 	// }
 
-	// public async afterCommandExecute(_context: TransactionExecuteContext): Promise<void> {
+	// public async afterCommandExecute(_context: StateMachine.TransactionExecuteContext): Promise<void> {
 
 	// }
-	// public async initGenesisState(_context: GenesisBlockExecuteContext): Promise<void> {
-
-	// }
-
-	// public async finalizeGenesisState(_context: GenesisBlockExecuteContext): Promise<void> {
+	// public async initGenesisState(_context: StateMachine.GenesisBlockExecuteContext): Promise<void> {
 
 	// }
 
-	// public async beforeTransactionsExecute(_context: BlockExecuteContext): Promise<void> {
+	// public async finalizeGenesisState(_context: StateMachine.GenesisBlockExecuteContext): Promise<void> {
 
 	// }
 
-	// public async afterTransactionsExecute(_context: BlockAfterExecuteContext): Promise<void> {
+	// public async beforeTransactionsExecute(_context: StateMachine.BlockExecuteContext): Promise<void> {
+
+	// }
+
+	// public async afterTransactionsExecute(_context: StateMachine.BlockAfterExecuteContext): Promise<void> {
 
 	// }
 }

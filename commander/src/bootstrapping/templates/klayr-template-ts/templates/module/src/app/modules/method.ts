@@ -1,3 +1,3 @@
-import { BaseMethod } from 'klayr-sdk';
+import { Modules } from 'klayr-sdk';
 
-export class <%= moduleClass %>Method extends BaseMethod {}
+export class <%= moduleClass %>Method extends Modules.BaseMethod {}

@@ -1,3 +1,3 @@
-import { BasePluginEndpoint } from 'klayr-sdk';
+import { Plugins } from 'klayr-sdk';
 
-export class <%= className %>Endpoint extends BasePluginEndpoint {}
+export class <%= className %>Endpoint extends Plugins.BasePluginEndpoint {}

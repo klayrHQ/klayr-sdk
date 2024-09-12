@@ -1,17 +1,13 @@
 /* eslint-disable class-methods-use-this */
-
 import {
-    BaseCommand,
-    CommandVerifyContext,
-    CommandExecuteContext,
-	VerificationResult,
-	VerifyStatus,
+	Modules,
+	StateMachine,
 } from 'klayr-sdk';
 
 interface Params {
 }
 
-export class <%= commandClass %> extends BaseCommand {
+export class <%= commandClass %> extends Modules.BaseCommand {
 	public schema = {
 		$id: '<%= commandClass %>',
 		type: 'object',
@@ -19,10 +15,10 @@ export class <%= commandClass %> extends BaseCommand {
 	};
 
 	// eslint-disable-next-line @typescript-eslint/require-await
-	public async verify(_context: CommandVerifyContext<Params>): Promise<VerificationResult> {
-		return { status: VerifyStatus.OK };
+	public async verify(_context: StateMachine.CommandVerifyContext<Params>): Promise<StateMachine.VerificationResult> {
+		return { status: StateMachine.VerifyStatus.OK };
 	}
 
-	public async execute(_context: CommandExecuteContext<Params>): Promise<void> {
+	public async execute(_context: StateMachine.CommandExecuteContext<Params>): Promise<void> {
 	}
 }
