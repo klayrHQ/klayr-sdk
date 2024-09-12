@@ -101,6 +101,7 @@ export interface ChainConnectorPluginConfig {
 	maxCCUSize: number;
 	registrationHeight: number;
 	ccuSaveLimit: number;
+	noFeeHeight: number;
 }
 
 export type SentCCUs = Transaction[];

@@ -72,6 +72,10 @@ export const configSchema = {
 			type: 'string',
 			description: 'Chain ID of the receiving chain.',
 		},
+		noFeeHeight: {
+			type: 'integer',
+			description: 'Height until no fee should be charged for CCU.',
+		},
 	},
 	required: ['encryptedPrivateKey', 'receivingChainID'],
 	default: {
@@ -81,6 +85,7 @@ export const configSchema = {
 		maxCCUSize: CCU_TOTAL_CCM_SIZE,
 		registrationHeight: DEFAULT_REGISTRATION_HEIGHT,
 		ccuSaveLimit: DEFAULT_CCU_SAVE_LIMIT,
+		noFeeHeight: 0,
 	},
 };
 

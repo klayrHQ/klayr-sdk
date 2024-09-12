@@ -37,6 +37,7 @@ interface NewBlockHandlerConfig {
 	ccuFee: string;
 	isSaveCCU: boolean;
 	ccuSaveLimit: number;
+	noFeeHeight: number;
 }
 
 interface NewBlockHandlerInitArgs {
@@ -87,6 +88,7 @@ export class BlockEventHandler {
 			registrationHeight: config.registrationHeight,
 			ccuFee: config.ccuFee,
 			isSaveCCU: config.isSaveCCU,
+			noFeeHeight: config.noFeeHeight,
 		});
 	}
 

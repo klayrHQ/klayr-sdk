@@ -92,6 +92,7 @@ describe('CCUHandler', () => {
 			maxCCUSize: 108000,
 			ccuFee: '10000000',
 			isSaveCCU: false,
+			noFeeHeight: 10,
 		};
 		sampleLastCertificate = {
 			height: 12,
@@ -985,6 +986,7 @@ describe('CCUHandler', () => {
 
 		it('should return min fee including initialization fee when no user account exists', async () => {
 			receivingChainAPIClientMock.hasUserTokenAccount.mockResolvedValue({ exists: false });
+			receivingChainAPIClientMock.getNodeInfo.mockResolvedValue({ height: 100 });
 			receivingChainAPIClientMock.getTokenInitializationFee.mockResolvedValue({
 				userAccount: userInitializationFee.toString(),
 			});
@@ -1008,6 +1010,7 @@ describe('CCUHandler', () => {
 
 		it('should return min fee excluding initialization fee when user account exists', async () => {
 			receivingChainAPIClientMock.hasUserTokenAccount.mockResolvedValue({ exists: true });
+			receivingChainAPIClientMock.getNodeInfo.mockResolvedValue({ height: 100 });
 			const { fee, ...ccuWithoutFee } = ccuTx.toObject();
 
 			const computedFee = await ccuHandler['_getCcuFee']({
@@ -1021,6 +1024,7 @@ describe('CCUHandler', () => {
 
 		it('should return ccuFee when computed min fee is lower than ccuFee', async () => {
 			receivingChainAPIClientMock.hasUserTokenAccount.mockResolvedValue({ exists: false });
+			receivingChainAPIClientMock.getNodeInfo.mockResolvedValue({ height: 100 });
 			receivingChainAPIClientMock.getTokenInitializationFee.mockResolvedValue({
 				userAccount: userInitializationFee.toString(),
 			});
@@ -1032,6 +1036,38 @@ describe('CCUHandler', () => {
 				params: ccuParams,
 			} as any);
 			expect(computedFee).toEqual(BigInt(ccuHandler['_ccuFee']) + userInitializationFee);
+		});
+
+		it('should return ccuFee when noFeeHeight is set and passed', async () => {
+			receivingChainAPIClientMock.hasUserTokenAccount.mockResolvedValue({ exists: false });
+			receivingChainAPIClientMock.getNodeInfo.mockResolvedValue({ height: 15 });
+			receivingChainAPIClientMock.getTokenInitializationFee.mockResolvedValue({
+				userAccount: userInitializationFee.toString(),
+			});
+
+			const { fee, ...ccuWithoutFee } = ccuTx.toObject();
+
+			const computedFee = await ccuHandler['_getCcuFee']({
+				...ccuWithoutFee,
+				params: ccuParams,
+			} as any);
+			expect(computedFee).toEqual(BigInt(ccuHandler['_ccuFee']) + userInitializationFee);
+		});
+
+		it('should return ccuFee 0 when noFeeHeight is set', async () => {
+			receivingChainAPIClientMock.hasUserTokenAccount.mockResolvedValue({ exists: false });
+			receivingChainAPIClientMock.getNodeInfo.mockResolvedValue({ height: 5 });
+			receivingChainAPIClientMock.getTokenInitializationFee.mockResolvedValue({
+				userAccount: userInitializationFee.toString(),
+			});
+
+			const { fee, ...ccuWithoutFee } = ccuTx.toObject();
+
+			const computedFee = await ccuHandler['_getCcuFee']({
+				...ccuWithoutFee,
+				params: ccuParams,
+			} as any);
+			expect(computedFee).toEqual(BigInt(0));
 		});
 	});
 });

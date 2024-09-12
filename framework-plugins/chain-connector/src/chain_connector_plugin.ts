@@ -50,6 +50,7 @@ export class ChainConnectorPlugin extends BasePlugin<ChainConnectorPluginConfig>
 			ccuFee: this.config.ccuFee,
 			isSaveCCU: this.config.isSaveCCU,
 			ccuSaveLimit: this.config.ccuSaveLimit,
+			noFeeHeight: this.config.noFeeHeight,
 		});
 		this._sendingChainClient = new ChainAPIClient({
 			ipcPath: this.appConfig.system.dataPath,

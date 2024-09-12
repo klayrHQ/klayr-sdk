@@ -48,6 +48,7 @@ interface ComputeCCUConfig {
 	maxCCUSize: number;
 	ccuFee: string;
 	isSaveCCU: boolean;
+	noFeeHeight: number;
 }
 
 interface ComputeCCUInitArgs {
@@ -74,6 +75,7 @@ export class CCUHandler {
 	private _lastCertificate!: LastCertificate;
 	private _interoperabilityMetadata!: ModuleMetadata;
 	private _outboxKeyForInclusionProof!: Buffer;
+	private readonly _noFeeHeight!: number;
 
 	public constructor(config: ComputeCCUConfig) {
 		this._registrationHeight = config.registrationHeight;
@@ -82,6 +84,7 @@ export class CCUHandler {
 		this._maxCCUSize = config.maxCCUSize;
 		this._ccuFee = config.ccuFee;
 		this._isSaveCCU = config.isSaveCCU;
+		this._noFeeHeight = config.noFeeHeight;
 		// If the running node is mainchain then receiving chain will be sidechain or vice verse.
 		this._isReceivingChainMainchain = !getMainchainID(this._ownChainID).equals(this._ownChainID);
 	}
@@ -328,7 +331,7 @@ export class CCUHandler {
 		if (this._lastCertificate.height === 0) {
 			const aggreggateCommits = await this._db.getAggregateCommitBetweenHeights(
 				this._registrationHeight,
-				1000,
+				this._registrationHeight + 1000,
 			);
 			for (const aggregateCommit of aggreggateCommits) {
 				const blockHeader = await this._db.getBlockHeaderByHeight(aggregateCommit.height);
@@ -354,6 +357,11 @@ export class CCUHandler {
 
 	private async _getCcuFee(tx: Record<string, unknown>): Promise<bigint> {
 		let additionalFee = BigInt(0);
+
+		const nodeInfo = await this._receivingChainAPIClient.getNodeInfo();
+		if (nodeInfo.height <= this._noFeeHeight) {
+			return BigInt(0);
+		}
 
 		const userBalance = await this._receivingChainAPIClient.hasUserTokenAccount(
 			cryptography.address.getKlayr32AddressFromAddress(
