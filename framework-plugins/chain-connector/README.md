@@ -58,7 +58,7 @@ Start your Klayr SDK with `--enable-chain-connector-plugin` flag, i.e.
 
 [LIP-53 # CCU Properties](https://github.com/Klayrhq/lips/blob/main/proposals/lip-0053.md#cross-chain-update-transaction-properties): Explaination of CCU Properties from LIP-53.
 
-[Interoperability Example](https://github.com/Klayrhq/klayr-sdk/tree/release/6.1.0/examples/interop): Example of Interoperability with 2 sidechains and 1 mainchain, Chain Connector Plugin enabled.
+[Interoperability Example](https://github.com/Klayrhq/klayr-sdk/tree/release/6.1.3/examples/interop): Example of Interoperability with 2 sidechains and 1 mainchain, Chain Connector Plugin enabled.
 
 ## License
 

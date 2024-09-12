@@ -1,6 +1,6 @@
 {
 	"name": "klayr-commander",
-	"version": "6.1.1-alpha.5",
+	"version": "6.1.2",
 	"description": "A command line interface for Klayr",
 	"author": "Klayr Labs <admin@klayr.xyz>, Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",
@@ -101,9 +101,9 @@
 		"/docs"
 	],
 	"dependencies": {
-		"@klayr/api-client": "^6.1.1-alpha.0",
-		"@klayr/chain": "^0.6.1-alpha.1",
-		"@klayr/client": "^6.1.1-alpha.0",
+		"@klayr/api-client": "^6.1.2",
+		"@klayr/chain": "^0.6.2",
+		"@klayr/client": "^6.1.2",
 		"@klayr/codec": "^0.5.1",
 		"@klayr/cryptography": "^4.1.1",
 		"@klayr/passphrase": "^4.1.1",
@@ -121,7 +121,7 @@
 		"cli-table3": "0.6.0",
 		"fs-extra": "11.1.0",
 		"inquirer": "8.2.5",
-		"klayr-framework": "0.12.2-alpha.2",
+		"klayr-framework": "0.12.3",
 		"listr": "0.14.3",
 		"progress": "2.0.3",
 		"semver": "7.5.2",
