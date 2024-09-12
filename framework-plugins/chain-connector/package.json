@@ -1,6 +1,6 @@
 {
 	"name": "@klayr/chain-connector-plugin",
-	"version": "0.1.6-alpha.0",
+	"version": "0.1.6",
 	"description": "A plugin used by a relayer node to automatically create and submit Cross Chain Transaction by aggregating off-chain information of a chain",
 	"author": "Klayr Holding B.V. <admin@klayr.xyz>, Lisk Foundation <admin@lisk.com>, lightcurve GmbH <admin@lightcurve.io>",
 	"license": "Apache-2.0",

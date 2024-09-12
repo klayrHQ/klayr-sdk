@@ -25,8 +25,8 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage-final.json
           name: codecov-umbrella
-      - run: npm config set //npm.klayr.dev/:_authToken=$NPM_TOKEN
+      - run: npm config set //npm.klayr.one/:_authToken=$NPM_TOKEN
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish
-        run: npx lerna publish --canary --preid canary --registry https://npm.klayr.dev --yes
+        run: npx lerna publish --canary --preid canary --registry https://npm.klayr.one --yes
