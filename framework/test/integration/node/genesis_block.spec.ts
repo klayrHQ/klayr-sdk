@@ -16,7 +16,7 @@ import { Chain } from '@klayr/chain';
 import { address } from '@klayr/cryptography';
 import * as testing from '../../../src/testing';
 import { createTransferTransaction, defaultTokenID } from '../../utils/mocks/transaction';
-import { Modules } from '../../../src';
+import { Modules, applicationConfigSchema } from '../../../src';
 import { genesisTokenStoreSchema } from '../../../src/modules/token';
 import { GenesisTokenStore } from '../../../src/modules/token/types';
 import { Consensus } from '../../../src/engine/consensus';
@@ -135,12 +135,14 @@ describe('genesis block', () => {
 				const chain = new Chain({
 					maxTransactionsSize: 15 * 1024,
 					keepEventsForHeights: -1,
+					keepInclusionProofsForHeights: -1,
 				});
 				const newConsensus = new Consensus({
 					abi: consensus['_abi'],
 					bft: consensus['_bft'],
 					chain,
 					genesisConfig: consensus['_genesisConfig'],
+					systemConfig: applicationConfigSchema.default.system,
 					network: {
 						registerEndpoint: () => {},
 						registerHandler: () => {},

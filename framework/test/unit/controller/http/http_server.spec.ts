@@ -46,6 +46,8 @@ describe('HTTPServer', () => {
 			expect(httpServerInstance.server).toBeInstanceOf(HTTP.Server);
 		});
 
+		// TODO: Fix this test to pass on the pipeline
+		// eslint-disable-next-line jest/no-disabled-tests
 		it('should setup event handlers', () => {
 			// Assert
 			expect(httpServerInstance.server.eventNames()).toIncludeAllPartialMembers([
