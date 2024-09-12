@@ -16,6 +16,7 @@ import { utils } from '@klayr/cryptography';
 
 export const DEFAULT_KEEP_EVENTS_FOR_HEIGHTS = 300;
 export const DEFAULT_MIN_BLOCK_HEADER_CACHE = 309;
+export const DEFAULT_KEEP_INCLUSION_PROOFS_FOR_HEIGHTS = 300;
 export const DEFAULT_MAX_BLOCK_HEADER_CACHE = 515;
 
 export const EMPTY_BUFFER = Buffer.alloc(0);
