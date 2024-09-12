@@ -12,11 +12,78 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Transaction, chain, Modules, Engine, Proof, ProveResponse, BFTValidator } from 'klayr-sdk';
+import {
+	Transaction,
+	chain,
+	Proof,
+	ProveResponse,
+	BFTValidator,
+	Schema,
+	Modules,
+	Engine,
+} from 'klayr-sdk';
 
 export interface BlockHeader extends chain.BlockHeaderAttrs {
 	validatorsHash: Buffer;
 }
+
+export interface Logger {
+	readonly trace: (data?: Record<string, unknown> | unknown, message?: string) => void;
+	readonly debug: (data?: Record<string, unknown> | unknown, message?: string) => void;
+	readonly info: (data?: Record<string, unknown> | unknown, message?: string) => void;
+	readonly warn: (data?: Record<string, unknown> | unknown, message?: string) => void;
+	readonly error: (data?: Record<string, unknown> | unknown, message?: string) => void;
+	readonly fatal: (data?: Record<string, unknown> | unknown, message?: string) => void;
+	readonly level: () => number;
+}
+
+export interface GenesisConfig {
+	[key: string]: unknown;
+	readonly bftBatchSize: number;
+	readonly chainID: string;
+	readonly blockTime: number;
+	readonly maxTransactionsSize: number;
+}
+
+export interface NodeInfo {
+	readonly version: string;
+	readonly networkVersion: string;
+	readonly chainID: string;
+	readonly lastBlockID: string;
+	readonly height: number;
+	readonly genesisHeight: number;
+	readonly finalizedHeight: number;
+	readonly syncing: boolean;
+	readonly unconfirmedTransactions: number;
+	readonly genesis: GenesisConfig;
+	readonly network: {
+		readonly port: number;
+		readonly hostIp?: string;
+		readonly seedPeers: {
+			readonly ip: string;
+			readonly port: number;
+		}[];
+		readonly blacklistedIPs?: string[];
+		readonly fixedPeers?: string[];
+		readonly whitelistedPeers?: {
+			readonly ip: string;
+			readonly port: number;
+		}[];
+	};
+}
+
+export type ModuleMetadata = {
+	stores: {
+		key: string;
+		data: Schema;
+	}[];
+	events: {
+		name: string;
+		data: Schema;
+	}[];
+	name: string;
+};
+export type ModulesMetadata = ModuleMetadata[];
 
 export interface ChainConnectorPluginConfig {
 	receivingChainID: string;
@@ -29,6 +96,7 @@ export interface ChainConnectorPluginConfig {
 	maxCCUSize: number;
 	registrationHeight: number;
 	ccuSaveLimit: number;
+	noFeeHeight: number;
 }
 
 export type SentCCUs = Transaction[];
@@ -38,21 +106,46 @@ export interface ActiveValidatorWithAddress extends Modules.Interoperability.Act
 	address: Buffer;
 }
 
-export interface ValidatorsData {
+export interface BFTParametersWithoutGeneratorKey extends Omit<Engine.BFTParameters, 'validators'> {
+	validators: {
+		address: Buffer;
+		bftWeight: bigint;
+		blsKey: Buffer;
+	}[];
+}
+
+export interface ValidatorsDataWithHeight {
 	certificateThreshold: bigint;
 	validators: ActiveValidatorWithAddress[];
 	validatorsHash: Buffer;
+	height: number;
 }
 
 export interface LastSentCCMWithHeight extends Modules.Interoperability.CCMsg {
 	height: number;
 }
 
+export interface LastSentCCM extends Modules.Interoperability.CCMsg {
+	height: number;
+	outboxSize: number;
+}
+
+export interface CCMWithHeight extends Modules.Interoperability.CCMsg {
+	height: number;
+}
 export interface CCMsFromEvents {
 	ccms: Modules.Interoperability.CCMsg[];
 	height: number;
 	inclusionProof: Modules.Interoperability.OutboxRootWitness;
 	outboxSize: number;
+}
+
+export interface CCUpdateParams {
+	sendingChainID: Buffer;
+	certificate: Buffer;
+	activeValidatorsUpdate: Modules.Interoperability.ActiveValidatorsUpdate;
+	certificateThreshold: bigint;
+	inboxUpdate: Modules.Interoperability.InboxUpdate;
 }
 
 type Primitive = string | number | bigint | boolean | null | undefined;
@@ -68,16 +161,20 @@ export type JSONObject<T> = Replaced<T, bigint | Buffer, string>;
 
 export type CCMsFromEventsJSON = JSONObject<CCMsFromEvents>;
 
+export type CCMWithHeightJSON = JSONObject<CCMWithHeight>;
+
 export type LastSentCCMWithHeightJSON = JSONObject<LastSentCCMWithHeight>;
 
 export type AggregateCommitJSON = JSONObject<Engine.AggregateCommit>;
 
 export type BFTValidatorJSON = JSONObject<BFTValidator>;
 
-export type ValidatorsDataJSON = JSONObject<ValidatorsData>;
+export type ValidatorsDataHeightJSON = JSONObject<ValidatorsDataWithHeight>;
 
 export type ProofJSON = JSONObject<Proof>;
 
 export type ProveResponseJSON = JSONObject<ProveResponse>;
 
 export type BFTParametersJSON = JSONObject<Engine.BFTParameters>;
+
+export type EventCallback<T = Record<string, unknown>> = (event?: T) => void | Promise<void>;

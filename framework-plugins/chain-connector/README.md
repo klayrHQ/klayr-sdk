@@ -24,6 +24,7 @@ $ npm install --save @klayr/chain-connector-plugin
 	maxCCUSize: number,
 	registrationHeight: number,
 	ccuSaveLimit: number
+	noFeeHeight: number
 }
 ```
 
@@ -41,6 +42,7 @@ $ npm install --save @klayr/chain-connector-plugin
 | `maxCCUSize`            | **Y**     | Maximum size of CCU to be allowed                                              |
 | `registrationHeight`    | **Y**     | Height at the time of registration on the receiving chain                      |
 | `ccuSaveLimit`          | **Y**     | Number of CCUs to save                                                         |
+| `noFeeHeight`           | **N**     | Height until no fee is paid on receiving chain                                 |
 
 ## Usage
 
@@ -60,6 +62,7 @@ Start your Klayr SDK with `--enable-chain-connector-plugin` flag, i.e.
 
 ## License
 
+Copyright 2024 Klayr Labs
 Copyright 2016-2023 Lisk Foundation
 
 Licensed under the Apache License, Version 2.0 (the "License");

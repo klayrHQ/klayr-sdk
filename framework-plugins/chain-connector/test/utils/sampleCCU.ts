@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { testing, Modules } from 'klayr-sdk';
+import { Modules, testing } from 'klayr-sdk';
 
 export const getSampleCCU = (txParams?: Record<string, unknown>) =>
 	testing

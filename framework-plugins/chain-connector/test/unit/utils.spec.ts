@@ -12,107 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { Modules, cryptography } from 'klayr-sdk';
-import * as utils from '../../src/active_validators_update';
-import {
-	calculateActiveValidatorsUpdate,
-	getActiveValidatorsUpdate,
-} from '../../src/active_validators_update';
-import { ADDRESS_LENGTH, BLS_PUBLIC_KEY_LENGTH, HASH_LENGTH } from '../../src/constants';
-
-describe('calculateActiveValidatorsUpdate', () => {
-	const certificateValidatorsHash = cryptography.utils.hash(cryptography.utils.getRandomBytes(32));
-	const lastCertificateValidatorsHash = cryptography.utils.hash(
-		cryptography.utils.getRandomBytes(32),
-	);
-	const certificate = {
-		aggregationBits: Buffer.alloc(1),
-		blockID: cryptography.utils.getRandomBytes(HASH_LENGTH),
-		height: 10,
-		signature: cryptography.utils.getRandomBytes(Modules.Interoperability.BLS_SIGNATURE_LENGTH),
-		stateRoot: cryptography.utils.getRandomBytes(HASH_LENGTH),
-		timestamp: Date.now(),
-		validatorsHash: certificateValidatorsHash,
-	};
-	const lastCertificate = {
-		height: certificate.height - 1,
-		stateRoot: cryptography.utils.getRandomBytes(HASH_LENGTH),
-		timestamp: certificate.timestamp - 1,
-		validatorsHash: lastCertificateValidatorsHash,
-	};
-	const validatorData = {
-		certificateThreshold: BigInt(35),
-		validators: [
-			{
-				address: cryptography.utils.getRandomBytes(ADDRESS_LENGTH),
-				bftWeight: BigInt(1),
-				blsKey: cryptography.utils.getRandomBytes(BLS_PUBLIC_KEY_LENGTH),
-			},
-			{
-				address: cryptography.utils.getRandomBytes(ADDRESS_LENGTH),
-				bftWeight: BigInt(1),
-				blsKey: cryptography.utils.getRandomBytes(BLS_PUBLIC_KEY_LENGTH),
-			},
-		],
-		validatorsHash: certificate.validatorsHash,
-	};
-
-	it('should throw error is no validator data found for certificate', () => {
-		expect(() =>
-			calculateActiveValidatorsUpdate(
-				certificate,
-				[{ ...validatorData, validatorsHash: Buffer.alloc(0) }],
-				lastCertificate,
-			),
-		).toThrow('No validators data found for the certificate height.');
-	});
-
-	it('should throw error if no validators data found for last certificate', () => {
-		expect(() =>
-			calculateActiveValidatorsUpdate(
-				certificate,
-				[validatorData, { ...validatorData, validatorsHash: Buffer.alloc(0) }],
-				lastCertificate,
-			),
-		).toThrow('No validators data found for the given last certificate height.');
-	});
-
-	it('should return activeValidatorsUpdate and last certificate threshold if certificate threshold is not changed', () => {
-		const activeValidatorsUpdate = {
-			blsKeysUpdate: [validatorData.validators[0].blsKey, validatorData.validators[1].blsKey],
-			bftWeightsUpdate: [BigInt(1), BigInt(1)],
-			bftWeightsUpdateBitmap: Buffer.alloc(0),
-		};
-		jest.spyOn(utils, 'getActiveValidatorsUpdate').mockReturnValue(activeValidatorsUpdate);
-		expect(
-			calculateActiveValidatorsUpdate(
-				certificate,
-				[validatorData, { ...validatorData, validatorsHash: lastCertificate.validatorsHash }],
-				lastCertificate,
-			),
-		).toEqual({ activeValidatorsUpdate, certificateThreshold: validatorData.certificateThreshold });
-	});
-
-	it('should return activeValidatorsUpdate and new certificate threshold if certificate threshold has changed', () => {
-		const newCertificateThreshold = BigInt(67);
-		const activeValidatorsUpdate = {
-			blsKeysUpdate: [validatorData.validators[0].blsKey, validatorData.validators[1].blsKey],
-			bftWeightsUpdate: [BigInt(1), BigInt(1)],
-			bftWeightsUpdateBitmap: Buffer.alloc(0),
-		};
-		jest.spyOn(utils, 'getActiveValidatorsUpdate').mockReturnValue(activeValidatorsUpdate);
-		expect(
-			calculateActiveValidatorsUpdate(
-				certificate,
-				[
-					{ ...validatorData, certificateThreshold: newCertificateThreshold },
-					{ ...validatorData, validatorsHash: lastCertificate.validatorsHash },
-				],
-				lastCertificate,
-			),
-		).toEqual({ activeValidatorsUpdate, certificateThreshold: newCertificateThreshold });
-	});
-});
+import { getActiveValidatorsUpdate } from '../../src/active_validators_update';
 
 describe('getActiveValidatorsUpdate', () => {
 	const bytesToBuffer = (str: string): Buffer => {
@@ -224,14 +124,14 @@ describe('getActiveValidatorsUpdate', () => {
 						bftWeight: BigInt(20),
 					},
 				],
-				newValidators: new Array(50).fill(0).map((_, i) => ({
+				newValidators: new Array(100).fill(0).map((_, i) => ({
 					blsKey: Buffer.from([i + 3]),
 					bftWeight: BigInt(i + 10),
 				})),
 				expected: {
-					blsKeysUpdate: new Array(50).fill(0).map((_, i) => Buffer.from([i + 3])),
-					bftWeightsUpdate: [BigInt(0), ...new Array(50).fill(0).map((_, i) => BigInt(i + 10))],
-					bftWeightsUpdateBitmap: bytesToBuffer('0'.repeat(27) + '1'.repeat(51)),
+					blsKeysUpdate: new Array(100).fill(0).map((_, i) => Buffer.from([i + 3])),
+					bftWeightsUpdate: [BigInt(0), ...new Array(100).fill(0).map((_, i) => BigInt(i + 10))],
+					bftWeightsUpdateBitmap: bytesToBuffer('0'.repeat(27) + '1'.repeat(101)),
 				},
 			},
 		],

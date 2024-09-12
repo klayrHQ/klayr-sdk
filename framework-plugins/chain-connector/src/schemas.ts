@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-import { chain, Engine, Modules } from 'klayr-sdk';
+import { Engine, chain, Modules } from 'klayr-sdk';
 import {
 	CCU_FREQUENCY,
 	CCU_TOTAL_CCM_SIZE,
@@ -72,6 +72,10 @@ export const configSchema = {
 			type: 'string',
 			description: 'Chain ID of the receiving chain.',
 		},
+		noFeeHeight: {
+			type: 'integer',
+			description: 'Height until no fee should be charged for CCU.',
+		},
 	},
 	required: ['encryptedPrivateKey', 'receivingChainID'],
 	default: {
@@ -81,6 +85,7 @@ export const configSchema = {
 		maxCCUSize: CCU_TOTAL_CCM_SIZE,
 		registrationHeight: DEFAULT_REGISTRATION_HEIGHT,
 		ccuSaveLimit: DEFAULT_CCU_SAVE_LIMIT,
+		noFeeHeight: 0,
 	},
 };
 
@@ -104,6 +109,33 @@ export const validatorsDataSchema = {
 		},
 		certificateThreshold: { dataType: 'uint64', fieldNumber: 2 },
 		validatorsHash: { dataType: 'bytes', fieldNumber: 3 },
+		height: { dataType: 'uint32', fieldNumber: 4 },
+	},
+};
+
+export const blockHeaderSchemaWithID = {
+	$id: `${pluginSchemaIDPrefix}/blockHeaderWithID`,
+	type: 'object',
+	required: [...chain.blockHeaderSchema.required, 'id'],
+	properties: {
+		...chain.blockHeaderSchema.properties,
+		id: {
+			dataType: 'bytes',
+			fieldNumber: Object.keys(chain.blockHeaderSchema.properties).length + 1,
+		},
+	},
+};
+
+export const transactionSchemaWithID = {
+	$id: `${pluginSchemaIDPrefix}/transactionSchemaWithID`,
+	type: 'object',
+	required: [...chain.transactionSchema.required, 'id'],
+	properties: {
+		...chain.transactionSchema.properties,
+		id: {
+			dataType: 'bytes',
+			fieldNumber: Object.keys(chain.transactionSchema.properties).length + 1,
+		},
 	},
 };
 
@@ -162,6 +194,23 @@ export const lastSentCCMWithHeight = {
 	},
 };
 
+export const lastSentCCMSchema = {
+	$id: `${pluginSchemaIDPrefix}/lastSentCCM`,
+	type: 'object',
+	required: [...Modules.Interoperability.ccmSchema.required, 'height', 'outboxSize'],
+	properties: {
+		...Modules.Interoperability.ccmSchema.properties,
+		height: {
+			dataType: 'uint32',
+			fieldNumber: Object.keys(Modules.Interoperability.ccmSchema.properties).length + 1,
+		},
+		outboxSize: {
+			dataType: 'uint32',
+			fieldNumber: Object.keys(Modules.Interoperability.ccmSchema.properties).length + 2,
+		},
+	},
+};
+
 export const listOfCCUsSchema = {
 	$id: `${pluginSchemaIDPrefix}/listOfCCUs`,
 	type: 'object',
@@ -171,6 +220,29 @@ export const listOfCCUsSchema = {
 			fieldNumber: 1,
 			items: {
 				...chain.transactionSchema,
+			},
+		},
+	},
+};
+
+export const ccmsAtHeightSchema = {
+	$id: `${pluginSchemaIDPrefix}/ccmsAtHeight`,
+	type: 'object',
+	required: ['ccms'],
+	properties: {
+		ccms: {
+			type: 'array',
+			fieldNumber: 1,
+			items: {
+				type: 'object',
+				required: [...Modules.Interoperability.ccmSchema.required, 'height'],
+				properties: {
+					...Modules.Interoperability.ccmSchema.properties,
+					height: {
+						dataType: 'uint32',
+						fieldNumber: Object.keys(Modules.Interoperability.ccmSchema.properties).length + 1,
+					},
+				},
 			},
 		},
 	},
