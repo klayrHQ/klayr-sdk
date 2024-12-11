@@ -30,6 +30,10 @@ export class FeeMethod extends BaseMethod {
 		return this._config.feeTokenID;
 	}
 
+	public getConfig() {
+		return this._config;
+	}
+
 	public payFee(methodContext: MethodContext, amount: bigint): void {
 		const isCCMProcessing = getContextStoreBool(
 			methodContext.contextStore,

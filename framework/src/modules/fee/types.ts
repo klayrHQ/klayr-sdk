@@ -23,6 +23,8 @@ export interface ModuleConfig {
 	minFeePerByte: number;
 	maxBlockHeightZeroFeePerByte: number;
 	feePoolAddress?: Buffer;
+	dangerouslySkipBalanceVerification?: boolean;
+	dangerouslySkipAvailableFeeInitialization?: boolean;
 }
 
 export type ModuleConfigJSON = JSONObject<ModuleConfig>;

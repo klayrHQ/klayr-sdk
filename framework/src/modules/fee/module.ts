@@ -48,6 +48,8 @@ export class FeeModule extends BaseInteroperableModule {
 	private _maxBlockHeightZeroFeePerByte!: number;
 	private _tokenID!: Buffer;
 	private _feePoolAddress?: Buffer;
+	private _skipBalanceVerification?: boolean;
+	private _skipAvailableFeeInitialization?: boolean;
 
 	public constructor() {
 		super();
@@ -79,10 +81,21 @@ export class FeeModule extends BaseInteroperableModule {
 
 	// eslint-disable-next-line @typescript-eslint/require-await
 	public async init(args: ModuleInitArgs): Promise<void> {
+		// NOTE: dangerouslySkipBalanceVerification config is default to false
+		const dangerouslySkipBalanceVerification = false;
+
+		// NOTE: dangerouslySkipAvailableFeeInitialization config is default to false
+		const dangerouslySkipAvailableFeeInitialization = false;
+
 		const defaultFeeTokenID = `${args.genesisConfig.chainID}${Buffer.alloc(4).toString('hex')}`;
 		const config = objects.mergeDeep(
 			{},
-			{ ...defaultConfig, feeTokenID: defaultFeeTokenID },
+			{
+				...defaultConfig,
+				feeTokenID: defaultFeeTokenID,
+				dangerouslySkipBalanceVerification,
+				dangerouslySkipAvailableFeeInitialization,
+			},
 			args.moduleConfig,
 		);
 		validator.validate<ModuleConfigJSON>(configSchema, config);
@@ -102,6 +115,8 @@ export class FeeModule extends BaseInteroperableModule {
 		this._minFeePerByte = moduleConfig.minFeePerByte;
 		this._maxBlockHeightZeroFeePerByte = moduleConfig.maxBlockHeightZeroFeePerByte;
 		this._feePoolAddress = moduleConfig.feePoolAddress;
+		this._skipBalanceVerification = moduleConfig.dangerouslySkipBalanceVerification;
+		this._skipAvailableFeeInitialization = moduleConfig.dangerouslySkipAvailableFeeInitialization;
 	}
 
 	public async verifyTransaction(context: TransactionVerifyContext): Promise<VerificationResult> {
@@ -112,12 +127,17 @@ export class FeeModule extends BaseInteroperableModule {
 			throw new Error(`Insufficient transaction fee. Minimum required fee is ${minFee}.`);
 		}
 
+		/* NOTE:
+		 * dangerouslySkipBalanceVerification is needed if other module is handling balance verification instead, for example fee_conversion module
+		 * since the default is false, it will not interfere with other module implementations if it is not specified
+		 */
+
 		const balance = await this._tokenMethod.getAvailableBalance(
 			getMethodContext(),
 			transaction.senderAddress,
 			this._tokenID,
 		);
-		if (transaction.fee > balance) {
+		if (!this._skipBalanceVerification && transaction.fee > balance) {
 			throw new Error(`Insufficient balance.`);
 		}
 
@@ -146,7 +166,15 @@ export class FeeModule extends BaseInteroperableModule {
 			transaction.fee,
 		);
 
-		context.contextStore.set(CONTEXT_STORE_KEY_AVAILABLE_FEE, availableFee);
+		/* NOTE:
+		 * dangerouslySkipAvailableFeeInitialization is needed if a priority module deduct a fee, and availableFee context is handled by other module
+		 * for example governance module which is a priority module, is deducting a fee from their baseFee config
+		 * while availableFee context is handled by fee_conversion module
+		 * since the default is false, it will not interfere with other module implementations if it is not specified
+		 */
+		if (!this._skipAvailableFeeInitialization) {
+			context.contextStore.set(CONTEXT_STORE_KEY_AVAILABLE_FEE, availableFee);
+		}
 	}
 
 	public async afterCommandExecute(context: TransactionExecuteContext): Promise<void> {

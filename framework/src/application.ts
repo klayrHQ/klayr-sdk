@@ -248,6 +248,10 @@ export class Application {
 		this._registerModule(Module);
 	}
 
+	public registerModulePriority(Module: BaseModule): void {
+		this._registerModulePriority(Module);
+	}
+
 	public registerInteroperableModule(interoperableModule: BaseInteroperableModule) {
 		const interoperabilityModule = this._registeredModules.find(
 			module => module.name === MODULE_NAME_INTEROPERABILITY,
@@ -385,6 +389,16 @@ export class Application {
 		}
 		this._registeredModules.push(mod);
 		this._stateMachine.registerModule(mod);
+		this._controller.registerEndpoint(mod.name, getEndpointHandlers(mod.endpoint));
+	}
+
+	private _registerModulePriority(mod: BaseModule): void {
+		assert(mod, 'Module implementation is required');
+		if (Object.keys(this._controller.getRegisteredPlugins()).includes(mod.name)) {
+			throw new Error(`A plugin with name "${mod.name}" is already registered.`);
+		}
+		this._registeredModules.unshift(mod);
+		this._stateMachine.registerModulePriority(mod);
 		this._controller.registerEndpoint(mod.name, getEndpointHandlers(mod.endpoint));
 	}
 
