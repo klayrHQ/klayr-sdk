@@ -227,7 +227,12 @@ export class NFTModule extends BaseInteroperableModule {
 					response: isNFTSupportedResponseSchema,
 				},
 			],
-			assets: [],
+			assets: [
+				{
+					version: 0,
+					data: genesisNFTStoreSchema,
+				},
+			],
 		};
 	}
 

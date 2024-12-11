@@ -37,6 +37,11 @@ export class StateMachine {
 		this._modules.push(mod);
 	}
 
+	public registerModulePriority(mod: BaseModule): void {
+		this._validateExisting(mod);
+		this._modules.unshift(mod);
+	}
+
 	public async init(
 		logger: Logger,
 		genesisConfig: GenesisConfig,
