@@ -92,7 +92,7 @@ import { ValidatorStakedEvent } from './events/validator_staked';
 import { InternalMethod } from './internal_method';
 import { CommissionChangeEvent } from './events/commission_change';
 import { ClaimRewardsCommand } from './commands/claim_rewards';
-import { getMainchainID } from '../interoperability/utils';
+import { getMainchainID } from '../interoperability';
 import { RewardsAssignedEvent } from './events/rewards_assigned';
 
 export class PoSModule extends BaseModule {
@@ -561,12 +561,11 @@ export class PoSModule extends BaseModule {
 			});
 			aggregateBFTWeight += BigInt(1);
 		}
-		const precommitThreshold = (BigInt(2) * aggregateBFTWeight) / BigInt(3) + BigInt(1);
-		const certificateThreshold = precommitThreshold;
+		const certificateThreshold = (BigInt(2) * aggregateBFTWeight) / BigInt(3) + BigInt(1);
 		await this._validatorsMethod.setValidatorsParams(
 			context.getMethodContext(),
 			context,
-			precommitThreshold,
+			certificateThreshold,
 			certificateThreshold,
 			validators,
 		);
@@ -627,15 +626,10 @@ export class PoSModule extends BaseModule {
 		const storeKey = utils.intToBuffer(snapshotRound, 4);
 
 		await snapshotStore.set(context, storeKey, snapshotData);
-
-		// Remove outdated information
-		const oldData = await snapshotStore.iterate(context, {
-			gte: utils.intToBuffer(0, 4),
-			lte: utils.intToBuffer(Math.max(0, snapshotRound - VALIDATOR_LIST_ROUND_OFFSET - 1), 4),
-		});
-		for (const { key } of oldData) {
-			await snapshotStore.del(context, key);
-		}
+		await snapshotStore.del(
+			context,
+			utils.intToBuffer(Math.max(0, snapshotRound - VALIDATOR_LIST_ROUND_OFFSET - 1), 4),
+		);
 	}
 
 	private async _updateValidators(context: BlockAfterExecuteContext): Promise<void> {
@@ -702,12 +696,11 @@ export class PoSModule extends BaseModule {
 			});
 		}
 		const precommitThreshold = (BigInt(2) * aggregateBFTWeight) / BigInt(3) + BigInt(1);
-		const certificateThreshold = precommitThreshold;
 		await this._validatorsMethod.setValidatorsParams(
 			context.getMethodContext(),
 			context,
 			precommitThreshold,
-			certificateThreshold,
+			precommitThreshold,
 			bftValidators,
 		);
 	}
